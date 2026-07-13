@@ -1,0 +1,1867 @@
+{
+  "common": {
+    "nav": {
+      "compteEuro": "Compte européen",
+      "attestation": "Attestation",
+      "assurances": "Assurances",
+      "assuranceVoyage": "Assurance voyage Schengen",
+      "assuranceRecours": "Assurance recours visa",
+      "carte": "Carte",
+      "tarifs": "Tarifs",
+      "blog": "Nomadee",
+      "recharge": "Recharge",
+      "login": "Se connecter",
+      "signup": "Ouvrir mon compte",
+      "solutions": "Solutions",
+      "groupAccount": "Compte & argent",
+      "groupInsurance": "Assurances",
+      "descCompteEuro": "Ton IBAN européen, ouvert en 24 h",
+      "descRecharge": "Depuis l'Afrique, espèces, virement, carte",
+      "descAttestation": "La preuve de fonds qui rassure le consulat",
+      "descCarte": "Mastercard en euro, virtuelle et physique",
+      "descAssuranceVoyage": "30 000 € de couverture · dès 30 €",
+      "descAssuranceRecours": "Avocat spécialisé · jusqu'à 15 000 €"
+    },
+    "footer": {
+      "tagline": "L'infrastructure financière des voyageurs africains vers l'Europe. Compte, attestations, assurances, par la grande porte.",
+      "products": "Produits",
+      "resources": "Ressources",
+      "company": "Treepi",
+      "howItWorks": "Comment ça marche",
+      "faq": "FAQ",
+      "simulator": "Simulateur de montant",
+      "sponsor": "Faire venir un proche ?",
+      "about": "À propos",
+      "whatsapp": "Contact WhatsApp",
+      "legal": "Mentions légales",
+      "privacy": "Confidentialité",
+      "blog": "Nomadee, le blog",
+      "disclaimer": "Treepi fournit des services financiers et des attestations conformes aux exigences documentaires des demandes de visa. La décision de délivrance d'un visa appartient exclusivement aux autorités consulaires ; aucun service Treepi ne constitue une promesse ou une garantie d'obtention de visa. Les fonds des clients sont déposés auprès d'un établissement partenaire régulé dans l'Union européenne, sur des comptes nominatifs ségrégués. Tarifs TTC, susceptibles d'évolution ; la grille en vigueur est présentée avant toute souscription.",
+      "rights": "© 2026 Treepi · Tous droits réservés."
+    },
+    "cta": {
+      "openAccount": "Ouvrir mon compte européen",
+      "askWhatsapp": "Poser une question sur WhatsApp",
+      "learnMore": "En savoir plus"
+    }
+  },
+  "landing": {
+    "hero": {
+      "title1": "L'assurance et le ",
+      "titleHighlight": "compte européen",
+      "title2": " conçus pour les voyageurs africains.",
+      "subtitle": "Ouvre ton compte en euros depuis ton pays. Dépose tes fonds et obtiens <b>l'attestation de garantie financière</b> qui montre au consulat que ton séjour est financé. Ajoute ton assurance voyage, et le <b>recours visa</b> qui te défend en cas de refus.",
+      "ctaPrimary": "Ouvrir mon compte européen",
+      "ctaSecondary": "Découvrir les assurances",
+      "trust": [
+        "<b>Fonds déposés dans un établissement régulé</b> en Europe, sur un compte à ton nom",
+        "Attestations <b>vérifiables en ligne</b> par le consulat en 30 secondes",
+        "Assurance voyage Schengen au <b>prix le plus bas</b>, 30 € / mois, 60 € / 3 mois",
+        "Assurance recours visa : <b>une protection juridique pour te défendre</b> en cas de refus"
+      ]
+    },
+    "problem": {
+      "eyebrow": "Le vrai problème",
+      "title1": "Fini les refus de visa ",
+      "titleHighlight": "arbitraires.",
+      "statNumber": "6",
+      "statDenominator": "/10",
+      "statCaption": "Jusqu'à 6 demandes de visa Schengen sur 10 refusées dans certains pays africains : 62,8 % aux Comores, 51,9 % au Sénégal, contre 14,8 % de moyenne mondiale (2025). (Sources : Commission européenne, LAGO Collective)",
+      "body": "Jusqu'à <b>6 demandes sur 10</b> sont refusées en Afrique, contre à peine <b>1 sur 10</b> en moyenne dans le reste du monde, le plus souvent faute de preuve de ressources jugée crédible. Un simple relevé bancaire local ne suffit pas : il peut être considéré comme peu fiable ou temporairement approvisionné. Treepi te donne un <b>justificatif vérifiable par le consulat</b>, des fonds réels, sur un compte européen à ton nom. Et si ton visa est refusé injustement, l'<b>assurance recours</b> active ta protection juridique pour te défendre."
+    },
+    "solutions": {
+      "eyebrow": "Nos solutions",
+      "title": "Des solutions qui changent vraiment les choses",
+      "subtitle": "3 produits pensés pour t'accompagner avant, pendant et après ta demande de visa.",
+      "popular": "Populaire",
+      "cards": [
+        {
+          "title": "Une assurance voyage Schengen",
+          "description": "Pour répondre à l'exigence d'assurance du consulat et voyager couvert, <b>au meilleur prix du marché</b>.",
+          "cta": "Obtenir mon attestation",
+          "features": [
+            "<b>Couverture 30 000 €</b>, soins médicaux et rapatriement",
+            "Valable dans tout l'espace Schengen, mentions conformes",
+            "Attestation immédiate, en PDF, par e-mail",
+            "Remboursée si ton visa est refusé"
+          ],
+          "href": "/assurance-voyage"
+        },
+        {
+          "title": "Un compte européen",
+          "description": "Pour prouver au consulat que ton séjour est financé et simplifier tes paiements durant ton <b>séjour en Europe</b>.",
+          "cta": "Ouvrir mon compte",
+          "features": [
+            "<b>1 IBAN européen à ton nom</b>",
+            "Recharge depuis l'Afrique, dépôt d'espèces en local ou virement",
+            "Un justificatif financier reconnu par les consulats",
+            "<b>Avant le visa :</b> recharges et virements reçus",
+            "<b>Après le visa :</b> virements sortants activés pour financer ton séjour"
+          ],
+          "href": "/compte-euro"
+        },
+        {
+          "title": "Une assurance recours visa",
+          "description": "Pour protéger ta demande en cas de refus et <b>maximiser tes chances d'obtenir gain de cause</b>.",
+          "cta": "Protéger ma demande",
+          "features": [
+            "<b>Protection juridique</b> incluse en cas de refus de visa",
+            "Étude de ta notification de refus et de ton dossier",
+            "<b>Prise en charge complète des frais</b> (jusqu'à 15 000 €)",
+            "Accompagnement jusqu'à la décision finale"
+          ],
+          "href": "/assurance-recours"
+        }
+      ]
+    },
+    "attestation": {
+      "eyebrow": "L'attestation de garantie financière",
+      "title": "Une attestation de garantie financière pour faciliter ton visa Schengen",
+      "subtitle": "Le motif n° 1 des refus, ce sont les moyens de subsistance. Un simple relevé bancaire laisse planer le doute. Notre attestation prouve que tes fonds sont là, <b>sur un compte européen, à ton nom.</b>",
+      "steps": [
+        {
+          "title": "Ouvre ton compte européen",
+          "description": "Depuis le confort de ton pays, juste avec ton passeport. Reçois ton IBAN européen à ton nom."
+        },
+        {
+          "title": "Recharge depuis l'Afrique",
+          "description": "Dépôt d'espèces en agence locale ou virement, du XAF, du XOF et d'autres devises vers ton compte, dès 24 h."
+        },
+        {
+          "title": "Obtiens ton attestation",
+          "description": "Un document financier fiable, au montant calé sur les barèmes officiels, vérifiable en ligne par le consulat, prêt à intégrer à ton dossier."
+        }
+      ]
+    },
+    "travel": {
+      "title": "Je voyage pour",
+      "reasons": [
+        "du tourisme",
+        "une conférence",
+        "une visite familiale",
+        "des raisons médicales",
+        "une mission de travail",
+        "les affaires"
+      ]
+    },
+    "simulator": {
+      "title": "De combien as-tu besoin pour ton visa ?",
+      "subtitle": "Les consulats appliquent un montant par jour de séjour, selon ton hébergement. Calcule ton objectif de recharge.",
+      "country": "Pays de destination",
+      "duration": "Durée du séjour (jours)",
+      "accommodation": "Ton hébergement",
+      "accommodations": {
+        "booked": "Hôtel ou Airbnb réservé",
+        "none": "Sans justificatif d'hébergement",
+        "hosted": "Hébergé par un proche"
+      },
+      "resultLabel": "Montant à démontrer (estimation)",
+      "resultCaption": "{country} · {days} jours · {accommodation}, {rate} €/j",
+      "cta": "Préparer ce montant sur mon compte",
+      "disclaimer": "Barèmes officiels publiés par chaque État (ministères nationaux / Commission européenne, mise à jour oct. 2025). Certains pays appliquent un montant unique quel que soit l'hébergement. Le consulat apprécie chaque dossier individuellement."
+    },
+    "insurances": {
+      "eyebrow": "Les assurances",
+      "title": "Arrête d'être un pigeon.",
+      "subtitle": "L'assurance voyage est parfois obligatoire, les assureurs classiques le savent et la facturent comme un produit de luxe. Treepi la facture au prix juste. Et si ton visa est refusé injustement, l'assurance recours t'évite de tout perdre : nos avocats en droit des étrangers défendent ta demande.",
+      "voyage": {
+        "title": "Assurance voyage Schengen",
+        "tagline": "Même conformité, même couverture, mais au prix le moins cher",
+        "treepi": "Treepi",
+        "insurerA": "Assureur A",
+        "insurerB": "Assureur B",
+        "days90": "90 jours",
+        "days90eco": "90 jours, éco*",
+        "days90std": "90 jours, standard*",
+        "note": "* Ordres de grandeur constatés sur le marché, à titre illustratif, la couverture exigée (30 000 €, espace Schengen) est identique.",
+        "cta": "Obtenir mon attestation"
+      },
+      "recours": {
+        "title": "Assurance recours visa",
+        "tagline": "Contre les refus injustifiés",
+        "stat": "60 M€",
+        "body": "C'est ce que les voyageurs africains ont perdu en 2024 en frais de demandes refusées, des refus parfois <b>arbitraires</b>, sans vraie explication, et de l'argent jamais remboursé. Avec l'assurance recours, tu ne subis plus : <b>nos avocats en droit des étrangers contestent la décision</b> et défendent ta demande jusqu'au bout.",
+        "cta": "Protéger ma demande"
+      },
+      "banner": "<b>Visa refusé ? Ton assurance voyage est remboursée</b> sur présentation du refus, et avec l'assurance recours, ta contestation est prise en charge."
+    },
+    "globe": {
+      "title1": "Voyage.",
+      "title2": "Paye.",
+      "title3": "Dépasse",
+      "title4": "tes limites.",
+      "subtitle": "Parce que voyager ne devrait jamais être un privilège, nous nous engageons auprès des voyageurs africains à leur offrir des solutions crédibles, accessibles et sécurisées afin que chaque envie de voyage devienne possible."
+    },
+    "humanly": {
+      "title1": "Ce que Treepi change",
+      "title2": "humainement",
+      "before": "Avant",
+      "after": "Après",
+      "brand": "Treepi",
+      "beforeItems": [
+        {
+          "emoji": "🚨",
+          "text": "Avoir peur lors de sa demande de visa"
+        },
+        {
+          "emoji": "❌",
+          "text": "Se faire refuser pour justificatif et fonds peu crédible"
+        },
+        {
+          "emoji": "😳",
+          "text": "Être embarrassé de dépendre… d'un proche en cas d'imprévu pendant son séjour"
+        },
+        {
+          "emoji": "🧍",
+          "text": "S'imposer des limites"
+        }
+      ],
+      "afterItems": [
+        {
+          "emoji": "⚡",
+          "text": "Se sentir crédible et traité avec équité pendant sa demande de visa"
+        },
+        {
+          "emoji": "✅",
+          "text": "Être reconnu comme solvable avec un justificatif de fonds fiable"
+        },
+        {
+          "emoji": "😊",
+          "text": "Être autonome, libre et maître de son séjour avec un compte toujours fonctionnel"
+        },
+        {
+          "emoji": "⛷️",
+          "text": "Dépasser ses limites"
+        }
+      ]
+    },
+    "security": {
+      "eyebrow": "Sécurité & confiance",
+      "title": "Conçu pour que tu ne prennes aucun risque",
+      "cards": [
+        {
+          "icon": "lock",
+          "title": "Tes fonds restent les tiens",
+          "description": "Visa obtenu ou refusé : restitution intégrale, déblocage sous 72 h après la décision du consulat."
+        },
+        {
+          "icon": "bank",
+          "title": "Établissement régulé en Europe",
+          "description": "Tes fonds sont ségrégués sur un compte à ton nom, jamais dans le patrimoine de Treepi."
+        },
+        {
+          "icon": "verify",
+          "title": "Documents vérifiables",
+          "description": "Chaque attestation porte un code de vérification : l'agent consulaire l'authentifie en ligne en 30 secondes."
+        },
+        {
+          "icon": "honest",
+          "title": "Aucune fausse promesse",
+          "description": "Treepi ne « garantit » pas le visa, personne d'honnête ne le peut. On garantit la conformité de tes documents."
+        },
+        {
+          "icon": "chat",
+          "title": "Des humains joignables",
+          "description": "Une question, un doute ? WhatsApp 7 j/7, réponse en moins de 2 h, dans ta langue."
+        },
+        {
+          "icon": "secure",
+          "title": "Paiements sécurisés",
+          "description": "Orange Money, MTN MoMo et virement bancaire, taux et frais affichés avant chaque validation."
+        }
+      ]
+    },
+    "wall": {
+      "eyebrow": "Le mur des départs",
+      "count": "+ de 1 000",
+      "caption": "Treepers ont rejoint l'aventure",
+      "you": "Et toi ?",
+      "testimonials": [
+        {
+          "route": "Douala → Paris · Visite familiale",
+          "quote": "« Après un refus l'an dernier, j'ai tout refait avec le compte Treepi. Attestation nickel, dossier accepté. Ma mère a pleuré à l'aéroport. »",
+          "name": "Serge M.",
+          "role": "Cadre commercial, Douala"
+        },
+        {
+          "route": "Yaoundé → Milan · Affaires",
+          "quote": "« Mon argent était en mobile money, aucune banque ne voulait me faire une attestation sérieuse. Là, tout s'est fait depuis mon téléphone. »",
+          "name": "Amina K.",
+          "role": "Commerçante, Yaoundé"
+        },
+        {
+          "route": "Créteil → payé pour Douala · Sponsor",
+          "quote": "« J'ai rechargé le compte de ma mère depuis la France, sans toucher à mon propre dossier. C'est exactement ce qui manquait. »",
+          "name": "Christelle B.",
+          "role": "Aide-soignante, Créteil"
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Les questions qu'on nous pose vraiment",
+      "items": [
+        {
+          "question": "Est-ce que Treepi garantit l'obtention de mon visa ?",
+          "answer": "Non, et méfie-toi de quiconque te le promet. La décision appartient exclusivement au consulat. Ce que Treepi garantit, c'est la conformité de tes documents : des fonds réels sur un compte européen à ton nom et une attestation vérifiable en ligne, qui répondent au motif n° 1 des refus."
+        },
+        {
+          "question": "Mes fonds sont-ils en sécurité ? Puis-je les récupérer ?",
+          "answer": "Oui. Tes fonds sont déposés auprès d'un établissement régulé dans l'Union européenne, sur un compte nominatif ségrégué, jamais dans le patrimoine de Treepi. Visa obtenu ou refusé, ils te sont restitués intégralement, avec un déblocage sous 72 h après la décision du consulat."
+        },
+        {
+          "question": "Y a-t-il une carte bancaire Treepi ?",
+          "answer": "Pas encore : aucune carte de paiement n'est proposée au lancement. La carte Treepi arrive prochainement, en attendant, ton compte sert à recevoir des virements, préparer ton attestation et financer ton séjour une fois le visa obtenu."
+        },
+        {
+          "question": "Pourquoi je ne peux pas envoyer de virement avant mon visa ?",
+          "answer": "C'est le principe même de l'attestation : les fonds destinés à ton séjour restent déposés pendant l'instruction de ta demande, ce qui rend ton justificatif crédible aux yeux du consulat. Les virements sortants s'activent dès que tu présentes ta preuve de visa."
+        },
+        {
+          "question": "Comment recharger mon compte ?",
+          "answer": "Trois méthodes : dépôt d'espèces en agence locale partenaire, virement bancaire, ou carte. Du XOF, du XAF et d'autres devises africaines vers ton IBAN européen, taux et frais affichés avant chaque validation, crédit dès 24 h."
+        },
+        {
+          "question": "Que se passe-t-il si mon visa est refusé ?",
+          "answer": "Tes fonds te sont restitués intégralement sous 72 h et ton assurance voyage est remboursée sur présentation du refus. Si tu as souscrit l'assurance recours, nos avocats en droit des étrangers étudient ta notification et contestent la décision, frais pris en charge jusqu'à 15 000 €."
+        },
+        {
+          "question": "L'attestation de garantie financière, c'est quoi exactement ?",
+          "answer": "Un document financier qui certifie que les fonds requis pour ton séjour sont réellement déposés et bloqués sur un compte européen à ton nom. Son montant est calé sur les barèmes officiels de ton pays de destination et le consulat peut la vérifier en ligne en 30 secondes."
+        },
+        {
+          "question": "Combien coûte le compte ?",
+          "answer": "L'ouverture est gratuite. Le compte seul coûte 100 € de frais de gestion annuels, et si tu souscris l'attestation de garantie financière (250 €), les frais de gestion sont offerts."
+        },
+        {
+          "question": "En combien de temps ai-je mes documents ?",
+          "answer": "L'attestation d'assurance voyage arrive par e-mail dans les minutes qui suivent la souscription. L'attestation de garantie financière est émise sous 24 à 48 h après réception de tes fonds, en version numérique, prête à intégrer à ton dossier."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Ton voyage commence par ton compte.",
+      "subtitle": "Ouvre-le en 5 minutes. Recharge quand tu veux. Ton attestation t'attend."
+    }
+  },
+  "compteEuro": {
+    "meta": {
+      "title": "Compte européen · Treepi",
+      "description": "Ouvre un compte européen depuis ton pays, en 24 h, juste avec ton passeport africain."
+    },
+    "breadcrumb": "Compte européen",
+    "hero": {
+      "eyebrow": "Solution · Compte européen",
+      "title1": "Un compte européen, ouvert depuis ",
+      "titleHighlight": "chez toi.",
+      "subtitle": "La première application financière qui permet à des voyageurs africains d'ouvrir un compte Européen, en leur nom, depuis leur pays en Afrique.",
+      "cta": "Ouvrir mon compte européen",
+      "mock": {
+        "badge": "✓ Compte actif",
+        "ibanLabel": "Ton IBAN Treepi",
+        "iban": "FR76 3000 •••• •••• 8842",
+        "holderLabel": "Titulaire",
+        "holder": "AWA DIALLO",
+        "balanceLabel": "Solde disponible",
+        "balance": "1 250,00 €",
+        "cardNote": "<b>Pas encore de carte</b>, la carte Treepi arrive bientôt ! Ton compte, lui, est prêt aujourd'hui."
+      }
+    },
+    "procedure": {
+      "eyebrow": "La procédure",
+      "title1": "Ouvrir un compte européen Treepi ",
+      "titleHighlight": "est facile.",
+      "subtitle": "Cinq étapes, 100 % en ligne, depuis ton téléphone.",
+      "steps": [
+        {
+          "title": "Infos personnelles",
+          "description": "Nom, coordonnées, projet de voyage."
+        },
+        {
+          "title": "Passeport",
+          "description": "Une photo de ton passeport africain."
+        },
+        {
+          "title": "Signature du contrat",
+          "description": "Électronique, directement dans l'app."
+        },
+        {
+          "title": "Paiement des frais",
+          "description": "Selon le pack choisi, compte seul ou avec attestation."
+        },
+        {
+          "title": "Ouverture du compte",
+          "description": "Ton IBAN européen, prêt à l'emploi."
+        }
+      ],
+      "facts": [
+        {
+          "title": "🇪🇺 IBAN",
+          "description": "Un IBAN européen, émis à ton nom"
+        },
+        {
+          "title": "24h",
+          "description": "Ouverture express, 100 % en ligne"
+        },
+        {
+          "title": "🛂 Passeport",
+          "description": "Juste avec ton passeport africain"
+        }
+      ]
+    },
+    "purpose": {
+      "title1": "Un compte pensé pour ",
+      "titleHighlight": "ton voyage.",
+      "subtitle": "Avant tout, ce compte sert à préparer ta demande de visa et à financer ton séjour, afin d'éviter de subir les restrictions et frais de ta banque locale.",
+      "cards": [
+        {
+          "title": "Ton attestation de garantie financière",
+          "description": "Les fonds sur ton compte servent de base à l'attestation qui rassure le consulat sur ta capacité à financer ton séjour."
+        },
+        {
+          "title": "Recevoir des virements",
+          "description": "Un proche en Europe peut t'envoyer des fonds directement sur ton IBAN, à ton nom."
+        },
+        {
+          "title": "Financer ton séjour, une fois le visa en poche",
+          "description": "Dès ta preuve de visa présentée, l'émission de virements est activée pour financer ton séjour en Europe."
+        }
+      ]
+    },
+    "journey": {
+      "eyebrow": "Avant & après le visa",
+      "title1": "Un compte qui t'accompagne ",
+      "titleHighlight": "de bout en bout.",
+      "before": "① Avant le visa",
+      "after": "② Après le visa",
+      "beforeSteps": [
+        {
+          "title": "Crée ton compte",
+          "description": "Depuis ton pays, en ligne, avec ton passeport."
+        },
+        {
+          "title": "Reçois ton IBAN",
+          "description": "Un IBAN européen à ton nom, immédiatement utilisable."
+        },
+        {
+          "title": "Recharge ton compte",
+          "description": "Dépôt d'espèces en agence locale ou virement bancaire, depuis l'Afrique et l'Europe."
+        },
+        {
+          "title": "Obtiens ton attestation",
+          "description": "Un document financier fiable, prêt à intégrer à ton dossier de visa."
+        }
+      ],
+      "afterSteps": [
+        {
+          "title": "Présente ta preuve de visa",
+          "description": "Depuis l'app, en quelques secondes."
+        },
+        {
+          "title": "Fonds débloqués",
+          "description": "Ton solde redevient entièrement disponible."
+        },
+        {
+          "title": "Virements sortants activés",
+          "description": "Paye ton logement, tes billets et tes dépenses sur place."
+        },
+        {
+          "title": "Voyage l'esprit léger",
+          "description": "Ton compte t'accompagne pendant tout ton séjour en Europe."
+        }
+      ],
+      "note": "<b>Ce que tu peux déjà faire :</b> recharger ton compte et recevoir des virements. <b>Ce qui n'est pas encore actif :</b> l'émission de virements, elle se débloque à l'étape suivante, une fois ton visa obtenu."
+    },
+    "banner": {
+      "line1": "Ouvre ton compte.",
+      "line2": "Dépasse tes limites.",
+      "line3": "Retrouve ta liberté.",
+      "subtitle": "Pars à la découverte de l'Europe avec Treepi : le compte Euro pour justifier ses revenus et dépenser son argent comme un local."
+    },
+    "pricing": {
+      "eyebrow": "Le tarif",
+      "title1": "Compte seul, ",
+      "titleHighlight": "ou compte + attestation.",
+      "subtitle": "Deux façons d'utiliser ton compte, l'attestation change la donne sur les frais de gestion.",
+      "solo": {
+        "badge": "Compte seul",
+        "title": "Pour préparer ton voyage à ton rythme",
+        "rows": [
+          {
+            "label": "Ouverture du compte",
+            "value": "Gratuite"
+          },
+          {
+            "label": "Frais de gestion annuels",
+            "value": "100 €"
+          }
+        ],
+        "note": "Tu ouvres ton compte librement, sans souscrire l'attestation. Des frais de gestion de 100 € sont facturés chaque année.",
+        "cta": "Ouvrir mon compte"
+      },
+      "combo": {
+        "flag": "Le plus avantageux",
+        "badge": "Compte + attestation",
+        "title": "Frais de gestion offerts avec ton attestation",
+        "rows": [
+          {
+            "label": "Ouverture du compte",
+            "value": "Gratuite"
+          },
+          {
+            "label": "Frais de gestion annuels",
+            "value": "Offerts",
+            "strike": "100 €"
+          },
+          {
+            "label": "Attestation de garantie financière",
+            "value": "250 €"
+          }
+        ],
+        "note": "En souscrivant ton attestation de garantie financière, les frais de gestion du compte deviennent gratuits, tu ne paies que ton attestation.",
+        "cta": "Souscrire mon attestation"
+      }
+    },
+    "compare": {
+      "eyebrow": "Le comparatif",
+      "title1": "Treepi vs ",
+      "titleHighlight": "ta banque locale.",
+      "columns": {
+        "criterion": "Critère",
+        "local": "Banque locale",
+        "treepi": "Compte Treepi"
+      },
+      "rows": [
+        {
+          "criterion": "Devise du compte",
+          "local": "Monnaie locale",
+          "treepi": "Euro"
+        },
+        {
+          "criterion": "Preuve de fonds pour ton visa",
+          "local": "Relevé jugé peu crédible",
+          "treepi": "Attestation reconnue par les consulats"
+        },
+        {
+          "criterion": "Réception de virements internationaux",
+          "local": "Souvent limitée, frais élevés",
+          "treepi": "Incluse, sur un compte à ton nom"
+        },
+        {
+          "criterion": "Ouverture depuis l'Afrique",
+          "local": ",",
+          "treepi": "Oui, en 24h, avec ton passeport"
+        },
+        {
+          "criterion": "Virements sortants",
+          "local": "Soumis au contrôle de change local",
+          "treepi": "Activés dès ta preuve de visa"
+        },
+        {
+          "criterion": "Frais de recharge",
+          "local": "Souvent opaques",
+          "treepi": "Affichés avant chaque opération"
+        }
+      ]
+    },
+    "trust": {
+      "title": "Un compte sérieux, à ton nom.",
+      "body": "Treepi fournit ses services via un établissement de monnaie électronique agréé par l'ACPR (Banque de France). Ton compte est protégé par des standards de sécurité reconnus, et tes fonds sont ségrégués, jamais dans le patrimoine de Treepi.",
+      "chips": [
+        "Agréé ACPR",
+        "IBAN à ton nom",
+        "Fonds ségrégués",
+        "Vérification d'identité biométrique",
+        "Chiffrement des données"
+      ]
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title1": "Le compte européen, ",
+      "titleHighlight": "en clair.",
+      "items": [
+        {
+          "question": "Est-ce un vrai IBAN européen ?",
+          "answer": "Oui. Une fois ton compte validé, tu reçois un IBAN à ton nom, émis par notre partenaire régulé en France, utilisable pour recevoir des virements internationaux."
+        },
+        {
+          "question": "Dois-je résider en Europe pour l'ouvrir ?",
+          "answer": "Non, c'est tout l'intérêt de Treepi. Tu ouvres ton compte depuis ton pays en Afrique, 100 % en ligne, juste avec ton passeport africain."
+        },
+        {
+          "question": "Combien de temps prend l'ouverture ?",
+          "answer": "24 h en moyenne : cinq étapes en ligne depuis ton téléphone, et ton IBAN européen est prêt à l'emploi."
+        },
+        {
+          "question": "Comment recharger mon compte ?",
+          "answer": "Par dépôt d'espèces en agence locale partenaire, par virement bancaire ou par carte, du XOF, du XAF et d'autres devises africaines vers ton compte, frais affichés avant validation."
+        },
+        {
+          "question": "Y a-t-il une carte bancaire avec ce compte ?",
+          "answer": "Pas encore au lancement, la carte Treepi arrive bientôt. Ton compte est pleinement fonctionnel dès aujourd'hui pour les recharges, virements reçus et ton attestation."
+        },
+        {
+          "question": "Pourquoi je ne peux pas émettre de virement avant mon visa ?",
+          "answer": "Parce que tes fonds servent de garantie pendant l'instruction de ta demande : c'est ce blocage qui rend ton attestation crédible. Les virements sortants s'activent dès ta preuve de visa présentée."
+        },
+        {
+          "question": "Que deviennent mes fonds si mon visa est refusé ?",
+          "answer": "Ils te sont restitués intégralement, le déblocage intervient sous 72 h après la décision du consulat."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Ton compte européen t'attend.",
+      "subtitle": "Ouvre-le en 24h, juste avec ton passeport."
+    }
+  },
+  "recharge": {
+    "meta": {
+      "title": "Recharger mon compte · Treepi",
+      "description": "Dépôt d'espèces, virement ou carte : recharge ton compte européen depuis l'Afrique en 24 h."
+    },
+    "breadcrumb": "Recharge",
+    "hero": {
+      "eyebrow": "Recharge",
+      "title1": "Rajoute de l'argent dans ton compte européen depuis l'Afrique ",
+      "titleHighlight": "en 24 h.",
+      "subtitle": "Dépôt d'espèces, virement ou carte, du XOF, du XAF et d'autres devises locales vers ton IBAN européen. <b>Taux et frais affichés avant chaque validation</b>, jamais après.",
+      "ctaPrimary": "Recharger mon compte",
+      "ctaSecondary": "Voir comment ça marche",
+      "note": "🛡️ Fonds déposés sur <b>un compte à ton nom</b>, dans un établissement régulé en Europe.",
+      "mock": {
+        "sendLabel": "Tu déposes",
+        "receiveLabel": "Tu reçois sur ton compte",
+        "rateNote": "Taux fixe 1 € = 655,957 FCFA · frais selon la méthode, affichés avant validation",
+        "cta": "Recharger ce montant"
+      },
+      "trust": [
+        "<b>Taux fixe garanti</b> pour le XOF et le XAF, pas de conversion surprise",
+        "Frais <b>affichés avant chaque validation</b>, jamais découverts après",
+        "<b>Instantané par carte</b>, sous 24 h par dépôt d'espèces",
+        "<b>Assistance WhatsApp 7 j/7</b>, réponse en moins de 2 h"
+      ]
+    },
+    "methods": {
+      "eyebrow": "3 méthodes",
+      "title1": "Recharge comme ",
+      "titleHighlight": "ça t'arrange.",
+      "subtitle": "Chaque méthode affiche son délai et ses conditions, <b>tu choisis en connaissance de cause</b>.",
+      "fastest": "Le plus rapide",
+      "cards": [
+        {
+          "title": "Carte bancaire",
+          "description": "Recharge depuis ton téléphone, en quelques instants. Idéal aussi pour un proche en Europe qui veut alimenter ton compte.",
+          "tags": [
+            "Instantané",
+            "100 % en ligne"
+          ]
+        },
+        {
+          "title": "Dépôt d'espèces",
+          "description": "En monnaie locale, dans un point de dépôt partenaire de ton pays. Tu déposes, tu ajoutes ton justificatif, c'est crédité.",
+          "tags": [
+            "Crédité sous 24 h",
+            "Justificatif requis"
+          ]
+        },
+        {
+          "title": "Virement bancaire",
+          "description": "Depuis un compte bancaire local ou européen, directement vers ton IBAN Treepi, avec ta référence en libellé.",
+          "tags": [
+            "SWIFT : 72 h à 2 semaines",
+            "Sans montant maximum"
+          ]
+        }
+      ],
+      "currencies": [
+        "XOF",
+        "XAF",
+        "EUR",
+        "+ autres devises africaines"
+      ]
+    },
+    "steps": {
+      "eyebrow": "Comment ça marche",
+      "title1": "Recharger, ",
+      "titleHighlight": "pas à pas.",
+      "subtitle": "Quatre étapes, depuis l'app ou le site, <b>tu sais toujours où en est ton argent</b>.",
+      "items": [
+        {
+          "title": "Indique ton montant",
+          "description": "En € ou en FCFA, la conversion s'affiche en direct, avec ton objectif visa en repère."
+        },
+        {
+          "title": "Choisis ta méthode",
+          "description": "Espèces, virement ou carte, frais et délais affichés avant de valider."
+        },
+        {
+          "title": "Effectue ton dépôt",
+          "description": "Suis les instructions : montant exact, référence unique à présenter ou à mettre en libellé."
+        },
+        {
+          "title": "Ajoute ton justificatif",
+          "description": "Une photo de la preuve de dépôt suffit, elle accélère la validation. Fonds crédités, tu es notifié."
+        }
+      ]
+    },
+    "delays": {
+      "eyebrow": "Délais",
+      "title1": "Des délais ",
+      "titleHighlight": "transparents.",
+      "subtitle": "On préfère te donner les vrais chiffres, <b>et t'aider à anticiper</b>.",
+      "columns": {
+        "method": "Méthode",
+        "delay": "Délai de crédit",
+        "note": "Bon à savoir"
+      },
+      "rows": [
+        {
+          "method": "💳 Carte bancaire",
+          "delay": "Instantané",
+          "note": "Le plus rapide, depuis ton téléphone"
+        },
+        {
+          "method": "💵 Dépôt d'espèces",
+          "delay": "≈ 24 h",
+          "note": "En monnaie locale, justificatif requis"
+        },
+        {
+          "method": "🏦 Virement SWIFT",
+          "delay": "72 h à 2 semaines",
+          "note": "Délai variable selon les banques intermédiaires, anticipe ta demande de visa"
+        }
+      ],
+      "note": "Suivi en temps réel dans ton espace : chaque recharge a sa timeline (initiée → reçue → créditée), avec notification e-mail et WhatsApp à chaque étape."
+    },
+    "simulator": {
+      "eyebrow": "Simulateur de recharge",
+      "title": "Simule ta recharge, en direct.",
+      "subtitle": "Choisis ton pays, ton moyen de paiement et ton montant, <b>frais, total débité et délai s'affichent instantanément</b>. Ce que tu vois ici est exactement ce que tu verras au moment de payer.",
+      "country": "Pays d'envoi",
+      "method": "Moyen de paiement",
+      "methods": {
+        "card": "💳 Carte",
+        "cash": "💵 Espèces",
+        "transfer": "🏦 Virement"
+      },
+      "amount": "Montant",
+      "youSend": "Tu envoies",
+      "fees": "Frais de transfert",
+      "totalDebited": "Total débité",
+      "youReceive": "Tu reçois sur ton compte",
+      "availability": "Disponible",
+      "instant": "Instantanément",
+      "cta": "Recharger {amount} →",
+      "rateNote": "Taux fixe garanti : 1 € = 655,957 FCFA",
+      "disclaimer": "Frais et taux affichés avant chaque validation, jamais après."
+    },
+    "practices": {
+      "eyebrow": "Bonnes pratiques",
+      "title1": "Recharge ",
+      "titleHighlight": "sereinement.",
+      "cards": [
+        {
+          "title": "Anticipe les virements",
+          "description": "Pour un virement SWIFT, lance ta recharge bien avant ta demande de visa : les banques intermédiaires peuvent prendre jusqu'à 2 semaines."
+        },
+        {
+          "title": "Garde tes justificatifs",
+          "description": "Conserve la preuve de chaque dépôt et mets toujours ta référence Treepi en libellé, c'est ce qui accélère la validation de tes fonds."
+        },
+        {
+          "title": "Vise ton objectif",
+          "description": "Utilise le simulateur pour recharger exactement ce que ton dossier exige, ni trop tôt à l'aveugle, ni trop peu au dernier moment."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title1": "La recharge, ",
+      "titleHighlight": "en clair.",
+      "items": [
+        {
+          "question": "Quelles méthodes de recharge sont disponibles ?",
+          "answer": "Trois : carte bancaire (instantané), dépôt d'espèces en agence locale partenaire (crédité sous 24 h) et virement bancaire local ou SWIFT (72 h à 2 semaines)."
+        },
+        {
+          "question": "Quels sont les délais réels ?",
+          "answer": "Carte : instantané. Dépôt d'espèces : environ 24 h après réception de ton justificatif. Virement SWIFT : de 72 h à 2 semaines selon les banques intermédiaires, anticipe si ta demande de visa approche."
+        },
+        {
+          "question": "Dans quelles devises puis-je recharger ?",
+          "answer": "XOF et XAF au taux fixe garanti (1 € = 655,957 FCFA), en euros, et dans d'autres devises africaines selon les points de dépôt partenaires."
+        },
+        {
+          "question": "Y a-t-il des frais ? Quand sont-ils affichés ?",
+          "answer": "Chaque méthode a ses frais, toujours affichés avant la validation, tu vois le montant débité, les frais et ce qui arrive sur ton compte avant de confirmer. Jamais de frais découverts après coup."
+        },
+        {
+          "question": "Pourquoi un justificatif est-il demandé ?",
+          "answer": "Pour les dépôts d'espèces, la photo de ta preuve de dépôt sécurise l'opération et accélère la validation : elle permet de rapprocher ton dépôt de ta référence Treepi."
+        },
+        {
+          "question": "Comment je sais où en est ma recharge ?",
+          "answer": "Chaque recharge a sa timeline dans ton espace (initiée → reçue → créditée) et tu es notifié par e-mail et WhatsApp à chaque étape."
+        },
+        {
+          "question": "Un proche en Europe peut-il recharger mon compte ?",
+          "answer": "Oui, par carte ou par virement vers ton IBAN, avec ta référence en libellé. C'est le moyen le plus simple pour un sponsor de financer ton séjour sans toucher à son propre dossier."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Prêt à financer ton voyage ?",
+      "subtitle": "Recharge ton compte en quelques minutes, depuis ton pays, chaque frais affiché avant validation.",
+      "cta": "Recharger mon compte"
+    }
+  },
+  "attestation": {
+    "meta": {
+      "title": "Attestation de garantie financière · Treepi",
+      "description": "La preuve de ressources qui rassure vraiment le consulat pour ton visa Schengen."
+    },
+    "breadcrumb": "Attestation de garantie financière",
+    "hero": {
+      "eyebrow": "Solution · Visa Schengen",
+      "title1": "La preuve de ressources qui rassure ",
+      "titleHighlight": "vraiment",
+      "title2": " le consulat.",
+      "subtitle": "Un relevé bancaire local laisse planer le doute. Notre attestation prouve que tes fonds sont là, et bloqués pendant ta demande.",
+      "cta": "Obtenir mon attestation",
+      "mock": {
+        "title": "Attestation de garantie financière",
+        "amountLabel": "Fonds garantis :",
+        "amount": "6 300 €",
+        "badge": "✓ Fonds bloqués"
+      }
+    },
+    "problem": {
+      "eyebrow": "Le problème",
+      "title1": "Pourquoi un relevé bancaire ",
+      "titleHighlight": "ne suffit pas.",
+      "subtitle": "L'une des principales raisons de refus de visa, c'est le doute des consulats sur ta capacité financière réelle.",
+      "bank": {
+        "title": "Un simple relevé bancaire",
+        "items": [
+          "Peut être approvisionné temporairement",
+          "Jugé peu crédible par les consulats",
+          "Ne prouve pas l'indisponibilité des fonds",
+          "Source fréquente de refus"
+        ]
+      },
+      "treepi": {
+        "title": "L'attestation Treepi",
+        "items": [
+          "Fonds réellement déposés et bloqués",
+          "Document conforme et traçable",
+          "Reconnu par de nombreux consulats",
+          "Renforce nettement ton dossier"
+        ]
+      }
+    },
+    "how": {
+      "eyebrow": "Le fonctionnement",
+      "title1": "Comment ça ",
+      "titleHighlight": "marche.",
+      "subtitle": "Ton voyage commence ici ! Prépare tes valises, on s'occupe de tout afin de mettre toutes les chances de ton côté pour que ton voyage se fasse.",
+      "steps": [
+        {
+          "title1": "Ouvre ton ",
+          "titleHighlight": "compte Euro",
+          "title2": " depuis le confort de ton pays en Afrique",
+          "description": "Nous avons tous besoin d'un compte à la bonne devise pour voyager. Treepi te propose un compte européen pour non-résidents, accessible à tout moment et n'importe où : un compte à ton nom pour déposer de l'argent, recevoir des virements et préparer ton séjour, sans frais cachés.",
+          "image": "/images/euro.webp"
+        },
+        {
+          "title1": "Recharge ton compte ",
+          "titleHighlight": "par dépôt d'espèces ou par virement",
+          "title2": " depuis ton pays",
+          "description": "Du XAF, du XOF et de plusieurs autres devises africaines vers ton compte Euro en 24 h. Recharge le montant dont tu as besoin pour financer la totalité de ton séjour en Europe, par dépôt d'espèces en monnaie locale ou par virement, de l'Afrique vers ton IBAN européen.",
+          "image": "/images/counter.webp"
+        },
+        {
+          "title1": "Obtiens un justificatif fiable pour prouver au consulat que tu peux ",
+          "titleHighlight": "financer ton voyage",
+          "title2": "",
+          "description": "Un simple relevé bancaire ne constitue pas, en soi, un justificatif de fonds : il peut être jugé peu crédible ou temporairement approvisionné. Avec Treepi, plus de stress pour prouver tes ressources : ton dossier s'appuie sur un document financier fiable et vérifiable, qui met toutes les chances de ton côté.",
+          "image": "/images/passport.webp"
+        }
+      ]
+    },
+    "benefits": {
+      "eyebrow": "Les bénéfices",
+      "title1": "Sécurité et ",
+      "titleHighlight": "fiabilité.",
+      "youLabel": "Pour toi, le voyageur",
+      "consulateLabel": "Pour le consulat",
+      "rows": [
+        {
+          "title": "Crédibilité",
+          "you": "Bien plus solide qu'un relevé : elle certifie <b>la présence ET le blocage</b> des fonds.",
+          "consulate": "Les fonds sont <b>déjà en Europe et bloqués</b> pendant l'instruction, impossibles à retirer, contrairement à un simple relevé."
+        },
+        {
+          "title": "Conforme",
+          "you": "Le compte européen est ouvert <b>en ton nom</b> : c'est ton argent, pas celui d'un intermédiaire.",
+          "consulate": "Répond aux exigences de <b>transparence et de traçabilité</b> attendues d'un justificatif financier."
+        },
+        {
+          "title": "Rapide & sécurisé",
+          "you": "Délivrée en <b>24 h</b>, en version numérique, prête à joindre à ton dossier.",
+          "consulate": "Authenticité <b>vérifiable en 1 minute</b>, via QR code ou interface dédiée."
+        }
+      ]
+    },
+    "offer": {
+      "flag": "Offre incluse",
+      "title1": "Souscris ton attestation.",
+      "title2": "Ton compte est offert.",
+      "body": "Dès que tu souscris ton attestation de garantie financière, l'ouverture de ton compte européen est incluse, gratuitement. Une souscription, deux avantages : ton dossier de visa renforcé, et un compte prêt pour la suite du voyage.",
+      "cta": "Souscrire mon attestation",
+      "rows": [
+        {
+          "label": "Attestation de garantie financière",
+          "value": "Souscription"
+        },
+        {
+          "label": "Ouverture du compte européen",
+          "value": "Offerte",
+          "strike": "Payante"
+        },
+        {
+          "label": "IBAN européen à ton nom",
+          "value": "Inclus"
+        },
+        {
+          "label": "Document prêt pour le consulat",
+          "value": "Inclus"
+        }
+      ]
+    },
+    "motives": {
+      "eyebrow": "Cas d'usage",
+      "title1": "Quel que soit ",
+      "titleHighlight": "ton motif de voyage.",
+      "tabs": [
+        {
+          "label": "Tourisme",
+          "title": "Tourisme",
+          "description": "Démontre que tu disposes des moyens nécessaires pour la durée de ton séjour touristique : hébergement et dépenses compris."
+        },
+        {
+          "label": "Visite familiale",
+          "title": "Visite familiale",
+          "description": "Rassure le consulat sur ta capacité à financer ton séjour, même hébergé par un proche, l'attestation complète l'attestation d'accueil."
+        },
+        {
+          "label": "Mission pro",
+          "title": "Mission professionnelle",
+          "description": "Complète les documents de ton employeur avec une preuve de ressources personnelle solide et vérifiable."
+        },
+        {
+          "label": "Médical",
+          "title": "Raisons médicales",
+          "description": "Justifie le financement de ton séjour et des frais annexes pour un voyage médical, avec des fonds réellement bloqués."
+        }
+      ]
+    },
+    "duo": {
+      "eyebrow": "Le duo gagnant",
+      "title1": "Relevé + attestation de fonds bloqués : ",
+      "titleHighlight": "le mariage parfait.",
+      "subtitle": "L'attestation ne remplace pas ton relevé bancaire : le consulat te le demandera toujours. Elle vient en complément, et c'est ce duo qui donne à ta demande de visa Schengen toutes ses chances.",
+      "bank": {
+        "flag": "Toujours exigé",
+        "title": "Ton relevé bancaire",
+        "description": "Il montre ton historique et la régularité de tes revenus sur les derniers mois. Quoi qu'il arrive, tu devras le fournir avec ta demande."
+      },
+      "treepi": {
+        "flag": "Le complément qui fait la différence",
+        "title": "L'attestation Treepi",
+        "description": "Elle certifie ce que ton relevé ne peut pas prouver : les fonds de ton séjour sont réellement déposés et bloqués, sur un compte européen à ton nom."
+      },
+      "note": "<b>= un dossier financier complet.</b> L'historique de ton relevé + la certitude de l'attestation : c'est cette combinaison qui donne à ta demande de visa Schengen toutes ses chances."
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title1": "Tes questions ",
+      "titleHighlight": "sur l'attestation.",
+      "items": [
+        {
+          "question": "L'attestation est-elle reconnue par les consulats ?",
+          "answer": "Elle est conforme aux exigences de nombreux consulats européens. Nous mettons régulièrement à jour nos formats pour garantir leur validité. Elle maximise tes chances, sans garantir le résultat de la décision consulaire."
+        },
+        {
+          "question": "En quoi diffère-t-elle d'un relevé bancaire ?",
+          "answer": "Un relevé montre un solde à un instant donné, qui peut avoir été approvisionné temporairement. L'attestation certifie que les fonds sont réellement déposés ET bloqués sur un compte européen à ton nom pendant l'instruction, et le consulat peut la vérifier en ligne."
+        },
+        {
+          "question": "Quel montant dois-je bloquer ?",
+          "answer": "Le montant dépend de ton pays de destination, de la durée de ton séjour et de ton hébergement, les consulats appliquent un barème par jour. Utilise notre simulateur : il calcule ton objectif à partir des barèmes officiels publiés par chaque État."
+        },
+        {
+          "question": "Que deviennent mes fonds après la décision ?",
+          "answer": "Visa obtenu ou refusé, tes fonds te sont restitués intégralement, déblocage sous 72 h après la décision. Visa en poche, ils servent à financer ton séjour via les virements sortants activés."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Présente un dossier irréprochable.",
+      "subtitle": "Obtiens une attestation que le consulat ne peut pas remettre en question.",
+      "cta": "Obtenir mon attestation"
+    }
+  },
+  "assuranceVoyage": {
+    "meta": {
+      "title": "Assurance voyage Schengen · Treepi",
+      "description": "L'assurance voyage Schengen conforme au prix le plus bas : 30 € par mois, remboursée si ton visa est refusé."
+    },
+    "breadcrumb": "Assurance voyage Schengen",
+    "hero": {
+      "eyebrow": "Assurance · Visa Schengen",
+      "title1": "L'assurance voyage ",
+      "titleHighlight": "au prix le plus bas.",
+      "title2": " Tu ne trouveras pas meilleur prix ailleurs.",
+      "subtitle": "Conforme aux exigences des consulats. Et si ton visa est refusé, elle est remboursée.",
+      "cta": "Je souscris",
+      "chips": [
+        "🇪🇺 Valable dans tout l'espace Schengen",
+        "🖥️ Souscription en ligne",
+        "🛡️ Une assurance Européenne",
+        "↩️ Remboursée si refus de visa"
+      ],
+      "mock": {
+        "title": "Attestation d'assurance voyage",
+        "coverage": "Couverture : 30 000 €",
+        "badge": "✓ Conforme Schengen",
+        "price": "30€ /mois"
+      }
+    },
+    "price": {
+      "eyebrow": "Le prix",
+      "title1": "Arrête d'être un pigeon.",
+      "title2": "Même couverture, prix le plus bas.",
+      "subtitle": "30 000 € de couverture, conformité Schengen identique, chez Treepi, sans la marge des assureurs classiques.",
+      "treepi": "Treepi",
+      "insurerA": "Assureur A",
+      "insurerB": "Assureur B",
+      "days90": "90 jours",
+      "days90eco": "90 jours, éco*",
+      "days90std": "90 jours, standard*",
+      "note": "* Ordres de grandeur constatés sur le marché, à titre illustratif, la couverture exigée (30 000 €, espace Schengen) est identique."
+    },
+    "plans": {
+      "eyebrow": "Le détail des prix",
+      "title1": "Un service facturé ",
+      "titleHighlight": "au vrai prix.",
+      "subtitle": "Le prix dépend de la durée de ton séjour, et légèrement de ton âge. Pas d'autre variable, pas de surprise.",
+      "mostChosen": "Le plus choisi",
+      "plan1": {
+        "badge": "1 mois",
+        "price": "30 €",
+        "unit": "/pers.",
+        "description": "Formule 1 mois, jusqu'à 30 jours de séjour.",
+        "features": [
+          "🏥 Couverture 30 000 €, soins et rapatriement",
+          "🇪🇺 Valable dans tout l'espace Schengen",
+          "📩 Attestation immédiate par e-mail",
+          "↩️ Remboursée si ton visa est refusé"
+        ],
+        "cta": "Je souscris"
+      },
+      "plan3": {
+        "badge": "3 mois",
+        "price": "60 €",
+        "unit": "/pers.",
+        "description": "Formule 3 mois, de 31 à 90 jours de séjour.",
+        "features": [
+          "🏥 Couverture 30 000 €, soins et rapatriement",
+          "🇪🇺 Valable dans tout l'espace Schengen",
+          "📩 Attestation immédiate par e-mail",
+          "↩️ Remboursée si ton visa est refusé"
+        ],
+        "cta": "Je souscris"
+      },
+      "age": {
+        "badge": "Voyageurs de 41 ans et plus",
+        "title": "Dès +15 %",
+        "description": "Le tarif évolue légèrement avec l'âge, comme pour toute assurance voyage, jamais plus qu'un ajustement raisonnable.",
+        "rows": [
+          {
+            "label": "41 – 60 ans",
+            "value": "+15 %"
+          },
+          {
+            "label": "61 – 70 ans",
+            "value": "+35 %"
+          },
+          {
+            "label": "71 – 80 ans",
+            "value": "+65 %"
+          },
+          {
+            "label": "81 ans et plus",
+            "value": "Personnalisé"
+          }
+        ],
+        "cta": "Je souscris"
+      }
+    },
+    "coverage": {
+      "eyebrow": "Ce qui est couvert",
+      "title1": "Une couverture ",
+      "titleHighlight": "conforme, du premier coup.",
+      "cards": [
+        {
+          "title": "Frais médicaux",
+          "description": "Jusqu'à 30 000 € de soins d'urgence, comme l'exige le Code des visas Schengen."
+        },
+        {
+          "title": "Rapatriement",
+          "description": "Prise en charge du retour au pays en cas d'urgence médicale grave."
+        },
+        {
+          "title": "Visa refusé, assurance remboursée",
+          "description": "Sur présentation de la notification de refus, on te rembourse intégralement."
+        }
+      ]
+    },
+    "countries": {
+      "eyebrow": "Ta destination",
+      "title1": "Une seule attestation, ",
+      "titleHighlight": "29 pays couverts.",
+      "subtitle": "Quelle que soit ta destination finale dans l'espace Schengen, ton attestation reste valable partout, sans surcoût ni démarche supplémentaire.",
+      "list": [
+        "Allemagne",
+        "Autriche",
+        "Belgique",
+        "Bulgarie",
+        "Croatie",
+        "Danemark",
+        "Espagne",
+        "Estonie",
+        "Finlande",
+        "France",
+        "Grèce",
+        "Hongrie",
+        "Islande",
+        "Italie",
+        "Lettonie",
+        "Liechtenstein",
+        "Lituanie",
+        "Luxembourg",
+        "Malte",
+        "Norvège",
+        "Pays-Bas",
+        "Pologne",
+        "Portugal",
+        "République tchèque",
+        "Roumanie",
+        "Slovaquie",
+        "Slovénie",
+        "Suède",
+        "Suisse"
+      ]
+    },
+    "quote": {
+      "eyebrow": "Devis & souscription",
+      "title1": "Ton prix, ",
+      "titleHighlight": "en 30 secondes.",
+      "subtitle": "Renseigne ton séjour, choisis ton moyen de paiement : ton attestation arrive par e-mail dans la minute.",
+      "form": {
+        "sectionTitle": "Dis-nous en plus",
+        "sectionLabel": "Ton séjour",
+        "country": "Pays de destination",
+        "start": "Début du séjour",
+        "end": "Fin du séjour",
+        "travelers": "Nombre de voyageurs",
+        "travelersUnit": "{count, plural, =1 {1 voyageur} other {# voyageurs}}",
+        "age": "Tranche d'âge",
+        "ageTable": "Tarification par tranche d'âge",
+        "ageRows": [
+          {
+            "label": "Moins de 18 ans",
+            "value": "-15 %"
+          },
+          {
+            "label": "18 – 40 ans",
+            "value": "Tarif de base"
+          },
+          {
+            "label": "41 – 60 ans",
+            "value": "+15 %"
+          },
+          {
+            "label": "61 – 70 ans",
+            "value": "+35 %"
+          },
+          {
+            "label": "71 – 80 ans",
+            "value": "+65 %"
+          },
+          {
+            "label": "81 ans et plus",
+            "value": "Personnalisé"
+          }
+        ]
+      },
+      "summary": {
+        "destination": "Destination",
+        "duration": "Durée du séjour",
+        "durationValue": "{days} jours",
+        "formula": "Formule appliquée",
+        "formula1": "1 mois",
+        "formula3": "3 mois",
+        "travelers": "Voyageurs",
+        "age": "Tranche d'âge",
+        "pricePerPerson": "Prix par personne",
+        "priceBase": "{price} € (Tarif de base)",
+        "total": "Total à payer",
+        "totalFcfa": "≈ {amount} FCFA",
+        "cta": "Je souscris",
+        "note": "Base : 30 €/pers. jusqu'à 30 jours · 60 €/pers. de 31 à 90 jours, légèrement ajusté selon la tranche d'âge (majoration modérée après 40 ans, comme pour toute assurance voyage). Conversion FCFA au taux fixe de 1 € = 655,957 FCFA (XOF/XAF), à titre indicatif. Attestation envoyée par e-mail dès paiement confirmé. Remboursée sur présentation d'un refus de visa."
+      }
+    },
+    "trust": {
+      "eyebrow": "Pourquoi nous faire confiance",
+      "title1": "Sécurité et ",
+      "titleHighlight": "fiabilité.",
+      "cards": [
+        {
+          "title": "Partenaire assureur agréé",
+          "description": "Ton attestation est émise avec un assureur partenaire agréé, conforme aux exigences des consulats européens."
+        },
+        {
+          "title": "Document vérifiable",
+          "description": "Chaque attestation porte un code de vérification, authentifiable en ligne par l'agent consulaire."
+        },
+        {
+          "title": "Paiement sécurisé",
+          "description": "Orange Money, MTN MoMo ou carte bancaire, transaction chiffrée, aucune donnée stockée sur nos serveurs."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title1": "Tes questions ",
+      "titleHighlight": "sur l'assurance.",
+      "items": [
+        {
+          "question": "L'assurance voyage est-elle obligatoire pour un visa Schengen ?",
+          "answer": "Oui, dans la grande majorité des cas. Le Code des visas exige une couverture médicale minimale de 30 000 €, incluant le rapatriement, valable dans tout l'espace Schengen et sur toute la durée du séjour."
+        },
+        {
+          "question": "Comment est calculé mon prix ?",
+          "answer": "Deux formules selon la durée : 30 € par personne jusqu'à 30 jours, 60 € de 31 à 90 jours, ajustées selon la tranche d'âge. Pas d'autre variable, pas de frais cachés."
+        },
+        {
+          "question": "Le prix augmente-t-il avec l'âge ?",
+          "answer": "Légèrement, comme pour toute assurance voyage : +15 % de 41 à 60 ans, +35 % de 61 à 70 ans, +65 % de 71 à 80 ans. Au-delà de 81 ans, le tarif est personnalisé. Les moins de 18 ans bénéficient de -15 %."
+        },
+        {
+          "question": "Que se passe-t-il si mon visa est refusé ?",
+          "answer": "Ton assurance est remboursée intégralement, sur simple présentation de la notification de refus du consulat."
+        },
+        {
+          "question": "Quand reçois-je mon attestation ?",
+          "answer": "Immédiatement : elle est envoyée par e-mail dès la confirmation du paiement, prête à joindre à ton dossier de visa."
+        },
+        {
+          "question": "Puis-je souscrire pour plusieurs voyageurs en même temps ?",
+          "answer": "Oui, indique le nombre de voyageurs dans le devis : chaque personne reçoit son attestation nominative, en un seul paiement."
+        },
+        {
+          "question": "Mon séjour dépasse 90 jours, que faire ?",
+          "answer": "Les formules couvrent les séjours jusqu'à 90 jours (visa Schengen court séjour). Au-delà, il s'agit d'un visa long séjour national : contacte-nous sur WhatsApp pour une solution adaptée."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Ton assurance, prête en 3 minutes.",
+      "subtitle": "Le prix le plus bas du marché, l'attestation dans ta boîte mail.",
+      "cta": "Je souscris"
+    }
+  },
+  "assuranceRecours": {
+    "meta": {
+      "title": "Assurance recours visa · Treepi",
+      "description": "Un refus de visa n'est pas la fin : avocat spécialisé, frais pris en charge jusqu'à 15 000 €."
+    },
+    "breadcrumb": "Assurance recours visa",
+    "hero": {
+      "eyebrow": "Solution · Tranquillité",
+      "title1": "Un refus n'est pas la fin. C'est le début de ",
+      "titleHighlight": "ton recours.",
+      "subtitle": "Même avec un bon dossier, un visa n'est jamais garanti. En cas de refus, un avocat spécialisé prend le relais, frais pris en charge jusqu'à 15 000 €.",
+      "cta": "Protéger ma demande",
+      "statValue": "15 000 €",
+      "statLabel": "de frais pris en charge"
+    },
+    "why": {
+      "eyebrow": "Pourquoi elle existe",
+      "title1": "Obtenir un visa ",
+      "titleHighlight": "n'est jamais garanti.",
+      "subtitle": "Même un dossier solide peut être refusé pour des motifs parfois discutables. L'assurance recours visa te donne une vraie deuxième chance, sans repartir de zéro et sans tout assumer seul(e)."
+    },
+    "covered": {
+      "eyebrow": "Situations couvertes",
+      "title1": "Ce qu'on prend ",
+      "titleHighlight": "en charge.",
+      "cards": [
+        {
+          "title": "Refus injustifié",
+          "description": "Analyse personnalisée des motifs et préparation d'un recours argumenté."
+        },
+        {
+          "title": "Vice de procédure",
+          "description": "Contestation des décisions entachées d'irrégularités formelles."
+        },
+        {
+          "title": "Accompagnement juridique",
+          "description": "Mise en relation avec un avocat spécialisé en droit des étrangers."
+        }
+      ]
+    },
+    "value": {
+      "eyebrow": "La valeur ajoutée",
+      "title1": "Un vrai ",
+      "titleHighlight": "filet de sécurité.",
+      "cards": [
+        {
+          "emoji": "👨‍⚖️",
+          "title": "Avocat spécialisé",
+          "description": "qui prend le relais de ta procédure"
+        },
+        {
+          "emoji": "💶",
+          "title": "15 000 €",
+          "description": "Prise en charge complète des frais de recours"
+        },
+        {
+          "emoji": "⏱️",
+          "title": "2-3 mois",
+          "description": "Durée moyenne de la procédure de recours"
+        }
+      ]
+    },
+    "journey": {
+      "eyebrow": "Le parcours",
+      "title1": "De la souscription ",
+      "titleHighlight": "à la décision.",
+      "steps": [
+        {
+          "title": "Souscription avant la demande",
+          "description": "Tu actives ta protection en amont, avant même de déposer ta demande de visa."
+        },
+        {
+          "title": "Analyse du refus",
+          "description": "En cas de refus, nos équipes étudient la décision et identifient les motifs."
+        },
+        {
+          "title": "Constitution du dossier de recours",
+          "description": "Un dossier argumenté et conforme aux attentes du consulat est préparé."
+        },
+        {
+          "title": "Assistance par un avocat spécialisé",
+          "description": "Un avocat prend en charge ta procédure de recours."
+        },
+        {
+          "title": "Suivi jusqu'à la décision",
+          "description": "Tu es accompagné(e) jusqu'à la décision finale du recours."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title1": "L'assurance recours, ",
+      "titleHighlight": "en clair.",
+      "items": [
+        {
+          "question": "Quand dois-je souscrire ?",
+          "answer": "Avant de déposer ta demande de visa. La souscription en amont te permet d'être protégé(e) dès la première décision."
+        },
+        {
+          "question": "Qu'est-ce qui est couvert exactement ?",
+          "answer": "L'étude de ta notification de refus et de ton dossier complet, la constitution d'un recours argumenté, l'assistance d'un avocat spécialisé en droit des étrangers et la prise en charge des frais de procédure jusqu'à 15 000 €."
+        },
+        {
+          "question": "Le succès du recours est-il garanti ?",
+          "answer": "Non, aucune procédure juridique ne peut l'être, et méfie-toi de quiconque te le promet. L'assurance maximise tes chances : ton dossier est défendu par un professionnel, jusqu'à la décision finale."
+        },
+        {
+          "question": "Combien de temps dure la procédure ?",
+          "answer": "En moyenne 2 à 3 mois, selon les juridictions et la complexité du dossier. Tu es tenu(e) informé(e) à chaque étape."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Voyage l'esprit tranquille.",
+      "subtitle": "Active ta protection avant ta demande, au cas où.",
+      "cta": "Protéger ma demande"
+    }
+  },
+  "carte": {
+    "meta": {
+      "title": "La carte Mastercard Treepi",
+      "description": "Carte virtuelle immédiate, carte physique livrée en Europe, en euro, sans frais cachés."
+    },
+    "breadcrumb": "Carte",
+    "hero": {
+      "eyebrow": "La carte Mastercard Treepi",
+      "title1": "Une carte. ",
+      "titleHighlight": "Le monde",
+      "title2": " entier.",
+      "subtitle": "Carte virtuelle disponible immédiatement, ajoutée à Apple Pay et Google Pay. Carte physique livrée chez toi ou en point relais. En euro, sans frais cachés, partout où Mastercard est acceptée.",
+      "ctaPrimary": "Commander ma carte",
+      "ctaSecondary": "Voir le parcours",
+      "trust": [
+        "Mastercard internationale",
+        "Apple Pay",
+        "Google Pay",
+        "Carte virtuelle immédiate",
+        "Carte physique"
+      ]
+    },
+    "journey": {
+      "eyebrow": "Le parcours complet",
+      "title1": "De la commande ",
+      "titleHighlight": "au premier paiement.",
+      "subtitle": "Pas besoin d'attendre la carte physique pour payer : ta carte virtuelle est active dès l'ouverture.",
+      "steps": [
+        {
+          "title": "Commande",
+          "description": "Tu commandes ta carte en quelques secondes depuis l'app."
+        },
+        {
+          "title": "Activation",
+          "description": "Activation instantanée et sécurisée dans l'application."
+        },
+        {
+          "title": "Carte virtuelle",
+          "description": "Disponible immédiatement pour payer en ligne et en boutique."
+        },
+        {
+          "title": "Apple / Google Pay",
+          "description": "Ajoute-la à ton wallet et paie sans contact avant même de recevoir la physique."
+        },
+        {
+          "title": "Carte physique",
+          "description": "Livrée chez toi ou en point relais dès ton arrivée."
+        }
+      ]
+    },
+    "delivery": {
+      "eyebrow": "Livraison",
+      "title1": "Reçois ta carte ",
+      "titleHighlight": "où tu veux.",
+      "cards": [
+        {
+          "title": "À ton logement",
+          "description": "Fais livrer ta carte physique directement à l'adresse de ton hébergement en Europe, dès ton arrivée."
+        },
+        {
+          "title": "En point relais Treepi",
+          "description": "Récupère ta carte dans un point relais Treepi en toute simplicité.",
+          "badge": "Disponible à Paris uniquement pour le moment"
+        }
+      ]
+    },
+    "advantages": {
+      "eyebrow": "Avantages",
+      "title1": "Pensée pour les ",
+      "titleHighlight": "voyageurs.",
+      "cards": [
+        {
+          "emoji": "💶",
+          "title": "En euro",
+          "description": "Paie partout en Europe sans conversion automatique ni mauvaise surprise de change."
+        },
+        {
+          "emoji": "🚫",
+          "title": "Zéro frais caché",
+          "description": "Tu sais exactement ce que tu dépenses. Pas de surtaxe à l'international."
+        },
+        {
+          "emoji": "🎛️",
+          "title": "Contrôle total",
+          "description": "Gèle/dégèle ta carte, fixe tes plafonds et suis tes dépenses en temps réel."
+        },
+        {
+          "emoji": "🌍",
+          "title": "Acceptée partout",
+          "description": "Partout où Mastercard est disponible : boutiques, transports, hôtels, en ligne."
+        }
+      ]
+    },
+    "pricing": {
+      "eyebrow": "Tarifs",
+      "title1": "Des tarifs ",
+      "titleHighlight": "clairs, sans surprise.",
+      "mostChosen": "Le plus choisi",
+      "plans": [
+        {
+          "name": "Essentiel",
+          "price": "9 €",
+          "unit": "/mois",
+          "features": [
+            "Compte Euro + IBAN",
+            "Carte virtuelle",
+            "Apple & Google Pay",
+            "Recharge depuis l'Afrique"
+          ],
+          "cta": "Choisir"
+        },
+        {
+          "name": "Visa",
+          "price": "19 €",
+          "unit": "/mois",
+          "features": [
+            "Tout l'Essentiel",
+            "Carte physique",
+            "Attestation de garantie financière",
+            "Support prioritaire"
+          ],
+          "cta": "Choisir"
+        },
+        {
+          "name": "Sérénité",
+          "price": "29 €",
+          "unit": "/mois",
+          "features": [
+            "Tout l'offre Visa",
+            "Assurance recours visa",
+            "Avocat spécialisé inclus",
+            "Prise en charge jusqu'à 15 000 €"
+          ],
+          "cta": "Choisir"
+        }
+      ],
+      "note": "Tarifs présentés à titre d'illustration, à aligner sur le pricing réel de Treepi."
+    },
+    "faq": {
+      "eyebrow": "FAQ carte",
+      "title1": "Tout savoir sur ",
+      "titleHighlight": "ta carte.",
+      "items": [
+        {
+          "question": "Puis-je payer avant de recevoir la carte physique ?",
+          "answer": "Oui. Ta carte virtuelle est active dès l'ouverture du compte et peut être ajoutée à Apple Pay ou Google Pay pour payer sans contact immédiatement."
+        },
+        {
+          "question": "Où puis-je récupérer ma carte physique ?",
+          "answer": "À l'adresse de ton hébergement en Europe, ou en point relais Treepi · disponible à Paris uniquement pour le moment."
+        },
+        {
+          "question": "Y a-t-il des frais cachés à l'étranger ?",
+          "answer": "Non. La carte est en euro : pas de conversion automatique, pas de surtaxe à l'international. Tu vois exactement ce que tu dépenses."
+        },
+        {
+          "question": "Ma carte est-elle sécurisée ?",
+          "answer": "Oui : gel/dégel instantané depuis l'app, plafonds personnalisables, 3D Secure pour les paiements en ligne et suivi des dépenses en temps réel."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Ta carte t'attend.",
+      "subtitle": "Commande, active et paie, partout dans le monde.",
+      "cta": "Commander ma carte"
+    }
+  },
+  "tarifs": {
+    "meta": {
+      "title": "Tarifs · Treepi",
+      "description": "Des prix justes, zéro surprise : compte européen, assurance voyage et assurance recours visa."
+    },
+    "breadcrumb": "Tarifs",
+    "hero": {
+      "eyebrow": "Tarifs",
+      "title1": "Des prix justes, ",
+      "titleHighlight": "Zéro surprise.",
+      "subtitle": "Tu paies exactement ce que tu vois, chaque frais est annoncé <b>avant</b> que tu valides. Et si ton visa est refusé, <b>tes fonds te sont restitués</b> et ton assurance voyage est remboursée.",
+      "chips": [
+        "💶 Compte européen dès 0 €",
+        "🛡️ Assurance voyage dès 30 €",
+        "⚖️ Assurance recours 350 €"
+      ],
+      "note": "Paiement depuis l'Afrique : dépôt d'espèces, virement, mobile money, <b>taux et frais affichés avant validation</b>."
+    },
+    "compte": {
+      "number": "1",
+      "title": "Compte européen",
+      "subtitle": "Ton IBAN européen à ton nom, ouvert en 24 h depuis ton pays, juste avec ton passeport. <b>L'ouverture est gratuite dans les deux cas</b>, seule l'attestation change la donne sur les frais.",
+      "solo": {
+        "badge": "Pour effectuer et recevoir des virements en Europe",
+        "title": "Compte européen seul",
+        "audience": "<b>Pour qui ?</b> Tu veux ouvrir ton compte, le recharger et recevoir des virements",
+        "price": "100 €",
+        "unit": "/ an",
+        "priceNote": "Ouverture <b>gratuite</b> · frais de gestion annuels",
+        "rows": [
+          {
+            "label": "Ouverture du compte",
+            "value": "Gratuite"
+          },
+          {
+            "label": "Frais de gestion annuels",
+            "value": "100 €"
+          }
+        ],
+        "features": [
+          "<b>IBAN européen à ton nom</b>, émis en 24 h",
+          "Recharge depuis l'Afrique, dépôt d'espèces ou virement",
+          "Réception de virements internationaux",
+          "Virements sortants activés dès ta preuve de visa"
+        ],
+        "cta": "Ouvrir mon compte",
+        "note": "Passe à l'attestation quand tu veux, les frais de gestion deviennent offerts."
+      },
+      "combo": {
+        "flag": "Recommandé pour ton visa",
+        "badge": "Pour ton dossier de visa",
+        "title": "Compte + Attestation de garantie financière",
+        "audience": "<b>Pour qui ?</b> Tu dois justifier tes ressources au consulat, le motif n° 1 des refus de visa.",
+        "price": "250 €",
+        "unit": "frais annuel (génération illimitée)",
+        "priceNote": "Ouverture compte Européen <b>gratuite</b> · frais de gestion <b>offerts</b>",
+        "rows": [
+          {
+            "label": "Ouverture du compte",
+            "value": "Gratuite"
+          },
+          {
+            "label": "Frais de gestion annuels",
+            "value": "Offerts",
+            "strike": "100 €"
+          },
+          {
+            "label": "Attestation de garantie financière",
+            "value": "250 €"
+          }
+        ],
+        "features": [
+          "<b>Tout le compte européen</b>, frais de gestion offerts",
+          "Attestation <b>calée sur les barèmes officiels</b> de ton pays de destination",
+          "<b>Vérifiable en ligne par le consulat</b> en 30 secondes",
+          "Émise sous 24 à 48 h après réception de tes fonds",
+          "Visa refusé ? <b>Fonds restitués intégralement</b> sous 72 h"
+        ],
+        "cta": "Souscrire mon attestation",
+        "note": "Tes fonds restent les tiens, sur un compte à ton nom, visa obtenu ou refusé."
+      }
+    },
+    "voyage": {
+      "number": "2",
+      "title": "Assurance voyage Schengen",
+      "subtitle": "La couverture de <b>30 000 €</b> exigée par les consulats, soins d'urgence et rapatriement, valable dans tout l'espace Schengen. Attestation dans ta boîte mail <b>3 minutes</b> après la souscription. Et si ton visa est refusé, <b>elle est remboursée</b>.",
+      "mostChosen": "Le plus choisi",
+      "plan1": {
+        "badge": "Séjours jusqu'à 30 jours",
+        "title": "Formule 1 mois",
+        "audience": "<b>Pour qui ?</b> Visite familiale, tourisme ou voyage d'affaires de quelques semaines.",
+        "price": "30 €",
+        "unit": "/ personne",
+        "priceNote": "Tarif de base 18 - 40 ans",
+        "features": [
+          "Couverture <b>30 000 €</b>, soins médicaux & rapatriement",
+          "Valable dans <b>les 29 pays</b> de l'espace Schengen",
+          "Attestation conforme, en PDF, <b>par e-mail en 3 min</b>",
+          "<b>Remboursée</b> si ton visa est refusé"
+        ],
+        "cta": "Souscrire, 1 mois"
+      },
+      "plan3": {
+        "badge": "Séjours de 31 à 90 jours",
+        "title": "Formule 3 mois",
+        "audience": "<b>Pour qui ?</b> Long séjour, plusieurs entrées ou dates encore flexibles, la marge de sécurité que les consulats apprécient.",
+        "price": "60 €",
+        "unit": "/ personne",
+        "priceNote": "Tarif de base 18 - 40 ans",
+        "features": [
+          "Couverture <b>30 000 €</b>, soins médicaux & rapatriement",
+          "Valable dans <b>les 29 pays</b> de l'espace Schengen",
+          "Attestation conforme, en PDF, <b>par e-mail en 3 min</b>",
+          "<b>Remboursée</b> si ton visa est refusé",
+          "Couvre <b>toute la durée maximale</b> d'un visa court séjour"
+        ],
+        "cta": "Souscrire, 3 mois"
+      },
+      "ageNote": "Ajustement selon l'âge :",
+      "ageChips": [
+        "- 18 ans : -15 %",
+        "18 – 40 ans : tarif de base",
+        "41 – 60 ans : +15 %",
+        "61 – 70 ans : +35 %",
+        "71 – 80 ans : +65 %"
+      ],
+      "compare": {
+        "title": "Même couverture 30 000 €, même conformité Schengen, sans la marge des assureurs classiques.",
+        "treepi": "Treepi",
+        "insurerA": "Assureur A",
+        "insurerB": "Assureur B",
+        "days90": "90 jours",
+        "days90eco": "90 jours, éco*",
+        "days90std": "90 jours, standard*",
+        "note": "* Ordres de grandeur constatés sur le marché, à titre illustratif, la couverture exigée (30 000 €, espace Schengen) est identique."
+      }
+    },
+    "recours": {
+      "number": "3",
+      "title": "Assurance recours visa",
+      "subtitle": "Jusqu'à 6 demandes sur 10 sont refusées dans certains pays africains, parfois sans vraie explication. <b>Avec le recours, tu ne subis plus.</b>",
+      "eyebrow": "Pour te défendre",
+      "cardTitle": "Un refus injustifié ne doit plus être une fin.",
+      "cardBody": "Un visa refusé, c'est des frais perdus, un projet à l'arrêt, et presque jamais de justification claire. L'assurance recours active ta <b>protection juridique</b> : nos avocats en droit des étrangers étudient ta notification de refus et <b>contestent la décision</b> à ta place.",
+      "features": [
+        "<b>Étude de ta notification de refus</b> et de ton dossier complet",
+        "<b>Avocats spécialisés</b> en droit des étrangers",
+        "Procédure de contestation <b>prise en charge de bout en bout</b>",
+        "Accompagnement <b>jusqu'à la décision finale</b>"
+      ],
+      "priceLabel": "Assurance recours visa",
+      "price": "350 €",
+      "priceNote": "paiement unique, couvre ta demande de visa",
+      "coverage": "Frais de procédure pris en charge <b>jusqu'à 15 000 €</b>",
+      "cta": "Protéger ma demande",
+      "note": "À souscrire en complément de ton dossier, avant la décision du consulat."
+    },
+    "combos": {
+      "eyebrow": "En un coup d'œil",
+      "title1": "Compose ton parcours, ",
+      "titleHighlight": "calcule ton budget.",
+      "subtitle": "Chaque produit se prend séparément, voici les trois combinaisons les plus courantes chez les Treepers.",
+      "mostCommon": "Le plus courant",
+      "budgetTotal": "Budget total",
+      "cards": [
+        {
+          "badge": "Je prépare mon dossier",
+          "title": "L'essentiel du visa",
+          "rows": [
+            {
+              "label": "Compte européen",
+              "value": "Offert"
+            },
+            {
+              "label": "Attestation de garantie financière",
+              "value": "250 €"
+            }
+          ],
+          "total": "250 €",
+          "cta": "Commencer"
+        },
+        {
+          "badge": "Je dépose bientôt ma demande",
+          "title": "Dossier complet",
+          "rows": [
+            {
+              "label": "Compte européen",
+              "value": "Offert"
+            },
+            {
+              "label": "Attestation de garantie financière",
+              "value": "250 €"
+            },
+            {
+              "label": "Assurance voyage 1 mois",
+              "value": "30 €"
+            }
+          ],
+          "total": "280 €",
+          "cta": "Préparer mon dossier"
+        },
+        {
+          "badge": "Je ne veux prendre aucun risque",
+          "title": "Sérénité totale",
+          "rows": [
+            {
+              "label": "Compte européen",
+              "value": "Offert"
+            },
+            {
+              "label": "Attestation de garantie financière",
+              "value": "250 €"
+            },
+            {
+              "label": "Assurance voyage 1 mois",
+              "value": "30 €"
+            },
+            {
+              "label": "Assurance recours visa",
+              "value": "350 €"
+            }
+          ],
+          "total": "630 €",
+          "cta": "Tout prévoir"
+        }
+      ]
+    },
+    "trust": [
+      "<b>Visa refusé ?</b> Fonds restitués sous 72 h et assurance voyage remboursée.",
+      "Fonds déposés dans un <b>établissement régulé en Europe</b>, sur un compte à ton nom.",
+      "Attestations <b>vérifiables en ligne</b> par le consulat en 30 secondes.",
+      "<b>Des humains joignables</b>, WhatsApp 7 j/7, réponse en moins de 2 h."
+    ],
+    "faq": {
+      "eyebrow": "FAQ tarifs",
+      "title": "Pas de petites lignes.",
+      "items": [
+        {
+          "question": "Y a-t-il des frais cachés ?",
+          "answer": "Non. Chaque frais est affiché avant que tu valides, recharge, attestation, assurance. Ce que tu vois au moment de payer est exactement ce qui est débité."
+        },
+        {
+          "question": "Pourquoi les frais de gestion sont-ils offerts avec l'attestation ?",
+          "answer": "Parce que l'attestation est le cœur de notre service : quand tu la souscris (250 €), les 100 € de frais de gestion annuels du compte sont offerts, tu ne paies que ton attestation."
+        },
+        {
+          "question": "Que se passe-t-il si mon visa est refusé ?",
+          "answer": "Tes fonds te sont restitués intégralement sous 72 h, ton assurance voyage est remboursée sur présentation du refus, et si tu as souscrit l'assurance recours, la contestation est prise en charge jusqu'à 15 000 €."
+        },
+        {
+          "question": "Le prix de l'assurance voyage augmente-t-il avec l'âge ?",
+          "answer": "Légèrement : -15 % avant 18 ans, tarif de base de 18 à 40 ans, puis +15 % (41-60), +35 % (61-70) et +65 % (71-80). Au-delà, tarif personnalisé."
+        },
+        {
+          "question": "Comment payer depuis l'Afrique ?",
+          "answer": "Dépôt d'espèces en agence partenaire, virement bancaire ou mobile money (Orange Money, MTN MoMo), taux et frais affichés avant chaque validation."
+        },
+        {
+          "question": "L'argent déposé sur mon compte est-il un frais ?",
+          "answer": "Non ! Les fonds que tu déposes restent les tiens : ils servent de garantie pour ton attestation puis financent ton séjour. Seuls l'attestation, l'assurance et les éventuels frais de gestion sont des coûts."
+        },
+        {
+          "question": "Puis-je prendre l'assurance voyage sans le compte ?",
+          "answer": "Oui, l'assurance voyage Schengen se souscrit indépendamment, en 3 minutes, et l'attestation arrive par e-mail. Chaque produit se prend séparément."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Ton budget est clair. Ton voyage peut commencer.",
+      "subtitle": "Ouvre ton compte en 5 minutes, chaque frais sera affiché avant que tu valides."
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Nomadee · le blog des voyageurs africains, par Treepi",
+      "description": "Ton guide pour obtenir ton visa Schengen, préparer ton voyage et profiter pleinement de ton séjour en Europe."
+    },
+    "heroTitle": "Nomadee",
+    "heroSubtitle": "Voyager en Europe pour un court séjour est un parcours de combattant pour les Africains. C'est pour ça que nous avons créé Nomadee : ton guide pour tout savoir sur comment obtenir ton visa Schengen, préparer ton voyage, payer en toute tranquillité et profiter pleinement de ton séjour où que tu ailles.",
+    "categories": {
+      "voyage": "Voyager et découvrir l'Europe",
+      "visa": "Visa Schengen et démarches administratives",
+      "payment": "Payer et gérer son argent pendant son voyage"
+    },
+    "readingTime": "{minutes} minutes de lecture",
+    "seeMore": "Voir plus",
+    "seeLess": "Voir moins",
+    "backToBlog": "← Tous les articles",
+    "continueReading": "Continue ta lecture",
+    "frenchOnly": "Article disponible en français uniquement."
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "body": "La page que tu cherches n'existe pas ou a été déplacée.",
+    "cta": "Retour à l'accueil"
+  }
+}

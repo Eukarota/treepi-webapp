@@ -1,0 +1,30 @@
+{
+  "name": "treepi",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "next": "16.2.10",
+    "next-intl": "^4.13.2",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.5.2",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.10",
+    "parse5": "^8.0.1",
+    "playwright": "^1.61.1",
+    "postcss": "^8.5.18",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5"
+  }
+}

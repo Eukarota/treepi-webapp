@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Polices auto-hébergées (extraites du site d'origine, servies depuis /fonts).
+   Inter = texte courant · Outfit = titres · Caveat = accents manuscrits.
+--------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Inter-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/Inter-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Outfit-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/Outfit-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Caveat";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Caveat-400-normal.woff2") format("woff2");
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  color: #23272e;
+  background: #fff;
+}
+
+/* ---------------------------------------------------------------------------
+   Utilitaires maison du design system Treepi.
+--------------------------------------------------------------------------- */
+@layer components {
+  /* Fond héro : dégradé signature masqué par la forme organique Treepi. */
+  .mask-treepi {
+    background: linear-gradient(to right, #05a0c7, #09d1c7);
+    mask-image: url("/images/main-mask.svg");
+    -webkit-mask-image: url("/images/main-mask.svg");
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+  }
+
+  /* Titre en dégradé : à appliquer sur un <span>. */
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent;
+  }
+  .text-gradient-secondary {
+    @apply bg-gradient-to-r from-secondary to-secondary-light bg-clip-text text-transparent;
+  }
+
+  /* Étiquette de section (petit texte majuscule au-dessus des titres). */
+  .section-eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.2em] text-secondary;
+  }
+
+  /* Carte blanche standard. */
+  .card-surface {
+    @apply rounded-2xl bg-white shadow-[0_2px_20px_rgba(18,35,71,0.06)];
+  }
+}
