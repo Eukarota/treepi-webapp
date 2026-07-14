@@ -22,7 +22,11 @@ export default function SectionHeading({
   const alignCls = align === "center" ? "text-center mx-auto" : "text-left";
   return (
     <div className={`max-w-3xl ${align === "center" ? "mx-auto" : ""} ${className}`}>
-      {eyebrow && <div className={`section-eyebrow mb-3 ${alignCls}`}>{eyebrow}</div>}
+      {eyebrow && (
+        <div className={align === "center" ? "mb-4 text-center" : "mb-4"}>
+          <span className="section-eyebrow">{eyebrow}</span>
+        </div>
+      )}
       <h2 className={`font-outfit text-3xl font-bold leading-tight text-navy sm:text-4xl lg:text-5xl ${alignCls}`}>
         {title}
       </h2>

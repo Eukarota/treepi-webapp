@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import Button from "@/components/ui/Button";
+import Swirl from "@/components/ui/Swirl";
 
 /*
  * Héro de la page d'accueil.
@@ -12,6 +13,7 @@ export default function Hero() {
   return (
     <section className="px-4 pt-4 sm:px-6">
       <div className="mask-treepi relative mx-auto max-w-7xl overflow-hidden rounded-3xl">
+        <Swirl />
         <div className="relative z-10 grid items-center gap-10 px-6 py-14 sm:px-12 md:grid-cols-[1.1fr_0.9fr] md:py-20 lg:px-16">
           <div className="text-white">
             <h1 className="font-outfit text-4xl font-bold leading-tight sm:text-5xl lg:text-[3.4rem]">

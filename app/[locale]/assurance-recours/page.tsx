@@ -53,7 +53,7 @@ function Content() {
       {/* Pourquoi elle existe */}
       <section className="bg-white">
         <div className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6">
-          <div className="section-eyebrow">{t("why.eyebrow")}</div>
+          <span className="section-eyebrow">{t("why.eyebrow")}</span>
           <h2 className="mt-3 font-outfit text-3xl font-bold leading-tight text-navy sm:text-4xl">
             {t("why.title1")}
             <span className="text-gradient-secondary">{t("why.titleHighlight")}</span>

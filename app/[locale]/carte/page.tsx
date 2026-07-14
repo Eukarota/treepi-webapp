@@ -55,7 +55,7 @@ function Content() {
         <div className="mask-treepi relative mx-auto max-w-7xl overflow-hidden rounded-3xl">
           <div className="relative z-10 grid items-center gap-10 px-6 py-14 sm:px-12 md:grid-cols-[1.1fr_0.9fr] md:py-20 lg:px-16">
             <div className="text-white">
-              <div className="text-xs font-bold uppercase tracking-[0.2em] text-white/80">{t("hero.eyebrow")}</div>
+              <span className="inline-flex rounded-full bg-white/15 px-3.5 py-1.5 text-xs font-bold text-white">{t("hero.eyebrow")}</span>
               <h1 className="mt-3 font-outfit text-4xl font-bold leading-tight sm:text-5xl">
                 {t("hero.title1")}
                 <span className="text-gradient-secondary">{t("hero.titleHighlight")}</span>

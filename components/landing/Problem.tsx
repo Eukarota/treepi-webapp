@@ -19,7 +19,7 @@ export default function Problem() {
         </div>
         {/* Argumentaire */}
         <div>
-          <div className="section-eyebrow mb-3">{t("eyebrow")}</div>
+          <div className="mb-4"><span className="section-eyebrow">{t("eyebrow")}</span></div>
           <h2 className="font-outfit text-3xl font-bold leading-tight text-navy sm:text-4xl">
             {t("title1")}
             <span className="text-gradient-secondary">{t("titleHighlight")}</span>

@@ -37,7 +37,16 @@
       "privacy": "Confidentialité",
       "blog": "Nomadee, le blog",
       "disclaimer": "Treepi fournit des services financiers et des attestations conformes aux exigences documentaires des demandes de visa. La décision de délivrance d'un visa appartient exclusivement aux autorités consulaires ; aucun service Treepi ne constitue une promesse ou une garantie d'obtention de visa. Les fonds des clients sont déposés auprès d'un établissement partenaire régulé dans l'Union européenne, sur des comptes nominatifs ségrégués. Tarifs TTC, susceptibles d'évolution ; la grille en vigueur est présentée avant toute souscription.",
-      "rights": "© 2026 Treepi · Tous droits réservés."
+      "rights": "© 2026 Treepi · Tous droits réservés.",
+      "takingOff": "décolle bientôt !",
+      "dataTitle": "Protection des données personnelles :",
+      "dataBody": "Les informations collectées via ce site sont utilisées uniquement pour vous tenir informé du lancement de Treepi. Vous pouvez exercer vos droits en écrivant à",
+      "dataEmail": "parlonsensemble@treepi.app",
+      "prelaunch": "Treepi est actuellement en phase de pré-lancement.",
+      "purpose": "Ce site a pour seul objectif de présenter le concept et de recueillir l'intérêt des futurs utilisateurs. Les informations diffusées n'ont aucune valeur contractuelle. Treepi se réserve le droit de modifier ou de mettre à jour le contenu de ce site à tout moment.",
+      "ipNotice": "Tous les éléments visuels et textuels présents sur ce site sont protégés par les droits de propriété intellectuelle et ne peuvent être reproduits sans autorisation préalable.",
+      "dataBody1": "Les informations collectées via ce site sont utilisées uniquement pour vous tenir informé du lancement de Treepi.",
+      "dataBody2": "Vous pouvez exercer vos droits en écrivant à"
     },
     "cta": {
       "openAccount": "Ouvrir mon compte européen",
@@ -200,38 +209,38 @@
       "brand": "Treepi",
       "beforeItems": [
         {
-          "emoji": "🚨",
-          "text": "Avoir peur lors de sa demande de visa"
+          "text": "Avoir peur lors de sa demande de visa",
+          "icon": "/images/icons/siren.svg"
         },
         {
-          "emoji": "❌",
-          "text": "Se faire refuser pour justificatif et fonds peu crédible"
+          "text": "Se faire refuser pour justificatif et fonds peu crédible",
+          "icon": "/images/icons/X_circle.svg"
         },
         {
-          "emoji": "😳",
-          "text": "Être embarrassé de dépendre… d'un proche en cas d'imprévu pendant son séjour"
+          "text": "Être embarrassé de dépendre… d'un proche en cas d'imprévu pendant son séjour",
+          "icon": "/images/icons/smiley_sad.svg"
         },
         {
-          "emoji": "🧍",
-          "text": "S'imposer des limites"
+          "text": "S'imposer des limites",
+          "icon": "/images/icons/human.svg"
         }
       ],
       "afterItems": [
         {
-          "emoji": "⚡",
-          "text": "Se sentir crédible et traité avec équité pendant sa demande de visa"
+          "text": "Se sentir crédible et traité avec équité pendant sa demande de visa",
+          "icon": "/images/icons/lightning.svg"
         },
         {
-          "emoji": "✅",
-          "text": "Être reconnu comme solvable avec un justificatif de fonds fiable"
+          "text": "Être reconnu comme solvable avec un justificatif de fonds fiable",
+          "icon": "/images/icons/check_circle.svg"
         },
         {
-          "emoji": "😊",
-          "text": "Être autonome, libre et maître de son séjour avec un compte toujours fonctionnel"
+          "text": "Être autonome, libre et maître de son séjour avec un compte toujours fonctionnel",
+          "icon": "/images/icons/smiley.svg"
         },
         {
-          "emoji": "⛷️",
-          "text": "Dépasser ses limites"
+          "text": "Dépasser ses limites",
+          "icon": "/images/icons/person_ski.svg"
         }
       ]
     },

@@ -37,7 +37,7 @@ export default function Simulator() {
 
   return (
     <section className="px-4 pb-20 pt-6 sm:px-6" id="simulator">
-      <div className="mx-auto grid max-w-6xl gap-10 rounded-3xl bg-gradient-to-br from-primary to-primary-light p-8 sm:p-12 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="mx-auto grid max-w-6xl gap-8 rounded-3xl bg-gradient-to-br from-primary to-primary-light p-5 sm:p-12 lg:grid-cols-[1.1fr_0.9fr] [&>*]:min-w-0">
         {/* Formulaire */}
         <div>
           <h2 className="font-outfit text-2xl font-bold text-white sm:text-3xl">{t("title")}</h2>
@@ -75,7 +75,7 @@ export default function Simulator() {
         </div>
 
         {/* Résultat */}
-        <div className="flex flex-col justify-center rounded-2xl bg-white p-8 text-center shadow-[0_16px_50px_rgba(5,160,199,0.25)]">
+        <div className="flex flex-col justify-center rounded-2xl bg-white p-5 text-center shadow-[0_16px_50px_rgba(5,160,199,0.25)] sm:p-8">
           <div className="text-xs font-bold uppercase tracking-widest text-grey">{t("resultLabel")}</div>
           <div className="text-gradient-secondary mt-4 font-outfit text-6xl font-bold">
             {total.toLocaleString("fr-FR")} €

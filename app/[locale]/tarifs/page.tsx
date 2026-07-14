@@ -84,7 +84,7 @@ function Content() {
       {/* Héro sombre */}
       <section className="px-4 pt-4 sm:px-6">
         <div className="mask-treepi mx-auto max-w-7xl rounded-3xl px-6 py-16 text-center sm:px-12">
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-white/80">{t("hero.eyebrow")}</div>
+          <span className="inline-flex rounded-full bg-white/15 px-3.5 py-1.5 text-xs font-bold text-white">{t("hero.eyebrow")}</span>
           <h1 className="mt-4 font-outfit text-4xl font-bold leading-tight text-white sm:text-5xl">
             {t("hero.title1")}
             <span className="text-gradient-secondary">{t("hero.titleHighlight")}</span>
@@ -250,7 +250,7 @@ function Content() {
           <BlockHeading number={t("recours.number")} title={t("recours.title")} subtitle={t.raw("recours.subtitle")} />
           <div className="mt-10 grid gap-8 rounded-3xl bg-gradient-to-br from-primary to-primary-light p-8 sm:p-10 lg:grid-cols-[1.2fr_0.8fr]">
             <div>
-              <div className="text-xs font-bold uppercase tracking-[0.2em] text-white/80">{t("recours.eyebrow")}</div>
+              <span className="inline-flex rounded-full bg-white/15 px-3.5 py-1.5 text-xs font-bold text-white">{t("recours.eyebrow")}</span>
               <h3 className="mt-3 font-outfit text-2xl font-bold leading-snug text-white sm:text-3xl">{t("recours.cardTitle")}</h3>
               <p
                 className="mt-4 text-sm leading-relaxed text-white/90 [&>b]:font-bold [&>b]:text-white"
@@ -285,7 +285,7 @@ function Content() {
       {/* Combinaisons de budget */}
       <section className="bg-grey-light" id="combos">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-          <div className="section-eyebrow text-center">{t("combos.eyebrow")}</div>
+          <div className="text-center"><span className="section-eyebrow">{t("combos.eyebrow")}</span></div>
           <h2 className="mt-3 text-center font-outfit text-3xl font-bold leading-tight text-navy sm:text-4xl">
             {t("combos.title1")}
             <span className="text-gradient-secondary">{t("combos.titleHighlight")}</span>
@@ -353,7 +353,7 @@ function TarifsFaq() {
   return (
     <section className="bg-grey-light">
       <div className="mx-auto max-w-4xl px-4 py-20 sm:px-6">
-        <div className="section-eyebrow text-center">{t("eyebrow")}</div>
+        <div className="text-center"><span className="section-eyebrow">{t("eyebrow")}</span></div>
         <h2 className="mt-3 text-center font-outfit text-3xl font-bold text-navy sm:text-4xl">{t("title")}</h2>
         <Accordion className="mt-12" items={items} />
       </div>

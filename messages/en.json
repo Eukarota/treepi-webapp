@@ -37,7 +37,16 @@
       "privacy": "Privacy",
       "blog": "Nomadee, the blog",
       "disclaimer": "Treepi provides financial services and attestations that comply with the documentary requirements of visa applications. Visa decisions belong exclusively to consular authorities; no Treepi service constitutes a promise or guarantee that a visa will be granted. Client funds are deposited with a regulated partner institution in the European Union, in segregated individual accounts. Prices include tax and may change; the current price list is shown before any subscription.",
-      "rights": "© 2026 Treepi · All rights reserved."
+      "rights": "© 2026 Treepi · All rights reserved.",
+      "takingOff": "taking off soon!",
+      "dataTitle": "Personal data protection:",
+      "dataBody": "The information collected on this site is used solely to keep you informed about the launch of Treepi. You can exercise your rights by writing to",
+      "dataEmail": "parlonsensemble@treepi.app",
+      "prelaunch": "Treepi is currently in its pre-launch phase.",
+      "purpose": "The sole purpose of this site is to present the concept and gather the interest of future users. The information published has no contractual value. Treepi reserves the right to modify or update the content of this site at any time.",
+      "ipNotice": "All visual and textual elements on this site are protected by intellectual property rights and may not be reproduced without prior authorisation.",
+      "dataBody1": "The information collected on this site is used solely to keep you informed about the launch of Treepi.",
+      "dataBody2": "You can exercise your rights by writing to"
     },
     "cta": {
       "openAccount": "Open my European account",
@@ -200,38 +209,38 @@
       "brand": "Treepi",
       "beforeItems": [
         {
-          "emoji": "🚨",
-          "text": "Being afraid during your visa application"
+          "text": "Being afraid during your visa application",
+          "icon": "/images/icons/siren.svg"
         },
         {
-          "emoji": "❌",
-          "text": "Being refused over unconvincing proof of funds"
+          "text": "Being refused over unconvincing proof of funds",
+          "icon": "/images/icons/X_circle.svg"
         },
         {
-          "emoji": "😳",
-          "text": "Being embarrassed to depend… on a relative if something happens during your stay"
+          "text": "Being embarrassed to depend… on a relative if something happens during your stay",
+          "icon": "/images/icons/smiley_sad.svg"
         },
         {
-          "emoji": "🧍",
-          "text": "Holding yourself back"
+          "text": "Holding yourself back",
+          "icon": "/images/icons/human.svg"
         }
       ],
       "afterItems": [
         {
-          "emoji": "⚡",
-          "text": "Feeling credible and treated fairly during your visa application"
+          "text": "Feeling credible and treated fairly during your visa application",
+          "icon": "/images/icons/lightning.svg"
         },
         {
-          "emoji": "✅",
-          "text": "Being recognised as solvent with reliable proof of funds"
+          "text": "Being recognised as solvent with reliable proof of funds",
+          "icon": "/images/icons/check_circle.svg"
         },
         {
-          "emoji": "😊",
-          "text": "Being autonomous, free and in charge of your stay with an account that always works"
+          "text": "Being autonomous, free and in charge of your stay with an account that always works",
+          "icon": "/images/icons/smiley.svg"
         },
         {
-          "emoji": "⛷️",
-          "text": "Exceeding your limits"
+          "text": "Exceeding your limits",
+          "icon": "/images/icons/person_ski.svg"
         }
       ]
     },

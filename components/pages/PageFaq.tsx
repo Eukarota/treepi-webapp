@@ -18,7 +18,7 @@ export default function PageFaq({
   return (
     <section className={tone === "grey" ? "bg-grey-light" : "bg-white"}>
       <div className="mx-auto max-w-4xl px-4 py-20 sm:px-6">
-        <div className="section-eyebrow text-center">{t("eyebrow")}</div>
+        <div className="text-center"><span className="section-eyebrow">{t("eyebrow")}</span></div>
         <h2 className="mt-3 text-center font-outfit text-3xl font-bold leading-tight text-navy sm:text-4xl">
           {t("title1")}
           <span className="text-gradient-secondary">{t("titleHighlight")}</span>

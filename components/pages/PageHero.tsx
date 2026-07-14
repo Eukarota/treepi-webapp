@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
+import Swirl from "@/components/ui/Swirl";
 
 /*
  * Héro standard des pages produit : fond dégradé Treepi masqué,
@@ -35,13 +36,14 @@ export default function PageHero({
       </nav>
 
       <div className="mask-treepi relative mx-auto max-w-7xl overflow-hidden rounded-3xl">
+        <Swirl />
         <div
           className={`relative z-10 grid items-center gap-10 px-6 py-14 sm:px-12 md:py-16 lg:px-16 ${
             aside ? "md:grid-cols-[1.1fr_0.9fr]" : ""
           }`}
         >
           <div className="text-white">
-            <div className="text-xs font-bold uppercase tracking-[0.2em] text-white/80">{eyebrow}</div>
+            <span className="inline-flex rounded-full bg-white/15 px-3.5 py-1.5 text-xs font-bold text-white">{eyebrow}</span>
             <h1 className="mt-3 font-outfit text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">{title}</h1>
             <div className="mt-5 max-w-xl text-base leading-relaxed text-white/90 [&_b]:font-bold">{subtitle}</div>
             {actions && <div className="mt-8 flex flex-wrap gap-3">{actions}</div>}

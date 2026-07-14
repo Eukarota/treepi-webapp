@@ -23,6 +23,13 @@ export default function AttestationSteps() {
               <div className="text-gradient-secondary font-outfit text-6xl font-bold">0{i + 1}</div>
               <h3 className="mt-3 font-outfit text-lg font-bold text-navy">{step.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-grey">{step.description}</p>
+              {/* Visuels du site d'origine, pour l'aspect artisanal. */}
+              <img
+                src={["/images/euro.webp", "/images/counter.webp", "/images/passport.webp"][i]}
+                alt=""
+                loading="lazy"
+                className="mt-5 h-44 w-full rounded-2xl object-cover shadow-[0_10px_30px_rgba(18,35,71,0.12)]"
+              />
             </div>
           ))}
         </div>

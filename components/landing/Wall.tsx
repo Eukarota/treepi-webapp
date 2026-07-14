@@ -21,7 +21,7 @@ export default function Wall() {
   return (
     <section className="bg-grey-light">
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-        <div className="section-eyebrow text-center">{t("eyebrow")}</div>
+        <div className="text-center"><span className="section-eyebrow">{t("eyebrow")}</span></div>
 
         {/* Compteur + avatars */}
         <div className="mt-8 flex items-center justify-center gap-6">

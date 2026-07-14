@@ -50,21 +50,28 @@ body {
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
   color: #23272e;
   background: #fff;
+  overflow-x: clip;
 }
 
 /* ---------------------------------------------------------------------------
    Utilitaires maison du design system Treepi.
 --------------------------------------------------------------------------- */
 @layer components {
-  /* Fond héro : dégradé signature masqué par la forme organique Treepi. */
+  /* Fond héro : dégradé signature masqué par la forme organique Treepi.
+     Sur mobile (< 640 px), l'encoche du masque mordrait dans le contenu :
+     on garde alors un simple bloc dégradé arrondi. */
   .mask-treepi {
     background: linear-gradient(to right, #05a0c7, #09d1c7);
-    mask-image: url("/images/main-mask.svg");
-    -webkit-mask-image: url("/images/main-mask.svg");
-    mask-size: 100% 100%;
-    -webkit-mask-size: 100% 100%;
-    mask-repeat: no-repeat;
-    -webkit-mask-repeat: no-repeat;
+  }
+  @media (min-width: 640px) {
+    .mask-treepi {
+      mask-image: url("/images/main-mask.svg");
+      -webkit-mask-image: url("/images/main-mask.svg");
+      mask-size: 100% 100%;
+      -webkit-mask-size: 100% 100%;
+      mask-repeat: no-repeat;
+      -webkit-mask-repeat: no-repeat;
+    }
   }
 
   /* Titre en dégradé : à appliquer sur un <span>. */
@@ -75,9 +82,79 @@ body {
     @apply bg-gradient-to-r from-secondary to-secondary-light bg-clip-text text-transparent;
   }
 
-  /* Étiquette de section (petit texte majuscule au-dessus des titres). */
+  /* Étiquette de section : petite pastille corail au-dessus des titres. */
   .section-eyebrow {
-    @apply text-xs font-bold uppercase tracking-[0.2em] text-secondary;
+    @apply inline-flex rounded-full bg-secondary/10 px-3.5 py-1.5 text-xs font-bold text-secondary;
+  }
+
+  /* -------------------------------------------------------------------
+     Pied de page : reproduction 1:1 des règles du site d'origine.
+     La forme vient de footer-mask.svg (desktop) / footer-mobile-mask.svg,
+     appliquée sur l'élément .mask ; la volute .masker-layer est agrandie.
+  ------------------------------------------------------------------- */
+  .footer {
+    background: #f6f7f9;
+    margin: 0;
+    padding: 0;
+  }
+  .footer .mask {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    background: linear-gradient(to right, #09d1c7, #05a0c7);
+    border-radius: 0 !important;
+    mask-image: url("/images/footer-mask.svg") !important;
+    -webkit-mask-image: url("/images/footer-mask.svg") !important;
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+  }
+  .footer .masker-layer {
+    scale: 1.6;
+    transform: translateY(0);
+  }
+  .footer .mask-content::before {
+    border-radius: 0 !important;
+  }
+  .footer__phone {
+    top: 1rem;
+  }
+  .footer__treepi {
+    margin-top: 2rem;
+  }
+  .mask__header-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30em;
+    height: 6em;
+    z-index: 10;
+  }
+  @media (max-width: 768px) {
+    .footer .mask {
+      height: 16rem;
+      min-height: 0;
+      mask-image: url("/images/footer-mobile-mask.svg") !important;
+      -webkit-mask-image: url("/images/footer-mobile-mask.svg") !important;
+      mask-position: center top;
+      -webkit-mask-position: center top;
+      mask-size: 100% 60%;
+      -webkit-mask-size: 100% 60%;
+    }
+    /* Sous le masque de tête, le dégradé remplit le reste du pied de page. */
+    .footer .mask-content::before {
+      content: "";
+      position: absolute;
+      top: 8rem;
+      left: 0;
+      width: 100%;
+      height: calc(100% - 6rem);
+      z-index: 1;
+      background: linear-gradient(90deg, #05a0c7, #09d1c7);
+    }
   }
 
   /* Carte blanche standard. */

@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
  * repensé : chips corail à gauche (avant), chips turquoise à droite (après).
  */
 
-type Item = { emoji: string; text: string };
+type Item = { icon: string; text: string };
 
 function Chip({ item, tone }: { item: Item; tone: "before" | "after" }) {
   const border = tone === "before" ? "border-secondary/50" : "border-primary-light/60";
@@ -13,9 +13,7 @@ function Chip({ item, tone }: { item: Item; tone: "before" | "after" }) {
     <li
       className={`flex items-start gap-3 rounded-xl border-2 ${border} bg-white px-4 py-3 shadow-sm transition-transform duration-300 hover:-translate-y-0.5`}
     >
-      <span className="text-lg leading-none" aria-hidden>
-        {item.emoji}
-      </span>
+      <img src={item.icon} alt="" className="h-6 w-6 shrink-0" aria-hidden />
       <span className="text-sm font-bold leading-snug text-navy">{item.text}</span>
     </li>
   );

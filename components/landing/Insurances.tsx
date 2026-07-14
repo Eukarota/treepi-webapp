@@ -30,7 +30,7 @@ export function PriceCompareBars({
               <div className="text-[10px] text-grey">{row.meta}</div>
             </div>
             <div
-              className={`flex h-9 items-center rounded-lg px-3 text-xs font-bold text-white ${
+              className={`flex h-9 min-w-fit items-center whitespace-nowrap rounded-lg px-2.5 text-xs font-bold text-white sm:px-3 ${
                 row.treepi ? "bg-gradient-to-r from-primary to-primary-light" : "bg-grey/40"
               }`}
               style={{ width: row.width }}

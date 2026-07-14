@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import Button from "@/components/ui/Button";
+import Swirl from "@/components/ui/Swirl";
 
 /*
  * Bandeau d'appel à l'action final, réutilisé sur toutes les pages :
@@ -20,7 +21,9 @@ export default function FinalCta({
 
   return (
     <section className="px-4 py-16 sm:px-6">
-      <div className="mx-auto max-w-6xl rounded-3xl bg-gradient-to-r from-primary to-primary-light px-6 py-16 text-center sm:px-12">
+      <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-gradient-to-r from-primary to-primary-light px-6 py-16 text-center sm:px-12">
+        <Swirl />
+        <div className="relative">
         <h2 className="font-outfit text-3xl font-bold text-white sm:text-4xl">{title}</h2>
         <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/80 sm:text-base">{subtitle}</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -36,6 +39,7 @@ export default function FinalCta({
           >
             {t("askWhatsapp")}
           </Button>
+        </div>
         </div>
       </div>
     </section>

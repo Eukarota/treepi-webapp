@@ -14,6 +14,13 @@ const ICONS: Record<string, string> = {
   secure: "🔐",
 };
 
+/* Illustrations du site d'origine, réutilisées sur les cartes qui leur correspondent. */
+const ILLUSTRATIONS: Record<string, string> = {
+  lock: "/images/security.svg",
+  bank: "/images/handshake.svg",
+  verify: "/images/world.svg",
+};
+
 type Card = { icon: string; title: string; description: string };
 
 export default function Security() {
@@ -28,13 +35,20 @@ export default function Security() {
           {cards.map((card) => (
             <div
               key={card.title}
-              className="card-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(18,35,71,0.12)]"
+              className="card-surface overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(18,35,71,0.12)]"
             >
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary-light text-lg" aria-hidden>
-                {ICONS[card.icon] ?? "✔️"}
-              </span>
-              <h3 className="mt-4 font-outfit text-base font-bold text-navy">{card.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-grey">{card.description}</p>
+              {ILLUSTRATIONS[card.icon] && (
+                <img src={ILLUSTRATIONS[card.icon]} alt="" className="h-40 w-full object-cover" loading="lazy" />
+              )}
+              <div className="p-7">
+                {!ILLUSTRATIONS[card.icon] && (
+                  <span className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary-light text-lg" aria-hidden>
+                    {ICONS[card.icon] ?? "✔️"}
+                  </span>
+                )}
+                <h3 className="font-outfit text-base font-bold text-navy">{card.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-grey">{card.description}</p>
+              </div>
             </div>
           ))}
         </div>

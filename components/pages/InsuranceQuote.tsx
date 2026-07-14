@@ -50,7 +50,7 @@ export default function InsuranceQuote() {
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-center text-sm text-grey">{t("subtitle")}</p>
 
-        <div className="mt-12 grid gap-8 rounded-3xl bg-gradient-to-br from-primary to-primary-light p-8 sm:p-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="mt-12 grid gap-8 rounded-3xl bg-gradient-to-br from-primary to-primary-light p-5 sm:p-10 lg:grid-cols-[1.1fr_0.9fr] [&>*]:min-w-0">
           {/* Formulaire */}
           <div>
             <div className="text-xs font-bold uppercase tracking-widest text-white/60">{t("form.sectionLabel")}</div>
@@ -111,7 +111,7 @@ export default function InsuranceQuote() {
           </div>
 
           {/* Récapitulatif */}
-          <div className="flex flex-col rounded-2xl bg-white/10 p-7 backdrop-blur">
+          <div className="flex flex-col rounded-2xl bg-white/10 p-5 backdrop-blur sm:p-7">
             <dl className="flex flex-col gap-2.5 text-sm">
               {[
                 [t("summary.destination"), country],

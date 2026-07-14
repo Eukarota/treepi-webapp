@@ -16,7 +16,7 @@ type Size = "sm" | "md" | "lg";
 
 const BASE =
   "inline-flex items-center justify-center gap-2 font-bold rounded-xl " +
-  "transition-all duration-200 ease-out select-none whitespace-nowrap " +
+  "transition-all duration-200 ease-out select-none text-center leading-snug " +
   "hover:-translate-y-0.5 active:translate-y-0 " +
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
 

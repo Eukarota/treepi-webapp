@@ -39,10 +39,10 @@ export default function RechargeSimulator() {
 
   return (
     <section className="px-4 py-20 sm:px-6" id="simulateur">
-      <div className="mx-auto grid max-w-6xl gap-10 rounded-3xl bg-gradient-to-br from-primary to-primary-light p-8 sm:p-12 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="mx-auto grid max-w-6xl gap-8 rounded-3xl bg-gradient-to-br from-primary to-primary-light p-5 sm:p-12 lg:grid-cols-[1.1fr_0.9fr] [&>*]:min-w-0">
         {/* Formulaire */}
         <div>
-          <div className="text-xs font-bold uppercase tracking-[0.2em] text-white/80">{t("eyebrow")}</div>
+          <span className="inline-flex rounded-full bg-white/15 px-3.5 py-1.5 text-xs font-bold text-white">{t("eyebrow")}</span>
           <h2 className="mt-3 font-outfit text-2xl font-bold text-white sm:text-3xl">{t("title")}</h2>
           <p
             className="mt-3 text-sm leading-relaxed text-white/70 [&>b]:font-bold [&>b]:text-white"
@@ -106,7 +106,7 @@ export default function RechargeSimulator() {
         </div>
 
         {/* Récapitulatif */}
-        <div className="flex flex-col justify-center rounded-2xl bg-white p-8 shadow-[0_16px_50px_rgba(5,160,199,0.25)]">
+        <div className="flex flex-col justify-center rounded-2xl bg-white p-5 shadow-[0_16px_50px_rgba(5,160,199,0.25)] sm:p-8">
           <dl className="flex flex-col gap-3 text-sm">
             <div className="flex items-center justify-between">
               <dt className="text-grey">{t("youSend")}</dt>
