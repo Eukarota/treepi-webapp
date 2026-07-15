@@ -21,6 +21,15 @@ const config: Config = {
         navy: "#122347",
         "navy-deep": "#0b1834",
         "navy-card": "#1a2c52",
+        // Jetons de l'application mobile (variables Figma « Treepi App »).
+        "grey-100": "#edeef1",
+        "grey-300": "#b3bbc6",
+        danger: "#f83b3d",
+        error: "#f55858",
+      },
+      boxShadow: {
+        // Ombre douce des cartes/modales de l'app (Effect « shadow » Figma).
+        app: "0 0 25px 0 rgb(0 0 0 / 0.15)",
       },
       fontFamily: {
         sans: [

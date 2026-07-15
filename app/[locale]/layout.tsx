@@ -4,8 +4,6 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import Script from "next/script";
 import { routing } from "@/i18n/routing";
-import SiteHeader from "@/components/layout/SiteHeader";
-import SiteFooter from "@/components/layout/SiteFooter";
 import "../globals.css";
 
 // Métadonnées localisées : titre/description selon la langue de la page.
@@ -65,11 +63,12 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider>
-          <SiteHeader />
-          <main>{children}</main>
-          <SiteFooter />
-        </NextIntlClientProvider>
+        {/*
+         * Le layout racine ne porte plus l'en-tête/pied de page : ils vivent
+         * dans le groupe de routes (site). Le groupe (app) fournit sa propre
+         * coquille applicative sans chrome marketing.
+         */}
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
         {/* Google Analytics + Tag Manager (repris du site d'origine). */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-3KTR438F2X" strategy="afterInteractive" />
         <Script id="ga-init" strategy="afterInteractive">
