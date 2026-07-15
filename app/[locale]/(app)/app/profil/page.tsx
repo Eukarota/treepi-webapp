@@ -1,16 +1,27 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
+import { useSession } from "@/components/app/SessionProvider";
 import GabaritProfil from "@/components/app/profil/GabaritProfil";
+import SelecteurLangue from "@/components/app/ui/SelecteurLangue";
 
 /*
  * Hub « Mon profil » (maquette « Mon profil ») : carte de statistiques de
  * voyage (pays visités, voyages, durée moyenne) puis menu vers les trois
- * volets : infos personnelles, professionnelles et financières.
+ * volets : infos personnelles, professionnelles et financières. En pied,
+ * le sélecteur de langue et la déconnexion.
  */
 export default function PageProfil() {
   const t = useTranslations("app.profil");
+  const router = useRouter();
+  const { fermerSession } = useSession();
+
+  /** Déconnexion : purge la session simulée puis retour à l'accueil visiteur. */
+  const deconnecter = async () => {
+    await fermerSession();
+    router.replace("/app/bienvenue");
+  };
 
   const STATS = [
     { icone: "/app/icons/stat-globe.svg", valeur: "0", libelle: t("statsPays") },
@@ -26,10 +37,10 @@ export default function PageProfil() {
 
   return (
     <GabaritProfil>
-      {/* Statistiques de voyage. */}
-      <div className="mt-5 flex items-center justify-center gap-2 rounded-lg border border-grey-200 bg-white p-2">
+      {/* Statistiques de voyage, réparties sur toute la largeur. */}
+      <div className="mt-5 flex items-stretch rounded-lg border border-grey-200 bg-white p-2">
         {STATS.map((stat, i) => (
-          <div key={stat.libelle} className={"flex w-20 flex-col items-center py-1" + (i > 0 ? " border-l border-grey-200" : "")}>
+          <div key={stat.libelle} className={"flex flex-1 flex-col items-center py-1" + (i > 0 ? " border-l border-grey-200" : "")}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={stat.icone} alt="" width={24} height={24} className="size-6" />
             <p className="font-outfit text-2xl font-bold leading-8 text-dark">
@@ -59,6 +70,21 @@ export default function PageProfil() {
             </span>
           </Link>
         ))}
+      </div>
+
+      {/* Langue + déconnexion. */}
+      <div className="mt-6 rounded-lg border border-grey-200 bg-white p-2">
+        <SelecteurLangue />
+        <hr className="border-grey-100" />
+        <button
+          type="button"
+          onClick={deconnecter}
+          className="flex w-full items-center gap-3 rounded-xl px-3 py-2 text-sm font-bold text-error transition-colors hover:bg-error/5"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/app/icons/logout.svg" alt="" width={18} height={18} className="size-[18px]" />
+          {t("deconnexion")}
+        </button>
       </div>
     </GabaritProfil>
   );

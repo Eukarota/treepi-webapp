@@ -1919,11 +1919,13 @@
       "legalConditions": "Conditions d'utilisation",
       "legalEntre": " et notre ",
       "legalPolitique": "Politique de confidentialité",
-      "legalApres": "."
+      "legalApres": ".",
+      "langue": "Langue"
     },
     "bienvenue": {
       "inscrire": "S'inscrire",
-      "connecter": "Se connecter"
+      "connecter": "Se connecter",
+      "premiersPas": "Découvrir Treepi en 1 min"
     },
     "connexion": {
       "identifiant": "Identifiant",
@@ -2172,7 +2174,9 @@
           "libelle": "Carte"
         }
       ],
-      "bientot": "Bientôt disponible"
+      "bientot": "Bientôt disponible",
+      "replier": "Replier le menu",
+      "deplier": "Déplier le menu"
     },
     "inscription": {
       "titre": "Inscription",
@@ -2300,7 +2304,8 @@
       ],
       "suivant": "Suivant",
       "retour": "Retour",
-      "terminer": "C'est parti !"
+      "terminer": "C'est parti !",
+      "passer": "Passer"
     },
     "profil": {
       "titre": "Mon profil",
@@ -2350,7 +2355,8 @@
         "paysFiscal": "Pays de résidence fiscal : ",
         "niu": "NIU : ",
         "attestation": "Attestation d'immatriculation fiscale :"
-      }
+      },
+      "deconnexion": "Se déconnecter"
     }
   }
 }

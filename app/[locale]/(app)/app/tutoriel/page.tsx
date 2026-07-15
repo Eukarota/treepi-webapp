@@ -7,7 +7,7 @@ import { useSession } from "@/components/app/SessionProvider";
 import { CompteEuro, obtenirCompte } from "@/lib/api/compte";
 import EcranApp from "@/components/app/EcranApp";
 import FondApp from "@/components/app/ui/FondApp";
-import NavBarApp from "@/components/app/accueil/NavBarApp";
+import CoquilleApp from "@/components/app/CoquilleApp";
 import EnTeteAccueil from "@/components/app/accueil/EnTeteAccueil";
 import CarteSolde from "@/components/app/accueil/CarteSolde";
 import Bandeaux from "@/components/app/accueil/Bandeaux";
@@ -34,18 +34,18 @@ export default function PageTutoriel() {
   const t = useTranslations("app.tuto");
   const router = useRouter();
   const { session, chargement } = useSession();
-  const [compte, setCompte] = useState<CompteEuro | null>(null);
+  // État du compte simulé, lu au montage (rien côté serveur).
+  const [compte] = useState<CompteEuro | null>(() =>
+    typeof window === "undefined" ? null : obtenirCompte(),
+  );
   const [etape, setEtape] = useState(0);
   const [cadre, setCadre] = useState<{ x: number; y: number; l: number; h: number } | null>(null);
 
   const etapes = t.raw("etapes") as EtapeTuto[];
 
+  // Garde de session.
   useEffect(() => {
-    if (!chargement && !session) {
-      router.replace("/app/bienvenue");
-      return;
-    }
-    if (session) setCompte(obtenirCompte());
+    if (!chargement && !session) router.replace("/app/bienvenue");
   }, [chargement, session, router]);
 
   /** Mesure la cible de l'étape et cadre le projecteur dessus. */
@@ -83,21 +83,37 @@ export default function PageTutoriel() {
   return (
     <EcranApp className="bg-grey-light">
       <FondApp />
-      <NavBarApp />
-
-      {/* Tableau de bord figé sous la visite guidée. */}
-      <div className="pointer-events-none relative z-10 mx-auto w-full max-w-md px-6 pb-28 pt-4" aria-hidden>
-        <div className="flex flex-col gap-4">
+      <CoquilleApp>
+        {/* Tableau de bord figé sous la visite guidée (même mise en page
+            que l'accueil, pour que le projecteur cadre les vrais blocs). */}
+        <div className="pointer-events-none mx-auto w-full max-w-md px-6 pb-28 pt-4 lg:max-w-6xl lg:px-10 lg:pb-16 lg:pt-8" aria-hidden>
           <EnTeteAccueil progression={compte.progressionProfil} />
-          <CarteSolde soldeEuros={compte.soldeEuros} />
-          <Bandeaux phase={compte.phase} />
-          <Transactions transactions={compte.transactions} />
-          <CarteAjoutVisa />
-          <ServicesTreepi />
-          <SimulateurTransfert />
-          <CarteSupport />
+
+          <div className="mt-4 flex flex-col gap-4 lg:mt-8 lg:grid lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start lg:gap-8">
+            <div className="flex flex-col gap-4 lg:min-w-0 lg:gap-6">
+              <CarteSolde soldeEuros={compte.soldeEuros} />
+              <Bandeaux phase={compte.phase} />
+              <Transactions transactions={compte.transactions} />
+              <CarteAjoutVisa />
+            </div>
+
+            <div className="flex flex-col gap-4 lg:gap-6">
+              <ServicesTreepi />
+              <SimulateurTransfert />
+              <CarteSupport />
+            </div>
+          </div>
         </div>
-      </div>
+      </CoquilleApp>
+
+      {/* Passer la visite guidée à tout moment. */}
+      <button
+        type="button"
+        onClick={terminer}
+        className="fixed right-5 top-5 z-50 rounded-full bg-white/90 px-4 py-1.5 text-sm font-bold text-dark shadow-app backdrop-blur-sm transition-colors hover:bg-white"
+      >
+        {t("passer")}
+      </button>
 
       {/* Projecteur : le voile sombre est porté par l'ombre du cadre. */}
       {cadre && (
@@ -111,9 +127,16 @@ export default function PageTutoriel() {
             className="absolute z-10 w-[248px] animate-fade-in rounded-2xl bg-white p-4 text-sm leading-[22px] text-dark shadow-app"
             key={etape}
             style={
+              // Cale la bulle sur le cadre sans déborder de l'écran.
               bulleEnHaut
-                ? { left: Math.max(16, cadre.x + 16), bottom: window.innerHeight - cadre.y + 12 }
-                : { left: Math.max(16, cadre.x + 16), top: cadre.y + cadre.h + 12 }
+                ? {
+                    left: Math.min(Math.max(16, cadre.x + 16), window.innerWidth - 264),
+                    bottom: window.innerHeight - cadre.y + 12,
+                  }
+                : {
+                    left: Math.min(Math.max(16, cadre.x + 16), window.innerWidth - 264),
+                    top: cadre.y + cadre.h + 12,
+                  }
             }
             onClick={(e) => e.stopPropagation()}
           >

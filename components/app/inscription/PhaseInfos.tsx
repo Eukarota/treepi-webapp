@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { BrouillonInscription } from "@/lib/api/types";
+import { NATIONALITES, PAYS, VILLES } from "@/lib/data/suggestions";
 import GabaritEtape from "./GabaritEtape";
 import BoutonApp from "@/components/app/ui/BoutonApp";
 import ChampTexte from "@/components/app/ui/ChampTexte";
@@ -69,7 +70,7 @@ export default function PhaseInfos({
   };
 
   /** Radio de civilité : pastille turquoise quand sélectionnée. */
-  const RadioCivilite = ({ valeur, libelle }: { valeur: "homme" | "femme"; libelle: string }) => (
+  const radioCivilite = (valeur: "homme" | "femme", libelle: string) => (
     <label className="flex cursor-pointer items-center gap-2">
       <input
         type="radio"
@@ -104,8 +105,8 @@ export default function PhaseInfos({
           <div className="flex flex-col gap-2">
             <span className="text-xs font-bold leading-[22px] text-dark">{t("infos1.civilite")}</span>
             <div className="flex items-center gap-8">
-              <RadioCivilite valeur="homme" libelle={t("infos1.homme")} />
-              <RadioCivilite valeur="femme" libelle={t("infos1.femme")} />
+              {radioCivilite("homme", t("infos1.homme"))}
+              {radioCivilite("femme", t("infos1.femme"))}
             </div>
           </div>
           <ChampTexte
@@ -147,6 +148,8 @@ export default function PhaseInfos({
           <ChampTexte
             label={t("infos2.villeNaissance")}
             name="villeNaissance"
+            list="liste-villes"
+            autoComplete="off"
             placeholder={t("infos2.villePlaceholder")}
             value={villeNaissance}
             onChange={(e) => setVilleNaissance(e.target.value)}
@@ -159,6 +162,8 @@ export default function PhaseInfos({
           <ChampTexte
             label={t("infos3.nationalite")}
             name="nationalite"
+            list="liste-nationalites"
+            autoComplete="off"
             placeholder={t("infos3.nationalitePlaceholder")}
             value={nationalite}
             onChange={(e) => setNationalite(e.target.value)}
@@ -166,7 +171,8 @@ export default function PhaseInfos({
           <ChampTexte
             label={t("infos3.pays")}
             name="paysResidence"
-            autoComplete="country-name"
+            list="liste-pays"
+            autoComplete="off"
             placeholder={t("infos3.paysPlaceholder")}
             value={paysResidence}
             onChange={(e) => setPaysResidence(e.target.value)}
@@ -174,12 +180,31 @@ export default function PhaseInfos({
           <ChampTexte
             label={t("infos3.ville")}
             name="villeResidence"
+            list="liste-villes"
+            autoComplete="off"
             placeholder={t("infos3.villePlaceholder")}
             value={villeResidence}
             onChange={(e) => setVilleResidence(e.target.value)}
           />
         </div>
       )}
+
+      {/* Listes de propositions (autocomplétion native, saisie libre gardée). */}
+      <datalist id="liste-villes">
+        {VILLES.map((v) => (
+          <option key={v} value={v} />
+        ))}
+      </datalist>
+      <datalist id="liste-nationalites">
+        {NATIONALITES.map((n) => (
+          <option key={n} value={n} />
+        ))}
+      </datalist>
+      <datalist id="liste-pays">
+        {PAYS.map((p) => (
+          <option key={p} value={p} />
+        ))}
+      </datalist>
 
       <div className="mt-auto pt-8">
         <BoutonApp disabled={!complets[sousEtape]} onClick={continuer}>

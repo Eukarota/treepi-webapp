@@ -3,11 +3,14 @@
 import { useTranslations } from "next-intl";
 
 /*
- * Carrousel de bannières (maquettes « Bannière Pré-Visa / Post-Visa ») :
- * défilement horizontal avec accroche (scroll snap). Chaque bannière :
- * zone image teintée (export aplati de la maquette, texte re-rendu
- * par-dessus en segments colorés) et pied blanc avec libellé au dégradé
- * turquoise + pilule corail.
+ * Bannières pré/post-visa (maquettes « Bannière Pré-Visa / Post-Visa »).
+ * Chaque bannière : zone image teintée (export aplati de la maquette,
+ * texte re-rendu par-dessus en segments colorés) et pied blanc avec
+ * libellé au dégradé turquoise + pilule corail.
+ *
+ * Carrousel horizontal avec accroche (scroll snap) à toutes les tailles.
+ * Les cartes ont une largeur fixe (plus large sur desktop) et défilent sous
+ * la carte du solde.
  */
 
 interface Segment {
@@ -45,17 +48,17 @@ export default function Bandeaux({ phase }: { phase: "pre-visa" | "post-visa" })
 
   return (
     <div
-      className="-mx-6 max-w-[100vw] overflow-x-auto px-6 [scrollbar-width:none] md:mx-0 md:max-w-full md:px-0"
+      className="-mx-6 overflow-x-auto px-6 [scrollbar-width:none] md:mx-0 md:px-0"
       style={{ scrollSnapType: "x mandatory" }}
     >
-      <div className="flex w-max gap-2">
+      <div className="flex w-max gap-3">
         {bandeaux.map((b) => (
           <article
             key={b.image}
-            className="h-[104px] w-[272px] shrink-0 overflow-hidden rounded-lg border border-grey-200 bg-white"
+            className="h-[104px] w-[272px] shrink-0 overflow-hidden rounded-lg border border-grey-200 bg-white lg:h-[112px] lg:w-[340px]"
             style={{ scrollSnapAlign: "start" }}
           >
-            <div className={`relative h-[72px] ${TEINTES[b.teinte]}`}>
+            <div className={`relative h-[72px] lg:h-[80px] ${TEINTES[b.teinte]}`}>
               {/* Zone image aplatie (teinte + motif + illustration), texte exclu. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -63,7 +66,7 @@ export default function Bandeaux({ phase }: { phase: "pre-visa" | "post-visa" })
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover object-right"
               />
-              <p className="relative z-10 w-[210px] px-4 py-2 text-xs font-bold leading-4 text-dark">
+              <p className="relative z-10 w-[77%] px-4 py-2 text-[10px] font-bold leading-4 text-dark">
                 {b.segments.map((s, i) => (
                   <span key={i} className={COULEURS[s.c]}>
                     {s.t}

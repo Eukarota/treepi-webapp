@@ -53,6 +53,17 @@ export default function PageBienvenue() {
           <BoutonApp variante="neutre" onClick={() => router.push("/app/connexion")}>
             {t("bienvenue.connecter")}
           </BoutonApp>
+
+          {/* Rappel des premiers pas : rejoue le walkthrough de découverte. */}
+          <button
+            type="button"
+            onClick={() => router.push("/app/decouverte")}
+            className="mx-auto mt-4 flex items-center gap-1.5 text-sm font-bold text-primary-light transition-opacity hover:opacity-70"
+          >
+            {t("bienvenue.premiersPas")}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/app/icons/arrow-right-small.svg" alt="" width={16} height={16} className="size-4" />
+          </button>
         </div>
 
         <div className="mt-8">

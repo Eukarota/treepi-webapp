@@ -6,6 +6,7 @@ import { creerCompte } from "@/lib/api/auth";
 import { BrouillonInscription } from "@/lib/api/types";
 import { useSession } from "@/components/app/SessionProvider";
 import EcranApp from "@/components/app/EcranApp";
+import FondApp from "@/components/app/ui/FondApp";
 import PhaseEmail from "@/components/app/inscription/PhaseEmail";
 import PhaseMotDePasse from "@/components/app/inscription/PhaseMotDePasse";
 import PhaseInfos from "@/components/app/inscription/PhaseInfos";
@@ -56,7 +57,9 @@ export default function PageInscription() {
   };
 
   return (
-    <EcranApp>
+    <EcranApp className="bg-grey-light">
+      {/* Fond de marque visible autour du panneau centré sur desktop. */}
+      {phase !== "bravo" && <FondApp />}
       {phase === "email" && (
         <PhaseEmail
           emailInitial={brouillon.email}

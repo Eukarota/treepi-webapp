@@ -4,10 +4,14 @@ import { useTranslations } from "next-intl";
 
 /*
  * Grille « Va plus loin avec Treepi » (composants Figma
- * « ServiceCard/Rectangle ») : cartes 2 colonnes, vignette illustrée en
- * grisé (export aplati), petite pastille d'icône colorée à cheval sur la
- * vignette, libellé en gras et chevron. Les fiches service arrivent avec
- * les flux dédiés (TODO).
+ * « ServiceCard/Rectangle ») : cartes 2 colonnes, vignette illustrée en grisé
+ * (export aplati), petite pastille d'icône colorée à cheval sur la vignette,
+ * libellé en gras et chevron. Les fiches service arrivent avec les flux
+ * dédiés (TODO).
+ *
+ * L'export aplati embarque son propre cadre arrondi ; on recadre légèrement
+ * la vignette (object-cover + léger zoom) pour que l'illustration remplisse la
+ * carte sans double bordure ni liseré blanc, avec le rayon de la carte.
  */
 
 /** Pastille d'icône par service : glyphe blanc sur fond de marque. */
@@ -39,11 +43,15 @@ export default function ServicesTreepi() {
               key={service.image}
               type="button"
               title={t("bientot")}
-              className="overflow-hidden rounded-lg border border-grey-200 bg-white text-left transition-shadow hover:shadow-app"
+              className="overflow-hidden rounded-2xl border border-grey-200 bg-white text-left transition-shadow hover:shadow-app"
             >
               <div className="relative">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`/app/accueil/${service.image}.png`} alt="" className="h-[47px] w-full object-cover" />
+                {/* Vignette : l'export est recadré (zoom léger) pour masquer
+                    son cadre d'origine et remplir la carte. */}
+                <div className="aspect-[16/10] overflow-hidden bg-grey-100">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`/app/accueil/${service.image}.png`} alt="" className="size-full scale-[1.12] object-cover" />
+                </div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/app/icons/caret-right.svg" alt="" width={16} height={16} className="absolute right-1.5 top-1.5 size-4" />
                 <span className={`absolute -bottom-2 left-2 grid size-6 place-items-center rounded-full ${visuel?.fond}`}>

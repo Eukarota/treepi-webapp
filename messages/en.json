@@ -1919,11 +1919,13 @@
       "legalConditions": "Terms of use",
       "legalEntre": " and our ",
       "legalPolitique": "Privacy policy",
-      "legalApres": "."
+      "legalApres": ".",
+      "langue": "Language"
     },
     "bienvenue": {
       "inscrire": "Sign up",
-      "connecter": "Log in"
+      "connecter": "Log in",
+      "premiersPas": "Discover Treepi in 1 min"
     },
     "connexion": {
       "identifiant": "Username",
@@ -2172,7 +2174,9 @@
           "libelle": "Card"
         }
       ],
-      "bientot": "Coming soon"
+      "bientot": "Coming soon",
+      "replier": "Collapse the menu",
+      "deplier": "Expand the menu"
     },
     "inscription": {
       "titre": "Sign up",
@@ -2300,7 +2304,8 @@
       ],
       "suivant": "Next",
       "retour": "Back",
-      "terminer": "Let's go!"
+      "terminer": "Let's go!",
+      "passer": "Skip"
     },
     "profil": {
       "titre": "My profile",
@@ -2350,7 +2355,8 @@
         "paysFiscal": "Country of tax residence: ",
         "niu": "Tax ID: ",
         "attestation": "Tax registration certificate:"
-      }
+      },
+      "deconnexion": "Log out"
     }
   }
 }
