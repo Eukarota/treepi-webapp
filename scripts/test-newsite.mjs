@@ -27,11 +27,13 @@ const BASE = 'http://localhost:3100';
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 await page.goto(BASE + '/', { waitUntil: 'networkidle' });
 
-// 3. Sélecteur de langue FR → EN conserve la page
-await page.click('button:has-text("en")');
+// 3. Sélecteur de langue FR → EN conserve la page (menu déroulant du header)
+await page.click('button[aria-haspopup="listbox"]');
+await page.click('button[role="option"]:has-text("English")');
 await page.waitForTimeout(1000);
 check('Sélecteur de langue → /en', page.url().endsWith('/en'));
-await page.click('button:has-text("fr")');
+await page.click('button[aria-haspopup="listbox"]');
+await page.click('button[role="option"]:has-text("Français")');
 await page.waitForTimeout(1000);
 
 // 4. Méga-menu Solutions

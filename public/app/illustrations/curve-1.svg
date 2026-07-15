@@ -1,0 +1,35 @@
+<svg width="320" height="443" viewBox="0 0 320 443" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<g id="V7">
+
+<g id="Onboarding">
+
+
+<g id="Walkthrough">
+<g id="Walkthrough/Services-1/4">
+<g clip-path="url(#clip0_16_283)">
+
+<g id="Curve">
+<path id="Vector 3" d="M409.5 -63C426.833 45 346.2 283 -40.9999 327" stroke="url(#paint0_linear_16_283)" stroke-width="56"/>
+<path id="Vector 2" d="M-60.9999 24.5195C-78.3333 132.52 2.29993 370.52 389.5 414.52" stroke="url(#paint1_linear_16_283)" stroke-width="56"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_16_283" x1="-40.9999" y1="132" x2="411.673" y2="132" gradientUnits="userSpaceOnUse">
+<stop stop-color="#09D1C7"/>
+<stop offset="1" stop-color="#05A0C7"/>
+</linearGradient>
+<linearGradient id="paint1_linear_16_283" x1="389.5" y1="219.52" x2="-63.1729" y2="219.52" gradientUnits="userSpaceOnUse">
+<stop stop-color="#09D1C7"/>
+<stop offset="0.501666" stop-color="#09D1C7"/>
+<stop offset="1" stop-color="#05A0C7"/>
+</linearGradient>
+<clipPath id="clip0_16_283">
+<rect width="320" height="694" rx="28" fill="white"/>
+</clipPath>
+</defs>
+</svg>

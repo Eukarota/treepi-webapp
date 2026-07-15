@@ -1,10 +1,13 @@
 /*
- * Coquille d'écran de l'application.
+ * Coquille d'écran de l'application, pensée mobile-first.
  *
- * Mobile (maquettes Figma 1:1) : l'écran occupe tout le viewport.
- * Desktop (extrapolation) : l'écran devient une carte centrée aux coins
- * arrondis posée sur le fond gris clair, à la manière des maquettes
- * (cadres 320x694 arrondis à 28px), avec l'ombre douce du design system.
+ * Mobile : reproduction 1:1 des maquettes, l'écran occupe tout le viewport
+ * et les blocs « mt-auto » (CTA) se calent en bas.
+ * Desktop : le MÊME écran s'étire en pleine page : les fonds (dégradés,
+ * volutes, courbes) couvrent tout le viewport et la colonne de contenu se
+ * centre naturellement. Chaque écran borne sa colonne avec la classe
+ * utilitaire `.colonne-app` (max-w-md centré), les écrans riches comme le
+ * tableau de bord définissent leur propre grille.
  */
 export default function EcranApp({
   children,
@@ -14,16 +17,13 @@ export default function EcranApp({
   className?: string;
 }) {
   return (
-    <div className="min-h-dvh bg-grey-light md:flex md:items-center md:justify-center md:px-6 md:py-10">
-      <div
-        className={
-          "relative flex min-h-dvh w-full flex-col overflow-hidden bg-white " +
-          "md:min-h-0 md:h-[min(780px,calc(100dvh-5rem))] md:w-[420px] md:rounded-[28px] md:shadow-app" +
-          (className ? ` ${className}` : "")
-        }
-      >
-        {children}
-      </div>
+    <div
+      className={
+        "relative flex min-h-dvh w-full flex-col overflow-x-clip bg-white" +
+        (className ? ` ${className}` : "")
+      }
+    >
+      {children}
     </div>
   );
 }

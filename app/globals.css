@@ -87,6 +87,12 @@ body {
     @apply inline-flex rounded-full bg-secondary/10 px-3.5 py-1.5 text-xs font-bold text-secondary;
   }
 
+  /* Colonne de contenu de l'application (mobile-first) : pleine largeur
+     avec les marges des maquettes sur mobile, bornée et centrée au-delà. */
+  .colonne-app {
+    @apply mx-auto flex w-full max-w-md flex-1 flex-col px-6 md:flex-none;
+  }
+
   /* -------------------------------------------------------------------
      Pied de page : reproduction 1:1 des règles du site d'origine.
      La forme vient de footer-mask.svg (desktop) / footer-mobile-mask.svg,

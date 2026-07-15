@@ -1872,5 +1872,485 @@
     "title": "Page not found",
     "body": "The page you're looking for doesn't exist or has been moved.",
     "cta": "Back to home"
+  },
+  "app": {
+    "lancement": {
+      "tagline": "Travel. Pay. Push your limits.",
+      "version": "Version 00.00.0"
+    },
+    "walkthrough": {
+      "suivant": "Next",
+      "retour": "Back",
+      "slides": [
+        {
+          "avant": "The ",
+          "cle1": "Euro account",
+          "milieu": " connecting ",
+          "cle2": "African travellers",
+          "apres": " to a wider world"
+        },
+        {
+          "avant": "Open your ",
+          "cle1": "Euro account",
+          "milieu": " in minutes with your ",
+          "cle2": "African passport",
+          "apres": ""
+        },
+        {
+          "avant": "A ",
+          "cle1": "proof of funds",
+          "milieu": " recognised and trusted to get your ",
+          "cle2": "Schengen visa",
+          "apres": ""
+        },
+        {
+          "avant": "An ",
+          "cle1": "international card",
+          "milieu": " to pay stress-free during your ",
+          "cle2": "trip abroad",
+          "apres": ""
+        }
+      ]
+    },
+    "commun": {
+      "bienvenueSur": "Welcome to",
+      "treepi": "Treepi",
+      "legalAvant": "By continuing, you accept our ",
+      "legalConditions": "Terms of use",
+      "legalEntre": " and our ",
+      "legalPolitique": "Privacy policy",
+      "legalApres": "."
+    },
+    "bienvenue": {
+      "inscrire": "Sign up",
+      "connecter": "Log in"
+    },
+    "connexion": {
+      "identifiant": "Username",
+      "identifiantPlaceholder": "Your email address",
+      "motDePasse": "Password",
+      "motDePassePlaceholder": "Your password",
+      "oublie": "Forgot password?",
+      "connecter": "Log in",
+      "erreurEmail": "Invalid email address",
+      "erreurMotDePasse": "Incorrect password.",
+      "tentativesRestantes": "You have <b>{restantes} {restantes, plural, one {attempt} other {attempts}}</b> left to log in.",
+      "compteVerrouille": "Your account is temporarily locked. Reset your password to continue.",
+      "modalResetTitreAvant": "Reset your ",
+      "modalResetTitreCle": "password",
+      "modalResetCorps": "For security reasons we recommend resetting your password, a new code will be sent to you.",
+      "modalResetBouton": "I reset my password",
+      "modalEmailTitreAvant": "Check your ",
+      "modalEmailTitreCle": "email",
+      "modalEmailCorpsAvant": "We have sent instructions to reset your password to ",
+      "modalEmailBouton": "Okay",
+      "fermer": "Close"
+    },
+    "accueil": {
+      "hello": "Hello, ",
+      "recharger": "Top up",
+      "actions": [
+        {
+          "cle": "transactions",
+          "libelle": "Transactions"
+        },
+        {
+          "cle": "convertir",
+          "libelle": "Convert"
+        },
+        {
+          "cle": "rib",
+          "libelle": "IBAN"
+        },
+        {
+          "cle": "abonnement",
+          "libelle": "Plan"
+        }
+      ],
+      "bannieresPre": [
+        {
+          "image": "banniere-previsa-recharge",
+          "teinte": "bleu",
+          "pied": "Travel with peace of mind",
+          "cta": "Top up",
+          "plus": true,
+          "segments": [
+            {
+              "t": "Add money to your account to ",
+              "c": "n"
+            },
+            {
+              "t": "prove your income",
+              "c": "t"
+            },
+            {
+              "t": " and ",
+              "c": "n"
+            },
+            {
+              "t": "cover your expenses",
+              "c": "c"
+            },
+            {
+              "t": " during your stay.",
+              "c": "n"
+            }
+          ]
+        },
+        {
+          "image": "banniere-previsa-coaching",
+          "teinte": "peche",
+          "pied": "Visa support",
+          "cta": "See the offer",
+          "plus": false,
+          "segments": [
+            {
+              "t": "Is your profile 100% complete? ",
+              "c": "n"
+            },
+            {
+              "t": "Enjoy 1 hour of free coaching",
+              "c": "t"
+            },
+            {
+              "t": " with our experts.",
+              "c": "n"
+            }
+          ]
+        },
+        {
+          "image": "banniere-previsa-voyage",
+          "teinte": "turquoise",
+          "pied": "Push your limits",
+          "cta": "Learn more",
+          "plus": false,
+          "segments": [
+            {
+              "t": "Travelling should never be a privilege, but a right. Our fight is to make ",
+              "c": "n"
+            },
+            {
+              "t": "every trip possible",
+              "c": "c"
+            },
+            {
+              "t": ".",
+              "c": "n"
+            }
+          ]
+        }
+      ],
+      "bannieresPost": [
+        {
+          "image": "banniere-postvisa-recharge",
+          "teinte": "bleu",
+          "pied": "Enjoy your stay",
+          "cta": "Top up",
+          "plus": true,
+          "segments": [
+            {
+              "t": "Insufficient funds? ",
+              "c": "c"
+            },
+            {
+              "t": "Add money to your account ",
+              "c": "n"
+            },
+            {
+              "t": "at any time",
+              "c": "t"
+            },
+            {
+              "t": " to keep paying.",
+              "c": "n"
+            }
+          ]
+        },
+        {
+          "image": "banniere-postvisa-service",
+          "teinte": "peche",
+          "pied": "Treepi customer service",
+          "cta": "Contact us",
+          "plus": false,
+          "segments": [
+            {
+              "t": "Even far from home, ",
+              "c": "n"
+            },
+            {
+              "t": "you are not alone",
+              "c": "t"
+            },
+            {
+              "t": ". Our team is always by your side, ready to listen and help.",
+              "c": "n"
+            }
+          ]
+        },
+        {
+          "image": "banniere-postvisa-retour",
+          "teinte": "turquoise",
+          "pied": "Push your limits",
+          "cta": "Learn more",
+          "plus": false,
+          "segments": [
+            {
+              "t": "You never come back from a trip the way you left: ",
+              "c": "n"
+            },
+            {
+              "t": "you come back different, grown, ",
+              "c": "c"
+            },
+            {
+              "t": "richer in heart and mind",
+              "c": "t"
+            },
+            {
+              "t": ".",
+              "c": "n"
+            }
+          ]
+        }
+      ],
+      "transactions": "Transactions",
+      "voirTout": "See all",
+      "aucuneTransaction": "No transactions",
+      "ajoutVisaTitre": "Add my visa",
+      "ajoutVisaTexte": "Tell us whether you got your visa or not",
+      "servicesTitre": "Go further with Treepi",
+      "services": [
+        {
+          "libelle": "Financial guarantee certificate",
+          "image": "service-attestation"
+        },
+        {
+          "libelle": "Visa appeal insurance",
+          "image": "service-recours"
+        },
+        {
+          "libelle": "Visa application support",
+          "image": "service-accompagnement"
+        },
+        {
+          "libelle": "Accommodation booking",
+          "image": "service-hebergement"
+        }
+      ],
+      "simulateurTitre": "Transfer simulator",
+      "simulateurSource": "Source: ",
+      "simulateurClause": "Disclaimer",
+      "simulateurEquivalent": "The equivalent amount in local currency",
+      "simulateurTaux": "(exchange rate 1.00 EUR = {taux} FCFA)",
+      "simulateurAujourdhui": "Today",
+      "simulateurFrais": "Fees may be included",
+      "simulateurTransferer": "Transfer",
+      "supportAvant": "At ",
+      "supportMarque": "Treepi",
+      "supportApres": ", we believe in always-available customer care. Real people listening to you",
+      "supportPied": "A service that travels with you",
+      "supportCta": "Learn more",
+      "nav": [
+        {
+          "cle": "virement",
+          "libelle": "Transfer"
+        },
+        {
+          "cle": "recharger",
+          "libelle": "Top up"
+        },
+        {
+          "cle": "accueil",
+          "libelle": "Home"
+        },
+        {
+          "cle": "voyage",
+          "libelle": "Travel"
+        },
+        {
+          "cle": "carte",
+          "libelle": "Card"
+        }
+      ],
+      "bientot": "Coming soon"
+    },
+    "inscription": {
+      "titre": "Sign up",
+      "retour": "Back",
+      "quitter": "Leave sign-up",
+      "continuer": "Continue",
+      "phases": {
+        "email": {
+          "titreAvant": "Let's start with your ",
+          "titreCle": "email",
+          "description": "Please enter your correct email address to guarantee secure access"
+        },
+        "motDePasse": {
+          "titreAvant": "Your ",
+          "titreCle": "password",
+          "description": "Create your secure password and memorise it well. It will let you log in to your account"
+        },
+        "infos": {
+          "titreAvant": "Your personal ",
+          "titreCle": "details",
+          "description": "This information must be exact and identical to what is written on your passport"
+        },
+        "telephone": {
+          "titreAvant": "Your phone ",
+          "titreCle": "number",
+          "description": "Enter then authenticate your phone number. It is essential to secure your transactions"
+        }
+      },
+      "email1": {
+        "label": "Email",
+        "placeholder": "Email",
+        "erreurExistant": "An account already exists with this email."
+      },
+      "email2": {
+        "envoye": "An authentication code has been sent to the following email address:",
+        "spamAvant": "Your code may be in your spam or junk folder. If so, we recommend adding ",
+        "spamMarque": "Treepi",
+        "spamApres": " to your trusted senders.",
+        "expiration": "The code will expire in 24 hours.",
+        "entrerCode": "Enter the code",
+        "renvoyer": "Resend the code",
+        "mauvaiseAdresse": "This is not the right email address"
+      },
+      "email3": {
+        "consigne": "Enter the code you received below:",
+        "label": "OTP code",
+        "verifier": "Verify",
+        "renvoyer": "Resend the code",
+        "erreur": "Incorrect code. Check your inbox."
+      },
+      "motDePasse": {
+        "label": "Password",
+        "placeholder": "Choose your password",
+        "securite": "Security",
+        "aideInitiale": "Your password must be long enough, unique and hard for others to guess.",
+        "aideFaible": "Your password is too weak.",
+        "aideMoyenne": "Better, but not quite enough",
+        "aideForte": "Well done 🎉 That's a secure password",
+        "doitContenir": "The password must contain",
+        "regles": [
+          "8 characters",
+          "1 uppercase character",
+          "1 special character (.$%*£/? etc)"
+        ]
+      },
+      "infos1": {
+        "civilite": "Title",
+        "homme": "Male",
+        "femme": "Female",
+        "prenom": "First name",
+        "prenomPlaceholder": "Your first name",
+        "nom": "Last name",
+        "nomPlaceholder": "Your family name"
+      },
+      "infos2": {
+        "dateNaissance": "Date of birth",
+        "datePlaceholder": "DD/MM/YYYY",
+        "villeNaissance": "City of birth",
+        "villePlaceholder": "Your city of birth",
+        "selectionner": "Select",
+        "moisPrecedent": "Previous month",
+        "moisSuivant": "Next month"
+      },
+      "infos3": {
+        "nationalite": "Nationality",
+        "nationalitePlaceholder": "Your nationality",
+        "pays": "Country of residence",
+        "paysPlaceholder": "Your country of residence",
+        "ville": "City",
+        "villePlaceholder": "Your city of residence"
+      },
+      "telephone": {
+        "label": "Phone number",
+        "placeholder": "06 00 00 00 00"
+      },
+      "bravo": {
+        "titre1": "Congrats!",
+        "titre2Avant": "Your account has been created ",
+        "titre2Cle": "successfully",
+        "continuer": "Continue"
+      }
+    },
+    "activation": {
+      "biometrie": "Or use fingerprint or face recognition",
+      "felicitationsAvant": "Congratulations, your ",
+      "felicitationsCle": "Euro account",
+      "felicitationsApres": " has been created",
+      "sousTitre": "Your journey starts right now!",
+      "acceder": "Go to my Euro account"
+    },
+    "tuto": {
+      "etapes": [
+        {
+          "cible": "carte",
+          "texte": "Add money to fund your trip"
+        },
+        {
+          "cible": "services",
+          "texte": "Everything you need for your visa and your stay, in one place: financial guarantee, insurance, support and much more..."
+        },
+        {
+          "cible": "simulateur",
+          "texte": "Total transparency: simulate your top-up amount and know exactly how much you will receive on your Euro account."
+        }
+      ],
+      "suivant": "Next",
+      "retour": "Back",
+      "terminer": "Let's go!"
+    },
+    "profil": {
+      "titre": "My profile",
+      "fermer": "Close",
+      "retour": "Back",
+      "statsPays": "Countries visited",
+      "statsVoyages": "Trips",
+      "statsDuree": "Avg. length",
+      "statsJours": "d",
+      "sectionTitre": "My profile",
+      "infoPerso": "Personal info",
+      "infoPersoSous": "Great, let's get to know each other!",
+      "infoPro": "Professional info",
+      "infoProSous": "We want to know more about your professional situation",
+      "infoFi": "Financial info",
+      "infoFiSous": "To prove your solvency to consular services for your trip",
+      "version": "Version 00.00.0",
+      "aRenseigner": "To be completed",
+      "perso": {
+        "titre": "Personal info",
+        "nom": "Last name",
+        "prenom": "First name",
+        "civilite": "Title",
+        "homme": "Male",
+        "femme": "Female",
+        "telephone": "Phone number",
+        "email": "Email address"
+      },
+      "pro": {
+        "titre": "Professional info",
+        "situation": "Professional situation",
+        "contrat": "Contract type",
+        "secteur": "Business sector",
+        "organisme": "Organisation",
+        "organismeNom": "Name: ",
+        "organismeDepuis": "Working there since: "
+      },
+      "fi": {
+        "titre": "Financial info",
+        "ressources": "Financial resources",
+        "revenu": "Monthly income: ",
+        "patrimoine": "Assets: ",
+        "statut": "Status",
+        "statutUs": "I certify that I am not a US person",
+        "statutPpe": "I certify that I am not a politically exposed person",
+        "fiscales": "Tax information",
+        "paysFiscal": "Country of tax residence: ",
+        "niu": "Tax ID: ",
+        "attestation": "Tax registration certificate:"
+      }
+    }
   }
 }

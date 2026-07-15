@@ -23,9 +23,13 @@ const config: Config = {
         "navy-card": "#1a2c52",
         // Jetons de l'application mobile (variables Figma « Treepi App »).
         "grey-100": "#edeef1",
+        "grey-200": "#d6dae1",
         "grey-300": "#b3bbc6",
+        "grey-700": "#556074",
         danger: "#f83b3d",
         error: "#f55858",
+        peach: "#ffd7a9",
+        success: "#22c55e",
       },
       boxShadow: {
         // Ombre douce des cartes/modales de l'app (Effect « shadow » Figma).
@@ -50,11 +54,17 @@ const config: Config = {
         xs: "400px",
       },
       animation: {
+        // Apparition douce (écrans de l'app : logo, illustrations, modales).
+        "fade-in": "fade-in 0.8s ease-out both",
         "text-slide": "text-slide 15s cubic-bezier(0.83, 0, 0.17, 1) infinite",
         "slide-vertical": "slide-vertical 15s ease-in-out infinite forwards",
         "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
       },
       keyframes: {
+        "fade-in": {
+          from: { opacity: "0", transform: "translateY(8px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
         "text-slide": {
           "0%, 13%": { transform: "translateY(0)" },
           "17%, 30%": { transform: "translateY(-16.66%)" },

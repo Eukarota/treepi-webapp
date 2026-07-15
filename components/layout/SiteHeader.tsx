@@ -28,24 +28,49 @@ function NavLink({ href, label, onClick }: { href: string; label: string; onClic
   );
 }
 
+/* Icône globe (façon Apple) : une langue n'est pas un pays, donc pas de drapeau. */
+function Globe({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`h-[18px] w-[18px] shrink-0 ${className}`}
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18" />
+      <path d="M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9s1.3-6.4 3.8-9z" />
+    </svg>
+  );
+}
+
 /*
  * Langues disponibles. Pour en ajouter une : compléter cette liste (et la
- * config `routing`/les fichiers `messages/*.json`). Le drapeau est un emoji
- * régional — léger et sans asset à charger.
+ * config `routing`/les fichiers `messages/*.json`).
  */
-type LangOption = { code: Locale; label: string; flag: string };
+type LangOption = { code: Locale; label: string };
 
 const LANGUAGES: LangOption[] = [
-  { code: "fr", label: "Français", flag: "🇫🇷" },
-  { code: "en", label: "English", flag: "🇬🇧" },
+  { code: "fr", label: "Français" },
+  { code: "en", label: "English" },
 ];
 
-/* Sélecteur de langue : menu déroulant drapeau + libellé, garde la page courante. */
+/*
+ * Sélecteur de langue : pastille discrète + menu translucide façon macOS.
+ * Ouverture/fermeture animées (fondu + léger zoom depuis le haut-droite),
+ * clic extérieur et touche Échap pour refermer, page courante conservée.
+ */
 function LangSwitcher() {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false); // présent dans le DOM (le temps de l'animation de sortie)
+  const [shown, setShown] = useState(false); // état visible cible (déclenche la transition)
   const ref = useRef<HTMLDivElement>(null);
 
   const current = LANGUAGES.find((l) => l.code === locale) ?? LANGUAGES[0];
@@ -54,6 +79,19 @@ function LangSwitcher() {
     setOpen(false);
     if (target !== locale) router.replace(pathname, { locale: target });
   };
+
+  // Monte le panneau puis, à la frame suivante, bascule en état « visible »
+  // pour jouer l'animation ; à la fermeture, démonte après la transition.
+  useEffect(() => {
+    if (open) {
+      setMounted(true);
+      const id = requestAnimationFrame(() => setShown(true));
+      return () => cancelAnimationFrame(id);
+    }
+    setShown(false);
+    const t = setTimeout(() => setMounted(false), 160);
+    return () => clearTimeout(t);
+  }, [open]);
 
   // Ferme au clic extérieur et à la touche Échap.
   useEffect(() => {
@@ -77,46 +115,49 @@ function LangSwitcher() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className={`flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-sm font-medium transition-colors duration-200 hover:bg-primary/5 hover:text-primary ${
-          open ? "bg-primary/5 text-primary" : "text-navy"
+        className={`flex items-center gap-2 rounded-full px-2.5 py-1.5 text-sm font-medium text-navy transition-colors duration-200 hover:bg-black/[0.04] ${
+          open ? "bg-black/[0.05]" : ""
         }`}
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={`Langue : ${current.label}`}
       >
-        <span className="text-base leading-none">{current.flag}</span>
-        <span className="uppercase">{current.code}</span>
+        <Globe />
+        <span className="uppercase tracking-wide">{current.code}</span>
         <svg
           width="10"
           height="6"
           viewBox="0 0 10 6"
           fill="none"
-          className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          className={`text-grey transition-transform duration-200 ${open ? "rotate-180" : ""}`}
         >
           <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </button>
 
-      {open && (
+      {mounted && (
         <ul
           role="listbox"
-          className="absolute right-0 top-full z-50 mt-2 min-w-[168px] overflow-hidden rounded-xl bg-white p-1.5 shadow-[0_20px_60px_rgba(18,35,71,0.18)]"
+          className={`absolute right-0 top-full z-50 mt-2 min-w-[180px] origin-top-right overflow-hidden rounded-2xl border border-black/[0.06] bg-white/80 p-1.5 shadow-[0_12px_40px_rgba(18,35,71,0.14)] backdrop-blur-xl transition duration-150 ease-out ${
+            shown ? "scale-100 opacity-100 translate-y-0" : "scale-95 opacity-0 -translate-y-1"
+          }`}
         >
           {LANGUAGES.map((l) => {
             const active = l.code === locale;
             return (
-              <li key={l.code} role="option" aria-selected={active}>
+              <li key={l.code}>
                 <button
                   type="button"
+                  role="option"
+                  aria-selected={active}
                   onClick={() => switchTo(l.code)}
-                  className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm transition-colors duration-200 ${
-                    active ? "bg-primary/5 font-bold text-primary" : "font-medium text-navy hover:bg-primary/5 hover:text-primary"
+                  className={`flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-sm transition-colors duration-150 ${
+                    active ? "font-semibold text-primary" : "font-medium text-navy hover:bg-black/[0.04]"
                   }`}
                 >
-                  <span className="text-base leading-none">{l.flag}</span>
                   <span className="flex-1 text-left">{l.label}</span>
                   {active && (
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <svg width="15" height="15" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="text-primary">
                       <path d="M11.5 4L6 9.5 3 6.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   )}
@@ -241,11 +282,11 @@ export default function SiteHeader() {
         {/* Actions à droite */}
         <div className="ml-auto hidden items-center gap-2 lg:flex">
           <LangSwitcher />
-          {/* TODO (phase webapp) : brancher sur les vraies pages d'authentification. */}
-          <Button variant="ghost" size="sm" href="/compte-euro">
+          {/* Entrées de l'application : connexion et inscription. */}
+          <Button variant="ghost" size="sm" href="/app/connexion">
             {t("login")}
           </Button>
-          <Button variant="primary" size="md" href="/compte-euro">
+          <Button variant="primary" size="md" href="/app/inscription">
             {t("signup")}
           </Button>
         </div>
@@ -289,10 +330,10 @@ export default function SiteHeader() {
           </div>
           <div className="flex items-center gap-3">
             <LangSwitcher />
-            <Button variant="ghost" size="sm" href="/compte-euro" onClick={closeAll}>
+            <Button variant="ghost" size="sm" href="/app/connexion" onClick={closeAll}>
               {t("login")}
             </Button>
-            <Button variant="primary" size="md" href="/compte-euro" className="flex-1" onClick={closeAll}>
+            <Button variant="primary" size="md" href="/app/inscription" className="flex-1" onClick={closeAll}>
               {t("signup")}
             </Button>
           </div>

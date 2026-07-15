@@ -80,34 +80,48 @@ function memoriserTentatives(email: string, nombre: number): void {
  * Connexion par email + mot de passe.
  * Applique la règle des 3 tentatives puis renvoie "compte-verrouille".
  */
+/**
+ * MODE TEST : tant que le backend n'existe pas, la connexion réussit
+ * toujours pour permettre de naviguer dans l'app. Si l'email correspond à
+ * un compte connu, on le charge ; sinon on fabrique un utilisateur de test
+ * à la volée. Repasser à false pour retrouver la règle des 3 tentatives.
+ */
+const AUTH_TOUJOURS_OK = true;
+
 export async function seConnecter(
   email: string,
   motDePasse: string
 ): Promise<ResultatApi<Session> & { tentativesRestantes?: number }> {
   await latenceReseau();
   const emailNormalise = email.trim().toLowerCase();
-
-  if (tentativesRatees(emailNormalise) >= MAX_TENTATIVES) {
-    return { ok: false, erreur: "Compte temporairement verrouillé.", code: "compte-verrouille" };
-  }
-
   const compte = chargerComptes().find((c) => c.utilisateur.email === emailNormalise);
-  if (!compte || compte.motDePasse !== motDePasse) {
-    const ratees = tentativesRatees(emailNormalise) + 1;
-    memoriserTentatives(emailNormalise, ratees);
-    if (ratees >= MAX_TENTATIVES) {
-      return { ok: false, erreur: "Compte temporairement verrouillé.", code: "compte-verrouille", tentativesRestantes: 0 };
+
+  if (!AUTH_TOUJOURS_OK) {
+    if (tentativesRatees(emailNormalise) >= MAX_TENTATIVES) {
+      return { ok: false, erreur: "Compte temporairement verrouillé.", code: "compte-verrouille" };
     }
-    return {
-      ok: false,
-      erreur: "Email ou mot de passe incorrect.",
-      code: "identifiants-invalides",
-      tentativesRestantes: MAX_TENTATIVES - ratees,
-    };
+    if (!compte || compte.motDePasse !== motDePasse) {
+      const ratees = tentativesRatees(emailNormalise) + 1;
+      memoriserTentatives(emailNormalise, ratees);
+      if (ratees >= MAX_TENTATIVES) {
+        return { ok: false, erreur: "Compte temporairement verrouillé.", code: "compte-verrouille", tentativesRestantes: 0 };
+      }
+      return {
+        ok: false,
+        erreur: "Email ou mot de passe incorrect.",
+        code: "identifiants-invalides",
+        tentativesRestantes: MAX_TENTATIVES - ratees,
+      };
+    }
   }
+
+  // Compte connu ou utilisateur de test improvisé (MODE TEST).
+  const utilisateur: Utilisateur = compte
+    ? compte.utilisateur
+    : { ...COMPTE_DEMO.utilisateur, id: genererId(), email: emailNormalise || COMPTE_DEMO.utilisateur.email };
 
   memoriserTentatives(emailNormalise, 0);
-  const session: Session = { utilisateur: compte.utilisateur, jeton: genererId() };
+  const session: Session = { utilisateur, jeton: genererId() };
   ecrireStockage("session", session);
   return { ok: true, donnees: session };
 }

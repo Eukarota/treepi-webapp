@@ -1872,5 +1872,485 @@
     "title": "Page introuvable",
     "body": "La page que tu cherches n'existe pas ou a été déplacée.",
     "cta": "Retour à l'accueil"
+  },
+  "app": {
+    "lancement": {
+      "tagline": "Voyage. Paye. Dépasse tes limites.",
+      "version": "Version 00.00.0"
+    },
+    "walkthrough": {
+      "suivant": "Suivant",
+      "retour": "Retour",
+      "slides": [
+        {
+          "avant": "Le ",
+          "cle1": "compte Euro",
+          "milieu": " qui connecte les ",
+          "cle2": "voyageurs africains",
+          "apres": " à un monde plus vaste"
+        },
+        {
+          "avant": "Ouvre ton ",
+          "cle1": "compte Euro",
+          "milieu": " en quelques minutes avec ton ",
+          "cle2": "passeport africain",
+          "apres": ""
+        },
+        {
+          "avant": "Un ",
+          "cle1": "justificatif de ressources",
+          "milieu": " reconnu et fiable pour obtenir ton ",
+          "cle2": "visa schengen",
+          "apres": ""
+        },
+        {
+          "avant": "Une ",
+          "cle1": "carte internationale",
+          "milieu": " pour payer no stress pendant ton ",
+          "cle2": "voyage à l'étranger",
+          "apres": ""
+        }
+      ]
+    },
+    "commun": {
+      "bienvenueSur": "Bienvenue sur",
+      "treepi": "Treepi",
+      "legalAvant": "En continuant, tu acceptes nos ",
+      "legalConditions": "Conditions d'utilisation",
+      "legalEntre": " et notre ",
+      "legalPolitique": "Politique de confidentialité",
+      "legalApres": "."
+    },
+    "bienvenue": {
+      "inscrire": "S'inscrire",
+      "connecter": "Se connecter"
+    },
+    "connexion": {
+      "identifiant": "Identifiant",
+      "identifiantPlaceholder": "Ton adresse email",
+      "motDePasse": "Mot de passe",
+      "motDePassePlaceholder": "Ton mot de passe",
+      "oublie": "Mot de passe oublié ?",
+      "connecter": "Se connecter",
+      "erreurEmail": "Mauvaise adresse mail",
+      "erreurMotDePasse": "Mot de passe incorrect.",
+      "tentativesRestantes": "Il vous reste <b>{restantes} {restantes, plural, one {tentative} other {tentatives}}</b> pour te connecter.",
+      "compteVerrouille": "Ton compte est temporairement verrouillé. Réinitialise ton mot de passe pour continuer.",
+      "modalResetTitreAvant": "Réinitialise ton ",
+      "modalResetTitreCle": "mot de passe",
+      "modalResetCorps": "Pour des raisons de sécurité nous te recommandons de réinitialiser ton mot de passe, un nouveau code te sera envoyé.",
+      "modalResetBouton": "Je réinitialise mon mot de passe",
+      "modalEmailTitreAvant": "Vérifie ton ",
+      "modalEmailTitreCle": "email",
+      "modalEmailCorpsAvant": "Nous avons envoyé des instructions pour réinitialiser ton mot de passe à ",
+      "modalEmailBouton": "Okay",
+      "fermer": "Fermer"
+    },
+    "accueil": {
+      "hello": "Hello, ",
+      "recharger": "Recharger",
+      "actions": [
+        {
+          "cle": "transactions",
+          "libelle": "Transactions"
+        },
+        {
+          "cle": "convertir",
+          "libelle": "Convertir"
+        },
+        {
+          "cle": "rib",
+          "libelle": "RIB"
+        },
+        {
+          "cle": "abonnement",
+          "libelle": "Abonnement"
+        }
+      ],
+      "bannieresPre": [
+        {
+          "image": "banniere-previsa-recharge",
+          "teinte": "bleu",
+          "pied": "Voyage l'esprit tranquille",
+          "cta": "Recharger",
+          "plus": true,
+          "segments": [
+            {
+              "t": "Ajoute de l'argent sur ton compte pour ",
+              "c": "n"
+            },
+            {
+              "t": "justifier tes revenus",
+              "c": "t"
+            },
+            {
+              "t": " et ",
+              "c": "n"
+            },
+            {
+              "t": "couvrir tes dépenses",
+              "c": "c"
+            },
+            {
+              "t": " durant ton séjour.",
+              "c": "n"
+            }
+          ]
+        },
+        {
+          "image": "banniere-previsa-coaching",
+          "teinte": "peche",
+          "pied": "Accompagnement visa",
+          "cta": "Voir l'offre",
+          "plus": false,
+          "segments": [
+            {
+              "t": "Ton profil est complet à 100% ? ",
+              "c": "n"
+            },
+            {
+              "t": "Bénéficie de 1H de coaching gratuite",
+              "c": "t"
+            },
+            {
+              "t": " avec nos experts.",
+              "c": "n"
+            }
+          ]
+        },
+        {
+          "image": "banniere-previsa-voyage",
+          "teinte": "turquoise",
+          "pied": "Dépasse tes limites",
+          "cta": "En savoir plus",
+          "plus": false,
+          "segments": [
+            {
+              "t": "Voyager ne devrait jamais être un privilège, mais un droit. Notre combat est de rendre ",
+              "c": "n"
+            },
+            {
+              "t": "chaque voyage possible",
+              "c": "c"
+            },
+            {
+              "t": ".",
+              "c": "n"
+            }
+          ]
+        }
+      ],
+      "bannieresPost": [
+        {
+          "image": "banniere-postvisa-recharge",
+          "teinte": "bleu",
+          "pied": "Profite de ton séjour",
+          "cta": "Recharger",
+          "plus": true,
+          "segments": [
+            {
+              "t": "Fond insuffisant ? ",
+              "c": "c"
+            },
+            {
+              "t": "Ajoute de l'argent sur ton compte ",
+              "c": "n"
+            },
+            {
+              "t": "à tout moment",
+              "c": "t"
+            },
+            {
+              "t": " pour continuer à payer.",
+              "c": "n"
+            }
+          ]
+        },
+        {
+          "image": "banniere-postvisa-service",
+          "teinte": "peche",
+          "pied": "Service client Treepi",
+          "cta": "Contacter",
+          "plus": false,
+          "segments": [
+            {
+              "t": "Même loin de ton pays, ",
+              "c": "n"
+            },
+            {
+              "t": "tu n'es pas seul",
+              "c": "t"
+            },
+            {
+              "t": ". Notre équipe est toujours à tes côtés, prête à t'écouter et t'aider.",
+              "c": "n"
+            }
+          ]
+        },
+        {
+          "image": "banniere-postvisa-retour",
+          "teinte": "turquoise",
+          "pied": "Dépasse tes limites",
+          "cta": "En savoir plus",
+          "plus": false,
+          "segments": [
+            {
+              "t": "On ne revient jamais d'un voyage comme on est parti : ",
+              "c": "n"
+            },
+            {
+              "t": "on revient différent, grandi, ",
+              "c": "c"
+            },
+            {
+              "t": "le coeur et l'esprit plus riche",
+              "c": "t"
+            },
+            {
+              "t": ".",
+              "c": "n"
+            }
+          ]
+        }
+      ],
+      "transactions": "Transactions",
+      "voirTout": "Voir tout",
+      "aucuneTransaction": "Aucunes transactions",
+      "ajoutVisaTitre": "Ajouter mon visa",
+      "ajoutVisaTexte": "Indique si tu as obtenu ton visa ou pas",
+      "servicesTitre": "Va plus loin avec Treepi",
+      "services": [
+        {
+          "libelle": "Attestation de garantie financière",
+          "image": "service-attestation"
+        },
+        {
+          "libelle": "Assurance recours visa",
+          "image": "service-recours"
+        },
+        {
+          "libelle": "Accompagnement obtention de visa",
+          "image": "service-accompagnement"
+        },
+        {
+          "libelle": "Réservation d'hébergement",
+          "image": "service-hebergement"
+        }
+      ],
+      "simulateurTitre": "Simulateur de transfert",
+      "simulateurSource": "Source : ",
+      "simulateurClause": "Clause de non-responsabilité",
+      "simulateurEquivalent": "Le montant équivalent en devise locale",
+      "simulateurTaux": "(taux de change 1.00 EUR = {taux} FCFA)",
+      "simulateurAujourdhui": "Aujourd'hui",
+      "simulateurFrais": "Des frais peuvent être inclus",
+      "simulateurTransferer": "Transférer",
+      "supportAvant": "Chez ",
+      "supportMarque": "Treepi",
+      "supportApres": ", on mise sur une relation client toujours disponible. De vraies personnes à ton écoute",
+      "supportPied": "Un service qui voyage avec toi",
+      "supportCta": "En savoir plus",
+      "nav": [
+        {
+          "cle": "virement",
+          "libelle": "Virement"
+        },
+        {
+          "cle": "recharger",
+          "libelle": "Recharger"
+        },
+        {
+          "cle": "accueil",
+          "libelle": "Accueil"
+        },
+        {
+          "cle": "voyage",
+          "libelle": "Voyage"
+        },
+        {
+          "cle": "carte",
+          "libelle": "Carte"
+        }
+      ],
+      "bientot": "Bientôt disponible"
+    },
+    "inscription": {
+      "titre": "Inscription",
+      "retour": "Retour",
+      "quitter": "Quitter l'inscription",
+      "continuer": "Continuer",
+      "phases": {
+        "email": {
+          "titreAvant": "Commençons par ton ",
+          "titreCle": "email",
+          "description": "Merci de bien vouloir entrer ton adresse email correcte afin de garantir un accès sécurisé"
+        },
+        "motDePasse": {
+          "titreAvant": "Ton ",
+          "titreCle": "mot de passe",
+          "description": "Crée ton mot de passe sécurisé et mémorise-le bien. Il te permettra de te connecter à ton compte"
+        },
+        "infos": {
+          "titreAvant": "Tes informations ",
+          "titreCle": "personnelles",
+          "description": "Ces informations doivent être exactes et identiques à ce qui est écrit sur ton passeport"
+        },
+        "telephone": {
+          "titreAvant": "Ton numéro de ",
+          "titreCle": "téléphone",
+          "description": "Saisie puis authentifie ton numéro de téléphone. Il est indispensable pour sécuriser tes transactions"
+        }
+      },
+      "email1": {
+        "label": "Email",
+        "placeholder": "Email",
+        "erreurExistant": "Un compte existe déjà avec cet email."
+      },
+      "email2": {
+        "envoye": "Un code d'authentification a été envoyé à l'adresse email suivante :",
+        "spamAvant": "Ton code peut se trouver dans ton dossier spam ou courrier indésirable. Si c'est le cas, nous te recommandons d'ajouter ",
+        "spamMarque": "Treepi",
+        "spamApres": " parmi tes expéditeurs de confiance.",
+        "expiration": "Le code expirera dans 24 heures.",
+        "entrerCode": "Entre le code",
+        "renvoyer": "Renvoyer le code",
+        "mauvaiseAdresse": "Ce n'est pas la bonne adresse email"
+      },
+      "email3": {
+        "consigne": "Saisie ci-dessous le code reçu :",
+        "label": "Code OTP",
+        "verifier": "Vérifier",
+        "renvoyer": "Renvoyer le code",
+        "erreur": "Code incorrect. Vérifie ta boîte mail."
+      },
+      "motDePasse": {
+        "label": "Mot de passe",
+        "placeholder": "Choisis ton mot de passe",
+        "securite": "Sécurité",
+        "aideInitiale": "Ton mot de passe doit être suffisamment long, unique et difficile à deviner pour les autres.",
+        "aideFaible": "Ton mot de passe est trop faible.",
+        "aideMoyenne": "C'est mieux mais pas encore assez",
+        "aideForte": "Bien joué 🎉 Voilà un mot de passe sécurisé",
+        "doitContenir": "Le mot de passe doit contenir",
+        "regles": [
+          "8 caractères",
+          "1 caractère majuscule",
+          "1 caractère spécial (.$%*£/? etc)"
+        ]
+      },
+      "infos1": {
+        "civilite": "Civilité",
+        "homme": "Homme",
+        "femme": "Femme",
+        "prenom": "Prénom",
+        "prenomPlaceholder": "Ton prénom",
+        "nom": "Nom",
+        "nomPlaceholder": "Ton nom de famille"
+      },
+      "infos2": {
+        "dateNaissance": "Date de naissance",
+        "datePlaceholder": "DD/MM/AAAA",
+        "villeNaissance": "Ville de naissance",
+        "villePlaceholder": "Ta ville de naissance",
+        "selectionner": "Sélectionner",
+        "moisPrecedent": "Mois précédent",
+        "moisSuivant": "Mois suivant"
+      },
+      "infos3": {
+        "nationalite": "Nationalité",
+        "nationalitePlaceholder": "Ta nationalité",
+        "pays": "Pays de résidence",
+        "paysPlaceholder": "Ton pays de résidence",
+        "ville": "Ville",
+        "villePlaceholder": "Ta ville de résidence"
+      },
+      "telephone": {
+        "label": "Numéro de téléphone",
+        "placeholder": "06 00 00 00 00"
+      },
+      "bravo": {
+        "titre1": "Bravo !",
+        "titre2Avant": "Ton compte a été créé avec ",
+        "titre2Cle": "succès",
+        "continuer": "Continuer"
+      }
+    },
+    "activation": {
+      "biometrie": "Ou utilise l'empreinte digitale ou faciale",
+      "felicitationsAvant": "Félicitations ton ",
+      "felicitationsCle": "compte Euro",
+      "felicitationsApres": " a été créé",
+      "sousTitre": "Ton voyage commence dès maintenant !",
+      "acceder": "J'accède à mon compte Euro"
+    },
+    "tuto": {
+      "etapes": [
+        {
+          "cible": "carte",
+          "texte": "Ajoute de l'argent pour financer ton voyage"
+        },
+        {
+          "cible": "services",
+          "texte": "Tout ce qu'il te faut pour ton visa et ton séjour, au même endroit : garantie financière, assurances, accompagnement et bien plus..."
+        },
+        {
+          "cible": "simulateur",
+          "texte": "Totale transparence : Simule le montant ta recharge et sais exactement combien tu recevras sur ton compte Euro."
+        }
+      ],
+      "suivant": "Suivant",
+      "retour": "Retour",
+      "terminer": "C'est parti !"
+    },
+    "profil": {
+      "titre": "Mon profil",
+      "fermer": "Fermer",
+      "retour": "Retour",
+      "statsPays": "Pays visités",
+      "statsVoyages": "Voyages",
+      "statsDuree": "Durée moy.",
+      "statsJours": "j",
+      "sectionTitre": "Mon profil",
+      "infoPerso": "Info personnelles",
+      "infoPersoSous": "Super, on va faire connaissance !",
+      "infoPro": "Info professionnelles",
+      "infoProSous": "On veut en savoir plus sur ta situation professionnelle",
+      "infoFi": "Info financières",
+      "infoFiSous": "Afin de prouver ta solvabilité auprès des services consulaires pour ton voyage",
+      "version": "Version 00.00.0",
+      "aRenseigner": "À renseigner",
+      "perso": {
+        "titre": "Info personnelles",
+        "nom": "Nom",
+        "prenom": "Prénom",
+        "civilite": "Civilité",
+        "homme": "Homme",
+        "femme": "Femme",
+        "telephone": "Numéro de téléphone",
+        "email": "Adresse email"
+      },
+      "pro": {
+        "titre": "Info professionnelles",
+        "situation": "Situation professionnelles",
+        "contrat": "Type de contrat",
+        "secteur": "Secteur d'activité",
+        "organisme": "Organisme",
+        "organismeNom": "Nom : ",
+        "organismeDepuis": "J'y travaille depuis : "
+      },
+      "fi": {
+        "titre": "Info financières",
+        "ressources": "Ressources financières",
+        "revenu": "Revenu mensuel : ",
+        "patrimoine": "Patrimoine : ",
+        "statut": "Statut",
+        "statutUs": "Je certifie que je ne suis pas une US person",
+        "statutPpe": "Je certifie que je ne suis pas une personne politiquement exposée",
+        "fiscales": "Informations fiscales",
+        "paysFiscal": "Pays de résidence fiscal : ",
+        "niu": "NIU : ",
+        "attestation": "Attestation d'immatriculation fiscale :"
+      }
+    }
   }
 }
