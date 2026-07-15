@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import type { Locale } from "@/i18n/routing";
 import Button from "@/components/ui/Button";
 
 /*
@@ -27,30 +28,104 @@ function NavLink({ href, label, onClick }: { href: string; label: string; onClic
   );
 }
 
-/* Sélecteur de langue : bascule FR ⇄ EN en conservant la page courante. */
+/*
+ * Langues disponibles. Pour en ajouter une : compléter cette liste (et la
+ * config `routing`/les fichiers `messages/*.json`). Le drapeau est un emoji
+ * régional — léger et sans asset à charger.
+ */
+type LangOption = { code: Locale; label: string; flag: string };
+
+const LANGUAGES: LangOption[] = [
+  { code: "fr", label: "Français", flag: "🇫🇷" },
+  { code: "en", label: "English", flag: "🇬🇧" },
+];
+
+/* Sélecteur de langue : menu déroulant drapeau + libellé, garde la page courante. */
 function LangSwitcher() {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
-  const switchTo = (target: "fr" | "en") => {
+  const current = LANGUAGES.find((l) => l.code === locale) ?? LANGUAGES[0];
+
+  const switchTo = (target: Locale) => {
+    setOpen(false);
     if (target !== locale) router.replace(pathname, { locale: target });
   };
 
+  // Ferme au clic extérieur et à la touche Échap.
+  useEffect(() => {
+    if (!open) return;
+    const onClick = (e: MouseEvent) => {
+      if (!ref.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("click", onClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("click", onClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
   return (
-    <div className="flex items-center rounded-lg bg-grey-light p-0.5 text-xs font-bold">
-      {(["fr", "en"] as const).map((l) => (
-        <button
-          key={l}
-          onClick={() => switchTo(l)}
-          className={`rounded-md px-2 py-1 uppercase transition-colors duration-200 ${
-            locale === l ? "bg-white text-primary shadow-sm" : "text-grey hover:text-navy"
-          }`}
-          aria-pressed={locale === l}
+    <div className="relative" ref={ref}>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className={`flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-sm font-medium transition-colors duration-200 hover:bg-primary/5 hover:text-primary ${
+          open ? "bg-primary/5 text-primary" : "text-navy"
+        }`}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-label={`Langue : ${current.label}`}
+      >
+        <span className="text-base leading-none">{current.flag}</span>
+        <span className="uppercase">{current.code}</span>
+        <svg
+          width="10"
+          height="6"
+          viewBox="0 0 10 6"
+          fill="none"
+          className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
         >
-          {l}
-        </button>
-      ))}
+          <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+
+      {open && (
+        <ul
+          role="listbox"
+          className="absolute right-0 top-full z-50 mt-2 min-w-[168px] overflow-hidden rounded-xl bg-white p-1.5 shadow-[0_20px_60px_rgba(18,35,71,0.18)]"
+        >
+          {LANGUAGES.map((l) => {
+            const active = l.code === locale;
+            return (
+              <li key={l.code} role="option" aria-selected={active}>
+                <button
+                  type="button"
+                  onClick={() => switchTo(l.code)}
+                  className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm transition-colors duration-200 ${
+                    active ? "bg-primary/5 font-bold text-primary" : "font-medium text-navy hover:bg-primary/5 hover:text-primary"
+                  }`}
+                >
+                  <span className="text-base leading-none">{l.flag}</span>
+                  <span className="flex-1 text-left">{l.label}</span>
+                  {active && (
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path d="M11.5 4L6 9.5 3 6.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  )}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 }
