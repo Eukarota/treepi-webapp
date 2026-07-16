@@ -97,7 +97,7 @@ codée). Les node-id renvoient à la page V7 du Figma.
 
 | Flux | Écran / Route | Statut | Rôle |
 | --- | --- | --- | --- |
-| Création compte Euro / KYC | node `1716:528606` | À faire | Ouverture du compte Euro : renseignement des infos, vérification d'identité. Alimentera les champs « À renseigner » du profil. |
+| Ouverture compte Euro / KYC | `/app/compte-euro` | Fait | Parcours en 6 étapes : intro → choix du pack (« De quoi as-tu besoin ? ») → identité (passeport) → infos pro → infos financières → certifications → récapitulatif → signature. Clôt le dossier (`ouvrirCompteEuro`) : active le compte, enregistre le pack et le KYC, complète le profil. Entrée : bannière du profil quand `!compte.ouvert`. |
 | Tutoriel (facultatif) | `/app/tutoriel` | Fait | Visite guidée du dashboard, projecteur en 3 étapes (solde, services, simulateur). |
 
 ### Tableau de bord et opérations
@@ -105,18 +105,22 @@ codée). Les node-id renvoient à la page V7 du Figma.
 | Flux | Écran / Route | Statut | Rôle |
 | --- | --- | --- | --- |
 | Dashboard / Homepage | `/app/accueil` | Fait | Solde Euro, actions rapides, bannières pré/post-visa, transactions, « Ajouter mon visa », services, simulateur de transfert, support. Gère l'état vide « Frais de gestion ». |
-| Menu + RIB-IBAN | nodes `1724:563679`, `1724:563828` | À faire | Menu latéral, coordonnées du compte (RIB / IBAN). Cible du burger. |
-| Recharger le compte Euro | node `1724:564078` | À faire | Ajout d'argent (virement, dépôt). Cible des boutons « Recharger ». |
-| Commande de carte | node `1724:572089` | À faire | Commande d'une carte. Cible de l'entrée « Carte ». |
+| Recharger le compte Euro | `/app/recharger` | Fait | Consentement → méthode (carte / virement SEPA / espèces) → montant (équiv. FCFA + frais) → détails → succès. Carte = crédit immédiat, virement/espèces = « en cours ». Cible des boutons « Recharger » et bannières. |
+| Recevoir (RIB / IBAN) | `/app/recevoir` | Fait | Coordonnées du compte Euro perso (IBAN déterministe) : copie ligne à ligne, partage natif, délais SEPA/SWIFT. Cible de l'action rapide « RIB ». |
+| Envoyer (virement) | `/app/virement` | Fait | Bénéficiaire (nom + IBAN) → montant (borné au solde) → récap → débit. Cible de l'entrée nav « Virement ». |
+| Commande de carte | node `1724:572089` | Hors scope | Non développé (feature « carte » exclue). Entrée nav « Carte » inerte. |
 
-### Services voyage et visa
+### Services voyage et visa (`/app/voyage` = hub, entrée nav « Voyage »)
 
 | Flux | Écran / Route | Statut | Rôle |
 | --- | --- | --- | --- |
-| Attestations | nodes `1724:566850`, `1724:567219` | À faire | Attestation de garantie financière. |
-| Obtention de visa | node `1724:567560` | À faire | Accompagnement de la démarche de visa. |
-| Accompagnement | node `1724:571549` | À faire | Coaching / accompagnement par un expert. |
-| Paiement des Packs 1/2/3 | maquettes Packs | À faire | Souscription aux offres et abonnements. |
+| Hub services | `/app/voyage` | Fait | Liste les 5 services visa/voyage. Cible de la nav « Voyage » et du « Voir tout ». |
+| Obtention de visa | `/app/visa` | Fait | Dossier pivot : volet visa (type, pays, dates) + volet justificatif d'hébergement (réservation / proche / propriétaire + upload) → soumission → bascule en phase post-visa (`soumettreVisa`). Entrée : carte « Ajouter mon visa ». |
+| Attestation de garantie financière | `/app/attestation` | Fait | Présentation → formulaire (montant = solde, infos séjour) → génération → succès avec téléchargement + partage. |
+| Accompagnement | `/app/accompagnement` | Fait | Présentation (1 h offerte) → RDV (téléphone / bureau + Calendly) → formule (solo 100 € / famille 150 € / parent 120 €) → paiement → confirmation. |
+| Recours visa | `/app/recours` | Fait | Souscription (Pack 3, 500 €/an) : présentation → paiement → confirmation. Maquette « Non dispo », reprise du Pack 3. |
+| Assurance voyage Schengen | `/app/assurance` | Fait | Souscription (90 €/an) : présentation → paiement → confirmation. |
+| Choix du pack (abonnement) | intégré à `/app/compte-euro` | Fait | Packs 80/210/500 €/an (compte / attestation / recours) avec cartes dépliables et modale « Peut-être plus tard ». |
 
 ### Profil
 
@@ -127,16 +131,39 @@ codée). Les node-id renvoient à la page V7 du Figma.
 | Infos professionnelles | `/app/profil/infos-professionnelles` | Fait (placeholders) | Situation, contrat, secteur, organisme. Champs « À renseigner » en attendant le KYC. |
 | Infos financières | `/app/profil/infos-financieres` | Fait (placeholders) | Ressources, certifications (US person, PPE), infos fiscales. |
 
+## Architecture des flux (`components/app/flux/`)
+
+Toute la logique de flux repose sur des fondations partagées (mobile 1:1,
+desktop = panneau centré, comme l'inscription) :
+
+- `GabaritFlux` : coquille (bandeau turquoise + volute, TopNav, `IndicateurEtapes`
+  optionnel, sous-titre corail, feuille grise).
+- `ChoixOption` (option cliquable radio/chevron), `CartePack` (carte de pack
+  dépliable), `ChampFichier` (téléversement KYC), `FeuilleBasse` (bottom sheet),
+  `EcranSucces` (succès générique + action secondaire), `LigneCopiable`,
+  `EtapePaiement` (carte bancaire), `FluxSouscription` (recours / assurance),
+  `icones.tsx`.
+- API mock : `packs.ts`, `services.ts`, `recharge.ts`, `change.ts` et `compte.ts`
+  étendu (`ouvrirCompteEuro`, `crediter/debiter`, `RIB_TREEPI`, `InfosKyc`).
+- Messages sous `app.flux.*` (recharge, recevoir, virement, packs, compteEuro,
+  paiement, attestation, accompagnement, visa, recours, assurance) + `app.voyage`.
+
 ## Statut global et placeholders
 
-Chaîne testable de bout en bout : `/app/activation` (empreinte simulée) puis
-« J'accède à mon compte Euro » crédite 2750 € et enchaîne le tutoriel, qui mène
-au dashboard. Build de prod statique, suite fonctionnelle marketing verte.
+Les deux grandes features sont livrées et vérifiées (mobile 375px + desktop
+1440px, build prod vert, zéro débordement) : **Compte Euro** (Ouverture/KYC,
+Recharger, Recevoir, Envoyer) et **Assurance voyage + recours visa** (Obtention
+de visa, Attestation, Accompagnement, Recours, Assurance, hub Voyage).
 
-Éléments volontairement inertes (afficher `title` « Bientôt disponible »), en
-attente des flux « À faire » et du backend :
+Chaîne testable : `/app/activation` (empreinte simulée) crédite 2750 € et mène au
+dashboard ; le profil propose « Ouvre ton compte Euro » (`/app/compte-euro`) tant
+que le dossier n'est pas complété.
 
-- Entrées de navigation Virement, Recharger, Voyage, Carte.
-- Burger (Menu), cloche (notifications), « Voir tout », actions rapides de la
-  carte, cartes de services, CTA « Recharger » des bannières.
-- Volets profil pro et financières : valeurs en « À renseigner ».
+Éléments encore volontairement inertes (`title` « Bientôt disponible »), hors
+périmètre ou en attente du backend :
+
+- Entrée de navigation « Carte » et commande de carte (hors scope).
+- Burger (Menu), cloche (notifications), actions rapides « Convertir » /
+  « Abonnement », CTA « Recharger » des bannières post-visa.
+- Volets profil pro / financières : encore en « À renseigner » (le KYC stocke
+  déjà les données via `compte.kyc`, branchement d'affichage à faire).

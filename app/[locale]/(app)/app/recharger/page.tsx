@@ -10,12 +10,14 @@ import { MethodeRecharge, creerRecharge, fraisRecharge, referenceRecharge } from
 import { PAYS } from "@/lib/data/suggestions";
 import EcranApp from "@/components/app/EcranApp";
 import FondApp from "@/components/app/ui/FondApp";
+import CoquilleApp from "@/components/app/CoquilleApp";
 import GabaritFlux from "@/components/app/flux/GabaritFlux";
 import ChoixOption from "@/components/app/flux/ChoixOption";
 import FeuilleBasse from "@/components/app/flux/FeuilleBasse";
 import LigneCopiable from "@/components/app/flux/LigneCopiable";
 import BoutonApp from "@/components/app/ui/BoutonApp";
 import ChampTexte from "@/components/app/ui/ChampTexte";
+import SelecteurListe from "@/components/app/ui/SelecteurListe";
 import EcranSucces from "@/components/app/flux/EcranSucces";
 import { IconeCarte, IconeEspeces, IconeGlobe, IconePin, IconeVirement } from "@/components/app/flux/icones";
 
@@ -123,6 +125,7 @@ export default function PageRecharger() {
     <EcranApp className="bg-grey-light">
       {phase !== "succes" && <FondApp />}
 
+      <CoquilleApp barreMobile={false} flux>
       {phase === "succes" ? (
         <EcranSucces
           titreAvant={enCours ? t("succesEnCoursAvant") : t("succesInstantAvant")}
@@ -287,12 +290,7 @@ export default function PageRecharger() {
           {phase === "especes" && (
             <div className="flex flex-1 flex-col gap-4">
               <span className="mx-auto rounded-full bg-grey-100 px-3 py-1 text-xs font-bold text-grey-700">{methodes[2].titre}</span>
-              <ChampTexte label={t("especesPays")} name="pays" list="liste-pays-recharge" autoComplete="off" placeholder={t("paysPlaceholder")} value={pays} onChange={(e) => setPays(e.target.value)} />
-              <datalist id="liste-pays-recharge">
-                {PAYS.map((p) => (
-                  <option key={p} value={p} />
-                ))}
-              </datalist>
+              <SelecteurListe label={t("especesPays")} name="pays" placeholder={t("paysPlaceholder")} options={PAYS} value={pays} onChange={setPays} />
               <p className="text-[11px] leading-4 text-grey">{t("especesInstruction")}</p>
               <div className="rounded-2xl border border-grey-200 bg-white p-4">
                 <LigneCopiable label={t("especesCode")} valeur={reference} />
@@ -332,6 +330,7 @@ export default function PageRecharger() {
           )}
         </GabaritFlux>
       )}
+      </CoquilleApp>
     </EcranApp>
   );
 }

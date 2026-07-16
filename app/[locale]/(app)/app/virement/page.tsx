@@ -7,6 +7,7 @@ import { useSession } from "@/components/app/SessionProvider";
 import { debiterCompte, obtenirCompte } from "@/lib/api/compte";
 import EcranApp from "@/components/app/EcranApp";
 import FondApp from "@/components/app/ui/FondApp";
+import CoquilleApp from "@/components/app/CoquilleApp";
 import GabaritFlux from "@/components/app/flux/GabaritFlux";
 import BoutonApp from "@/components/app/ui/BoutonApp";
 import ChampTexte from "@/components/app/ui/ChampTexte";
@@ -70,6 +71,7 @@ export default function PageVirement() {
     <EcranApp className="bg-grey-light">
       {phase !== "succes" && <FondApp />}
 
+      <CoquilleApp barreMobile={false} flux>
       {phase === "succes" ? (
         <EcranSucces
           titreAvant={t("succesAvant")}
@@ -157,6 +159,7 @@ export default function PageVirement() {
           )}
         </GabaritFlux>
       )}
+      </CoquilleApp>
     </EcranApp>
   );
 }

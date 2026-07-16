@@ -1,19 +1,19 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 /*
  * Carte « Ajouter mon visa » (maquette « Service/Ajout VISA ») : vignette
  * dégradé turquoise avec le globe au bouclier, titre corail, sous-texte et
- * chevron. Le flux « Obtention de visa » arrive plus tard (TODO).
+ * chevron. Ouvre le flux « Obtention de visa ».
  */
 export default function CarteAjoutVisa() {
   const t = useTranslations("app.accueil");
 
   return (
-    <button
-      type="button"
-      title={t("bientot")}
+    <Link
+      href="/app/visa"
       className="flex w-full items-center gap-2 overflow-hidden rounded-lg border border-grey-200 bg-white text-left transition-shadow hover:shadow-app"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -24,6 +24,6 @@ export default function CarteAjoutVisa() {
       </span>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src="/app/icons/caret-right.svg" alt="" width={20} height={20} className="mr-3 size-5 shrink-0" />
-    </button>
+    </Link>
   );
 }

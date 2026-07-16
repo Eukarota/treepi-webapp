@@ -7,6 +7,7 @@ import { useSession } from "@/components/app/SessionProvider";
 import { obtenirRibUtilisateur } from "@/lib/api/compte";
 import EcranApp from "@/components/app/EcranApp";
 import FondApp from "@/components/app/ui/FondApp";
+import CoquilleApp from "@/components/app/CoquilleApp";
 import GabaritFlux from "@/components/app/flux/GabaritFlux";
 import LigneCopiable from "@/components/app/flux/LigneCopiable";
 import BoutonApp from "@/components/app/ui/BoutonApp";
@@ -47,6 +48,7 @@ export default function PageRecevoir() {
   return (
     <EcranApp className="bg-grey-light">
       <FondApp />
+      <CoquilleApp barreMobile={false} flux>
       <GabaritFlux
         titre={t("titre")}
         titreAvant={t("soustitreAvant")}
@@ -81,6 +83,7 @@ export default function PageRecevoir() {
           </div>
         </div>
       </GabaritFlux>
+      </CoquilleApp>
     </EcranApp>
   );
 }

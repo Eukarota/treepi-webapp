@@ -1928,7 +1928,9 @@
       "copie": "Copié",
       "partager": "Partager",
       "terminer": "Terminé",
-      "suivant": "Suivant"
+      "suivant": "Suivant",
+      "recherche": "Rechercher…",
+      "aucunResultat": "Aucun résultat"
     },
     "bienvenue": {
       "inscrire": "S'inscrire",
@@ -2186,7 +2188,8 @@
       "replier": "Replier le menu",
       "deplier": "Déplier le menu",
       "simulateurChoisirDevise": "Choisir une devise",
-      "simulateurIndicatif": "Taux indicatif"
+      "simulateurIndicatif": "Taux indicatif",
+      "bientotCourt": "Bientôt"
     },
     "inscription": {
       "titre": "Inscription",
@@ -2366,7 +2369,10 @@
         "niu": "NIU : ",
         "attestation": "Attestation d'immatriculation fiscale :"
       },
-      "deconnexion": "Se déconnecter"
+      "deconnexion": "Se déconnecter",
+      "ouvrirCompteTitre": "Ouvre ton compte Euro",
+      "ouvrirCompteSous": "Finalise ton dossier pour activer ton compte et tous tes services.",
+      "ouvrirCompteCta": "Commencer"
     },
     "flux": {
       "recharge": {
@@ -2490,7 +2496,441 @@
         "succesCle": "envoyé",
         "succesTexte": "Ton virement de {montant} à {beneficiaire} a bien été envoyé.",
         "cta": "Retour à mon compte"
+      },
+      "packs": {
+        "titreAvant": "De quoi as-tu ",
+        "titreCle": "besoin",
+        "titreApres": " ?",
+        "populaire": "Populaire",
+        "parAn": "€/an",
+        "enSavoirPlus": "En savoir plus",
+        "souscrire": "Je souscris",
+        "plusTard": "Peut-être plus tard",
+        "modaleAvant": "Tu veux vraiment passer à côté de la ",
+        "modaleCle": "révolution",
+        "modaleApres": " ?",
+        "modaleTexte": "Treepi, c'est bien plus qu'un compte. C'est ton compagnon de voyage pour vivre une expérience de voyage en Europe en toute liberté.",
+        "modaleConfirmer": "Confirmer",
+        "modaleAnnuler": "Annuler",
+        "liste": [
+          {
+            "id": "compte",
+            "nom": "1 compte Euro + 1 carte",
+            "accroche": "Pour payer en toute liberté durant ton séjour",
+            "sections": [
+              {
+                "titre": "Inclus dès ouverture du compte :",
+                "items": [
+                  "1 IBAN français + 1 RIB en ton nom",
+                  "Recharge du compte depuis l'Afrique",
+                  "Recevoir des virements internationaux"
+                ]
+              },
+              {
+                "titre": "Dès preuve d'obtention de Visa, tu bénéficies en plus de :",
+                "items": [
+                  "Cartes Mastercard (virtuelle & physique)",
+                  "- Paiement partout dans le monde",
+                  "- Virement bancaire SEPA illimité",
+                  "- Retrait d'espèces"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "attestation",
+            "nom": "Attestation de garantie financière - illimité",
+            "accroche": "Pour faciliter l'obtention de ton visa Schengen",
+            "sections": [
+              {
+                "titre": "Tu as tout ça pour 210€ l'année :",
+                "items": [
+                  "1 IBAN français + 1 RIB en ton nom",
+                  "Frais de gestion de compte annuel",
+                  "Recharge du compte depuis l'Afrique - illimités",
+                  "Recevoir des virements internationaux",
+                  "Justificatifs financiers pour Visa Schengen",
+                  "Attestation conforme & reconnue par tous les consulats"
+                ]
+              },
+              {
+                "titre": "Inclus dès preuve d'obtention de Visa :",
+                "items": [
+                  "Fonds débloqués et accès total à ton argent",
+                  "Cartes Mastercard (virtuelle & physique)",
+                  "Paiement partout dans le monde",
+                  "Virement bancaire SEPA illimité",
+                  "Retrait d'espèces"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "recours",
+            "nom": "Assurance recours visa",
+            "accroche": "Pour protéger ton voyage en cas de refus de visa",
+            "note": "Recours visa jusqu'à 15 000 €",
+            "sections": [
+              {
+                "titre": "Un service complet sur toute l'année :",
+                "items": [
+                  "1 IBAN français + 1 RIB en ton nom",
+                  "Frais de gestion de compte annuel",
+                  "Recharge du compte depuis l'Afrique",
+                  "Recevoir des virements internationaux",
+                  "Justificatifs financiers pour Visa Schengen illimités",
+                  "Attestation conforme & reconnue par tous les consulats",
+                  "Mise en relation avec un avocat spécialisé",
+                  "Étude de décision en cas de refus de visa",
+                  "Prise en charge complète des frais (jusqu'à 15 000 €)"
+                ]
+              },
+              {
+                "titre": "Inclus dès preuve d'obtention de Visa suite au recours :",
+                "items": [
+                  "Fonds débloqués et accès total à ton argent",
+                  "Cartes Mastercard (virtuelle & physique)",
+                  "Paiement partout dans le monde",
+                  "Virement bancaire SEPA illimité",
+                  "Retrait d'espèces"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "compteEuro": {
+        "titre": "Compte Euro",
+        "introHelloAvant": "Hello ",
+        "introHelloCle": "{prenom},",
+        "introTitre": "Tout est presque prêt !",
+        "introTexte": "Plus que quelques petites étapes pour donner de la valeur en Euro à ton compte.",
+        "introCta": "Continuer",
+        "identiteAvant": "Fournis ton ",
+        "identiteCle": "passeport",
+        "identiteDescription": "Ces informations doivent être exactes et identiques à ce qui est écrit sur ton passeport.",
+        "numeroLabel": "Numéro de passeport",
+        "numeroPlaceholder": "Numéro de passeport",
+        "paysLabel": "Pays de délivrance",
+        "paysPlaceholder": "Sélectionne un pays",
+        "expirationLabel": "Date d'expiration",
+        "expirationPlaceholder": "JJ/MM/AAAA",
+        "fichierTitre": "Charger un fichier",
+        "fichierSousTitre": "Sélectionne et télécharge le(s) fichier(s)",
+        "fichierAccepteTitre": "Documents acceptés :",
+        "fichierAccepteItems": [
+          "Passeport en cours de validité"
+        ],
+        "fichierChoisir": "Choisis un fichier",
+        "fichierFormats": "JPEG, PNG, PDF, jusqu'à 50 Mo",
+        "fichierPhoto": "Prendre une photo",
+        "fichierParcourir": "Parcourir",
+        "situationAvant": "Ta situation ",
+        "situationCle": "professionnelle",
+        "situationDescription": "Ces informations complètent ton dossier et restent strictement confidentielles.",
+        "situationLabel": "Situation professionnelle",
+        "situations": [
+          "Salarié(e)",
+          "Indépendant(e)",
+          "Chef(fe) d'entreprise",
+          "Étudiant(e)",
+          "Sans emploi",
+          "Retraité(e)"
+        ],
+        "revenuLabel": "Revenu mensuel net",
+        "revenuPlaceholder": "Ex. 1 800",
+        "signatureAvant": "Signe ton ",
+        "signatureCle": "contrat",
+        "signatureDescription": "Procède à la signature de ton contrat pour garantir un cadre transparent dans notre relation.",
+        "signatureTitre": "Tu es sur le point de contractualiser ton engagement.",
+        "signaturePoints": [
+          "Relis attentivement ton contrat avant de signer.",
+          "Ta signature se fera en ligne via une plateforme sécurisée.",
+          "Clique sur « Je signe » pour accéder à ton contrat et signer."
+        ],
+        "signatureCta": "Je signe",
+        "signatureModaleAvant": "Signature ",
+        "signatureModaleCle": "électronique",
+        "signatureModaleTexte": "En signant, tu acceptes le contrat de compte Euro Treepi ainsi que le mandat de prélèvement annuel du pack choisi.",
+        "signatureModaleConfirmer": "Je signe et j'accepte",
+        "signatureModaleAnnuler": "Annuler",
+        "suivant": "Continuer",
+        "succesAvant": "Ton compte Euro est ",
+        "succesCle": "ouvert !",
+        "succesTexte": "Félicitations {prenom} ! Ton dossier est validé. Recharge ton compte pour commencer à lui donner de la valeur en euros.",
+        "succesCta": "Accéder à mon compte",
+        "secteurLabel": "Secteur d'activité",
+        "secteurs": [
+          "Informatique / Tech",
+          "Commerce",
+          "Santé",
+          "Éducation",
+          "Finance",
+          "BTP / Construction",
+          "Transport",
+          "Hôtellerie / Restauration",
+          "Administration",
+          "Autre"
+        ],
+        "financierAvant": "Tes informations ",
+        "financierCle": "financières",
+        "financierDescription": "Pour respecter la réglementation européenne, nous sommes tenus de recueillir ces informations.",
+        "patrimoineLabel": "Patrimoine",
+        "patrimoines": [
+          "0 - 5 000 €",
+          "5 000 - 20 000 €",
+          "20 000 - 50 000 €",
+          "Plus de 50 000 €"
+        ],
+        "financierAvertissement": "Ces informations sont nécessaires pour se conformer à la lutte contre le blanchiment d'argent.",
+        "certifAvant": "Tes ",
+        "certifCle": "certifications",
+        "certifDescription": "Pour respecter la réglementation européenne, nous sommes tenus de recueillir ces informations.",
+        "certifUsPerson": "Je certifie que je ne suis pas une US person",
+        "certifPpe": "Je certifie que je ne suis pas une personne politiquement exposée",
+        "certifConfirme": "Je confirme par la présente que je serai le seul utilisateur de ce compte et que les informations que j'ai fournies sont véridiques, exactes et complètes.",
+        "recapAvant": "Ton ",
+        "recapCle": "récapitulatif",
+        "recapDescription": "Vérifie une dernière fois tes infos. Si tout est bon, tu peux confirmer et passer à l'étape suivante en toute confiance.",
+        "recapOffre": "Offre sélectionnée",
+        "recapProfil": "Mon profil",
+        "recapPerso": "Infos personnelles",
+        "recapPersoSous": "Super, on a fait connaissance !",
+        "recapPro": "Infos professionnelles",
+        "recapProSous": "Merci d'avoir pris le temps de nous en dire plus sur ta situation professionnelle.",
+        "recapFin": "Infos financières",
+        "recapFinSous": "Afin de prouver ta solvabilité auprès des services consulaires pour ton voyage.",
+        "confirmer": "Confirmer"
+      },
+      "paiement": {
+        "titre": "Paiement par carte",
+        "numero": "Numéro de carte",
+        "exp": "Expiration",
+        "cvc": "CVC",
+        "titulaire": "Titulaire de la carte"
+      },
+      "attestation": {
+        "titre": "Attestation",
+        "introAvant": "Attestation de garantie ",
+        "introCle": "financière",
+        "introDescription": "Obtiens un justificatif fiable pour prouver, lors de ta demande de visa, que tu disposes de revenus suffisants pour financer ton voyage.",
+        "introReconnue": "Cette attestation est réelle et reconnue par tous les consulats de l'espace Schengen.",
+        "introGratuite": "Bonne nouvelle ! Cette attestation est 100 % gratuite pour toi car elle est incluse dans ton forfait actuel (aucuns frais, génération illimitée pendant un an).",
+        "introCta": "Obtenir mon attestation",
+        "montantLabel": "Ton attestation de garantie financière est de :",
+        "montantAvertissement": "Le montant garanti correspond au solde disponible sur ton compte Euro.",
+        "sejourTitre": "Informations sur le séjour",
+        "paysLabel": "Pays de destination",
+        "paysPlaceholder": "Sélectionne un pays",
+        "motifLabel": "Motif du séjour",
+        "motifs": [
+          "Tourisme",
+          "Visite familiale",
+          "Conférence",
+          "Affaires",
+          "Médicale",
+          "Autre"
+        ],
+        "departLabel": "Date de départ prévisionnelle",
+        "retourLabel": "Date de retour prévisionnelle",
+        "datePlaceholder": "JJ/MM/AAAA",
+        "genererCta": "Générer mon attestation",
+        "succesAvant": "Ton attestation de garantie financière est ",
+        "succesCle": "prête !",
+        "succesTexte": "Merci de faire confiance à Treepi pour justifier rapidement et sereinement tes ressources financières pour ton visa.",
+        "telecharger": "Télécharger",
+        "partager": "Partager",
+        "succesCta": "Retour à l'accueil"
+      },
+      "accompagnement": {
+        "titre": "Accompagnement",
+        "introAvant": "Bien se faire accompagner, c'est améliorer ses ",
+        "introCle": "chances de réussite",
+        "introApres": " !",
+        "introBadge": "Ton profil est désormais certifié. Tu gagnes 1 h de coaching gratuit avec nos experts.",
+        "offreTitre": "Notre offre inclut :",
+        "offreItems": [
+          "Évaluation de ton projet de voyage",
+          "Prise en charge de ton dossier de demande de visa",
+          "Suivi personnalisé jusqu'à l'obtention du visa"
+        ],
+        "introCta": "Je me fais accompagner",
+        "rdvAvant": "Je prends mon ",
+        "rdvCle": "rendez-vous gratuit",
+        "canalTelephone": "Au téléphone",
+        "canalTelephoneSous": "Un expert t'appelle à l'heure choisie.",
+        "canalBureau": "Au bureau",
+        "canalBureauSous": "Rencontre un expert dans nos locaux à Paris.",
+        "reserveTitre": "Je réserve le jour et l'heure",
+        "calendly": "Prendre rendez-vous sur Calendly",
+        "calendlySous": "Choisis un créneau qui te convient.",
+        "rdvCta": "Continuer",
+        "tarifsAvant": "Nos ",
+        "tarifsCle": "tarifs",
+        "packs": [
+          {
+            "id": "solo",
+            "nom": "Pack solo",
+            "sous": "Je voyage seul(e)"
+          },
+          {
+            "id": "famille",
+            "nom": "Pack famille",
+            "sous": "Je voyage en famille ou en couple, avec un ou des enfant(s)"
+          },
+          {
+            "id": "parent",
+            "nom": "Pack parent",
+            "sous": "Mes parents voyagent"
+          }
+        ],
+        "recapService": "Accompagnement expert",
+        "recapPack": "Formule",
+        "recapTotal": "Total",
+        "payer": "Payer {montant}",
+        "succesAvant": "Ton accompagnement est ",
+        "succesCle": "réservé !",
+        "succesTexte": "Un expert Treepi te contactera très vite pour planifier ta séance. Référence {reference}.",
+        "succesCta": "Retour à l'accueil"
+      },
+      "visa": {
+        "titre": "Visa",
+        "introAvant": "Obtention de ",
+        "introCle": "visa",
+        "introDescription": "Un visa obtenu, c'est l'accès total à l'app. Tu pourras désormais tout faire, sans limite.",
+        "infoTitre": "Informations à compléter",
+        "avertissement": "Avant de terminer et de soumettre ton dossier, assure-toi que toutes les informations complétées sont correctes.",
+        "sectionVisa": "Obtention de visa",
+        "sectionHebergement": "Justificatif d'hébergement",
+        "valider": "Soumettre mon dossier",
+        "visaTypeLabel": "Type de visa",
+        "visaTypes": [
+          "Court séjour (Schengen)",
+          "Long séjour",
+          "Étudiant",
+          "Travail",
+          "Visiteur"
+        ],
+        "visaPaysLabel": "Pays de destination",
+        "visaPaysPlaceholder": "Sélectionne un pays",
+        "visaDepartLabel": "Date d'entrée prévue",
+        "visaRetourLabel": "Date de sortie prévue",
+        "datePlaceholder": "JJ/MM/AAAA",
+        "hebergementTitre": "Type d'hébergement",
+        "hebergementOptions": [
+          {
+            "id": "reservation",
+            "titre": "Réservation hôtelière",
+            "sous": "Confirmation de réservation d'un hôtel."
+          },
+          {
+            "id": "proche",
+            "titre": "Hébergement chez un proche",
+            "sous": "Attestation d'accueil d'un proche."
+          },
+          {
+            "id": "proprietaire",
+            "titre": "Je suis propriétaire",
+            "sous": "Titre de propriété ou bail à ton nom."
+          }
+        ],
+        "hebergementFichierTitre": "Charger un justificatif",
+        "hebergementFichierSous": "Sélectionne et télécharge le(s) fichier(s)",
+        "hebergementAccepteTitre": "Documents acceptés :",
+        "hebergementAccepteItems": [
+          "Réservation, attestation d'accueil ou titre de propriété"
+        ],
+        "hebergementChoisir": "Choisis un fichier",
+        "hebergementFormats": "JPEG, PNG, PDF, jusqu'à 50 Mo",
+        "hebergementPhoto": "Prendre une photo",
+        "hebergementParcourir": "Parcourir",
+        "enregistrer": "Enregistrer",
+        "fait": "Complété",
+        "succesAvant": "Ton dossier de visa est ",
+        "succesCle": "soumis !",
+        "succesTexte": "Nous étudions ton dossier. Tu recevras une réponse très prochainement et ton compte passe en accès complet.",
+        "succesCta": "Accéder à mon compte"
+      },
+      "recours": {
+        "titre": "Recours visa",
+        "introAvant": "Assurance ",
+        "introCle": "recours visa",
+        "introDescription": "Protège ton voyage en cas de refus de visa. Prise en charge complète des démarches, jusqu'à 15 000 €.",
+        "avantages": [
+          "Mise en relation avec un avocat spécialisé",
+          "Étude de ta décision en cas de refus de visa",
+          "Prise en charge complète des frais, jusqu'à 15 000 €"
+        ],
+        "prix": "500 €/an",
+        "prixSuffixe": "/an",
+        "introCta": "Souscrire",
+        "recapService": "Assurance recours visa",
+        "recapTotal": "Total",
+        "payer": "Payer 500 €",
+        "succesAvant": "Ton recours visa est ",
+        "succesCle": "activé !",
+        "succesTexte": "Tu es désormais protégé en cas de refus de visa. Notre équipe juridique se tient prête.",
+        "succesCta": "Retour à l'accueil"
+      },
+      "assurance": {
+        "titre": "Assurance voyage",
+        "introAvant": "Assurance voyage ",
+        "introCle": "Schengen",
+        "introDescription": "L'assurance obligatoire pour ton visa Schengen : couverture santé et rapatriement pendant tout ton séjour.",
+        "avantages": [
+          "Couverture santé jusqu'à 30 000 €",
+          "Rapatriement médical inclus",
+          "Attestation conforme aux exigences Schengen"
+        ],
+        "prix": "90 €/an",
+        "prixSuffixe": "/an",
+        "introCta": "Souscrire",
+        "recapService": "Assurance voyage Schengen",
+        "recapTotal": "Total",
+        "payer": "Payer 90 €",
+        "succesAvant": "Ton assurance voyage est ",
+        "succesCle": "active !",
+        "succesTexte": "Ton attestation d'assurance est disponible dans ton espace, prête pour ta demande de visa.",
+        "succesCta": "Retour à l'accueil"
       }
+    },
+    "voyage": {
+      "titre": "Voyage & visa",
+      "introAvant": "Tes services ",
+      "introCle": "voyage",
+      "sousTitre": "Prépare et sécurise ta demande de visa avec Treepi.",
+      "services": [
+        {
+          "cle": "visa",
+          "titre": "Obtention de visa",
+          "sous": "Dépose et suis ton dossier de visa.",
+          "href": "/app/visa"
+        },
+        {
+          "cle": "attestation",
+          "titre": "Attestation de garantie financière",
+          "sous": "Justifie tes ressources auprès du consulat.",
+          "href": "/app/attestation"
+        },
+        {
+          "cle": "accompagnement",
+          "titre": "Accompagnement expert",
+          "sous": "Un coach t'accompagne jusqu'à l'obtention.",
+          "href": "/app/accompagnement"
+        },
+        {
+          "cle": "recours",
+          "titre": "Recours visa",
+          "sous": "Protège-toi en cas de refus de visa.",
+          "href": "/app/recours"
+        },
+        {
+          "cle": "assurance",
+          "titre": "Assurance voyage Schengen",
+          "sous": "La couverture obligatoire pour ton visa.",
+          "href": "/app/assurance"
+        }
+      ]
     }
   }
 }

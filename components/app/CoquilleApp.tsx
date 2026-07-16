@@ -13,7 +13,17 @@ const CLE_NAV_REPLIEE = "treepi.nav-repliee";
  * que l'utilisateur agit sur la poignée, son choix est conservé en
  * localStorage et persiste d'une page à l'autre.
  */
-export default function CoquilleApp({ children }: { children: React.ReactNode }) {
+export default function CoquilleApp({
+  children,
+  barreMobile = true,
+  flux = false,
+}: {
+  children: React.ReactNode;
+  /** Afficher la barre de navigation basse sur mobile (faux dans les flux). */
+  barreMobile?: boolean;
+  /** Mode flux : le contenu occupe toute la hauteur (colonne desktop + panneau). */
+  flux?: boolean;
+}) {
   // Repliée par défaut ; on ne déplie que si l'utilisateur l'a choisi ("0").
   const [repliee, setRepliee] = useState(
     () => typeof window === "undefined" || window.localStorage.getItem(CLE_NAV_REPLIEE) !== "0",
@@ -28,10 +38,12 @@ export default function CoquilleApp({ children }: { children: React.ReactNode })
 
   return (
     <>
-      <NavBarApp repliee={repliee} onBasculer={basculer} />
+      <NavBarApp repliee={repliee} onBasculer={basculer} mobile={barreMobile} />
       <div
         className={
-          "relative z-10 transition-[padding] duration-300 " + (repliee ? "lg:pl-20" : "lg:pl-56")
+          (flux ? "flex flex-1 flex-col " : "") +
+          "relative z-10 transition-[padding] duration-300 " +
+          (repliee ? "lg:pl-20" : "lg:pl-56")
         }
       >
         {children}

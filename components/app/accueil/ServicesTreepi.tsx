@@ -1,13 +1,13 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 /*
  * Grille « Va plus loin avec Treepi » (composants Figma
  * « ServiceCard/Rectangle ») : cartes 2 colonnes, vignette illustrée en grisé
  * (export aplati), petite pastille d'icône colorée à cheval sur la vignette,
- * libellé en gras et chevron. Les fiches service arrivent avec les flux
- * dédiés (TODO).
+ * libellé en gras et chevron. Chaque carte ouvre son flux de service.
  *
  * Les exports d'illustration ont été détourés de leur cadre d'origine (la
  * bordure grise et les coins étaient inclus, d'où le double liseré). On les
@@ -15,12 +15,12 @@ import { useTranslations } from "next-intl";
  * la carte apportant sa propre bordure et son rayon.
  */
 
-/** Pastille d'icône par service : glyphe blanc sur fond de marque. */
+/** Pastille d'icône + destination par service. */
 const ICONES = [
-  { image: "service-attestation", icone: "/app/icons/service-portefeuille.svg", fond: "bg-secondary-light" },
-  { image: "service-recours", icone: "/app/icons/service-globe.svg", fond: "bg-primary-light" },
-  { image: "service-accompagnement", icone: "/app/icons/service-identite.svg", fond: "bg-secondary" },
-  { image: "service-hebergement", icone: "/app/icons/service-maison.svg", fond: "bg-emerald-700" },
+  { image: "service-attestation", icone: "/app/icons/service-portefeuille.svg", fond: "bg-secondary-light", href: "/app/attestation" },
+  { image: "service-recours", icone: "/app/icons/service-globe.svg", fond: "bg-primary-light", href: "/app/recours" },
+  { image: "service-accompagnement", icone: "/app/icons/service-identite.svg", fond: "bg-secondary", href: "/app/accompagnement" },
+  { image: "service-hebergement", icone: "/app/icons/service-maison.svg", fond: "bg-emerald-700", href: "/app/visa" },
 ];
 
 export default function ServicesTreepi() {
@@ -31,19 +31,18 @@ export default function ServicesTreepi() {
     <section data-tuto="services" className="flex flex-col gap-2">
       <div className="flex items-center justify-between">
         <h2 className="font-outfit text-base font-bold leading-6 text-dark">{t("servicesTitre")}</h2>
-        <button type="button" title={t("bientot")} className="rounded-2xl bg-grey-100 px-2 py-1 text-[10px] leading-4 text-dark transition-colors hover:bg-grey-200">
+        <Link href="/app/voyage" className="rounded-2xl bg-grey-100 px-2 py-1 text-[10px] leading-4 text-dark transition-colors hover:bg-grey-200">
           {t("voirTout")}
-        </button>
+        </Link>
       </div>
 
       <div className="grid grid-cols-2 gap-2">
         {services.map((service) => {
           const visuel = ICONES.find((i) => i.image === service.image);
           return (
-            <button
+            <Link
               key={service.image}
-              type="button"
-              title={t("bientot")}
+              href={visuel?.href ?? "/app/voyage"}
               className="overflow-hidden rounded-2xl border border-grey-200 bg-white text-left transition-shadow hover:shadow-app"
             >
               <div className="relative">
@@ -60,7 +59,7 @@ export default function ServicesTreepi() {
                 </span>
               </div>
               <p className="px-2 pb-2 pt-3 text-xs font-bold leading-4 text-dark">{service.libelle}</p>
-            </button>
+            </Link>
           );
         })}
       </div>

@@ -1928,7 +1928,9 @@
       "copie": "Copied",
       "partager": "Share",
       "terminer": "Done",
-      "suivant": "Next"
+      "suivant": "Next",
+      "recherche": "Search…",
+      "aucunResultat": "No results"
     },
     "bienvenue": {
       "inscrire": "Sign up",
@@ -2186,7 +2188,8 @@
       "replier": "Collapse the menu",
       "deplier": "Expand the menu",
       "simulateurChoisirDevise": "Choose a currency",
-      "simulateurIndicatif": "Indicative rate"
+      "simulateurIndicatif": "Indicative rate",
+      "bientotCourt": "Soon"
     },
     "inscription": {
       "titre": "Sign up",
@@ -2366,7 +2369,10 @@
         "niu": "Tax ID: ",
         "attestation": "Tax registration certificate:"
       },
-      "deconnexion": "Log out"
+      "deconnexion": "Log out",
+      "ouvrirCompteTitre": "Open your Euro account",
+      "ouvrirCompteSous": "Complete your file to activate your account and all your services.",
+      "ouvrirCompteCta": "Start"
     },
     "flux": {
       "recharge": {
@@ -2490,7 +2496,441 @@
         "succesCle": "sent",
         "succesTexte": "Your transfer of {montant} to {beneficiaire} has been sent.",
         "cta": "Back to my account"
+      },
+      "packs": {
+        "titreAvant": "What do you ",
+        "titreCle": "need",
+        "titreApres": "?",
+        "populaire": "Popular",
+        "parAn": "€/yr",
+        "enSavoirPlus": "Learn more",
+        "souscrire": "Subscribe",
+        "plusTard": "Maybe later",
+        "modaleAvant": "Do you really want to miss out on the ",
+        "modaleCle": "revolution",
+        "modaleApres": "?",
+        "modaleTexte": "Treepi is much more than an account. It's your travel companion for a truly free travel experience in Europe.",
+        "modaleConfirmer": "Confirm",
+        "modaleAnnuler": "Cancel",
+        "liste": [
+          {
+            "id": "compte",
+            "nom": "1 Euro account + 1 card",
+            "accroche": "To pay freely throughout your stay",
+            "sections": [
+              {
+                "titre": "Included as soon as your account opens:",
+                "items": [
+                  "1 French IBAN + 1 account number in your name",
+                  "Top up your account from Africa",
+                  "Receive international transfers"
+                ]
+              },
+              {
+                "titre": "Once your visa is granted, you also get:",
+                "items": [
+                  "Mastercard cards (virtual & physical)",
+                  "- Pay anywhere in the world",
+                  "- Unlimited SEPA bank transfers",
+                  "- Cash withdrawals"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "attestation",
+            "nom": "Financial guarantee certificate - unlimited",
+            "accroche": "To make getting your Schengen visa easier",
+            "sections": [
+              {
+                "titre": "You get all this for €210 a year:",
+                "items": [
+                  "1 French IBAN + 1 account number in your name",
+                  "Annual account management fee",
+                  "Top up your account from Africa - unlimited",
+                  "Receive international transfers",
+                  "Financial supporting documents for a Schengen visa",
+                  "Certificate accepted and recognised by every consulate"
+                ]
+              },
+              {
+                "titre": "Included once your visa is granted:",
+                "items": [
+                  "Funds unlocked and full access to your money",
+                  "Mastercard cards (virtual & physical)",
+                  "Pay anywhere in the world",
+                  "Unlimited SEPA bank transfers",
+                  "Cash withdrawals"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "recours",
+            "nom": "Visa appeal insurance",
+            "accroche": "To protect your trip if your visa is refused",
+            "note": "Visa appeal up to €15,000",
+            "sections": [
+              {
+                "titre": "A complete service all year round:",
+                "items": [
+                  "1 French IBAN + 1 account number in your name",
+                  "Annual account management fee",
+                  "Top up your account from Africa",
+                  "Receive international transfers",
+                  "Unlimited financial documents for a Schengen visa",
+                  "Certificate accepted and recognised by every consulate",
+                  "Connection with a specialised lawyer",
+                  "Case review if your visa is refused",
+                  "Full coverage of costs (up to €15,000)"
+                ]
+              },
+              {
+                "titre": "Included once your visa is granted after appeal:",
+                "items": [
+                  "Funds unlocked and full access to your money",
+                  "Mastercard cards (virtual & physical)",
+                  "Pay anywhere in the world",
+                  "Unlimited SEPA bank transfers",
+                  "Cash withdrawals"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "compteEuro": {
+        "titre": "Euro account",
+        "introHelloAvant": "Hello ",
+        "introHelloCle": "{prenom},",
+        "introTitre": "Almost everything is ready!",
+        "introTexte": "Just a few small steps left to give your account value in euros.",
+        "introCta": "Continue",
+        "identiteAvant": "Provide your ",
+        "identiteCle": "passport",
+        "identiteDescription": "This information must be exact and identical to what is written on your passport.",
+        "numeroLabel": "Passport number",
+        "numeroPlaceholder": "Passport number",
+        "paysLabel": "Country of issue",
+        "paysPlaceholder": "Select a country",
+        "expirationLabel": "Expiry date",
+        "expirationPlaceholder": "DD/MM/YYYY",
+        "fichierTitre": "Upload a file",
+        "fichierSousTitre": "Select and upload your file(s)",
+        "fichierAccepteTitre": "Accepted documents:",
+        "fichierAccepteItems": [
+          "Passport in date"
+        ],
+        "fichierChoisir": "Choose a file",
+        "fichierFormats": "JPEG, PNG, PDF, up to 50 MB",
+        "fichierPhoto": "Take a photo",
+        "fichierParcourir": "Browse",
+        "situationAvant": "Your ",
+        "situationCle": "employment status",
+        "situationDescription": "This information completes your file and stays strictly confidential.",
+        "situationLabel": "Employment status",
+        "situations": [
+          "Employee",
+          "Self-employed",
+          "Business owner",
+          "Student",
+          "Unemployed",
+          "Retired"
+        ],
+        "revenuLabel": "Net monthly income",
+        "revenuPlaceholder": "e.g. 1,800",
+        "signatureAvant": "Sign your ",
+        "signatureCle": "contract",
+        "signatureDescription": "Sign your contract to guarantee a transparent framework in our relationship.",
+        "signatureTitre": "You're about to formalise your commitment.",
+        "signaturePoints": [
+          "Read your contract carefully before signing.",
+          "Your signature happens online via a secure platform.",
+          "Tap “I sign” to open your contract and sign."
+        ],
+        "signatureCta": "I sign",
+        "signatureModaleAvant": "Electronic ",
+        "signatureModaleCle": "signature",
+        "signatureModaleTexte": "By signing, you accept the Treepi Euro account contract and the annual direct debit mandate for the chosen pack.",
+        "signatureModaleConfirmer": "I sign and accept",
+        "signatureModaleAnnuler": "Cancel",
+        "suivant": "Continue",
+        "succesAvant": "Your Euro account is ",
+        "succesCle": "open!",
+        "succesTexte": "Congratulations {prenom}! Your file is approved. Top up your account to start giving it value in euros.",
+        "succesCta": "Go to my account",
+        "secteurLabel": "Field of work",
+        "secteurs": [
+          "IT / Tech",
+          "Retail",
+          "Healthcare",
+          "Education",
+          "Finance",
+          "Construction",
+          "Transport",
+          "Hospitality",
+          "Public sector",
+          "Other"
+        ],
+        "financierAvant": "Your ",
+        "financierCle": "financial details",
+        "financierDescription": "To comply with European regulations, we are required to collect this information.",
+        "patrimoineLabel": "Net worth",
+        "patrimoines": [
+          "€0 - 5,000",
+          "€5,000 - 20,000",
+          "€20,000 - 50,000",
+          "Over €50,000"
+        ],
+        "financierAvertissement": "This information is required to comply with anti-money-laundering rules.",
+        "certifAvant": "Your ",
+        "certifCle": "certifications",
+        "certifDescription": "To comply with European regulations, we are required to collect this information.",
+        "certifUsPerson": "I certify that I am not a US person",
+        "certifPpe": "I certify that I am not a politically exposed person",
+        "certifConfirme": "I hereby confirm that I will be the sole user of this account and that the information I have provided is truthful, accurate and complete.",
+        "recapAvant": "Your ",
+        "recapCle": "summary",
+        "recapDescription": "Check your details one last time. If everything looks good, you can confirm and move on with confidence.",
+        "recapOffre": "Selected offer",
+        "recapProfil": "My profile",
+        "recapPerso": "Personal info",
+        "recapPersoSous": "Great, we've got to know each other!",
+        "recapPro": "Professional info",
+        "recapProSous": "Thanks for taking the time to tell us more about your work situation.",
+        "recapFin": "Financial info",
+        "recapFinSous": "To prove your solvency to the consular services for your trip.",
+        "confirmer": "Confirm"
+      },
+      "paiement": {
+        "titre": "Card payment",
+        "numero": "Card number",
+        "exp": "Expiry",
+        "cvc": "CVC",
+        "titulaire": "Cardholder"
+      },
+      "attestation": {
+        "titre": "Certificate",
+        "introAvant": "Financial guarantee ",
+        "introCle": "certificate",
+        "introDescription": "Get a reliable document proving, for your visa application, that you have enough income to fund your trip.",
+        "introReconnue": "This certificate is genuine and recognised by every consulate in the Schengen area.",
+        "introGratuite": "Good news! This certificate is 100% free for you as it's included in your current plan (no fees, unlimited generation for a year).",
+        "introCta": "Get my certificate",
+        "montantLabel": "Your financial guarantee certificate is for:",
+        "montantAvertissement": "The guaranteed amount matches the balance available on your Euro account.",
+        "sejourTitre": "Trip details",
+        "paysLabel": "Destination country",
+        "paysPlaceholder": "Select a country",
+        "motifLabel": "Purpose of stay",
+        "motifs": [
+          "Tourism",
+          "Family visit",
+          "Conference",
+          "Business",
+          "Medical",
+          "Other"
+        ],
+        "departLabel": "Expected departure date",
+        "retourLabel": "Expected return date",
+        "datePlaceholder": "DD/MM/YYYY",
+        "genererCta": "Generate my certificate",
+        "succesAvant": "Your financial guarantee certificate is ",
+        "succesCle": "ready!",
+        "succesTexte": "Thanks for trusting Treepi to prove your financial means quickly and smoothly for your visa.",
+        "telecharger": "Download",
+        "partager": "Share",
+        "succesCta": "Back to home"
+      },
+      "accompagnement": {
+        "titre": "Support",
+        "introAvant": "Good support means better ",
+        "introCle": "chances of success",
+        "introApres": "!",
+        "introBadge": "Your profile is now certified. You get 1 hour of free coaching with our experts.",
+        "offreTitre": "Our offer includes:",
+        "offreItems": [
+          "Assessment of your travel project",
+          "Handling of your visa application file",
+          "Personalised follow-up until your visa is granted"
+        ],
+        "introCta": "Get expert support",
+        "rdvAvant": "I book my ",
+        "rdvCle": "free appointment",
+        "canalTelephone": "By phone",
+        "canalTelephoneSous": "An expert calls you at your chosen time.",
+        "canalBureau": "At the office",
+        "canalBureauSous": "Meet an expert at our Paris offices.",
+        "reserveTitre": "I choose the day and time",
+        "calendly": "Book on Calendly",
+        "calendlySous": "Pick a slot that suits you.",
+        "rdvCta": "Continue",
+        "tarifsAvant": "Our ",
+        "tarifsCle": "pricing",
+        "packs": [
+          {
+            "id": "solo",
+            "nom": "Solo pack",
+            "sous": "I travel on my own"
+          },
+          {
+            "id": "famille",
+            "nom": "Family pack",
+            "sous": "I travel as a family or couple, with child(ren)"
+          },
+          {
+            "id": "parent",
+            "nom": "Parent pack",
+            "sous": "My parents are travelling"
+          }
+        ],
+        "recapService": "Expert support",
+        "recapPack": "Plan",
+        "recapTotal": "Total",
+        "payer": "Pay {montant}",
+        "succesAvant": "Your support is ",
+        "succesCle": "booked!",
+        "succesTexte": "A Treepi expert will contact you shortly to schedule your session. Reference {reference}.",
+        "succesCta": "Back to home"
+      },
+      "visa": {
+        "titre": "Visa",
+        "introAvant": "Getting your ",
+        "introCle": "visa",
+        "introDescription": "A granted visa means full access to the app. From then on you can do everything, without limits.",
+        "infoTitre": "Information to complete",
+        "avertissement": "Before finishing and submitting your file, make sure all the completed information is correct.",
+        "sectionVisa": "Visa details",
+        "sectionHebergement": "Proof of accommodation",
+        "valider": "Submit my file",
+        "visaTypeLabel": "Visa type",
+        "visaTypes": [
+          "Short stay (Schengen)",
+          "Long stay",
+          "Student",
+          "Work",
+          "Visitor"
+        ],
+        "visaPaysLabel": "Destination country",
+        "visaPaysPlaceholder": "Select a country",
+        "visaDepartLabel": "Expected entry date",
+        "visaRetourLabel": "Expected exit date",
+        "datePlaceholder": "DD/MM/YYYY",
+        "hebergementTitre": "Type of accommodation",
+        "hebergementOptions": [
+          {
+            "id": "reservation",
+            "titre": "Hotel booking",
+            "sous": "Confirmation of a hotel reservation."
+          },
+          {
+            "id": "proche",
+            "titre": "Staying with someone",
+            "sous": "Proof of accommodation from a host."
+          },
+          {
+            "id": "proprietaire",
+            "titre": "I'm the owner",
+            "sous": "Property deed or lease in your name."
+          }
+        ],
+        "hebergementFichierTitre": "Upload a document",
+        "hebergementFichierSous": "Select and upload your file(s)",
+        "hebergementAccepteTitre": "Accepted documents:",
+        "hebergementAccepteItems": [
+          "Booking, host certificate or property deed"
+        ],
+        "hebergementChoisir": "Choose a file",
+        "hebergementFormats": "JPEG, PNG, PDF, up to 50 MB",
+        "hebergementPhoto": "Take a photo",
+        "hebergementParcourir": "Browse",
+        "enregistrer": "Save",
+        "fait": "Completed",
+        "succesAvant": "Your visa file is ",
+        "succesCle": "submitted!",
+        "succesTexte": "We're reviewing your file. You'll get an answer very soon and your account switches to full access.",
+        "succesCta": "Go to my account"
+      },
+      "recours": {
+        "titre": "Visa appeal",
+        "introAvant": "Visa ",
+        "introCle": "appeal insurance",
+        "introDescription": "Protect your trip if your visa is refused. Full handling of the process, up to €15,000.",
+        "avantages": [
+          "Connection with a specialised lawyer",
+          "Review of your case if your visa is refused",
+          "Full coverage of costs, up to €15,000"
+        ],
+        "prix": "€500/yr",
+        "prixSuffixe": "/yr",
+        "introCta": "Subscribe",
+        "recapService": "Visa appeal insurance",
+        "recapTotal": "Total",
+        "payer": "Pay €500",
+        "succesAvant": "Your visa appeal is ",
+        "succesCle": "active!",
+        "succesTexte": "You're now protected if your visa is refused. Our legal team is on standby.",
+        "succesCta": "Back to home"
+      },
+      "assurance": {
+        "titre": "Travel insurance",
+        "introAvant": "Schengen travel ",
+        "introCle": "insurance",
+        "introDescription": "The mandatory insurance for your Schengen visa: health cover and repatriation throughout your stay.",
+        "avantages": [
+          "Health cover up to €30,000",
+          "Medical repatriation included",
+          "Certificate compliant with Schengen requirements"
+        ],
+        "prix": "€90/yr",
+        "prixSuffixe": "/yr",
+        "introCta": "Subscribe",
+        "recapService": "Schengen travel insurance",
+        "recapTotal": "Total",
+        "payer": "Pay €90",
+        "succesAvant": "Your travel insurance is ",
+        "succesCle": "active!",
+        "succesTexte": "Your insurance certificate is available in your space, ready for your visa application.",
+        "succesCta": "Back to home"
       }
+    },
+    "voyage": {
+      "titre": "Travel & visa",
+      "introAvant": "Your ",
+      "introCle": "travel services",
+      "sousTitre": "Prepare and secure your visa application with Treepi.",
+      "services": [
+        {
+          "cle": "visa",
+          "titre": "Getting your visa",
+          "sous": "Submit and track your visa file.",
+          "href": "/app/visa"
+        },
+        {
+          "cle": "attestation",
+          "titre": "Financial guarantee certificate",
+          "sous": "Prove your means to the consulate.",
+          "href": "/app/attestation"
+        },
+        {
+          "cle": "accompagnement",
+          "titre": "Expert support",
+          "sous": "A coach guides you until your visa is granted.",
+          "href": "/app/accompagnement"
+        },
+        {
+          "cle": "recours",
+          "titre": "Visa appeal",
+          "sous": "Protect yourself if your visa is refused.",
+          "href": "/app/recours"
+        },
+        {
+          "cle": "assurance",
+          "titre": "Schengen travel insurance",
+          "sous": "The mandatory cover for your visa.",
+          "href": "/app/assurance"
+        }
+      ]
     }
   }
 }

@@ -8,6 +8,7 @@
  */
 
 import { ecrireStockage, genererId, latenceReseau, lireStockage } from "./client";
+import type { PackId } from "./packs";
 
 /** Mouvement affiché dans la liste « Transactions » du tableau de bord. */
 export interface Transaction {
@@ -42,6 +43,29 @@ export const RIB_TREEPI: Rib = {
   banque: "Treepi Payments",
 };
 
+/**
+ * Informations recueillies pendant l'ouverture du compte Euro (KYC) : identité
+ * (passeport) et situation, qui alimentent les volets « À renseigner » du
+ * profil. Le vrai backend les vérifiera auprès d'un prestataire d'identité.
+ */
+export interface InfosKyc {
+  passeportNumero: string;
+  paysDelivrance: string;
+  expiration: string;
+  /** Situation professionnelle déclarée (salarié, indépendant, étudiant...). */
+  situationPro?: string;
+  /** Secteur d'activité déclaré. */
+  secteur?: string;
+  /** Revenu mensuel net déclaré, en euros. */
+  revenuMensuel?: string;
+  /** Tranche de patrimoine déclarée. */
+  patrimoine?: string;
+  /** Certifie ne pas être une « US person » (réglementation FATCA). */
+  usPerson?: boolean;
+  /** Certifie ne pas être une personne politiquement exposée. */
+  ppe?: boolean;
+}
+
 export interface CompteEuro {
   soldeEuros: number;
   transactions: Transaction[];
@@ -53,6 +77,14 @@ export interface CompteEuro {
   progressionProfil: number;
   /** Le compte Euro a-t-il été activé (écran « Félicitations »). */
   active: boolean;
+  /** Le dossier d'ouverture (KYC + signature) est-il complété. */
+  ouvert?: boolean;
+  /** Pack souscrit à l'ouverture. */
+  packId?: PackId;
+  /** Informations d'identité collectées au KYC. */
+  kyc?: InfosKyc;
+  /** Date ISO de signature du contrat. */
+  signeLe?: string;
 }
 
 /** Compte neuf : l'état « Frais de gestion » des maquettes (0 €, vide). */
@@ -172,6 +204,26 @@ export async function debiterCompte(
 /** Renseigne l'obtention du visa (bascule les bannières en post-visa). */
 export function definirVisaAjoute(visaAjoute: boolean): CompteEuro {
   return enregistrerCompte({ ...obtenirCompte(), visaAjoute, phase: visaAjoute ? "post-visa" : "pre-visa" });
+}
+
+/**
+ * Clôt le parcours d'ouverture du compte Euro (pack + KYC + signature) : active
+ * le compte, enregistre le pack et les informations d'identité, et complète la
+ * progression du profil. N'alimente pas le solde (la valeur en euros vient des
+ * recharges) : le tableau de bord reste sur l'état « Frais de gestion » tant que
+ * l'utilisateur n'a pas rechargé.
+ */
+export async function ouvrirCompteEuro(packId: PackId, kyc: InfosKyc): Promise<CompteEuro> {
+  await latenceReseau();
+  return enregistrerCompte({
+    ...obtenirCompte(),
+    active: true,
+    ouvert: true,
+    packId,
+    kyc,
+    progressionProfil: 100,
+    signeLe: new Date().toISOString(),
+  });
 }
 
 /** IBAN Treepi personnel de l'utilisateur (écran « Recevoir »). */

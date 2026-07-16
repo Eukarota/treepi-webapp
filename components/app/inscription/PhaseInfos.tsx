@@ -1,13 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { BrouillonInscription } from "@/lib/api/types";
 import { NATIONALITES, PAYS, VILLES } from "@/lib/data/suggestions";
 import GabaritEtape from "./GabaritEtape";
 import BoutonApp from "@/components/app/ui/BoutonApp";
 import ChampTexte from "@/components/app/ui/ChampTexte";
-import CalendrierApp from "@/components/app/ui/CalendrierApp";
+import ChampDate from "@/components/app/ui/ChampDate";
+import SelecteurListe from "@/components/app/ui/SelecteurListe";
+
+/** « JJ/MM/AAAA » -> ISO « AAAA-MM-JJ » (ou vide si incomplet). */
+function dateVersIso(affiche: string): string {
+  const m = affiche.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  return m ? `${m[3]}-${m[2]}-${m[1]}` : "";
+}
 
 /*
  * Phase 3 de l'inscription : les informations personnelles (maquettes
@@ -26,29 +33,22 @@ export default function PhaseInfos({
   onQuitter: () => void;
 }) {
   const t = useTranslations("app.inscription");
-  const locale = useLocale();
   const [sousEtape, setSousEtape] = useState<0 | 1 | 2>(0);
-  const [calendrierOuvert, setCalendrierOuvert] = useState(false);
 
   const [genre, setGenre] = useState<"homme" | "femme">();
   const [prenom, setPrenom] = useState("");
   const [nom, setNom] = useState("");
+  // Date de naissance saisie au format affiché JJ/MM/AAAA (convertie en ISO
+  // au moment de valider le brouillon).
   const [dateNaissance, setDateNaissance] = useState("");
   const [villeNaissance, setVilleNaissance] = useState("");
   const [nationalite, setNationalite] = useState("");
   const [paysResidence, setPaysResidence] = useState("");
   const [villeResidence, setVilleResidence] = useState("");
 
-  /** Date affichée au format local (le brouillon garde l'ISO). */
-  const dateAffichee = dateNaissance
-    ? new Intl.DateTimeFormat(locale, { day: "2-digit", month: "2-digit", year: "numeric" }).format(
-        new Date(dateNaissance)
-      )
-    : "";
-
   const complets = [
     Boolean(genre && prenom.trim() && nom.trim()),
-    Boolean(dateNaissance && villeNaissance.trim()),
+    Boolean(dateNaissance.length === 10 && villeNaissance.trim()),
     Boolean(nationalite.trim() && paysResidence.trim() && villeResidence.trim()),
   ];
 
@@ -61,7 +61,7 @@ export default function PhaseInfos({
       genre,
       prenom: prenom.trim(),
       nom: nom.trim(),
-      dateNaissance,
+      dateNaissance: dateVersIso(dateNaissance),
       villeNaissance: villeNaissance.trim(),
       nationalite: nationalite.trim(),
       paysResidence: paysResidence.trim(),
@@ -130,21 +130,14 @@ export default function PhaseInfos({
 
       {sousEtape === 1 && (
         <div className="flex flex-col gap-4">
-          {/* Champ date : ouvre le calendrier en feuille basse. */}
-          <div className="flex w-full flex-col gap-2">
-            <span className="text-xs font-bold leading-[22px] text-dark">{t("infos2.dateNaissance")}</span>
-            <button
-              type="button"
-              onClick={() => setCalendrierOuvert(true)}
-              className="flex h-[42px] w-full items-center gap-3 rounded-xl border border-grey-100 bg-white p-3 text-left transition-colors focus-visible:border-primary-light focus-visible:outline-none"
-            >
-              <span className={"min-w-0 flex-1 text-sm font-medium leading-[22px] " + (dateAffichee ? "text-dark" : "text-grey-300")}>
-                {dateAffichee || t("infos2.datePlaceholder")}
-              </span>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/app/icons/calendar.svg" alt="" width={20} height={20} className="shrink-0" />
-            </button>
-          </div>
+          {/* Date de naissance : saisie manuelle JJ/MM/AAAA ou calendrier. */}
+          <ChampDate
+            label={t("infos2.dateNaissance")}
+            name="dateNaissance"
+            placeholder={t("infos2.datePlaceholder")}
+            value={dateNaissance}
+            onChange={setDateNaissance}
+          />
           <ChampTexte
             label={t("infos2.villeNaissance")}
             name="villeNaissance"
@@ -168,14 +161,13 @@ export default function PhaseInfos({
             value={nationalite}
             onChange={(e) => setNationalite(e.target.value)}
           />
-          <ChampTexte
+          <SelecteurListe
             label={t("infos3.pays")}
             name="paysResidence"
-            list="liste-pays"
-            autoComplete="off"
             placeholder={t("infos3.paysPlaceholder")}
+            options={PAYS}
             value={paysResidence}
-            onChange={(e) => setPaysResidence(e.target.value)}
+            onChange={setPaysResidence}
           />
           <ChampTexte
             label={t("infos3.ville")}
@@ -200,27 +192,12 @@ export default function PhaseInfos({
           <option key={n} value={n} />
         ))}
       </datalist>
-      <datalist id="liste-pays">
-        {PAYS.map((p) => (
-          <option key={p} value={p} />
-        ))}
-      </datalist>
 
       <div className="mt-auto pt-8">
         <BoutonApp disabled={!complets[sousEtape]} onClick={continuer}>
           {t("continuer")}
         </BoutonApp>
       </div>
-
-      <CalendrierApp
-        ouverte={calendrierOuvert}
-        valeur={dateNaissance || undefined}
-        onFermer={() => setCalendrierOuvert(false)}
-        onSelectionner={(iso) => {
-          setDateNaissance(iso);
-          setCalendrierOuvert(false);
-        }}
-      />
     </GabaritEtape>
   );
 }

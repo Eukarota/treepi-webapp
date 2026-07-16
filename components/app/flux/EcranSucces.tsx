@@ -16,6 +16,8 @@ export default function EcranSucces({
   texte,
   cta,
   onContinuer,
+  ctaSecondaire,
+  onSecondaire,
   teinte = "turquoise",
 }: {
   titreAvant: string;
@@ -23,6 +25,9 @@ export default function EcranSucces({
   texte?: ReactNode;
   cta: string;
   onContinuer: () => void;
+  /** Action secondaire optionnelle (ex. « Partager » sous « Télécharger »). */
+  ctaSecondaire?: string;
+  onSecondaire?: () => void;
   /** Dégradé de fond : turquoise (opérations) ou corail (inscription/visa). */
   teinte?: "turquoise" | "corail";
 }) {
@@ -33,9 +38,10 @@ export default function EcranSucces({
     <div className={"relative flex flex-1 flex-col overflow-hidden bg-gradient-to-b " + fond}>
       <Swirl className="absolute inset-0 h-full w-full mix-blend-soft-light" />
 
-      {/* Illustration high-five (calques Figma recomposés), posée sur l'arc. */}
-      <div className="relative flex flex-1 items-end justify-center pb-3">
-        <div className="relative aspect-[254/272] w-[254px] max-w-[58%]">
+      {/* Illustration high-five (calques Figma recomposés) : décalée vers le bas
+          pour que l'arc blanc (z-10) recouvre légèrement le bas des mains. */}
+      <div className="relative z-0 flex flex-1 items-end justify-center">
+        <div className="relative aspect-[254/272] w-[254px] max-w-[58%] translate-y-8">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/app/illustrations/highfive/graphics.svg" alt="" className="absolute" style={{ left: "0.11%", top: "2.87%", width: "99.78%", height: "91.68%" }} />
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -47,7 +53,7 @@ export default function EcranSucces({
         </div>
       </div>
 
-      <div className="relative flex min-h-[46dvh] shrink-0 justify-center">
+      <div className="relative z-10 flex min-h-[46dvh] shrink-0 justify-center">
         <div className="flex w-[178%] max-w-none flex-col justify-center rounded-t-[50%] bg-white px-[14%] pb-10 pt-12 md:w-[120%] md:px-[8%]">
           <div className="mx-auto w-full max-w-[272px] text-center md:max-w-md">
             <h1 className="font-outfit text-2xl font-bold leading-8 text-dark">
@@ -55,8 +61,13 @@ export default function EcranSucces({
               <span className={cle}>{titreCle}</span>
             </h1>
             {texte && <p className="mt-3 text-sm leading-[22px] text-grey">{texte}</p>}
-            <div className="mt-8">
+            <div className="mt-8 flex flex-col gap-1">
               <BoutonApp onClick={onContinuer}>{cta}</BoutonApp>
+              {ctaSecondaire && onSecondaire && (
+                <BoutonApp variante="neutre" onClick={onSecondaire}>
+                  {ctaSecondaire}
+                </BoutonApp>
+              )}
             </div>
           </div>
         </div>

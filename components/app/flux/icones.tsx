@@ -138,3 +138,65 @@ export function IconeMaison(p: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function IconeTeleversement(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M17 18a4 4 0 0 0 .9-7.9 5.5 5.5 0 0 0-10.6-1.5A4.5 4.5 0 0 0 7 18" />
+      <path d="M12 12v7M9 15l3-3 3 3" />
+    </svg>
+  );
+}
+
+export function IconeOeil(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  );
+}
+
+export function IconeCle(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <circle cx="8" cy="8" r="4.5" />
+      <path d="M11.2 11.2 20 20M17 17l2-2M14 14l2-2" />
+    </svg>
+  );
+}
+
+export function IconeCrayon(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M4 20h4L18.5 9.5a2.1 2.1 0 0 0-3-3L5 17v3z" />
+      <path d="M14 6.5l3 3" />
+    </svg>
+  );
+}
+
+export function IconePersonne(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <circle cx="12" cy="8" r="4" />
+      <path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" />
+    </svg>
+  );
+}
+
+export function IconeTelephone(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M6.5 3.5 9 4l1 4-2 1.5a12 12 0 0 0 6.5 6.5L16 14l4 1 .5 2.5a2 2 0 0 1-2 2.3A16 16 0 0 1 4.2 5.5a2 2 0 0 1 2.3-2z" />
+    </svg>
+  );
+}
+
+export function IconeMallette(p: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base} {...p}>
+      <rect x="3" y="7.5" width="18" height="12" rx="2.5" />
+      <path d="M8 7.5V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1.5M3 13h18" />
+    </svg>
+  );
+}

@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/navigation";
 import { useSession } from "@/components/app/SessionProvider";
+import { obtenirCompte } from "@/lib/api/compte";
 import GabaritProfil from "@/components/app/profil/GabaritProfil";
 import SelecteurLangue from "@/components/app/ui/SelecteurLangue";
 
@@ -16,6 +18,8 @@ export default function PageProfil() {
   const t = useTranslations("app.profil");
   const router = useRouter();
   const { fermerSession } = useSession();
+  // Le dossier d'ouverture (KYC) est-il complété ? Sinon on propose de le finaliser.
+  const [compteOuvert] = useState(() => (typeof window === "undefined" ? true : Boolean(obtenirCompte().ouvert)));
 
   /** Déconnexion : purge la session simulée puis retour à l'accueil visiteur. */
   const deconnecter = async () => {
@@ -37,6 +41,21 @@ export default function PageProfil() {
 
   return (
     <GabaritProfil>
+      {/* Invitation à finaliser l'ouverture du compte Euro (KYC) tant qu'elle
+          n'est pas complétée : renseigne les volets et active les services. */}
+      {!compteOuvert && (
+        <Link
+          href="/app/compte-euro"
+          className="mt-5 flex items-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-r from-primary-light to-primary p-4 text-white shadow-app transition-transform hover:-translate-y-0.5"
+        >
+          <span className="min-w-0 flex-1">
+            <span className="block font-outfit text-base font-bold leading-6">{t("ouvrirCompteTitre")}</span>
+            <span className="mt-0.5 block text-xs leading-4 text-white/90">{t("ouvrirCompteSous")}</span>
+          </span>
+          <span className="shrink-0 rounded-full bg-white/20 px-3 py-1.5 text-xs font-bold">{t("ouvrirCompteCta")}</span>
+        </Link>
+      )}
+
       {/* Statistiques de voyage, réparties sur toute la largeur. */}
       <div className="mt-5 flex items-stretch rounded-lg border border-grey-200 bg-white p-2">
         {STATS.map((stat, i) => (
