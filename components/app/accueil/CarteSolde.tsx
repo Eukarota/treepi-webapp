@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 /*
  * Carte du solde Euro (maquette « Virtual card »).
@@ -28,6 +29,11 @@ export default function CarteSolde({ soldeEuros }: { soldeEuros: number }) {
     abonnement: "/app/icons/action-abonnement.svg",
   };
 
+  // Actions déjà reliées à un flux (les autres restent « Bientôt disponible »).
+  const LIENS: Record<string, string | undefined> = {
+    rib: "/app/recevoir",
+  };
+
   return (
     <div data-tuto="carte" className="relative">
       <div className="relative aspect-[272/153] w-full overflow-hidden rounded-[20px] lg:aspect-[8/3]">
@@ -46,15 +52,14 @@ export default function CarteSolde({ soldeEuros }: { soldeEuros: number }) {
 
         {/* Recharger. Mobile : remplit l'encoche (39% x 26%, maquette).
             Desktop : pilule discrète dans le coin haut droit. */}
-        <button
-          type="button"
-          title={t("bientot")}
+        <Link
+          href="/app/recharger"
           className="absolute right-0 top-0 flex h-[26%] w-[39%] items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-secondary to-secondary-light text-xs font-bold text-white shadow-[0_4px_14px_rgba(255,101,103,0.35)] transition-all hover:brightness-105 lg:left-auto lg:right-5 lg:top-5 lg:h-auto lg:w-auto lg:gap-2 lg:px-5 lg:py-2.5 lg:text-sm"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/app/icons/plus-circle.svg" alt="" width={18} height={18} className="size-[18px] lg:size-5" />
           {t("recharger")}
-        </button>
+        </Link>
 
         {/* Solde : centré, agrandi sur desktop. */}
         <p className="absolute left-1/2 top-[34%] -translate-x-1/2 font-outfit text-4xl font-bold leading-[48px] text-white lg:top-1/2 lg:-translate-y-1/2 lg:text-[52px] lg:leading-[56px]">
@@ -64,20 +69,28 @@ export default function CarteSolde({ soldeEuros }: { soldeEuros: number }) {
 
       {/* Actions rapides : pastilles givrées à cheval sur le bas de carte. */}
       <div className="-mt-7 flex justify-center gap-px lg:-mt-10 lg:gap-8">
-        {actions.map((action) => (
-          <button
-            key={action.cle}
-            type="button"
-            title={t("bientot")}
-            className="flex w-[61px] flex-col items-center gap-1 lg:w-20 lg:gap-2"
-          >
-            <span className="grid size-10 place-items-center rounded-full border-[0.5px] border-white/70 bg-white/50 backdrop-blur-[2.5px] transition-colors hover:bg-white/70 lg:size-14">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={ICONES[action.cle]} alt="" width={20} height={20} className="size-5 lg:size-7" />
-            </span>
-            <span className="text-[10px] leading-4 text-dark lg:text-sm">{action.libelle}</span>
-          </button>
-        ))}
+        {actions.map((action) => {
+          const contenu = (
+            <>
+              <span className="grid size-10 place-items-center rounded-full border-[0.5px] border-white/70 bg-white/50 backdrop-blur-[2.5px] transition-colors group-hover:bg-white/70 lg:size-14">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={ICONES[action.cle]} alt="" width={20} height={20} className="size-5 lg:size-7" />
+              </span>
+              <span className="text-[10px] leading-4 text-dark lg:text-sm">{action.libelle}</span>
+            </>
+          );
+          const classe = "group flex w-[61px] flex-col items-center gap-1 lg:w-20 lg:gap-2";
+          const href = LIENS[action.cle];
+          return href ? (
+            <Link key={action.cle} href={href} className={classe}>
+              {contenu}
+            </Link>
+          ) : (
+            <button key={action.cle} type="button" title={t("bientot")} className={classe}>
+              {contenu}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

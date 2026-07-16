@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 /*
  * Bannières pré/post-visa (maquettes « Bannière Pré-Visa / Post-Visa »).
@@ -76,17 +77,24 @@ export default function Bandeaux({ phase }: { phase: "pre-visa" | "post-visa" })
             </div>
             <div className="flex h-[32px] items-center justify-between bg-white px-4 shadow-[0_-1px_16px_rgba(0,0,0,0.15)]">
               <span className="text-gradient-primary text-[10px] font-bold leading-4">{b.pied}</span>
-              <button
-                type="button"
-                title={t("bientot")}
-                className="flex h-6 items-center gap-1 rounded-full bg-gradient-to-r from-secondary to-secondary-light px-2.5 text-[9px] font-bold text-white transition-all hover:brightness-105"
-              >
-                {b.plus && (
-                  /* eslint-disable-next-line @next/next/no-img-element */
+              {b.plus ? (
+                <Link
+                  href="/app/recharger"
+                  className="flex h-6 items-center gap-1 rounded-full bg-gradient-to-r from-secondary to-secondary-light px-2.5 text-[9px] font-bold text-white transition-all hover:brightness-105"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/app/icons/plus-circle.svg" alt="" width={12} height={12} />
-                )}
-                {b.cta}
-              </button>
+                  {b.cta}
+                </Link>
+              ) : (
+                <button
+                  type="button"
+                  title={t("bientot")}
+                  className="flex h-6 items-center gap-1 rounded-full bg-gradient-to-r from-secondary to-secondary-light px-2.5 text-[9px] font-bold text-white transition-all hover:brightness-105"
+                >
+                  {b.cta}
+                </button>
+              )}
             </div>
           </article>
         ))}

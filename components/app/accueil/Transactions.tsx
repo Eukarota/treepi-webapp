@@ -18,8 +18,8 @@ export default function Transactions({ transactions }: { transactions: Transacti
       .format(new Date(iso))
       .replace(" à ", ", ");
 
-  const formatMontant = (v: number) =>
-    `+ ${new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 2 }).format(v)} €`;
+  const formatMontant = (tx: Transaction) =>
+    `${tx.sens === "debit" ? "-" : "+"} ${new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 2 }).format(tx.montantEuros)} €`;
 
   return (
     <section className="flex flex-col gap-2">
@@ -68,8 +68,8 @@ export default function Transactions({ transactions }: { transactions: Transacti
                           tx.titre
                         )}
                       </span>
-                      <span className="shrink-0 text-sm font-medium leading-[22px] text-dark">
-                        {formatMontant(tx.montantEuros)}
+                      <span className={"shrink-0 text-sm font-medium leading-[22px] " + (tx.sens === "debit" ? "text-dark" : "text-primary-light")}>
+                        {formatMontant(tx)}
                       </span>
                     </div>
                     <p className="text-[10px] leading-4 text-grey">{formatDate(tx.date)}</p>

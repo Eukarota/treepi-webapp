@@ -18,8 +18,8 @@ import SelecteurLangue from "@/components/app/ui/SelecteurLangue";
  */
 
 const ENTREES = [
-  { cle: "virement", icone: "/app/icons/nav-virement.svg", href: null },
-  { cle: "recharger", icone: "/app/icons/nav-recharger.svg", href: null },
+  { cle: "virement", icone: "/app/icons/nav-virement.svg", href: "/app/virement" },
+  { cle: "recharger", icone: "/app/icons/nav-recharger.svg", href: "/app/recharger" },
   { cle: "accueil", icone: "/app/icons/nav-accueil.svg", href: "/app/accueil" },
   { cle: "voyage", icone: "/app/icons/nav-voyage.svg", href: null },
   { cle: "carte", icone: "/app/icons/nav-carte.svg", href: null },
