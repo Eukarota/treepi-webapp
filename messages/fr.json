@@ -2143,7 +2143,7 @@
       "simulateurSource": "Source : ",
       "simulateurClause": "Clause de non-responsabilité",
       "simulateurEquivalent": "Le montant équivalent en devise locale",
-      "simulateurTaux": "(taux de change 1.00 EUR = {taux} FCFA)",
+      "simulateurTaux": "(taux de change 1,00 {source} = {taux} {cible})",
       "simulateurAujourdhui": "Aujourd'hui",
       "simulateurFrais": "Des frais peuvent être inclus",
       "simulateurTransferer": "Transférer",
@@ -2176,7 +2176,9 @@
       ],
       "bientot": "Bientôt disponible",
       "replier": "Replier le menu",
-      "deplier": "Déplier le menu"
+      "deplier": "Déplier le menu",
+      "simulateurChoisirDevise": "Choisir une devise",
+      "simulateurIndicatif": "Taux indicatif"
     },
     "inscription": {
       "titre": "Inscription",

@@ -9,9 +9,10 @@ import { useTranslations } from "next-intl";
  * libellé en gras et chevron. Les fiches service arrivent avec les flux
  * dédiés (TODO).
  *
- * L'export aplati embarque son propre cadre arrondi ; on recadre légèrement
- * la vignette (object-cover + léger zoom) pour que l'illustration remplisse la
- * carte sans double bordure ni liseré blanc, avec le rayon de la carte.
+ * Les exports d'illustration ont été détourés de leur cadre d'origine (la
+ * bordure grise et les coins étaient inclus, d'où le double liseré). On les
+ * affiche donc à leur ratio natif (aucun agrandissement, sinon crénelage),
+ * la carte apportant sa propre bordure et son rayon.
  */
 
 /** Pastille d'icône par service : glyphe blanc sur fond de marque. */
@@ -46,11 +47,10 @@ export default function ServicesTreepi() {
               className="overflow-hidden rounded-2xl border border-grey-200 bg-white text-left transition-shadow hover:shadow-app"
             >
               <div className="relative">
-                {/* Vignette : l'export est recadré (zoom léger) pour masquer
-                    son cadre d'origine et remplir la carte. */}
-                <div className="aspect-[16/10] overflow-hidden bg-grey-100">
+                {/* Vignette au ratio natif de l'illustration détourée. */}
+                <div className="aspect-[388/133] overflow-hidden bg-grey-100">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`/app/accueil/${service.image}.png`} alt="" className="size-full scale-[1.12] object-cover" />
+                  <img src={`/app/accueil/${service.image}.png`} alt="" className="size-full object-cover" />
                 </div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/app/icons/caret-right.svg" alt="" width={16} height={16} className="absolute right-1.5 top-1.5 size-4" />
