@@ -77,7 +77,10 @@ export default function GabaritFlux({
                   {titreCle && <span className="text-gradient-secondary">{titreCle}</span>}
                 </h1>
               )}
-              {description && <p className="text-[10px] leading-4 text-dark">{description}</p>}
+              {/* Lisibilité desktop : la description passe en 12px medium. */}
+              {description && (
+                <p className="text-[10px] leading-4 text-dark md:text-xs md:font-medium md:leading-[18px]">{description}</p>
+              )}
             </div>
           )}
         </div>

@@ -64,8 +64,40 @@ export default function PageConnexion() {
     <EcranApp className="md:justify-center">
       <FondApp />
       <form onSubmit={soumettre} className="colonne-app relative z-10 pb-8 md:py-16">
+        {/* TopNav mobile : retour à l'écran de bienvenue et croix vers le site.
+            Desktop : un seul bouton texte explicite « Retourner au site ». */}
+        <div className="mt-10 flex h-8 items-center justify-between md:mt-0">
+          <button
+            type="button"
+            onClick={() => router.push("/app/bienvenue")}
+            aria-label={tCommun("retour")}
+            className="transition-opacity hover:opacity-70 md:hidden"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/app/icons/arrow-left-teal.svg" alt="" width={32} height={32} />
+          </button>
+          <button
+            type="button"
+            onClick={() => router.push("/")}
+            aria-label={t("quitter")}
+            className="transition-opacity hover:opacity-70 md:hidden"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/app/icons/close-teal.svg" alt="" width={32} height={32} />
+          </button>
+          <button
+            type="button"
+            onClick={() => router.push("/")}
+            className="hidden items-center gap-1.5 text-sm font-bold text-primary-light transition-opacity hover:opacity-70 md:flex"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/app/icons/arrow-left-teal.svg" alt="" width={20} height={20} className="size-5" />
+            {t("retourSite")}
+          </button>
+        </div>
+
         {/* Titre : « Bienvenue sur Treepi » (Treepi au dégradé corail). */}
-        <h1 className="mt-[4.5rem] text-center font-outfit text-2xl font-bold leading-8 text-dark">
+        <h1 className="mt-8 text-center font-outfit text-2xl font-bold leading-8 text-dark">
           {tCommun("bienvenueSur")}
           <br />
           <span className="text-gradient-secondary">{tCommun("treepi")}</span>

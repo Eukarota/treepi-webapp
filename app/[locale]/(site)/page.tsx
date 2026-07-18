@@ -1,44 +1,50 @@
-import { setRequestLocale, getTranslations } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import Hero from "@/components/landing/Hero";
 import TrustBar from "@/components/landing/TrustBar";
 import Problem from "@/components/landing/Problem";
+import TreepersCarousel from "@/components/landing/TreepersCarousel";
 import Solutions from "@/components/landing/Solutions";
-import AttestationSteps from "@/components/landing/AttestationSteps";
-import TravelReasons from "@/components/landing/TravelReasons";
-import Simulator from "@/components/landing/Simulator";
-import Insurances from "@/components/landing/Insurances";
 import GlobeSection from "@/components/landing/GlobeSection";
+import AppShowcase from "@/components/landing/AppShowcase";
+import VisaSteps from "@/components/landing/VisaSteps";
+import TravelReasons from "@/components/landing/TravelReasons";
+import SecurePayment from "@/components/landing/SecurePayment";
+import RecoursInsurance from "@/components/landing/RecoursInsurance";
+import Services from "@/components/landing/Services";
 import Humanly from "@/components/landing/Humanly";
 import Security from "@/components/landing/Security";
-import Wall from "@/components/landing/Wall";
 import LandingFaq from "@/components/landing/LandingFaq";
-import FinalCta from "@/components/landing/FinalCta";
 
 /*
- * Page d'accueil, structure issue de la maquette `wireframe/landing.png`,
- * habillée avec le design system Treepi (dégradés turquoise/corail, masques).
+ * Page d'accueil : reproduction 1:1 de la home en production (treepi.app).
+ * L'ordre des sections suit exactement le site en ligne : héro, bandeau de
+ * confiance, « Enfin un compte... », carrousel des Treepers, solutions,
+ * globe « Voyage. Paye. », vitrine de l'app, « Visa facilité » (01/02/03),
+ * « Je voyage pour », paiement simplifié, assurance recours, « Le plein de
+ * services », impact humain, sécurité, FAQ. La barre de navigation et le
+ * pied de page restent ceux du projet.
  */
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("landing.finalCta");
 
   return (
     <>
       <Hero />
       <TrustBar />
       <Problem />
+      <TreepersCarousel />
       <Solutions />
-      <AttestationSteps />
-      <TravelReasons />
-      <Simulator />
-      <Insurances />
       <GlobeSection />
+      <AppShowcase />
+      <VisaSteps />
+      <TravelReasons />
+      <SecurePayment />
+      <RecoursInsurance />
+      <Services />
       <Humanly />
       <Security />
-      <Wall />
       <LandingFaq />
-      <FinalCta title={t("title")} subtitle={t("subtitle")} />
     </>
   );
 }

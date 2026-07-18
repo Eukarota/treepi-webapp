@@ -16,6 +16,20 @@
 @font-face {
   font-family: "Inter";
   font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/Inter-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/Inter-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
   font-weight: 700;
   font-display: swap;
   src: url("/fonts/Inter-700-normal.woff2") format("woff2");
@@ -33,6 +47,13 @@
   font-weight: 700;
   font-display: swap;
   src: url("/fonts/Outfit-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/fonts/Outfit-800-normal.woff2") format("woff2");
 }
 @font-face {
   font-family: "Caveat";
@@ -166,5 +187,383 @@ body {
   /* Carte blanche standard. */
   .card-surface {
     @apply rounded-2xl bg-white shadow-[0_2px_20px_rgba(18,35,71,0.06)];
+  }
+
+  /* -------------------------------------------------------------------
+     Home 1:1 du site en production.
+     Règles reprises du CSS d'origine (nettoyées) : conteneur de section,
+     bandes masquées, cartes packages, section paiement, impact humain.
+  ------------------------------------------------------------------- */
+
+  /* Conteneur de section du site d'origine : 80rem centré. */
+  .section {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80rem;
+    padding: 3.5rem 1rem;
+  }
+  @media (min-width: 768px) {
+    .section {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+
+  /* Carrousel des Treepers : la carte blanche elle-même est découpée par la
+     forme à double encoche (aucun fond dégradé sous le masque). Sur mobile,
+     le masque disparaît. */
+  .masque-treepers {
+    mask-image: url("/images/secondary-mask.svg");
+    -webkit-mask-image: url("/images/secondary-mask.svg");
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+  }
+  @media (max-width: 768px) {
+    .masque-treepers {
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+  }
+
+  /* Bande masquée « secondaire » (sections Visa app et Le plein de services) :
+     dégradé découpé par la forme à double encoche. */
+  .bande-secondaire {
+    background: linear-gradient(to right, #05a0c7, #09d1c7);
+    mask-image: url("/images/secondary-mask.svg");
+    -webkit-mask-image: url("/images/secondary-mask.svg");
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+  }
+  @media (max-width: 768px) {
+    .bande-secondaire--services {
+      mask-image: none;
+      -webkit-mask-image: none;
+      background: linear-gradient(to bottom, #05a0c7, #fff);
+      border-radius: 1rem;
+    }
+  }
+
+  /* Halo radial orange derrière les cartes packages (section solutions). */
+  .custom-bg {
+    background: radial-gradient(
+      circle at 120% 50%,
+      #f90 5%,
+      #f903 27%,
+      #f900 50.1%,
+      #ff99001a 0,
+      #f900 0,
+      #fff0
+    );
+    background-repeat: no-repeat;
+    background-size: 25rem 28rem;
+    translate: 3rem;
+  }
+  @media (max-width: 1023px) {
+    .custom-bg {
+      background-size: 16rem 26rem;
+    }
+  }
+  @media (max-width: 767px) {
+    .custom-bg {
+      background-size: 30rem 26rem;
+    }
+  }
+
+  /* Cartes packages : bordure dégradée de 4px dessinée par un pseudo-élément
+     masqué (le centre reste transparent). */
+  .package {
+    background-color: transparent;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .package::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #05a0c7, #09d1c7);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+  .package__zen::before {
+    background: linear-gradient(90deg, #ff6567, #ffc486);
+  }
+  @media screen and (max-width: 768px) {
+    .package {
+      margin-left: 3rem;
+      margin-right: 3rem;
+    }
+  }
+  @media screen and (min-width: 769px) {
+    .package__basic {
+      margin-right: 1rem;
+    }
+    .package__serenity {
+      margin-left: 1rem;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .package__zen {
+      margin-bottom: -6rem;
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+  }
+  @media screen and (min-width: 1216px) {
+    .package__basic,
+    .package__serenity {
+      padding: 3rem;
+    }
+  }
+
+  /* Section « Paiement simplifié » : positions absolues des bulles et des
+     pastilles photo autour de la grande carte. */
+  @media (min-width: 376px) and (max-width: 569px) {
+    .treepi-card {
+      margin-top: 48px;
+    }
+  }
+  @media (min-width: 570px) and (max-width: 767px) {
+    .treepi-card {
+      margin-top: 100px;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .secure__card {
+      z-index: 20;
+    }
+    .secure__image_2 {
+      z-index: 10;
+    }
+    .secure__comment_1,
+    .secure__comment_2,
+    .secure__comment_3,
+    .secure__image_1,
+    .secure__image_3 {
+      z-index: 30;
+    }
+  }
+  .secure__comment_1 {
+    left: -5%;
+    top: clamp(80px, 10vw, 120px);
+  }
+  .secure__comment_2 {
+    right: -17%;
+    top: clamp(250px, 38vw, 360px);
+  }
+  .secure__comment_3 {
+    left: -14%;
+    top: clamp(366px, 55vw, 540px);
+  }
+  .secure__image_1 {
+    right: 16%;
+    top: 2rem;
+  }
+  .secure__image_1,
+  .secure__image_2,
+  .secure__image_3 {
+    height: clamp(90px, 12vw, 151px);
+    width: clamp(90px, 12vw, 151px);
+    border-radius: 9999px;
+    border: 3px solid #ffc486;
+  }
+  .secure__image_2 {
+    left: 8%;
+    top: 20rem;
+  }
+  .secure__image_3 {
+    right: 10%;
+    top: clamp(30rem, 55vw, 35rem);
+  }
+  @media screen and (max-width: 1023px) {
+    .secure__comment_2 {
+      right: 19%;
+      top: 5rem;
+    }
+    .secure__comment_3 {
+      left: -27%;
+      top: 7rem;
+    }
+    .secure__image_1 {
+      right: 16%;
+      top: 4rem;
+    }
+    .secure__image_2 {
+      left: 16%;
+      top: -3rem;
+    }
+    .secure__image_3 {
+      left: -40%;
+      top: -3.5rem;
+    }
+  }
+  @media screen and (max-width: 430px) {
+    .secure__card {
+      scale: 1.2;
+    }
+    .secure__comment_1 {
+      left: 10%;
+      top: 2rem;
+    }
+    .secure__image_1 {
+      right: 11%;
+      top: 1.5rem;
+    }
+    .secure__comment_2 {
+      right: 14%;
+    }
+    .secure__comment_3 {
+      left: -21%;
+      top: 7.5rem;
+    }
+  }
+  @media screen and (min-width: 570px) and (max-width: 700px) {
+    .secure__card {
+      transform: translateY(-13%);
+    }
+    .secure__comment_1 {
+      left: 25%;
+      top: -1rem;
+    }
+    .secure__image_1 {
+      right: 21%;
+      top: -2rem;
+    }
+    .secure__comment_2 {
+      right: 21%;
+      top: 2rem;
+    }
+    .secure__image_2 {
+      left: 22%;
+      top: -6rem;
+    }
+    .secure__image_3 {
+      right: -47%;
+      top: -6.5rem;
+    }
+    .secure__comment_3 {
+      top: 4.5rem;
+    }
+  }
+  @media screen and (min-width: 700px) and (max-width: 767px) {
+    .secure__card {
+      scale: 0.8;
+      transform: translateY(-20%);
+    }
+    .secure__comment_1 {
+      left: 30%;
+      top: 1rem;
+    }
+    .secure__image_1 {
+      right: 28%;
+      top: 0;
+    }
+    .secure__comment_2 {
+      right: 29%;
+      top: 3.5rem;
+    }
+    .secure__image_2 {
+      left: 27%;
+      top: -4rem;
+    }
+  }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .secure__card {
+      scale: 0.7;
+      transform: translateY(-22%);
+    }
+    .secure__comment_1 {
+      left: 4%;
+      max-width: 404px;
+    }
+    .secure__image_1 {
+      left: -27%;
+      top: -2rem;
+    }
+    .secure__comment_2 {
+      left: -1%;
+      max-width: 404px;
+      top: 9rem;
+    }
+    .secure__image_2 {
+      left: 22%;
+      top: 0;
+    }
+    .secure__image_3 {
+      left: -22%;
+      top: 3rem;
+    }
+    .secure__comment_3 {
+      left: -56%;
+      max-width: 404px;
+      top: 5.9rem;
+    }
+  }
+
+  /* Halos radiaux de la section « Ce que Treepi change humainement ». */
+  .impact__radial-primary {
+    background: radial-gradient(
+      circle at 120% 50%,
+      #f90 3%,
+      #ff99001a 33%,
+      #ff99001a 35%,
+      #ff00 48%,
+      #fff0 0,
+      #fff0
+    );
+  }
+  .impact__radial-secondary {
+    background: radial-gradient(
+      circle at -20% 50%,
+      #09d1c7 3%,
+      #09d1c71a 33%,
+      #09d1c71a 35%,
+      #fff0 46%,
+      #fff0 0,
+      #fff0
+    );
+  }
+  @media screen and (max-width: 768px) {
+    .impact__radial-primary {
+      background: radial-gradient(
+        circle at 120% 50%,
+        #f90 3%,
+        #ff99001a 33%,
+        #ff99001a 35%,
+        #ff00 40%,
+        #fff0 0,
+        #fff0
+      );
+    }
+    .impact__radial-secondary {
+      background: radial-gradient(
+        circle at -20% 50%,
+        #09d1c7 3%,
+        #09d1c71a 33%,
+        #09d1c71a 35%,
+        #fff0 40%,
+        #fff0 0,
+        #fff0
+      );
+    }
+  }
+
+  /* Très petits écrans : borne le sous-titre du héro comme sur le site. */
+  @media (max-width: 320px) {
+    .mobile-320 {
+      max-width: 15rem;
+    }
   }
 }

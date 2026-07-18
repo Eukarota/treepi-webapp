@@ -56,89 +56,181 @@
   },
   "landing": {
     "hero": {
-      "title1": "L'assurance et le ",
-      "titleHighlight": "compte européen",
-      "title2": " conçus pour les voyageurs africains.",
-      "subtitle": "Ouvre ton compte en euros depuis ton pays. Dépose tes fonds et obtiens <b>l'attestation de garantie financière</b> qui montre au consulat que ton séjour est financé. Ajoute ton assurance voyage, et le <b>recours visa</b> qui te défend en cas de refus.",
-      "ctaPrimary": "Ouvrir mon compte européen",
-      "ctaSecondary": "Découvrir les assurances",
-      "trust": [
-        "<b>Fonds déposés dans un établissement régulé</b> en Europe, sur un compte à ton nom",
-        "Attestations <b>vérifiables en ligne</b> par le consulat en 30 secondes",
-        "Assurance voyage Schengen au <b>prix le plus bas</b>, 30 € / mois, 60 € / 3 mois",
-        "Assurance recours visa : <b>une protection juridique pour te défendre</b> en cas de refus"
-      ]
+      "title1": "Le compte Euro",
+      "title2": "des voyageurs",
+      "words": [
+        "africains",
+        "camerounais",
+        "sénégalais",
+        "ivoiriens"
+      ],
+      "subtitle": "La première application financière qui permet à des voyageurs africains d’ouvrir un compte Européen, en leur nom, depuis leur pays en Afrique.",
+      "phoneAlt": "L'application Treepi"
+    },
+    "trust": {
+      "check1": "Ouverture de compte en 16 min",
+      "check2": "Juste avec ton passeport africain",
+      "placeholder": "Jean@gmail.com",
+      "cta": "Rejoindre le mouvement",
+      "ctaCourt": "Rejoindre"
     },
     "problem": {
-      "eyebrow": "Le vrai problème",
-      "title1": "Fini les refus de visa ",
-      "titleHighlight": "arbitraires.",
-      "statNumber": "6",
-      "statDenominator": "/10",
-      "statCaption": "Jusqu'à 6 demandes de visa Schengen sur 10 refusées dans certains pays africains : 62,8 % aux Comores, 51,9 % au Sénégal, contre 14,8 % de moyenne mondiale (2025). (Sources : Commission européenne, LAGO Collective)",
-      "body": "Jusqu'à <b>6 demandes sur 10</b> sont refusées en Afrique, contre à peine <b>1 sur 10</b> en moyenne dans le reste du monde, le plus souvent faute de preuve de ressources jugée crédible. Un simple relevé bancaire local ne suffit pas : il peut être considéré comme peu fiable ou temporairement approvisionné. Treepi te donne un <b>justificatif vérifiable par le consulat</b>, des fonds réels, sur un compte européen à ton nom. Et si ton visa est refusé injustement, l'<b>assurance recours</b> active ta protection juridique pour te défendre."
+      "part1": "Enfin un",
+      "part2": "compte",
+      "part3": "qui répond aux problèmes des voyageurs africains",
+      "subtitle": "Tu obtiens un justificatif de ressources fiable pour faciliter l'obtention de ton visa Schengen et une Mastercard internationale pour simplifier tes paiements durant ton séjour à l'étranger."
     },
-    "solutions": {
-      "eyebrow": "Nos solutions",
-      "title": "Des solutions qui changent vraiment les choses",
-      "subtitle": "3 produits pensés pour t'accompagner avant, pendant et après ta demande de visa.",
-      "popular": "Populaire",
-      "cards": [
+    "treepers": {
+      "slides": [
         {
-          "title": "Une assurance voyage Schengen",
-          "description": "Pour répondre à l'exigence d'assurance du consulat et voyager couvert, <b>au meilleur prix du marché</b>.",
-          "cta": "Obtenir mon attestation",
-          "features": [
-            "<b>Couverture 30 000 €</b>, soins médicaux et rapatriement",
-            "Valable dans tout l'espace Schengen, mentions conformes",
-            "Attestation immédiate, en PDF, par e-mail",
-            "Remboursée si ton visa est refusé"
-          ],
-          "href": "/assurance-voyage"
+          "image": "/images/treeper_randy.webp",
+          "alt": "Treeper Randy",
+          "titre": "Randy a rejoint Treepi",
+          "position": "object-center md:object-[-16rem_-10rem]",
+          "pre": "Fini les",
+          "hl": "refus de visa",
+          "post": "arbitraire !",
+          "description": "Randy utilise son compte Treepi pour justifier de revenus suffisants auprès du consulat.",
+          "content": "Quoi de mieux qu’un **compte européen** en ton nom, pour prouver au consulat lors de ta demande de visa que tu disposes de revenus suffisants pour financer ton séjour en Europe."
         },
         {
-          "title": "Un compte européen",
-          "description": "Pour prouver au consulat que ton séjour est financé et simplifier tes paiements durant ton <b>séjour en Europe</b>.",
-          "cta": "Ouvrir mon compte",
-          "features": [
-            "<b>1 IBAN européen à ton nom</b>",
-            "Recharge depuis l'Afrique, dépôt d'espèces en local ou virement",
-            "Un justificatif financier reconnu par les consulats",
-            "<b>Avant le visa :</b> recharges et virements reçus",
-            "<b>Après le visa :</b> virements sortants activés pour financer ton séjour"
-          ],
-          "href": "/compte-euro"
+          "image": "/images/treeper_fatou.webp",
+          "alt": "Treeper Fatou",
+          "titre": "Fatou a rejoint Treepi",
+          "position": "object-center md:object-[-18rem_0rem]",
+          "pre": "Plus besoin de voyager avec les",
+          "hl": "espèces",
+          "post": "!",
+          "description": "Fatou utilise sa carte Treepi pour payer no stress pendant ses voyages à l’étranger.",
+          "content": "La carte Treepi fonctionne dans tous les pays. Tu n’as plus besoin de payer de la devise en euro dans ton pays et de voyager avec du cash. Avec ta carte tu voyages l’esprit léger, en toute sécurité, avec un contrôle total sur tes dépenses."
         },
         {
-          "title": "Une assurance recours visa",
-          "description": "Pour protéger ta demande en cas de refus et <b>maximiser tes chances d'obtenir gain de cause</b>.",
-          "cta": "Protéger ma demande",
-          "features": [
-            "<b>Protection juridique</b> incluse en cas de refus de visa",
-            "Étude de ta notification de refus et de ton dossier",
-            "<b>Prise en charge complète des frais</b> (jusqu'à 15 000 €)",
-            "Accompagnement jusqu'à la décision finale"
-          ],
-          "href": "/assurance-recours"
+          "image": "/images/treeper_kone.webp",
+          "alt": "Treeper Koné",
+          "titre": "Koné a rejoint Treepi",
+          "position": "object-center md:object-[-18rem_0rem]",
+          "pre": "Adieu les cartes prépayées",
+          "hl": "hors de prix",
+          "post": "!",
+          "description": "Koné voyage avec sa Mastercard Treepi, et ça change tout. Il économise sur son argent.",
+          "content": "Tu n’as plus besoin de carte prépayé couteuses ou d’informer ta banque avant chaque voyage. Fini les cartes refusées dans les commerces, les rechargements impossibles et les frais de retrait aux DAB. Avec Treepi, tu paies directement en euros, sans frais cachés."
         }
       ]
     },
-    "attestation": {
-      "eyebrow": "L'attestation de garantie financière",
-      "title": "Une attestation de garantie financière pour faciliter ton visa Schengen",
-      "subtitle": "Le motif n° 1 des refus, ce sont les moyens de subsistance. Un simple relevé bancaire laisse planer le doute. Notre attestation prouve que tes fonds sont là, <b>sur un compte européen, à ton nom.</b>",
+    "solutions": {
+      "part1": "Des",
+      "part2": "solutions",
+      "part3": "qui changent vraiment les choses",
+      "cta": "Get started",
+      "packages": [
+        {
+          "title": "Une attestation de garantie financière",
+          "description": "Pour faciliter l'obtention de ton **visa Schengen** et rassurer le consulat sur ta capacité à financer\nton séjour",
+          "items": [
+            "Une attestation fiable et\nconforme",
+            "Un justificatif financier\nreconnu par les consulats",
+            "Un compte européen, ouvert\nen ton nom",
+            "Les fonds restent bloqués\ndurant ta demande de visa"
+          ]
+        },
+        {
+          "title": "Un compte Euro\n+ une carte",
+          "description": "Pour simplifier tes paiements durant ton séjour à l'étranger et éviter de subir les restrictions et frais de ta banque locale",
+          "items": [
+            "1 IBAN français + 1 RIB\nen ton nom",
+            "2 cartes Mastercard (virtuelle\n& physique)",
+            "Plus besoin de voyager avec\ndes espèces",
+            "Recharge du compte depuis\nl'Afrique, par espèce, carte ou\nvirement",
+            "Virements retrait et paiement\nà l'international"
+          ]
+        },
+        {
+          "title": "Une assurance recours Visa",
+          "description": "Pour protéger ton voyage en cas de refus de visa et maximiser tes chances d’obtenir gain de cause",
+          "items": [
+            "Étude de la décision en cas\nde refus de visa",
+            "Mise en relation avec un\navocat spécialisé",
+            "Prise en charge complète des\nfrais (jusqu'à 15000 €)",
+            "Durée moyenne de la\nprocédure : 2-3 mois"
+          ]
+        }
+      ]
+    },
+    "globe": {
+      "line1a": "Voyage.",
+      "line1b": "Paye.",
+      "line2a": "Dépasse",
+      "line2b": "tes limites.",
+      "subtitle": "Parce que voyager ne devrait jamais être un privilège, nous nous engageons auprès des voyageurs africains à leur offrir des solutions crédibles, accessibles et sécurisées afin que chaque envie de voyage devienne possible.",
+      "planetAlt": "Planète"
+    },
+    "showcase": {
+      "items": [
+        "Rejoindre la communauté des Treepers africains prêt à voyager partout en Europe",
+        "Obtiens tout ce qu'il te faut en une seule App pour faciliter l'obtention de ton visa",
+        "Un compte + une carte pour voyager l'esprit tranquille et profiter à fond de ton séjour",
+        "On ne revient jamais d'un voyage comme on est parti : on revient différent, grandi"
+      ]
+    },
+    "visa": {
+      "title1": "Visa",
+      "title2": "facilité",
+      "intro": "Ton voyage commence ici ! Prépare tes valises, on s'occupe de tout afin de mettre **toutes les chances de ton côté** pour l'obtention de ton **visa Schengen.**",
       "steps": [
         {
-          "title": "Ouvre ton compte européen",
-          "description": "Depuis le confort de ton pays, juste avec ton passeport. Reçois ton IBAN européen à ton nom."
+          "num": "01",
+          "title": [
+            {
+              "t": "Ouvre ton",
+              "g": "p"
+            },
+            {
+              "t": "compte Euro",
+              "g": "s"
+            },
+            {
+              "t": "depuis le confort de ton pays en Afrique",
+              "g": "p"
+            }
+          ],
+          "body": "Nous avons tous besoin d'un **compte pour payer quand on voyage** pour un bref séjour à l'étranger. Un compte avec la bonne devise ! Treepi te propose un **compte français pour non-résidents,** accessible à tout moment et n'importe où. Un compte pour déposer de l'argent, effectuer et recevoir des virements, **payer sans limites et sans frais caché.**",
+          "image": "/images/euro.webp",
+          "alt": "euro",
+          "titre": "Ouvre ton compte Euro"
         },
         {
-          "title": "Recharge depuis l'Afrique",
-          "description": "Dépôt d'espèces en agence locale ou virement, du XAF, du XOF et d'autres devises vers ton compte, dès 24 h."
+          "num": "02",
+          "title": [
+            {
+              "t": "Recharge ton compte",
+              "g": "s"
+            },
+            {
+              "t": "par dépôt d'espèces, par virement ou par carte depuis ton pays",
+              "g": "p"
+            }
+          ],
+          "body": "Du XAF, XOF et plusieurs **autres devises africaines** vers ton compte Euro en **24H.** Recharge ton compte Euros du montant dont tu as besoin pour financer la totalité de ton séjour en Europe. Tu peux le recharger par **dépôt d'espèce en monnaie locale,** ou encore par **virement international** ou par **carte**, de l'Afrique vers ton IBAN français.",
+          "image": "/images/counter.webp",
+          "alt": "counter",
+          "titre": "Recharge ton compte Euros"
         },
         {
-          "title": "Obtiens ton attestation",
-          "description": "Un document financier fiable, au montant calé sur les barèmes officiels, vérifiable en ligne par le consulat, prêt à intégrer à ton dossier."
+          "num": "03",
+          "title": [
+            {
+              "t": "Obtiens un justificatif fiable pour prouver au consulat que tu peux",
+              "g": "p"
+            },
+            {
+              "t": "financer ton voyage",
+              "g": "s"
+            }
+          ],
+          "body": "**7 demandes de visa sur 10** sont refusées faute de preuve de revenus fiable. Fournir de simple relevé bancaire ne constitue pas en soi un justificatif de fond. Avec Treepi plus de stress pour prouver tes ressources : ta demande de visa Schengen a toutes les chances d'être approuvé grâce à un document financier fiable fourni par Treepi.",
+          "image": "/images/passport.webp",
+          "alt": "passport",
+          "titre": "Obtiens un justificatif fiable pour prouver au consulat que tu peux financer ton voyage"
         }
       ]
     },
@@ -151,23 +243,243 @@
         "des raisons médicales",
         "une mission de travail",
         "les affaires"
+      ],
+      "placeholder": "Adresse",
+      "counterPrefix": "+ de",
+      "counterValue": 978,
+      "counterLine": "Treepers ont rejoins l’aventure",
+      "counterQ1": "Et",
+      "counterQ2": "toi",
+      "counterQ3": "?",
+      "touristAlt": "Treeper"
+    },
+    "secure": {
+      "title1": "Paiement",
+      "title2": "simplifié",
+      "subtitleDesktop": "Le paiement par carte et en ligne est plus courant que jamais, et tes cartes Treepi sont ton passeport pour ta liberté financière durant ton séjour à l'étranger.  Profite à fond de ta carte physique et virtuelle !",
+      "subtitleMobile": "Le paiement par carte et en ligne est plus courant que jamais, et ta carte Treepi est ton passeport pour ta liberté financière durant ton séjour à l'étranger.",
+      "cardAlt": "Treepi carte internationale",
+      "bubbles": [
+        {
+          "pre": "Commande ta",
+          "hl": "carte internationale",
+          "post": "& reçois la dès ton arrivée"
+        },
+        {
+          "pre": "Effectue tes paiements",
+          "hl": "sans frais cachés",
+          "post": "et partout dans le monde"
+        },
+        {
+          "pre": "Garde le",
+          "hl": "contrôle sur ta carte",
+          "post": "et sur ton argent à tout moment"
+        }
       ]
     },
-    "simulator": {
-      "title": "De combien as-tu besoin pour ton visa ?",
-      "subtitle": "Les consulats appliquent un montant par jour de séjour, selon ton hébergement. Calcule ton objectif de recharge.",
-      "country": "Pays de destination",
-      "duration": "Durée du séjour (jours)",
-      "accommodation": "Ton hébergement",
-      "accommodations": {
-        "booked": "Hôtel ou Airbnb réservé",
-        "none": "Sans justificatif d'hébergement",
-        "hosted": "Hébergé par un proche"
-      },
-      "resultLabel": "Montant à démontrer (estimation)",
-      "resultCaption": "{country} · {days} jours · {accommodation}, {rate} €/j",
-      "cta": "Préparer ce montant sur mon compte",
-      "disclaimer": "Barèmes officiels publiés par chaque État (ministères nationaux / Commission européenne, mise à jour oct. 2025). Certains pays appliquent un montant unique quel que soit l'hébergement. Le consulat apprécie chaque dossier individuellement."
+    "recours": {
+      "title1": "Une",
+      "title2": "assurance recours",
+      "title3": "en cas de refus de visa",
+      "subtitle": "Avec notre assurance recours, tu bénéficies d'un accompagnement juridique complet pour contester une\ndécision de refus injustifiée. Notre équipe d'experts t'assiste dans ta procédure de recours,\navec un objectif : maximiser tes chances d'obtenir ton visa.",
+      "items": [
+        "Souscription avant la demande de visa",
+        "Analyse personnalisée du refus",
+        "Constitution du dossier de recours",
+        "Assistance par un avocat spécialisé",
+        "Suivi de ta démarche jusqu'à la décision de recours"
+      ]
+    },
+    "services": {
+      "title1": "Le plein de",
+      "title2": "services",
+      "subtitle": "Treepi est ton compagnon de voyage. Accède à d'autres services utiles et profite d'options additionnelles pour un séjour inoubliable",
+      "cards": [
+        {
+          "title": "Assurance voyage",
+          "image": "/images/travel_insurance.svg",
+          "icon": "/images/globe.svg",
+          "iconBg": "#FC7213"
+        },
+        {
+          "title": "Accompagnement",
+          "image": "/images/accompaniement.svg",
+          "icon": "/images/identification_card.svg",
+          "iconBg": "#ff6567"
+        },
+        {
+          "title": "Réservation d'hébergement",
+          "image": "/images/hotel.svg",
+          "icon": "/images/house.svg",
+          "iconBg": "#FE9239"
+        },
+        {
+          "title": "Réservation de billet d'avion",
+          "image": "/images/africa.svg",
+          "icon": "/images/airplane_tilt.svg",
+          "iconBg": "#09d1c7"
+        },
+        {
+          "title": "Une attestation de garantie financière",
+          "image": "/images/attestation.svg",
+          "icon": "/images/wallet.svg",
+          "iconBg": "#21C8EF"
+        }
+      ]
+    },
+    "humanly": {
+      "title1": "Ce que Treepi change",
+      "title2": "humainement",
+      "beforeLabel": "Avant",
+      "afterLabel": "Après",
+      "brand": "Treepi",
+      "before": [
+        {
+          "icon": "siren",
+          "lines": [
+            "Avoir peur lors de sa demande de visa"
+          ]
+        },
+        {
+          "icon": "X_circle",
+          "lines": [
+            "Se faire refuser pour justificatif",
+            "et fonds peu crédible"
+          ]
+        },
+        {
+          "icon": "smiley_sad",
+          "lines": [
+            "Être embarrassé de dépendre...d'un proche",
+            "en cas d'imprévu pendant son séjour"
+          ]
+        },
+        {
+          "icon": "human",
+          "lines": [
+            "S'imposer des limites"
+          ]
+        }
+      ],
+      "after": [
+        {
+          "icon": "lightning",
+          "lines": [
+            "Se sentir crédible et traité avec",
+            "équité pendant sa demande de visa"
+          ]
+        },
+        {
+          "icon": "check_circle",
+          "lines": [
+            "Être reconnu comme solvable",
+            "avec un justificatif de fonds fiable"
+          ]
+        },
+        {
+          "icon": "smiley",
+          "lines": [
+            "Être autonome, libre et maitre de son séjour avec",
+            "un compte et une carte toujours fonctionnelle"
+          ]
+        },
+        {
+          "icon": "person_ski",
+          "lines": [
+            "Dépasser ses limites"
+          ]
+        }
+      ]
+    },
+    "security": {
+      "title1": "Sécurité et",
+      "title2": "fiabilité",
+      "cards": [
+        {
+          "title": "Partenaires",
+          "image": "/images/handshake.svg",
+          "alt": "handshake",
+          "body": "Treepi offre ses services grâce à son partenariat avec un établissement de monnaie électronique agrée par l’**ACPR** (Banque de France)"
+        },
+        {
+          "title": "Protections des comptes",
+          "image": "/images/world.svg",
+          "alt": "protection",
+          "body": "Treepi met en place des technologies de sécurité reconnues par les professionnels du secteur pour garantir la protection de ton compte et de ta carte, comme l’**authentification** à **plusieurs niveaux** et la validation des paiements via **3D Secure**."
+        },
+        {
+          "title": "Fraude",
+          "image": "/images/security.svg",
+          "alt": "security",
+          "body": "Pour assurer la **confidentialité** de tes informations et prévenir toute tentative de fraude, Treepi a intégré des solutions avancées, notamment la vérification d’**identité biométrique** et un système de **chiffrement complet des données**."
+        }
+      ]
+    },
+    "faq": {
+      "title1": "Foire aux",
+      "title2": "questions",
+      "items": [
+        {
+          "q": "Qu'est-ce que Treepi exactement et est-il reconnu par les consulats ?",
+          "a": [
+            "Treepi est une application financière qui te permet d'ouvrir un compte en euro pour faciliter la justification de tes ressources financières lors de ta demande de visa Schengen et d'obtenir une carte Mastercard pour simplifier tes paiements en Europe, durant ton séjour. Nos services sont conformes aux exigences de nombreux consulats européens. Nous mettons à jour régulièrement nos formats pour garantir leur validité."
+          ]
+        },
+        {
+          "q": "Est-ce que Treepi me fournit un vrai RIB européen ?",
+          "a": [
+            "Oui. Une fois ton compte validé et ouvert, tu reçois un RIB (IBAN) français, en ton nom, et utilisable pour les virements internationaux et paiements."
+          ]
+        },
+        {
+          "q": "En quoi Treepi peut m'aider pour l'obtention de mon visa ?",
+          "a": [
+            "L'une des principales raisons de refus de visa, c'est le doute des ambassades sur la capacité financière réelle du demandeur.",
+            "",
+            "Or, un simple relevé de compte bancaire émis par ta banque locale n'est pas toujours jugé suffisant ni fiable, car il peut être temporairement approvisionné ou jugé peu crédible.",
+            "",
+            "C'est là que Treepi fait toute la différence.",
+            "✅ Nous te délivrons une attestation de garantie financière fiable, reconnue par les consulats, qui prouve que les fonds requis pour ton séjour sont bien déposés et sécurisés sur un compte en Europe à ton nom.",
+            "✅ Ce document est clairement plus crédible qu'un simple relevé de compte : il certifie non seulement la présence des fonds, mais aussi leur indisponibilité pendant la période exigée, ce qui rassure pleinement les autorités consulaires.",
+            "✅ Il répond aux exigences de transparence et de traçabilité financière fixées par les ambassades.",
+            "✅ Le document est délivré rapidement, en version numérique, prêt à être intégré dans ton dossier.",
+            "",
+            "Avec Treepi, tu évites les approximations, tu renforces la solidité de ton dossier et tu mets toutes les chances de ton côté pour obtenir ton visa."
+          ]
+        },
+        {
+          "q": "Est-ce que j'ai besoin d'être en Europe pour ouvrir un compte Treepi ?",
+          "a": [
+            "Non. Tu peux ouvrir ton compte Treepi depuis ton pays d'origine, en ligne via notre application mobile, juste avec ton passeport."
+          ]
+        },
+        {
+          "q": "Quelle est la différence entre la carte Treepi et ma carte bancaire locale ?",
+          "a": [
+            "La carte Mastercard Treepi a été pensée spécialement pour les voyageurs africains. Contrairement à la plupart des cartes bancaires locales :",
+            "✅ Elle est libellée en euro, ce qui te permet de payer partout en Europe sans conversion automatique et sans mauvaise surprise liée au taux de change.",
+            "✅ Aucun frais caché à l'international : tu sais exactement ce que tu dépenses, sans surtaxe. Pas de frais de retrait au DAB durant ton séjour.",
+            "✅ Aucune limite bloquante à l'étranger : finis les refus de paiement dans les boutiques, transports, hôtels ou services en ligne européens. Tu utilises ta carte comme tu le souhaites.",
+            "✅ Acceptée partout où Mastercard est disponible, pour tes achats en ligne, retraits et paiements sur place.",
+            "",
+            "Elle t'évite les blocages, les frais élevés et les limites des cartes émises par les banques africaines."
+          ]
+        },
+        {
+          "q": "Treepi propose-t-il une assurance en cas de refus de visa ?",
+          "a": [
+            "Oui, et c'est l'un de nos services les plus utiles.",
+            "Obtenir un visa n'est jamais garanti, même avec un bon dossier. C'est pourquoi Treepi te propose une assurance recours visa, conçue pour te protéger et t'offrir une deuxième chance en cas de refus.",
+            "",
+            "Voici comment elle fonctionne :",
+            "✅ En cas de refus de visa, tu bénéficies d'un accompagnement juridique personnalisé pour comprendre les motifs du rejet et préparer un recours solide.",
+            "✅ Nos équipes spécialisées t'aident à constituer un nouveau dossier argumenté, conforme aux attentes du consulat, afin d'augmenter tes chances de succès lors de la deuxième demande.",
+            "✅ Cette assurance te permet aussi de limiter les pertes financières et de ne pas recommencer à zéro seul(e).",
+            "",
+            "Avec l'assurance recours de Treepi, tu ne fais pas qu'espérer ton visa : tu te prépares à le défendre intelligemment, même en cas d'imprévu."
+          ]
+        }
+      ]
     },
     "insurances": {
       "eyebrow": "Les assurances",
@@ -194,163 +506,25 @@
       },
       "banner": "<b>Visa refusé ? Ton assurance voyage est remboursée</b> sur présentation du refus, et avec l'assurance recours, ta contestation est prise en charge."
     },
-    "globe": {
-      "title1": "Voyage.",
-      "title2": "Paye.",
-      "title3": "Dépasse",
-      "title4": "tes limites.",
-      "subtitle": "Parce que voyager ne devrait jamais être un privilège, nous nous engageons auprès des voyageurs africains à leur offrir des solutions crédibles, accessibles et sécurisées afin que chaque envie de voyage devienne possible."
-    },
-    "humanly": {
-      "title1": "Ce que Treepi change",
-      "title2": "humainement",
-      "before": "Avant",
-      "after": "Après",
-      "brand": "Treepi",
-      "beforeItems": [
-        {
-          "text": "Avoir peur lors de sa demande de visa",
-          "icon": "/images/icons/siren.svg"
-        },
-        {
-          "text": "Se faire refuser pour justificatif et fonds peu crédible",
-          "icon": "/images/icons/X_circle.svg"
-        },
-        {
-          "text": "Être embarrassé de dépendre… d'un proche en cas d'imprévu pendant son séjour",
-          "icon": "/images/icons/smiley_sad.svg"
-        },
-        {
-          "text": "S'imposer des limites",
-          "icon": "/images/icons/human.svg"
-        }
-      ],
-      "afterItems": [
-        {
-          "text": "Se sentir crédible et traité avec équité pendant sa demande de visa",
-          "icon": "/images/icons/lightning.svg"
-        },
-        {
-          "text": "Être reconnu comme solvable avec un justificatif de fonds fiable",
-          "icon": "/images/icons/check_circle.svg"
-        },
-        {
-          "text": "Être autonome, libre et maître de son séjour avec un compte toujours fonctionnel",
-          "icon": "/images/icons/smiley.svg"
-        },
-        {
-          "text": "Dépasser ses limites",
-          "icon": "/images/icons/person_ski.svg"
-        }
-      ]
-    },
-    "security": {
-      "eyebrow": "Sécurité & confiance",
-      "title": "Conçu pour que tu ne prennes aucun risque",
-      "cards": [
-        {
-          "icon": "lock",
-          "title": "Tes fonds restent les tiens",
-          "description": "Visa obtenu ou refusé : restitution intégrale, déblocage sous 72 h après la décision du consulat."
-        },
-        {
-          "icon": "bank",
-          "title": "Établissement régulé en Europe",
-          "description": "Tes fonds sont ségrégués sur un compte à ton nom, jamais dans le patrimoine de Treepi."
-        },
-        {
-          "icon": "verify",
-          "title": "Documents vérifiables",
-          "description": "Chaque attestation porte un code de vérification : l'agent consulaire l'authentifie en ligne en 30 secondes."
-        },
-        {
-          "icon": "honest",
-          "title": "Aucune fausse promesse",
-          "description": "Treepi ne « garantit » pas le visa, personne d'honnête ne le peut. On garantit la conformité de tes documents."
-        },
-        {
-          "icon": "chat",
-          "title": "Des humains joignables",
-          "description": "Une question, un doute ? WhatsApp 7 j/7, réponse en moins de 2 h, dans ta langue."
-        },
-        {
-          "icon": "secure",
-          "title": "Paiements sécurisés",
-          "description": "Orange Money, MTN MoMo et virement bancaire, taux et frais affichés avant chaque validation."
-        }
-      ]
-    },
-    "wall": {
-      "eyebrow": "Le mur des départs",
-      "count": "+ de 1 000",
-      "caption": "Treepers ont rejoint l'aventure",
-      "you": "Et toi ?",
-      "testimonials": [
-        {
-          "route": "Douala → Paris · Visite familiale",
-          "quote": "« Après un refus l'an dernier, j'ai tout refait avec le compte Treepi. Attestation nickel, dossier accepté. Ma mère a pleuré à l'aéroport. »",
-          "name": "Serge M.",
-          "role": "Cadre commercial, Douala"
-        },
-        {
-          "route": "Yaoundé → Milan · Affaires",
-          "quote": "« Mon argent était en mobile money, aucune banque ne voulait me faire une attestation sérieuse. Là, tout s'est fait depuis mon téléphone. »",
-          "name": "Amina K.",
-          "role": "Commerçante, Yaoundé"
-        },
-        {
-          "route": "Créteil → payé pour Douala · Sponsor",
-          "quote": "« J'ai rechargé le compte de ma mère depuis la France, sans toucher à mon propre dossier. C'est exactement ce qui manquait. »",
-          "name": "Christelle B.",
-          "role": "Aide-soignante, Créteil"
-        }
-      ]
-    },
-    "faq": {
-      "eyebrow": "FAQ",
-      "title": "Les questions qu'on nous pose vraiment",
-      "items": [
-        {
-          "question": "Est-ce que Treepi garantit l'obtention de mon visa ?",
-          "answer": "Non, et méfie-toi de quiconque te le promet. La décision appartient exclusivement au consulat. Ce que Treepi garantit, c'est la conformité de tes documents : des fonds réels sur un compte européen à ton nom et une attestation vérifiable en ligne, qui répondent au motif n° 1 des refus."
-        },
-        {
-          "question": "Mes fonds sont-ils en sécurité ? Puis-je les récupérer ?",
-          "answer": "Oui. Tes fonds sont déposés auprès d'un établissement régulé dans l'Union européenne, sur un compte nominatif ségrégué, jamais dans le patrimoine de Treepi. Visa obtenu ou refusé, ils te sont restitués intégralement, avec un déblocage sous 72 h après la décision du consulat."
-        },
-        {
-          "question": "Y a-t-il une carte bancaire Treepi ?",
-          "answer": "Pas encore : aucune carte de paiement n'est proposée au lancement. La carte Treepi arrive prochainement, en attendant, ton compte sert à recevoir des virements, préparer ton attestation et financer ton séjour une fois le visa obtenu."
-        },
-        {
-          "question": "Pourquoi je ne peux pas envoyer de virement avant mon visa ?",
-          "answer": "C'est le principe même de l'attestation : les fonds destinés à ton séjour restent déposés pendant l'instruction de ta demande, ce qui rend ton justificatif crédible aux yeux du consulat. Les virements sortants s'activent dès que tu présentes ta preuve de visa."
-        },
-        {
-          "question": "Comment recharger mon compte ?",
-          "answer": "Trois méthodes : dépôt d'espèces en agence locale partenaire, virement bancaire, ou carte. Du XOF, du XAF et d'autres devises africaines vers ton IBAN européen, taux et frais affichés avant chaque validation, crédit dès 24 h."
-        },
-        {
-          "question": "Que se passe-t-il si mon visa est refusé ?",
-          "answer": "Tes fonds te sont restitués intégralement sous 72 h et ton assurance voyage est remboursée sur présentation du refus. Si tu as souscrit l'assurance recours, nos avocats en droit des étrangers étudient ta notification et contestent la décision, frais pris en charge jusqu'à 15 000 €."
-        },
-        {
-          "question": "L'attestation de garantie financière, c'est quoi exactement ?",
-          "answer": "Un document financier qui certifie que les fonds requis pour ton séjour sont réellement déposés et bloqués sur un compte européen à ton nom. Son montant est calé sur les barèmes officiels de ton pays de destination et le consulat peut la vérifier en ligne en 30 secondes."
-        },
-        {
-          "question": "Combien coûte le compte ?",
-          "answer": "L'ouverture est gratuite. Le compte seul coûte 100 € de frais de gestion annuels, et si tu souscris l'attestation de garantie financière (250 €), les frais de gestion sont offerts."
-        },
-        {
-          "question": "En combien de temps ai-je mes documents ?",
-          "answer": "L'attestation d'assurance voyage arrive par e-mail dans les minutes qui suivent la souscription. L'attestation de garantie financière est émise sous 24 à 48 h après réception de tes fonds, en version numérique, prête à intégrer à ton dossier."
-        }
-      ]
-    },
     "finalCta": {
       "title": "Ton voyage commence par ton compte.",
       "subtitle": "Ouvre-le en 5 minutes. Recharge quand tu veux. Ton attestation t'attend."
+    },
+    "simulator": {
+      "title": "De combien as-tu besoin pour ton visa ?",
+      "subtitle": "Les consulats appliquent un montant par jour de séjour, selon ton hébergement. Calcule ton objectif de recharge.",
+      "country": "Pays de destination",
+      "duration": "Durée du séjour (jours)",
+      "accommodation": "Ton hébergement",
+      "accommodations": {
+        "booked": "Hôtel ou Airbnb réservé",
+        "none": "Sans justificatif d'hébergement",
+        "hosted": "Hébergé par un proche"
+      },
+      "resultLabel": "Montant à démontrer (estimation)",
+      "resultCaption": "{country} · {days} jours · {accommodation}, {rate} €/j",
+      "cta": "Préparer ce montant sur mon compte",
+      "disclaimer": "Barèmes officiels publiés par chaque État (ministères nationaux / Commission européenne, mise à jour oct. 2025). Certains pays appliquent un montant unique quel que soit l'hébergement. Le consulat apprécie chaque dossier individuellement."
     }
   },
   "compteEuro": {
@@ -1933,11 +2107,14 @@
       "aucunResultat": "Aucun résultat"
     },
     "bienvenue": {
+      "quitter": "Retourner au site",
       "inscrire": "S'inscrire",
       "connecter": "Se connecter",
       "premiersPas": "Découvrir Treepi en 1 min"
     },
     "connexion": {
+      "quitter": "Quitter et revenir à l'accueil",
+      "retourSite": "Retourner au site",
       "identifiant": "Identifiant",
       "identifiantPlaceholder": "Ton adresse email",
       "motDePasse": "Mot de passe",
@@ -2195,6 +2372,7 @@
       "titre": "Inscription",
       "retour": "Retour",
       "quitter": "Quitter l'inscription",
+      "retourSite": "Retourner au site",
       "continuer": "Continuer",
       "phases": {
         "email": {
@@ -2271,7 +2449,10 @@
         "villePlaceholder": "Ta ville de naissance",
         "selectionner": "Sélectionner",
         "moisPrecedent": "Mois précédent",
-        "moisSuivant": "Mois suivant"
+        "moisSuivant": "Mois suivant",
+        "choisirAnnee": "Choisir l'année",
+        "anneesPrecedentes": "Années précédentes",
+        "anneesSuivantes": "Années suivantes"
       },
       "infos3": {
         "nationalite": "Nationalité",

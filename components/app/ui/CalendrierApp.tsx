@@ -10,7 +10,9 @@ import { useLocale, useTranslations } from "next-intl";
  * pastille turquoise, bouton « Sélectionner ».
  *
  * Navigation ajoutée par rapport à la maquette (nécessaire au web) :
- * flèches mois précédent/suivant et sélecteur d'année.
+ * flèches mois précédent/suivant, et un clic sur le titre du mois bascule
+ * sur une grille d'années (12 par page) pour parcourir vite de longues
+ * périodes (date de naissance notamment).
  */
 export default function CalendrierApp({
   ouverte,
@@ -32,8 +34,24 @@ export default function CalendrierApp({
   const [annee, setAnnee] = useState(initiale.getFullYear());
   const [mois, setMois] = useState(initiale.getMonth());
   const [choix, setChoix] = useState<string | undefined>(valeur);
+  /** Vue années : grille de 12 ans ouverte par un clic sur le titre du mois. */
+  const [vueAnnees, setVueAnnees] = useState(false);
+  /** Première année de la page affichée dans la vue années. */
+  const [pageAnnees, setPageAnnees] = useState(annee - (annee % 12));
 
   if (!ouverte) return null;
+
+  /** Fermeture de la feuille : on revient toujours sur la vue des jours. */
+  const fermer = () => {
+    setVueAnnees(false);
+    onFermer();
+  };
+
+  /** Ouvre la vue années sur la page contenant l'année courante. */
+  const ouvrirAnnees = () => {
+    setPageAnnees(annee - (annee % 12));
+    setVueAnnees(true);
+  };
 
   // Grille du mois : indices lundi=0 ... dimanche=6 (maquette M T W T F S S).
   const premierJour = (new Date(annee, mois, 1).getDay() + 6) % 7;
@@ -52,7 +70,7 @@ export default function CalendrierApp({
     `${annee}-${String(mois + 1).padStart(2, "0")}-${String(jour).padStart(2, "0")}`;
 
   return (
-    <div className="absolute inset-0 z-30 flex flex-col justify-end bg-dark/40" onClick={onFermer}>
+    <div className="absolute inset-0 z-30 flex flex-col justify-end bg-dark/40" onClick={fermer}>
       <div
         className="animate-fade-in rounded-t-[28px] bg-white px-6 pb-8 pt-3 shadow-app"
         onClick={(e) => e.stopPropagation()}
@@ -61,54 +79,102 @@ export default function CalendrierApp({
         <div className="mx-auto h-1 w-10 rounded-full bg-grey-200" />
 
         <div className="mt-4 flex items-center justify-between">
-          <button type="button" onClick={precedant} aria-label={t("moisPrecedent")} className="flex size-8 items-center justify-center rounded-full text-lg text-dark hover:bg-grey-light">
+          <button
+            type="button"
+            onClick={vueAnnees ? () => setPageAnnees(pageAnnees - 12) : precedant}
+            aria-label={vueAnnees ? t("anneesPrecedentes") : t("moisPrecedent")}
+            className="flex size-8 items-center justify-center rounded-full text-lg text-dark hover:bg-grey-light"
+          >
             ‹
           </button>
-          <p className="font-outfit text-base font-bold capitalize text-dark">{titreMois}</p>
-          <button type="button" onClick={suivant} aria-label={t("moisSuivant")} className="flex size-8 items-center justify-center rounded-full text-lg text-dark hover:bg-grey-light">
+          {/* Le titre bascule entre la grille des jours et celle des années. */}
+          <button
+            type="button"
+            onClick={() => (vueAnnees ? setVueAnnees(false) : ouvrirAnnees())}
+            aria-label={t("choisirAnnee")}
+            className="flex items-center gap-1.5 rounded-full px-3 py-1 font-outfit text-base font-bold capitalize text-dark transition-colors hover:bg-grey-light"
+          >
+            {vueAnnees ? `${pageAnnees} - ${pageAnnees + 11}` : titreMois}
+            <span aria-hidden className={"text-[10px] transition-transform " + (vueAnnees ? "rotate-180" : "")}>
+              ▾
+            </span>
+          </button>
+          <button
+            type="button"
+            onClick={vueAnnees ? () => setPageAnnees(pageAnnees + 12) : suivant}
+            aria-label={vueAnnees ? t("anneesSuivantes") : t("moisSuivant")}
+            className="flex size-8 items-center justify-center rounded-full text-lg text-dark hover:bg-grey-light"
+          >
             ›
           </button>
         </div>
 
-        <div className="mt-4 grid grid-cols-7 gap-y-2 text-center">
-          {jours.map((j, i) => (
-            <span key={i} className={"text-sm font-bold " + (i >= 5 ? "text-error" : "text-dark")}>
-              {j}
-            </span>
-          ))}
-          {Array.from({ length: premierJour }, (_, i) => (
-            <span key={`v${i}`} />
-          ))}
-          {Array.from({ length: nbJours }, (_, i) => {
-            const jour = i + 1;
-            const selectionne = choix === iso(jour);
-            const weekend = (premierJour + i) % 7 >= 5;
-            return (
-              <button
-                key={jour}
-                type="button"
-                onClick={() => setChoix(iso(jour))}
-                className={
-                  "mx-auto flex size-8 items-center justify-center rounded-full text-sm transition-colors " +
-                  (selectionne
-                    ? "bg-primary-light font-bold text-white"
-                    : (weekend ? "text-error" : "text-dark") + " hover:bg-grey-light")
-                }
-              >
-                {jour}
-              </button>
-            );
-          })}
-        </div>
+        {vueAnnees ? (
+          /* Grille de 12 années ; un clic ramène sur les jours de l'année choisie. */
+          <div className="mt-4 grid grid-cols-3 gap-2 text-center">
+            {Array.from({ length: 12 }, (_, i) => {
+              const a = pageAnnees + i;
+              return (
+                <button
+                  key={a}
+                  type="button"
+                  onClick={() => {
+                    setAnnee(a);
+                    setVueAnnees(false);
+                  }}
+                  className={
+                    "mx-auto flex h-10 w-full items-center justify-center rounded-full text-sm transition-colors " +
+                    (a === annee ? "bg-primary-light font-bold text-white" : "text-dark hover:bg-grey-light")
+                  }
+                >
+                  {a}
+                </button>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="mt-4 grid grid-cols-7 gap-y-2 text-center">
+            {jours.map((j, i) => (
+              <span key={i} className={"text-sm font-bold " + (i >= 5 ? "text-error" : "text-dark")}>
+                {j}
+              </span>
+            ))}
+            {Array.from({ length: premierJour }, (_, i) => (
+              <span key={`v${i}`} />
+            ))}
+            {Array.from({ length: nbJours }, (_, i) => {
+              const jour = i + 1;
+              const selectionne = choix === iso(jour);
+              const weekend = (premierJour + i) % 7 >= 5;
+              return (
+                <button
+                  key={jour}
+                  type="button"
+                  onClick={() => setChoix(iso(jour))}
+                  className={
+                    "mx-auto flex size-8 items-center justify-center rounded-full text-sm transition-colors " +
+                    (selectionne
+                      ? "bg-primary-light font-bold text-white"
+                      : (weekend ? "text-error" : "text-dark") + " hover:bg-grey-light")
+                  }
+                >
+                  {jour}
+                </button>
+              );
+            })}
+          </div>
+        )}
 
-        <button
-          type="button"
-          disabled={!choix}
-          onClick={() => choix && onSelectionner(choix)}
-          className="mt-6 inline-flex h-[46px] w-full items-center justify-center rounded-full bg-primary-light text-sm font-bold text-white transition-all hover:brightness-105 disabled:bg-primary-lighter"
-        >
-          {t("selectionner")}
-        </button>
+        {!vueAnnees && (
+          <button
+            type="button"
+            disabled={!choix}
+            onClick={() => choix && onSelectionner(choix)}
+            className="mt-6 inline-flex h-[46px] w-full items-center justify-center rounded-full bg-primary-light text-sm font-bold text-white transition-all hover:brightness-105 disabled:bg-primary-lighter"
+          >
+            {t("selectionner")}
+          </button>
+        )}
       </div>
     </div>
   );

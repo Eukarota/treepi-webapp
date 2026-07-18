@@ -1,87 +1,92 @@
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
-import Button from "@/components/ui/Button";
-import SectionHeading from "@/components/ui/SectionHeading";
+import { gras } from "@/components/landing/texte";
 
 /*
- * « Nos solutions » : trois cartes produit.
- * La carte centrale (compte européen) est mise en avant avec la
- * pastille « Populaire » et une bordure dégradé corail.
+ * « Des solutions qui changent vraiment les choses » : trois cartes packages
+ * à bordure dégradée (turquoise, corail au centre, turquoise), halo radial
+ * orange en fond, listes cochées. La carte centrale porte le CTA plein,
+ * les latérales un CTA contour, comme sur le site en production.
  */
 
-type SolutionCard = {
-  title: string;
-  description: string;
-  cta: string;
-  features: string[];
-  href: string;
-};
+type Pack = { title: string; description: string; items: string[] };
 
-function Check() {
+function Coche() {
   return (
-    <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-primary-lighter" aria-hidden>
-      <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-        <path d="M1 4l2.5 2.5L9 1" stroke="#05a0c7" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </span>
+    <figure className="mr-2 h-6 w-6 shrink-0">
+      <img src="/images/check.svg" alt="decoration" title="decoration" />
+    </figure>
   );
 }
 
 export default function Solutions() {
   const t = useTranslations("landing.solutions");
-  const common = useTranslations("common.cta");
-  const cards = t.raw("cards") as SolutionCard[];
+  const packs = t.raw("packages") as Pack[];
+  const [basic, zen, serenity] = packs;
 
-  return (
-    <section className="bg-white" id="solutions">
-      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-        <SectionHeading eyebrow={t("eyebrow")} title={t("title")} subtitle={t("subtitle")} />
-        <div className="mt-14 grid items-start gap-6 lg:grid-cols-3">
-          {cards.map((card, i) => {
-            const featured = i === 1; // La carte « compte européen » est mise en avant.
-            return (
-              <div
-                key={card.href}
-                className={`relative flex flex-col rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 ${
-                  featured
-                    ? "border-2 border-secondary bg-white shadow-[0_16px_50px_rgba(255,101,103,0.18)] hover:shadow-[0_22px_60px_rgba(255,101,103,0.25)] lg:-mt-4"
-                    : "card-surface hover:shadow-[0_16px_50px_rgba(18,35,71,0.12)]"
-                }`}
+  // Styles propres à chaque colonne (reprise des classes du site d'origine).
+  const rendPack = (pack: Pack, variante: "basic" | "zen" | "serenity") => {
+    const externes = {
+      basic: "package__basic lg:mt-16 py-4 lg:py-0 px-4",
+      zen: "package__zen mt-2 py-4 lg:py-6 px-4 self-start",
+      serenity: "package__serenity sm:mt-12 lg:mt-16 py-4 lg:py-0 px-4",
+    }[variante];
+
+    return (
+      <div
+        className={`package w-full bg-transparent transition-transform duration-300 hover:-translate-y-1 max-sm:!mx-4 sm:w-1/2 lg:w-[27%] ${externes}`}
+      >
+        <div className="pb-5 text-left md:px-2">
+          {/* Les retours à la ligne des messages ne s'appliquent qu'aux paliers
+              où le site en production affiche ses <br> conditionnels. */}
+          <h4 className="mt-2 font-outfit text-3xl font-bold max-sm:text-[31.88px] max-sm:!leading-[42.5px] max-xs:text-2xl max-xs:!leading-[32px] lg:whitespace-pre-line">
+            {pack.title}
+          </h4>
+          <div className="mt-2 text-xs max-sm:text-[13.28px] max-sm:!leading-[21.25px] max-xs:text-[10px] max-xs:!leading-[16px] sm:whitespace-pre-line">
+            {gras(pack.description)}
+          </div>
+          {/* CTA : plein pour la carte centrale, contour pour les latérales. */}
+          <a
+            href="#travel"
+            className={`mt-5 block w-full rounded-xl py-3 text-center text-base font-bold max-sm:!text-[14.17px] max-xs:!text-[10.62px] transition-opacity hover:opacity-90 ${
+              variante === "zen"
+                ? "bg-gradient-to-r from-secondary to-secondary-light text-white"
+                : "border border-primary bg-white text-dark transition-colors hover:bg-primary/5"
+            }`}
+          >
+            {t("cta")}
+          </a>
+          <ul className="mt-8 flex flex-col gap-8 text-sm font-medium">
+            {pack.items.map((item) => (
+              <li
+                key={item}
+                className="flex items-start !leading-[22px] max-sm:!text-[18.59px] max-sm:!leading-[29.22px] max-xs:!text-[14px] max-xs:!leading-[22px] lg:whitespace-pre-line"
               >
-                {featured && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-secondary to-secondary-light px-4 py-1 text-xs font-bold uppercase tracking-wider text-white">
-                    {t("popular")}
-                  </span>
-                )}
-                <h3 className="font-outfit text-xl font-bold text-navy">{card.title}</h3>
-                <p
-                  className="mt-2 text-sm leading-relaxed text-grey [&>b]:font-bold [&>b]:text-navy"
-                  dangerouslySetInnerHTML={{ __html: card.description }}
-                />
-                <Button variant={featured ? "primary" : "outline"} className="mt-5 w-full" href={card.href}>
-                  {card.cta}
-                </Button>
-                <ul className="mt-6 flex flex-col gap-3.5 border-t border-grey-light pt-6">
-                  {card.features.map((f, j) => (
-                    <li key={j} className="flex items-start gap-2.5 text-sm text-navy/90">
-                      <Check />
-                      <span className="[&>b]:font-bold" dangerouslySetInnerHTML={{ __html: f }} />
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href={card.href}
-                  className={`mt-6 inline-flex items-center gap-1 text-sm font-bold transition-colors ${
-                    featured ? "text-secondary hover:text-navy" : "text-primary hover:text-navy"
-                  }`}
-                >
-                  {common("learnMore")} <span aria-hidden>→</span>
-                </Link>
-              </div>
-            );
-          })}
+                <Coche />
+                <span className="lg:whitespace-pre-line">{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-    </section>
+    );
+  };
+
+  return (
+    <div className="bg-grey-light md:pb-8" id="solution">
+      <section className="section max-sm:!pb-8">
+        <h2 className="mx-auto max-w-md content-center justify-center text-center font-outfit text-2xl font-bold max-sm:!text-[31.88px] max-sm:!leading-[42.5px] max-xs:!text-[24px] max-xs:!leading-[32px] sm:pb-6 xl:text-3xl [&>span]:bg-gradient-to-r [&>span]:bg-clip-text [&>span]:text-transparent">
+          <span className="from-primary to-primary-light">{t("part1")}</span>{" "}
+          <span className="from-secondary to-secondary-light">{t("part2")}</span>{" "}
+          <span className="from-primary-light via-primary to-primary-light">{t("part3")}</span>
+        </h2>
+        <div className="mt-4">
+          <div className="mt-8 flex flex-wrap justify-center gap-4 text-center max-sm:mx-[-0.2rem] md:mb-6 md:mt-4">
+            {rendPack(basic, "basic")}
+            {rendPack(zen, "zen")}
+            {rendPack(serenity, "serenity")}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

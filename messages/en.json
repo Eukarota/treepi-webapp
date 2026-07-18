@@ -56,89 +56,181 @@
   },
   "landing": {
     "hero": {
-      "title1": "The insurance and the ",
-      "titleHighlight": "European account",
-      "title2": " designed for African travellers.",
-      "subtitle": "Open your euro account from your country. Deposit your funds and get <b>the financial guarantee attestation</b> that shows the consulate your stay is funded. Add your travel insurance, and the <b>visa appeal cover</b> that defends you if you're refused.",
-      "ctaPrimary": "Open my European account",
-      "ctaSecondary": "Discover the insurance",
-      "trust": [
-        "<b>Funds held at a regulated institution</b> in Europe, in an account in your name",
-        "Attestations <b>verifiable online</b> by the consulate in 30 seconds",
-        "Schengen travel insurance at <b>the lowest price</b>, €30 / month, €60 / 3 months",
-        "Visa appeal insurance: <b>legal protection to defend you</b> if you're refused"
-      ]
+      "title1": "The Euro account",
+      "title2": "for travellers from",
+      "words": [
+        "Africa",
+        "Cameroon",
+        "Senegal",
+        "Ivory Coast"
+      ],
+      "subtitle": "The first financial app that lets African travellers open a European account, in their own name, from their home country in Africa.",
+      "phoneAlt": "The Treepi app"
+    },
+    "trust": {
+      "check1": "Open an account in 16 min",
+      "check2": "With just your African passport",
+      "placeholder": "Jean@gmail.com",
+      "cta": "Join the movement",
+      "ctaCourt": "Join"
     },
     "problem": {
-      "eyebrow": "The real problem",
-      "title1": "No more ",
-      "titleHighlight": "arbitrary visa refusals.",
-      "statNumber": "6",
-      "statDenominator": "/10",
-      "statCaption": "Up to 6 out of 10 Schengen visa applications are refused in some African countries: 62.8% in the Comoros, 51.9% in Senegal, versus a 14.8% worldwide average (2025). (Sources: European Commission, LAGO Collective)",
-      "body": "Up to <b>6 out of 10 applications</b> are refused in Africa, versus barely <b>1 in 10</b> on average in the rest of the world, most often for lack of credible proof of funds. A simple local bank statement isn't enough: it can be considered unreliable or temporarily topped up. Treepi gives you a <b>document the consulate can verify</b>, real funds, in a European account in your name. And if your visa is unfairly refused, the <b>appeal insurance</b> activates your legal protection to defend you."
+      "part1": "Finally an",
+      "part2": "account",
+      "part3": "that solves the problems of African travellers",
+      "subtitle": "You get a reliable proof of funds to ease your Schengen visa application and an international Mastercard to simplify your payments while abroad."
     },
-    "solutions": {
-      "eyebrow": "Our solutions",
-      "title": "Solutions that truly change things",
-      "subtitle": "3 products designed to support you before, during and after your visa application.",
-      "popular": "Popular",
-      "cards": [
+    "treepers": {
+      "slides": [
         {
-          "title": "Schengen travel insurance",
-          "description": "To meet the consulate's insurance requirement and travel covered, <b>at the best price on the market</b>.",
-          "cta": "Get my attestation",
-          "features": [
-            "<b>€30,000 coverage</b>, medical care and repatriation",
-            "Valid across the whole Schengen area, compliant wording",
-            "Immediate attestation, as a PDF, by e-mail",
-            "Refunded if your visa is refused"
-          ],
-          "href": "/assurance-voyage"
+          "image": "/images/treeper_randy.webp",
+          "alt": "Treeper Randy",
+          "titre": "Randy joined Treepi",
+          "position": "object-center md:object-[-16rem_-10rem]",
+          "pre": "No more",
+          "hl": "arbitrary visa",
+          "post": "refusals!",
+          "description": "Randy uses his Treepi account to prove sufficient funds to the consulate.",
+          "content": "What better than a **European account** in your name to prove to the consulate, during your visa application, that you have enough funds to finance your stay in Europe."
         },
         {
-          "title": "A European account",
-          "description": "To prove to the consulate that your stay is funded and simplify your payments during your <b>stay in Europe</b>.",
-          "cta": "Open my account",
-          "features": [
-            "<b>1 European IBAN in your name</b>",
-            "Top up from Africa, local cash deposit or transfer",
-            "A financial document recognised by consulates",
-            "<b>Before the visa:</b> top-ups and incoming transfers",
-            "<b>After the visa:</b> outgoing transfers enabled to fund your stay"
-          ],
-          "href": "/compte-euro"
+          "image": "/images/treeper_fatou.webp",
+          "alt": "Treeper Fatou",
+          "titre": "Fatou joined Treepi",
+          "position": "object-center md:object-[-18rem_0rem]",
+          "pre": "No more travelling with",
+          "hl": "cash",
+          "post": "!",
+          "description": "Fatou uses her Treepi card to pay stress-free during her trips abroad.",
+          "content": "The Treepi card works in every country. No more buying euros at home or travelling with cash. With your card you travel light, safely, with full control over your spending."
         },
         {
-          "title": "Visa appeal insurance",
-          "description": "To protect your application in case of refusal and <b>maximise your chances of winning your case</b>.",
-          "cta": "Protect my application",
-          "features": [
-            "<b>Legal protection</b> included in case of visa refusal",
-            "Review of your refusal notice and your file",
-            "<b>Full coverage of costs</b> (up to €15,000)",
-            "Support all the way to the final decision"
-          ],
-          "href": "/assurance-recours"
+          "image": "/images/treeper_kone.webp",
+          "alt": "Treeper Koné",
+          "titre": "Koné joined Treepi",
+          "position": "object-center md:object-[-18rem_0rem]",
+          "pre": "Goodbye overpriced",
+          "hl": "prepaid cards",
+          "post": "!",
+          "description": "Koné travels with his Treepi Mastercard, and it changes everything. He saves his money.",
+          "content": "No more costly prepaid cards or warning your bank before every trip. No more cards declined in shops, impossible top-ups and ATM withdrawal fees. With Treepi, you pay directly in euros, without hidden fees."
         }
       ]
     },
-    "attestation": {
-      "eyebrow": "The financial guarantee attestation",
-      "title": "A financial guarantee attestation to ease your Schengen visa",
-      "subtitle": "The number 1 reason for refusals is means of subsistence. A simple bank statement leaves room for doubt. Our attestation proves your funds are there, <b>in a European account, in your name.</b>",
+    "solutions": {
+      "part1": "Real",
+      "part2": "solutions",
+      "part3": "that truly change things",
+      "cta": "Get started",
+      "packages": [
+        {
+          "title": "A financial guarantee certificate",
+          "description": "To ease your **Schengen visa** application and reassure the consulate about your ability to finance your stay",
+          "items": [
+            "A reliable, compliant certificate",
+            "A financial proof recognised by consulates",
+            "A European account opened in your name",
+            "Funds stay locked during your visa application"
+          ]
+        },
+        {
+          "title": "A Euro account + a card",
+          "description": "To simplify your payments during your stay abroad and avoid the restrictions and fees of your local bank",
+          "items": [
+            "1 French IBAN + 1 RIB in your name",
+            "2 Mastercard cards (virtual & physical)",
+            "No more travelling with cash",
+            "Top up from Africa by cash, card or transfer",
+            "International transfers, withdrawals and payments"
+          ]
+        },
+        {
+          "title": "A visa appeal insurance",
+          "description": "To protect your trip in case of visa refusal and maximise your chances of winning your case",
+          "items": [
+            "Review of the decision in case of refusal",
+            "Connection with a specialised lawyer",
+            "Full coverage of costs (up to €15,000)",
+            "Average procedure length: 2-3 months"
+          ]
+        }
+      ]
+    },
+    "globe": {
+      "line1a": "Travel.",
+      "line1b": "Pay.",
+      "line2a": "Go beyond",
+      "line2b": "your limits.",
+      "subtitle": "Because travelling should never be a privilege, we are committed to giving African travellers credible, accessible and secure solutions so that every travel dream becomes possible.",
+      "planetAlt": "Planet"
+    },
+    "showcase": {
+      "items": [
+        "Join the community of African Treepers ready to travel across Europe",
+        "Get everything you need in one App to ease your visa application",
+        "An account + a card to travel with peace of mind and enjoy your stay",
+        "You never come back from a trip the way you left: you come back different, grown"
+      ]
+    },
+    "visa": {
+      "title1": "Visa made",
+      "title2": "easy",
+      "intro": "Your journey starts here! Pack your bags, we take care of everything to put **every chance on your side** for your **Schengen visa.**",
       "steps": [
         {
-          "title": "Open your European account",
-          "description": "From the comfort of your country, with just your passport. Receive your European IBAN in your name."
+          "num": "01",
+          "title": [
+            {
+              "t": "Open your",
+              "g": "p"
+            },
+            {
+              "t": "Euro account",
+              "g": "s"
+            },
+            {
+              "t": "from the comfort of your country in Africa",
+              "g": "p"
+            }
+          ],
+          "body": "We all need an **account to pay while travelling** for a short stay abroad. An account in the right currency! Treepi offers you a **French account for non-residents,** accessible anytime and anywhere. An account to deposit money, send and receive transfers, **pay without limits or hidden fees.**",
+          "image": "/images/euro.webp",
+          "alt": "euro",
+          "titre": "Open your Euro account"
         },
         {
-          "title": "Top up from Africa",
-          "description": "Cash deposit at a local branch or bank transfer, from XAF, XOF and other currencies to your account, within 24 h."
+          "num": "02",
+          "title": [
+            {
+              "t": "Top up your account",
+              "g": "s"
+            },
+            {
+              "t": "by cash deposit, transfer or card from your country",
+              "g": "p"
+            }
+          ],
+          "body": "From XAF, XOF and several **other African currencies** to your Euro account within **24h.** Top up your Euro account with the amount you need to finance your entire stay in Europe. You can top it up by **cash deposit in local currency,** by **international transfer** or by **card**, from Africa to your French IBAN.",
+          "image": "/images/counter.webp",
+          "alt": "counter",
+          "titre": "Top up your Euro account"
         },
         {
-          "title": "Get your attestation",
-          "description": "A reliable financial document, matching the official scales, verifiable online by the consulate, ready to add to your file."
+          "num": "03",
+          "title": [
+            {
+              "t": "Get a reliable proof to show the consulate you can",
+              "g": "p"
+            },
+            {
+              "t": "finance your trip",
+              "g": "s"
+            }
+          ],
+          "body": "**7 out of 10 visa applications** are refused for lack of reliable proof of income. A simple bank statement is not in itself a proof of funds. With Treepi, no more stress proving your resources: your Schengen visa application has every chance of being approved thanks to a reliable financial document provided by Treepi.",
+          "image": "/images/passport.webp",
+          "alt": "passport",
+          "titre": "Get a reliable proof to show the consulate you can finance your trip"
         }
       ]
     },
@@ -151,23 +243,243 @@
         "medical reasons",
         "a work assignment",
         "business"
+      ],
+      "placeholder": "Email address",
+      "counterPrefix": "+ than",
+      "counterValue": 978,
+      "counterLine": "Treepers have joined the adventure",
+      "counterQ1": "And",
+      "counterQ2": "you",
+      "counterQ3": "?",
+      "touristAlt": "Treeper"
+    },
+    "secure": {
+      "title1": "Payments made",
+      "title2": "simple",
+      "subtitleDesktop": "Card and online payments are more common than ever, and your Treepi cards are your passport to financial freedom during your stay abroad.  Make the most of your physical and virtual cards!",
+      "subtitleMobile": "Card and online payments are more common than ever, and your Treepi card is your passport to financial freedom during your stay abroad.",
+      "cardAlt": "Treepi international card",
+      "bubbles": [
+        {
+          "pre": "Order your",
+          "hl": "international card",
+          "post": "& receive it on arrival"
+        },
+        {
+          "pre": "Make your payments",
+          "hl": "without hidden fees",
+          "post": "and anywhere in the world"
+        },
+        {
+          "pre": "Keep",
+          "hl": "control of your card",
+          "post": "and your money at all times"
+        }
       ]
     },
-    "simulator": {
-      "title": "How much do you need for your visa?",
-      "subtitle": "Consulates apply a daily amount for your stay, depending on your accommodation. Work out your top-up target.",
-      "country": "Destination country",
-      "duration": "Length of stay (days)",
-      "accommodation": "Your accommodation",
-      "accommodations": {
-        "booked": "Hotel or Airbnb booked",
-        "none": "No proof of accommodation",
-        "hosted": "Staying with a relative"
-      },
-      "resultLabel": "Amount to demonstrate (estimate)",
-      "resultCaption": "{country} · {days} days · {accommodation}, €{rate}/day",
-      "cta": "Prepare this amount in my account",
-      "disclaimer": "Official scales published by each State (national ministries / European Commission, updated Oct. 2025). Some countries apply a single amount regardless of accommodation. The consulate assesses each file individually."
+    "recours": {
+      "title1": "An",
+      "title2": "appeal insurance",
+      "title3": "in case of visa refusal",
+      "subtitle": "With our appeal insurance, you get full legal support to contest an unjustified refusal decision. Our team of experts assists you through your appeal, with one goal: maximising your chances of getting your visa.",
+      "items": [
+        "Subscription before the visa application",
+        "Personalised analysis of the refusal",
+        "Preparation of the appeal file",
+        "Assistance from a specialised lawyer",
+        "Follow-up until the appeal decision"
+      ]
+    },
+    "services": {
+      "title1": "Packed with",
+      "title2": "services",
+      "subtitle": "Treepi is your travel companion. Access other useful services and enjoy additional options for an unforgettable stay",
+      "cards": [
+        {
+          "title": "Travel insurance",
+          "image": "/images/travel_insurance.svg",
+          "icon": "/images/globe.svg",
+          "iconBg": "#FC7213"
+        },
+        {
+          "title": "Guidance",
+          "image": "/images/accompaniement.svg",
+          "icon": "/images/identification_card.svg",
+          "iconBg": "#ff6567"
+        },
+        {
+          "title": "Accommodation booking",
+          "image": "/images/hotel.svg",
+          "icon": "/images/house.svg",
+          "iconBg": "#FE9239"
+        },
+        {
+          "title": "Flight booking",
+          "image": "/images/africa.svg",
+          "icon": "/images/airplane_tilt.svg",
+          "iconBg": "#09d1c7"
+        },
+        {
+          "title": "A financial guarantee certificate",
+          "image": "/images/attestation.svg",
+          "icon": "/images/wallet.svg",
+          "iconBg": "#21C8EF"
+        }
+      ]
+    },
+    "humanly": {
+      "title1": "What Treepi changes,",
+      "title2": "humanly",
+      "beforeLabel": "Before",
+      "afterLabel": "After",
+      "brand": "Treepi",
+      "before": [
+        {
+          "icon": "siren",
+          "lines": [
+            "Fearing your visa application"
+          ]
+        },
+        {
+          "icon": "X_circle",
+          "lines": [
+            "Being refused over unreliable",
+            "proof of funds"
+          ]
+        },
+        {
+          "icon": "smiley_sad",
+          "lines": [
+            "Being embarrassed to depend... on a relative",
+            "in case of the unexpected during your stay"
+          ]
+        },
+        {
+          "icon": "human",
+          "lines": [
+            "Limiting yourself"
+          ]
+        }
+      ],
+      "after": [
+        {
+          "icon": "lightning",
+          "lines": [
+            "Feeling credible and treated",
+            "fairly during your visa application"
+          ]
+        },
+        {
+          "icon": "check_circle",
+          "lines": [
+            "Being recognised as solvent",
+            "with a reliable proof of funds"
+          ]
+        },
+        {
+          "icon": "smiley",
+          "lines": [
+            "Being autonomous, free and in charge of your stay",
+            "with an account and a card that always work"
+          ]
+        },
+        {
+          "icon": "person_ski",
+          "lines": [
+            "Going beyond your limits"
+          ]
+        }
+      ]
+    },
+    "security": {
+      "title1": "Security and",
+      "title2": "reliability",
+      "cards": [
+        {
+          "title": "Partners",
+          "image": "/images/handshake.svg",
+          "alt": "handshake",
+          "body": "Treepi provides its services through its partnership with an electronic money institution licensed by the **ACPR** (Banque de France)"
+        },
+        {
+          "title": "Account protection",
+          "image": "/images/world.svg",
+          "alt": "protection",
+          "body": "Treepi uses security technologies recognised by industry professionals to protect your account and your card, such as **multi-level** **authentication** and payment validation via **3D Secure**."
+        },
+        {
+          "title": "Fraud",
+          "image": "/images/security.svg",
+          "alt": "security",
+          "body": "To ensure the **confidentiality** of your information and prevent any fraud attempt, Treepi has integrated advanced solutions, including **biometric identity** verification and **full data encryption**."
+        }
+      ]
+    },
+    "faq": {
+      "title1": "Frequently asked",
+      "title2": "questions",
+      "items": [
+        {
+          "q": "What exactly is Treepi and is it recognised by consulates?",
+          "a": [
+            "Treepi is a financial app that lets you open a euro account to make proving your financial resources easier during your Schengen visa application, and get a Mastercard to simplify your payments in Europe during your stay. Our services comply with the requirements of many European consulates. We regularly update our formats to guarantee their validity."
+          ]
+        },
+        {
+          "q": "Does Treepi give me a real European bank account (RIB)?",
+          "a": [
+            "Yes. Once your account is validated and opened, you receive a French RIB (IBAN), in your name, usable for international transfers and payments."
+          ]
+        },
+        {
+          "q": "How can Treepi help me get my visa?",
+          "a": [
+            "One of the main reasons for visa refusals is embassies doubting the applicant's real financial capacity.",
+            "",
+            "A simple bank statement issued by your local bank is not always considered sufficient or reliable, as it can be temporarily funded or deemed not credible.",
+            "",
+            "That is where Treepi makes all the difference.",
+            "✅ We issue you a reliable financial guarantee certificate, recognised by consulates, proving the funds required for your stay are deposited and secured in a European account in your name.",
+            "✅ This document is clearly more credible than a simple statement: it certifies not only the presence of the funds, but also their unavailability during the required period, which fully reassures consular authorities.",
+            "✅ It meets the transparency and financial traceability requirements set by embassies.",
+            "✅ The document is delivered quickly, digitally, ready to be added to your file.",
+            "",
+            "With Treepi, you avoid approximations, strengthen your file and put every chance on your side to get your visa."
+          ]
+        },
+        {
+          "q": "Do I need to be in Europe to open a Treepi account?",
+          "a": [
+            "No. You can open your Treepi account from your home country, online through our mobile app, with just your passport."
+          ]
+        },
+        {
+          "q": "What is the difference between the Treepi card and my local bank card?",
+          "a": [
+            "The Treepi Mastercard was designed specifically for African travellers. Unlike most local bank cards:",
+            "✅ It is denominated in euros, letting you pay anywhere in Europe without automatic conversion or exchange rate surprises.",
+            "✅ No hidden international fees: you know exactly what you spend, with no surcharge. No ATM withdrawal fees during your stay.",
+            "✅ No blocking limits abroad: no more declined payments in European shops, transport, hotels or online services. Use your card as you wish.",
+            "✅ Accepted everywhere Mastercard is available, for online purchases, withdrawals and in-person payments.",
+            "",
+            "It spares you the blocks, high fees and limits of cards issued by African banks."
+          ]
+        },
+        {
+          "q": "Does Treepi offer insurance in case of visa refusal?",
+          "a": [
+            "Yes, and it is one of our most useful services.",
+            "Getting a visa is never guaranteed, even with a strong file. That is why Treepi offers a visa appeal insurance, designed to protect you and give you a second chance in case of refusal.",
+            "",
+            "Here is how it works:",
+            "✅ In case of visa refusal, you get personalised legal support to understand the reasons for the rejection and prepare a solid appeal.",
+            "✅ Our specialised teams help you build a new, well-argued file, meeting the consulate's expectations, to increase your chances of success on the second application.",
+            "✅ This insurance also helps you limit financial losses and avoid starting over alone.",
+            "",
+            "With Treepi's appeal insurance, you do not just hope for your visa: you prepare to defend it intelligently, even when things go wrong."
+          ]
+        }
+      ]
     },
     "insurances": {
       "eyebrow": "The insurance",
@@ -194,163 +506,25 @@
       },
       "banner": "<b>Visa refused? Your travel insurance is refunded</b> upon presentation of the refusal, and with the appeal insurance, your challenge is covered."
     },
-    "globe": {
-      "title1": "Travel.",
-      "title2": "Pay.",
-      "title3": "Exceed",
-      "title4": "your limits.",
-      "subtitle": "Because travelling should never be a privilege, we are committed to giving African travellers credible, accessible and secure solutions so that every desire to travel becomes possible."
-    },
-    "humanly": {
-      "title1": "What Treepi changes,",
-      "title2": "on a human level",
-      "before": "Before",
-      "after": "After",
-      "brand": "Treepi",
-      "beforeItems": [
-        {
-          "text": "Being afraid during your visa application",
-          "icon": "/images/icons/siren.svg"
-        },
-        {
-          "text": "Being refused over unconvincing proof of funds",
-          "icon": "/images/icons/X_circle.svg"
-        },
-        {
-          "text": "Being embarrassed to depend… on a relative if something happens during your stay",
-          "icon": "/images/icons/smiley_sad.svg"
-        },
-        {
-          "text": "Holding yourself back",
-          "icon": "/images/icons/human.svg"
-        }
-      ],
-      "afterItems": [
-        {
-          "text": "Feeling credible and treated fairly during your visa application",
-          "icon": "/images/icons/lightning.svg"
-        },
-        {
-          "text": "Being recognised as solvent with reliable proof of funds",
-          "icon": "/images/icons/check_circle.svg"
-        },
-        {
-          "text": "Being autonomous, free and in charge of your stay with an account that always works",
-          "icon": "/images/icons/smiley.svg"
-        },
-        {
-          "text": "Exceeding your limits",
-          "icon": "/images/icons/person_ski.svg"
-        }
-      ]
-    },
-    "security": {
-      "eyebrow": "Security & trust",
-      "title": "Designed so you take no risk",
-      "cards": [
-        {
-          "icon": "lock",
-          "title": "Your funds remain yours",
-          "description": "Visa granted or refused: full restitution, released within 72 h of the consulate's decision."
-        },
-        {
-          "icon": "bank",
-          "title": "Regulated institution in Europe",
-          "description": "Your funds are segregated in an account in your name, never part of Treepi's assets."
-        },
-        {
-          "icon": "verify",
-          "title": "Verifiable documents",
-          "description": "Each attestation carries a verification code: the consular officer authenticates it online in 30 seconds."
-        },
-        {
-          "icon": "honest",
-          "title": "No false promises",
-          "description": "Treepi doesn't \"guarantee\" the visa, no honest person can. We guarantee the compliance of your documents."
-        },
-        {
-          "icon": "chat",
-          "title": "Humans you can reach",
-          "description": "A question, a doubt? WhatsApp 7 days a week, answer within 2 hours, in your language."
-        },
-        {
-          "icon": "secure",
-          "title": "Secure payments",
-          "description": "Orange Money, MTN MoMo and bank transfer, rates and fees shown before every confirmation."
-        }
-      ]
-    },
-    "wall": {
-      "eyebrow": "The departures wall",
-      "count": "1,000+",
-      "caption": "Treepers have joined the adventure",
-      "you": "What about you?",
-      "testimonials": [
-        {
-          "route": "Douala → Paris · Family visit",
-          "quote": "\"After a refusal last year, I redid everything with the Treepi account. Spotless attestation, file accepted. My mother cried at the airport.\"",
-          "name": "Serge M.",
-          "role": "Sales executive, Douala"
-        },
-        {
-          "route": "Yaoundé → Milan · Business",
-          "quote": "\"My money was in mobile money, no bank would give me a serious attestation. Here, everything was done from my phone.\"",
-          "name": "Amina K.",
-          "role": "Trader, Yaoundé"
-        },
-        {
-          "route": "Créteil → paid for Douala · Sponsor",
-          "quote": "\"I topped up my mother's account from France, without touching my own file. It's exactly what was missing.\"",
-          "name": "Christelle B.",
-          "role": "Care assistant, Créteil"
-        }
-      ]
-    },
-    "faq": {
-      "eyebrow": "FAQ",
-      "title": "The questions we actually get asked",
-      "items": [
-        {
-          "question": "Does Treepi guarantee that I'll get my visa?",
-          "answer": "No, and beware of anyone who promises you that. The decision belongs exclusively to the consulate. What Treepi guarantees is the compliance of your documents: real funds in a European account in your name and an attestation verifiable online, which answer the number 1 reason for refusals."
-        },
-        {
-          "question": "Are my funds safe? Can I get them back?",
-          "answer": "Yes. Your funds are deposited with a regulated institution in the European Union, in a segregated account in your name, never part of Treepi's assets. Visa granted or refused, they are returned to you in full, released within 72 h of the consulate's decision."
-        },
-        {
-          "question": "Is there a Treepi bank card?",
-          "answer": "Not yet: no payment card is offered at launch. The Treepi card is coming soon, in the meantime, your account is used to receive transfers, prepare your attestation and fund your stay once your visa is granted."
-        },
-        {
-          "question": "Why can't I send a transfer before my visa?",
-          "answer": "That's the whole point of the attestation: the funds for your stay remain deposited while your application is being processed, which makes your document credible in the consulate's eyes. Outgoing transfers are enabled as soon as you present your visa."
-        },
-        {
-          "question": "How do I top up my account?",
-          "answer": "Three methods: cash deposit at a local partner branch, bank transfer, or card. From XOF, XAF and other African currencies to your European IBAN, rates and fees displayed before every confirmation, credited within 24 h."
-        },
-        {
-          "question": "What happens if my visa is refused?",
-          "answer": "Your funds are returned to you in full within 72 h and your travel insurance is refunded upon presentation of the refusal. If you subscribed to the appeal insurance, our immigration lawyers review your notice and challenge the decision, costs covered up to €15,000."
-        },
-        {
-          "question": "What exactly is the financial guarantee attestation?",
-          "answer": "A financial document certifying that the funds required for your stay are actually deposited and blocked in a European account in your name. Its amount matches the official scales of your destination country and the consulate can verify it online in 30 seconds."
-        },
-        {
-          "question": "How much does the account cost?",
-          "answer": "Opening is free. The account alone costs €100 in annual management fees, and if you subscribe to the financial guarantee attestation (€250), the management fees are waived."
-        },
-        {
-          "question": "How quickly do I get my documents?",
-          "answer": "The travel insurance attestation arrives by e-mail within minutes of subscribing. The financial guarantee attestation is issued within 24 to 48 h of receiving your funds, in digital format, ready to add to your file."
-        }
-      ]
-    },
     "finalCta": {
       "title": "Your journey starts with your account.",
       "subtitle": "Open it in 5 minutes. Top up whenever you want. Your attestation awaits."
+    },
+    "simulator": {
+      "title": "How much do you need for your visa?",
+      "subtitle": "Consulates apply a daily amount for your stay, depending on your accommodation. Work out your top-up target.",
+      "country": "Destination country",
+      "duration": "Length of stay (days)",
+      "accommodation": "Your accommodation",
+      "accommodations": {
+        "booked": "Hotel or Airbnb booked",
+        "none": "No proof of accommodation",
+        "hosted": "Staying with a relative"
+      },
+      "resultLabel": "Amount to demonstrate (estimate)",
+      "resultCaption": "{country} · {days} days · {accommodation}, €{rate}/day",
+      "cta": "Prepare this amount in my account",
+      "disclaimer": "Official scales published by each State (national ministries / European Commission, updated Oct. 2025). Some countries apply a single amount regardless of accommodation. The consulate assesses each file individually."
     }
   },
   "compteEuro": {
@@ -1933,11 +2107,14 @@
       "aucunResultat": "No results"
     },
     "bienvenue": {
+      "quitter": "Back to the website",
       "inscrire": "Sign up",
       "connecter": "Log in",
       "premiersPas": "Discover Treepi in 1 min"
     },
     "connexion": {
+      "quitter": "Leave and return to home",
+      "retourSite": "Back to the website",
       "identifiant": "Username",
       "identifiantPlaceholder": "Your email address",
       "motDePasse": "Password",
@@ -2195,6 +2372,7 @@
       "titre": "Sign up",
       "retour": "Back",
       "quitter": "Leave sign-up",
+      "retourSite": "Back to the website",
       "continuer": "Continue",
       "phases": {
         "email": {
@@ -2271,7 +2449,10 @@
         "villePlaceholder": "Your city of birth",
         "selectionner": "Select",
         "moisPrecedent": "Previous month",
-        "moisSuivant": "Next month"
+        "moisSuivant": "Next month",
+        "choisirAnnee": "Choose the year",
+        "anneesPrecedentes": "Previous years",
+        "anneesSuivantes": "Next years"
       },
       "infos3": {
         "nationalite": "Nationality",

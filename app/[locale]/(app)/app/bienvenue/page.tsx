@@ -29,9 +29,32 @@ export default function PageBienvenue() {
         className="pointer-events-none absolute left-[-204px] top-[-312px] w-[762px] max-w-none -rotate-[13.5deg]"
       />
 
-      <div className="colonne-app relative z-10 pb-8 pt-16 md:py-16">
+      <div className="colonne-app relative z-10 pb-8 pt-10 md:py-16">
+        {/* Sortie de l'app vers le site : croix sur mobile, bouton texte
+            explicite « Retourner au site » sur desktop. */}
+        <div className="flex h-8 items-center justify-end md:justify-start">
+          <button
+            type="button"
+            onClick={() => router.push("/")}
+            aria-label={t("bienvenue.quitter")}
+            className="transition-opacity hover:opacity-70 md:hidden"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/app/icons/close-teal.svg" alt="" width={32} height={32} />
+          </button>
+          <button
+            type="button"
+            onClick={() => router.push("/")}
+            className="hidden items-center gap-1.5 text-sm font-bold text-primary-light transition-opacity hover:opacity-70 md:flex"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/app/icons/arrow-left-teal.svg" alt="" width={20} height={20} className="size-5" />
+            {t("bienvenue.quitter")}
+          </button>
+        </div>
+
         {/* Illustration « Travel » : voyageur qui déplie sa carte. */}
-        <div className="flex justify-center">
+        <div className="mt-2 flex justify-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/app/illustrations/travel.svg"

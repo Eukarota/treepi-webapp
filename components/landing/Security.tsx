@@ -1,57 +1,50 @@
 import { useTranslations } from "next-intl";
-import SectionHeading from "@/components/ui/SectionHeading";
+import { grasDegrade } from "@/components/landing/texte";
 
 /*
- * « Sécurité & confiance » : six cartes de réassurance.
- * Les icônes emoji sont posées sur des pastilles navy, comme la maquette.
+ * « Sécurité et fiabilité » : trois cartes gris clair au rayon de 30px,
+ * illustration en tête, titre corail en dégradé (40px) et paragraphe dont
+ * les mots clés portent le dégradé turquoise. Reproduction du site en
+ * production.
  */
-const ICONS: Record<string, string> = {
-  lock: "🔒",
-  bank: "🏛️",
-  verify: "🔎",
-  honest: "🤝",
-  chat: "💬",
-  secure: "🔐",
-};
 
-/* Illustrations du site d'origine, réutilisées sur les cartes qui leur correspondent. */
-const ILLUSTRATIONS: Record<string, string> = {
-  lock: "/images/security.svg",
-  bank: "/images/handshake.svg",
-  verify: "/images/world.svg",
-};
-
-type Card = { icon: string; title: string; description: string };
+type Carte = { title: string; image: string; alt: string; body: string };
 
 export default function Security() {
   const t = useTranslations("landing.security");
-  const cards = t.raw("cards") as Card[];
+  const cartes = t.raw("cards") as Carte[];
 
   return (
-    <section className="bg-white" id="security">
-      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-        <SectionHeading eyebrow={t("eyebrow")} title={t("title")} />
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {cards.map((card) => (
-            <div
-              key={card.title}
-              className="card-surface overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(18,35,71,0.12)]"
-            >
-              {ILLUSTRATIONS[card.icon] && (
-                <img src={ILLUSTRATIONS[card.icon]} alt="" className="h-40 w-full object-cover" loading="lazy" />
-              )}
-              <div className="p-7">
-                {!ILLUSTRATIONS[card.icon] && (
-                  <span className="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary-light text-lg" aria-hidden>
-                    {ICONS[card.icon] ?? "✔️"}
-                  </span>
-                )}
-                <h3 className="font-outfit text-base font-bold text-navy">{card.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-grey">{card.description}</p>
+    <section className="section" id="security">
+      <h2 className="mx-auto max-w-xs text-center font-outfit text-2xl font-bold max-sm:!text-[31.88px] max-sm:!leading-[42.5px] max-xs:!text-[24px] max-xs:!leading-[32px] lg:max-w-lg lg:text-5xl xl:max-w-2xl xl:text-6xl [&>*]:bg-gradient-to-r [&>*]:bg-clip-text [&>*]:text-transparent">
+        <span className="from-primary to-primary-light">{t("title1")}</span>{" "}
+        <span className="from-secondary to-secondary-light">{t("title2")}</span>
+      </h2>
+      <div className="mx-auto mt-16 grid grid-cols-1 items-center justify-center gap-6 max-sm:mt-8 sm:grid-cols-2 md:grid-cols-3 md:gap-12">
+        {cartes.map((carte) => (
+          <div key={carte.title} className="flex min-h-full flex-col rounded-[30px] bg-grey-light max-md:pb-4">
+            <div className="relative h-48 overflow-hidden rounded-tl-3xl rounded-tr-3xl xl:h-[20rem]">
+              <img
+                src={carte.image}
+                alt={carte.alt}
+                title={carte.title}
+                width={384}
+                height={320}
+                className="aspect-video h-full w-full object-cover"
+              />
+            </div>
+            <h4 className="px-8 py-4 text-left font-outfit text-[40px] font-bold leading-none max-sm:pl-[24px] max-lg:text-2xl">
+              <span className="bg-gradient-to-r from-secondary to-secondary-light bg-clip-text text-transparent">
+                {carte.title}
+              </span>
+            </h4>
+            <div className="flex flex-1 items-start justify-start px-8 text-left max-sm:px-6 md:min-h-[10em]">
+              <div className="mb-8 text-black font-medium !leading-[22px] max-md:text-sm max-sm:!mb-0 max-sm:!text-[18.59px] max-sm:!leading-[29.22px] max-xs:!text-[14px] max-xs:!leading-[22px]">
+                {grasDegrade(carte.body)}
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import type { ReactNode } from "react";
 
 /*
@@ -23,8 +23,6 @@ function AccordionRow({
   open: boolean;
   onToggle: () => void;
 }) {
-  const bodyRef = useRef<HTMLDivElement>(null);
-
   return (
     <div
       className={`card-surface overflow-hidden transition-shadow duration-300 ${
@@ -50,12 +48,16 @@ function AccordionRow({
           </svg>
         </span>
       </button>
+      {/* Ouverture animée sans mesure de hauteur : la grille passe de 0fr à
+          1fr, le contenu suit sa hauteur naturelle. */}
       <div
-        ref={bodyRef}
-        className="overflow-hidden px-6 transition-all duration-300 ease-in-out"
-        style={{ maxHeight: open ? bodyRef.current?.scrollHeight ?? 1000 : 0 }}
+        className={`grid px-6 transition-[grid-template-rows] duration-300 ease-in-out ${
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
       >
-        <div className="pb-6 text-sm leading-relaxed text-grey">{item.answer}</div>
+        <div className="overflow-hidden">
+          <div className="pb-6 text-sm leading-relaxed text-grey">{item.answer}</div>
+        </div>
       </div>
     </div>
   );

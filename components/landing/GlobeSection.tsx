@@ -1,78 +1,63 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
+import FlagPin from "@/components/landing/FlagPin";
 
 /*
- * Section « Voyage. Paye. Dépasse tes limites. », le planisphère et son marqueur.
- *
- * Le marqueur est ancré directement sur la carte par des coordonnées relevées
- * sur l'image (fx : fraction horizontale depuis le centre, fy : fraction de la
- * hauteur de la carte). Sa pointe touche le pays visé et il s'incline
- * proportionnellement à la longitude pour rester perpendiculaire à la surface
- * du globe (pointe orientée vers le centre de la Terre).
+ * « Voyage. Paye. Dépasse tes limites. » : planisphère très pâle en fond,
+ * épingle-drapeau qui voyage au-dessus, titre bicolore sur deux lignes et
+ * paragraphe d'engagement. Reproduction du site en production.
  */
-
-const STOPS = [
-  { flag: "/images/usa.webp", alt: "🇺🇸", fx: -0.37, fy: 0.46 },
-  { flag: "/images/japan.webp", alt: "🇯🇵", fx: 0.355, fy: 0.5 },
-  { flag: "/images/france.webp", alt: "🇫🇷", fx: -0.05, fy: 0.31 },
-];
-
-// Inclinaison max : ±55° au bord de la carte (lecture naturelle du fisheye).
-const TILT_FACTOR = 55;
-
 export default function GlobeSection() {
   const t = useTranslations("landing.globe");
-  const [stop, setStop] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => setStop((s) => (s + 1) % STOPS.length), 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const current = STOPS[stop];
-  const angle = current.fx * TILT_FACTOR;
 
   return (
-    <section className="overflow-hidden bg-white">
-      <div className="mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6">
-        {/* Planisphère + marqueur ancré sur la carte */}
-        <div className="relative mx-auto max-w-[1100px]">
-          <img src="/images/planete.svg" alt="" className="h-auto w-full object-contain" />
-          <div
-            className="absolute transition-all duration-1000 ease-in-out"
-            style={{
-              left: `calc(50% + ${current.fx * 100}%)`,
-              top: `${current.fy * 100}%`,
-              // La pointe du marqueur (bas centre) touche le point visé.
-              transform: `translate(-50%, -100%) rotate(${angle}deg)`,
-              transformOrigin: "50% 100%",
-            }}
-          >
-            <div className="relative h-16 w-12 sm:h-24 sm:w-[72px]">
-              {/* Épingle : ratio intrinsèque 80 × 107, tête centrée à (50 %, 37.6 %). */}
-              <img src="/images/country_vector.svg" alt="" className="absolute inset-0 h-full w-full" />
-              <img
-                key={current.flag}
-                src={current.flag}
-                alt={current.alt}
-                className="absolute left-1/2 top-[37.6%] h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full object-cover sm:h-12 sm:w-12"
-              />
-            </div>
-          </div>
+    <section className="section relative flex w-full items-center justify-center overflow-hidden max-sm:bg-grey-light max-sm:!pt-0">
+      <div className="absolute left-1/2 top-1/4 z-10 flex h-full w-full -translate-x-1/2 transform items-start justify-center">
+        <img
+          src="/images/planete.svg"
+          alt={t("planetAlt")}
+          title="Voyage. Paye. Dépasse tes limites"
+          width={1280}
+          height={405}
+          className="h-auto w-full min-w-full max-w-[1200px] object-contain md:min-h-[75%]"
+        />
+      </div>
+      {/* L'épingle vit dans un calque au-dessus du titre, aux mêmes classes de
+          largeur que l'image et au ratio du SVG : les deux boîtes se
+          superposent exactement, les coordonnées en % suivent la carte. */}
+      <div className="pointer-events-none absolute left-1/2 top-1/4 z-30 flex h-full w-full -translate-x-1/2 items-start justify-center">
+        <div className="relative aspect-[1280/405] h-auto w-full min-w-full max-w-[1200px]">
+          <FlagPin />
         </div>
-
-        {/* Titre et engagement */}
-        <div className="relative z-10 mx-auto -mt-10 max-w-3xl text-center sm:-mt-16">
-          <h2 className="font-outfit text-4xl font-bold leading-tight sm:text-5xl">
-            <span className="text-gradient-primary">{t("title1")}</span>{" "}
-            <span className="text-gradient-secondary">{t("title2")}</span>
-            <br />
-            <span className="text-gradient-secondary">{t("title3")}</span>{" "}
-            <span className="text-gradient-primary">{t("title4")}</span>
+      </div>
+      <div className="relative z-20 flex w-full max-w-[1200px] flex-col items-center justify-center sm:px-6 lg:px-8">
+        {/* Espace réservé de la bande à épingle du site en production : il
+            fixe la hauteur de la section (540px) pour que le planisphère
+            tienne en entier et que le titre garde sa place sous l'arc. */}
+        <div className="relative h-20 w-full sm:h-24 md:h-32 lg:h-40" aria-hidden />
+        <div className="w-full max-sm:pt-16">
+          {/* Interligne 72px à partir de xl : hauteur de titre du site en
+              production (deux lignes de 72px, section à 540px). */}
+          <h2 className="mx-auto mb-8 max-w-xs text-center font-outfit text-2xl font-bold max-sm:!text-[31.88px] max-xs:!text-[24px] max-xs:!leading-[32px] lg:max-w-lg xl:max-w-2xl xl:text-6xl xl:!leading-[72px]">
+            <span className="block">
+              <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
+                {t("line1a")}
+              </span>{" "}
+              <span className="bg-gradient-to-r from-secondary to-secondary-light bg-clip-text text-transparent">
+                {t("line1b")}
+              </span>
+            </span>
+            <span className="block">
+              <span className="bg-gradient-to-r from-secondary to-secondary-light bg-clip-text text-transparent">
+                {t("line2a")}
+              </span>
+              <span className="ml-2 bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
+                {t("line2b")}
+              </span>
+            </span>
           </h2>
-          <p className="mt-6 text-sm leading-relaxed text-grey sm:text-base">{t("subtitle")}</p>
+          <div className="mx-auto text-center !text-[14px] font-medium !leading-[22px] text-grey max-sm:max-w-[378px] max-sm:text-[18.59px] max-sm:!leading-[29.22px] max-xs:!text-[14px] max-xs:!leading-[22px] xl:max-w-4xl">
+            {t("subtitle")}
+          </div>
         </div>
       </div>
     </section>

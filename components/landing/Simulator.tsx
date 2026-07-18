@@ -1,98 +1,79 @@
-"use client";
-
-import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
-import Button from "@/components/ui/Button";
 
 /*
- * Simulateur de montant visa (carte sombre de la maquette).
- * Barèmes journaliers indicatifs par pays et type d'hébergement ,
- * la mention légale sous le résultat rappelle leur caractère estimatif.
+ * Section « Paiement simplifié » : présentation façon photo produit.
+ * Une carte bancaire inclinée occupe le centre, entourée de légendes
+ * bi-ton (bordure turquoise, texte en dégradé) reprenant notre copie
+ * du simulateur. Composant serveur : aucune interactivité.
+ * Mobile : la carte se réduit et les légendes s'empilent (zéro débordement).
  */
-
-type AccommodationKey = "booked" | "none" | "hosted";
-
-// Barème €/jour : [hébergement réservé, sans justificatif, hébergé par un proche].
-const RATES: Record<string, Record<AccommodationKey, number>> = {
-  France: { booked: 65, none: 120, hosted: 32.5 },
-  Belgique: { booked: 50, none: 95, hosted: 45 },
-  Allemagne: { booked: 45, none: 45, hosted: 45 },
-  Espagne: { booked: 108, none: 108, hosted: 108 },
-  Italie: { booked: 52, none: 52, hosted: 52 },
-  Portugal: { booked: 40, none: 75, hosted: 40 },
-  "Pays-Bas": { booked: 55, none: 55, hosted: 55 },
-};
 
 export default function Simulator() {
   const t = useTranslations("landing.simulator");
-  const [country, setCountry] = useState("France");
-  const [days, setDays] = useState(15);
-  const [accommodation, setAccommodation] = useState<AccommodationKey>("booked");
 
-  const rate = RATES[country][accommodation];
-  const total = useMemo(() => Math.round(rate * days), [rate, days]);
-
-  const selectCls =
-    "w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-primary-light [&>option]:text-navy";
+  // Cadre d'une légende façon « bulle » du live : fond blanc, grosse
+  // bordure turquoise, ombre portée et texte balayé en dégradé.
+  const bulle =
+    "relative w-full max-w-[320px] rounded-2xl border-[3px] border-primary bg-white p-4 shadow-2xl lg:absolute lg:max-w-[360px]";
+  const bulleTexte =
+    "bg-gradient-to-r from-primary via-primary-light to-secondary bg-clip-text font-outfit text-base font-bold leading-snug text-transparent sm:text-lg";
 
   return (
-    <section className="px-4 pb-20 pt-6 sm:px-6" id="simulator">
-      <div className="mx-auto grid max-w-6xl gap-8 rounded-3xl bg-gradient-to-br from-primary to-primary-light p-5 sm:p-12 lg:grid-cols-[1.1fr_0.9fr] [&>*]:min-w-0">
-        {/* Formulaire */}
-        <div>
-          <h2 className="font-outfit text-2xl font-bold text-white sm:text-3xl">{t("title")}</h2>
-          <p className="mt-3 text-sm leading-relaxed text-white/70">{t("subtitle")}</p>
+    <section id="simulator" className="overflow-hidden px-4 py-16 sm:px-6 sm:py-24">
+      <div className="mx-auto max-w-6xl">
+        {/* Titre bi-ton centré */}
+        <h2 className="mx-auto max-w-2xl text-center font-outfit text-3xl font-bold sm:text-4xl lg:text-5xl">
+          <span className="bg-gradient-to-r from-primary via-primary-light to-secondary bg-clip-text text-transparent">
+            {t("title")}
+          </span>
+        </h2>
 
-          <div className="mt-8 flex flex-col gap-5">
-            <label className="block">
-              <span className="mb-2 block text-xs font-bold uppercase tracking-wider text-white/60">{t("country")}</span>
-              <select className={selectCls} value={country} onChange={(e) => setCountry(e.target.value)}>
-                {Object.keys(RATES).map((c) => (
-                  <option key={c}>{c}</option>
-                ))}
-              </select>
-            </label>
-            <label className="block">
-              <span className="mb-2 block text-xs font-bold uppercase tracking-wider text-white/60">{t("duration")}</span>
-              <input
-                type="number"
-                min={1}
-                max={90}
-                value={days}
-                onChange={(e) => setDays(Math.max(1, Math.min(90, Number(e.target.value) || 1)))}
-                className="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-primary-light"
+        {/* Chapô descriptif */}
+        <p className="mx-auto mt-6 max-w-[44rem] text-center text-sm font-medium leading-relaxed text-grey sm:text-base">
+          {t("subtitle")}
+        </p>
+
+        {/* Composition : carte inclinée + légendes autour */}
+        <div className="relative mx-auto mt-12 flex max-w-[760px] flex-col items-center gap-6 sm:mt-16 lg:mt-24 lg:min-h-[640px] lg:gap-0">
+          {/* Légende 1 : haut gauche */}
+          <figure className={`${bulle} lg:left-0 lg:top-4`}>
+            <div className="flex items-start gap-3">
+              <img
+                src="/images/icons/creditCard.svg"
+                alt=""
+                aria-hidden
+                className="mt-0.5 h-6 w-6 shrink-0"
               />
-            </label>
-            <label className="block">
-              <span className="mb-2 block text-xs font-bold uppercase tracking-wider text-white/60">{t("accommodation")}</span>
-              <select className={selectCls} value={accommodation} onChange={(e) => setAccommodation(e.target.value as AccommodationKey)}>
-                <option value="booked">{t("accommodations.booked")}</option>
-                <option value="none">{t("accommodations.none")}</option>
-                <option value="hosted">{t("accommodations.hosted")}</option>
-              </select>
-            </label>
-          </div>
+              <figcaption className={bulleTexte}>{t("resultLabel")}</figcaption>
+            </div>
+          </figure>
+
+          {/* Visuel de la carte, légèrement inclinée */}
+          <img
+            src="/images/card.webp"
+            alt="Carte internationale Treepi"
+            loading="lazy"
+            className="w-[78%] max-w-[430px] rotate-[-8deg] object-contain drop-shadow-[0_30px_60px_rgba(5,160,199,0.25)] sm:w-[70%] lg:w-full lg:max-w-[540px] lg:rotate-[-10deg]"
+          />
+
+          {/* Légende 2 : bas droite */}
+          <figure className={`${bulle} lg:bottom-8 lg:right-0`}>
+            <div className="flex items-start gap-3">
+              <img
+                src="/images/globe.svg"
+                alt=""
+                aria-hidden
+                className="mt-0.5 h-6 w-6 shrink-0"
+              />
+              <figcaption className={bulleTexte}>{t("cta")}</figcaption>
+            </div>
+          </figure>
         </div>
 
-        {/* Résultat */}
-        <div className="flex flex-col justify-center rounded-2xl bg-white p-5 text-center shadow-[0_16px_50px_rgba(5,160,199,0.25)] sm:p-8">
-          <div className="text-xs font-bold uppercase tracking-widest text-grey">{t("resultLabel")}</div>
-          <div className="text-gradient-secondary mt-4 font-outfit text-6xl font-bold">
-            {total.toLocaleString("fr-FR")} €
-          </div>
-          <p className="mt-4 text-xs leading-relaxed text-grey">
-            {t("resultCaption", {
-              country,
-              days,
-              accommodation: t(`accommodations.${accommodation}`),
-              rate,
-            })}
-          </p>
-          <Button variant="primary" className="mt-7" href="/compte-euro">
-            {t("cta")}
-          </Button>
-          <p className="mt-5 text-[10px] leading-relaxed text-grey/80">{t("disclaimer")}</p>
-        </div>
+        {/* Mention légale en petits caractères */}
+        <p className="mx-auto mt-12 max-w-[46rem] text-center text-[11px] leading-relaxed text-grey/70 sm:mt-16">
+          {t("disclaimer")}
+        </p>
       </div>
     </section>
   );

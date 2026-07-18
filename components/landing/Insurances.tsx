@@ -3,10 +3,13 @@ import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 /*
- * Section « Les assurances » (« Arrête d'être un pigeon. ») :
- *  – carte comparateur de prix avec barres (Treepi vs assureurs classiques) ;
- *  – carte « 60 M€ » assurance recours ;
- *  – bandeau sombre « Visa refusé ? … remboursée ».
+ * Section « Les assurances » (reproduction 1:1 de la home live) :
+ *  – titre centré, dernier mot en dégradé corail ;
+ *  – sous-titre gris centré ;
+ *  – deux colonnes : liste des garanties couvertes (puce ronde turquoise
+ *    + coche) suivie d'un CTA dégradé corail, face à une illustration.
+ * Le comparateur de prix (PriceCompareBars) reste exporté pour les pages
+ * Tarifs et Assurance voyage qui le réutilisent.
  */
 
 /* Barres comparatives : Treepi en dégradé, concurrents en gris. */
@@ -48,58 +51,70 @@ export function PriceCompareBars({
 export default function Insurances() {
   const t = useTranslations("landing.insurances");
 
+  // Découpe du titre pour teinter le dernier mot en dégradé corail,
+  // sans coder le texte en dur (il reste piloté par les traductions).
+  const titre = t("title");
+  const mots = titre.split(" ");
+  const dernierMot = mots.pop() ?? "";
+  const debutTitre = mots.join(" ");
+
+  // Garanties couvertes, construites à partir de notre copie existante.
+  const garanties = [
+    t("voyage.title"),
+    t("voyage.tagline"),
+    t("recours.title"),
+    t("recours.tagline"),
+  ];
+
   return (
-    <section className="bg-white">
+    <section className="bg-grey-light">
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-        <SectionHeading eyebrow={t("eyebrow")} title={t("title")} subtitle={t("subtitle")} />
+        <SectionHeading
+          title={
+            <>
+              {debutTitre}{" "}
+              <span className="bg-gradient-to-r from-secondary to-secondary-light bg-clip-text text-transparent">
+                {dernierMot}
+              </span>
+            </>
+          }
+          subtitle={t("subtitle")}
+        />
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
-          {/* Assurance voyage : comparaison de prix */}
-          <div className="card-surface p-8 transition-shadow duration-300 hover:shadow-[0_16px_50px_rgba(18,35,71,0.12)]">
-            <span className="grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-xl" aria-hidden>🛡️</span>
-            <h3 className="mt-4 font-outfit text-xl font-bold text-navy">{t("voyage.title")}</h3>
-            <div className="mt-1 text-sm font-bold text-secondary">{t("voyage.tagline")}</div>
-            <div className="mt-6">
-              <PriceCompareBars
-                labels={{
-                  treepi: t("voyage.treepi"),
-                  insurerA: t("voyage.insurerA"),
-                  insurerB: t("voyage.insurerB"),
-                  days90: t("voyage.days90"),
-                  days90eco: t("voyage.days90eco"),
-                  days90std: t("voyage.days90std"),
-                  note: t("voyage.note"),
-                }}
-              />
-            </div>
-            <Button variant="primary" className="mt-6 w-full" href="/assurance-voyage">
-              {t("voyage.cta")}
-            </Button>
-          </div>
+        <div className="mt-14 grid items-center gap-12 lg:mt-16 lg:grid-cols-2 lg:gap-16">
+          {/* Colonne texte : liste des garanties + CTA corail */}
+          <div className="mx-auto w-full max-w-md lg:mx-0">
+            <ul className="flex flex-col gap-y-6 text-left text-base font-medium text-navy max-md:text-sm">
+              {garanties.map((garantie) => (
+                <li key={garantie} className="flex items-center gap-x-4 max-md:gap-x-3">
+                  {/* Pastille turquoise clair + coche du design system */}
+                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-primary-lighter">
+                    <img
+                      src="/images/icons/check_circle.svg"
+                      alt=""
+                      aria-hidden
+                      className="h-5 w-5"
+                    />
+                  </span>
+                  {garantie}
+                </li>
+              ))}
+            </ul>
 
-          {/* Assurance recours : la statistique 60 M€ */}
-          <div className="card-surface flex flex-col p-8 transition-shadow duration-300 hover:shadow-[0_16px_50px_rgba(18,35,71,0.12)]">
-            <span className="grid h-12 w-12 place-items-center rounded-xl bg-secondary/10 text-xl" aria-hidden>⚖️</span>
-            <h3 className="mt-4 font-outfit text-xl font-bold text-navy">{t("recours.title")}</h3>
-            <div className="mt-1 text-sm font-bold text-secondary">{t("recours.tagline")}</div>
-            <div className="text-gradient-secondary mt-6 font-outfit text-6xl font-bold">{t("recours.stat")}</div>
-            <p
-              className="mt-4 flex-1 text-sm leading-relaxed text-grey [&>b]:font-bold [&>b]:text-navy"
-              dangerouslySetInnerHTML={{ __html: t.raw("recours.body") }}
-            />
-            <Button variant="outline" className="mt-6 w-full" href="/assurance-recours">
+            <Button variant="primary" size="lg" className="mt-10 w-full sm:w-auto" href="/assurance-recours">
               {t("recours.cta")}
             </Button>
           </div>
-        </div>
 
-        {/* Bandeau remboursement */}
-        <div className="mt-6 flex items-start gap-4 rounded-2xl bg-gradient-to-r from-primary to-primary-light p-6">
-          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-white/20 text-base" aria-hidden>↩️</span>
-          <p
-            className="text-sm leading-relaxed text-white/95 [&>b]:font-bold [&>b]:text-white"
-            dangerouslySetInnerHTML={{ __html: t.raw("banner") }}
-          />
+          {/* Colonne illustration : assurance voyage */}
+          <div className="flex justify-center lg:justify-end">
+            <img
+              src="/images/travel_insurance.svg"
+              alt=""
+              aria-hidden
+              className="h-auto w-full max-w-sm lg:max-w-md"
+            />
+          </div>
         </div>
       </div>
     </section>

@@ -35,8 +35,10 @@ export default function PageInscription() {
   const [creation, setCreation] = useState(false);
   const [erreurCreation, setErreurCreation] = useState<string | null>(null);
 
-  /** La croix quitte le flux et revient à l'écran de bienvenue. */
-  const quitter = () => router.push("/app/bienvenue");
+  /** La croix annule l'inscription et ramène à la page d'accueil du site. */
+  const quitter = () => router.push("/");
+  /** La flèche retour de la première étape revient à l'écran de bienvenue. */
+  const retourBienvenue = () => router.push("/app/bienvenue");
 
   /** Fin du flux : création du compte simulée puis écran « Bravo ! ». */
   const finaliser = async (telephone: string) => {
@@ -67,7 +69,7 @@ export default function PageInscription() {
             setBrouillon((b) => ({ ...b, email }));
             setPhase("motDePasse");
           }}
-          onAbandon={quitter}
+          onAbandon={retourBienvenue}
           onQuitter={quitter}
         />
       )}
