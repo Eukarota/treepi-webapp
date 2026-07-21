@@ -1,13 +1,16 @@
 /*
  * API des packs Treepi (simulation).
  *
- * Les trois offres annuelles proposées à l'ouverture du compte Euro (écran
- * « De quoi as-tu besoin ? ») correspondent aux grandes fonctionnalités du
- * produit :
- *  – « compte »      : compte Euro + carte (80 €/an) ;
- *  – « attestation » : attestation de garantie financière illimitée (210 €/an,
- *    l'offre « Populaire ») ;
- *  – « recours »     : assurance recours visa jusqu'à 15 000 € (500 €/an).
+ * Les deux offres annuelles proposées à l'ouverture du compte Euro (écran
+ * « De quoi as-tu besoin ? ») :
+ *  – « compte »      : compte Euro + carte (80 €/an). À l'étape paiement de
+ *    l'ouverture, seuls les frais de gestion sont réglés ; le compte s'active
+ *    à solde nul et l'attestation reste une option payante (100 €/an) ;
+ *  – « attestation » : compte Euro + preuve de fonds (210 €/an, l'offre
+ *    « Populaire »). L'étape paiement est la première recharge « Financer mon
+ *    voyage » (frais inclus dans le total) et l'attestation est incluse.
+ * L'ancien pack « recours » (500 €/an) est retiré de l'offre ; le service
+ * recours visa reste souscriptible à part (lib/api/services.ts).
  *
  * Ce module ne porte que les données structurelles (identifiant, prix, badge).
  * Le contenu marketing (nom, accroche, listes d'avantages) vit dans les
@@ -16,7 +19,7 @@
 
 import { ecrireStockage, latenceReseau, lireStockage } from "./client";
 
-export type PackId = "compte" | "attestation" | "recours";
+export type PackId = "compte" | "attestation";
 
 export interface Pack {
   id: PackId;
@@ -30,7 +33,6 @@ export interface Pack {
 export const PACKS: Pack[] = [
   { id: "compte", prixAnnuel: 80 },
   { id: "attestation", prixAnnuel: 210, populaire: true },
-  { id: "recours", prixAnnuel: 500 },
 ];
 
 /** Retrouve un pack par identifiant. */

@@ -3,16 +3,17 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
-import PageHero from "@/components/pages/PageHero";
 import PageFaq from "@/components/pages/PageFaq";
 import FinalCta from "@/components/landing/FinalCta";
 import InsuranceQuote from "@/components/pages/InsuranceQuote";
+import BandeMasquee from "@/components/landing/BandeMasquee";
 import { PriceCompareBars } from "@/components/landing/Insurances";
 
 /*
- * Page « Assurance voyage Schengen », maquette `wireframe/assurance-voyage.png`.
- * Sections : héro + attestation, comparateur de prix, formules 1/3 mois + âge,
- * couverture, 29 pays, devis interactif, confiance, FAQ, CTA final.
+ * Page « Assurance voyage Schengen » : arrête d'être un pigeon.
+ * Sections : héro à bande masquée avec comparateur de prix en preuve
+ * immédiate, formules 1/3 mois + âge, couverture + partenaires, les
+ * 29 pays, devis interactif, FAQ, CTA final.
  */
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -21,258 +22,247 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return { title: t("title"), description: t("description") };
 }
 
-/* Mockup de l'attestation d'assurance. */
-function InsuranceMock() {
-  const t = useTranslations("assuranceVoyage.hero.mock");
+/* Héro : le mot qui fâche, et la preuve par les barres juste à côté. */
+function HeroAssurance() {
+  const t = useTranslations("assuranceVoyage.hero");
+  const chips = t.raw("chips") as string[];
+  const compare = t.raw("compare") as {
+    treepi: string; insurerA: string; insurerB: string;
+    days90: string; days90eco: string; days90std: string; note: string;
+  };
+
   return (
-    <div className="relative mx-auto w-full max-w-xs -rotate-2 rounded-xl bg-white p-6 shadow-[0_25px_60px_rgba(11,24,52,0.3)] transition-transform duration-500 hover:rotate-0">
-      <span className="absolute -right-3 -top-3 grid h-14 w-14 rotate-12 place-items-center rounded-full bg-gradient-to-r from-secondary to-secondary-light text-center text-[10px] font-bold leading-tight text-white">
-        {t("price")}
-      </span>
-      <div className="text-xs font-bold uppercase tracking-wider text-navy">{t("title")}</div>
-      <div className="mt-4 space-y-2" aria-hidden>
-        <div className="h-1.5 w-3/4 rounded bg-grey-light" />
-        <div className="h-1.5 w-2/3 rounded bg-grey-light" />
+    <section className="section !py-6 max-sm:!py-2">
+      <BandeMasquee className="!min-h-0">
+        <div className="relative z-20 grid items-center gap-10 px-6 pb-6 pt-12 sm:px-12 md:grid-cols-[1.05fr_0.95fr] md:pb-8 md:pt-16 lg:px-16">
+          <div className="text-white">
+            <span className="inline-flex rounded-full bg-white/15 px-3.5 py-1.5 text-xs font-bold text-white">{t("badge")}</span>
+            <h1 className="mt-4 font-outfit text-4xl font-bold leading-tight sm:text-5xl">
+              {t("title1")}
+              <span className="text-gradient-secondary">{t("titleHighlight")}</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-white/90">{t("subtitle")}</p>
+            <div className="mt-8">
+              <Button variant="primary" size="lg" href="#devis">
+                {t("cta")}
+              </Button>
+            </div>
+          </div>
+          {/* La preuve : mêmes 90 jours, prix comparés. */}
+          <div>
+            <div className="mx-auto w-full max-w-sm rounded-2xl bg-white p-6 shadow-[0_25px_60px_rgba(11,24,52,0.25)]">
+              <div className="text-xs font-bold uppercase tracking-widest text-grey">{t("compareTitle")}</div>
+              <div className="mt-4">
+                <PriceCompareBars labels={compare} />
+              </div>
+            </div>
+            {/* Annotation manuscrite sous la carte. */}
+            <div className="mt-3 flex -rotate-2 items-start justify-center gap-1.5 font-caveat text-2xl text-white sm:text-3xl">
+              <svg viewBox="0 0 40 40" className="mt-[-10px] h-8 w-8" fill="none" aria-hidden>
+                <path d="M6 34C14 22 22 14 33 7m0 0-9 1m9-1-1 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              {t("annotation")}
+            </div>
+          </div>
+        </div>
+        {/* Bandeau de réassurance. */}
+        <div className="relative z-20 mx-6 mb-10 border-t border-white/20 px-2 pt-5 sm:mx-12 lg:mx-16">
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
+            {chips.map((chip) => (
+              <span key={chip} className="text-xs font-bold text-white/90">{chip}</span>
+            ))}
+          </div>
+        </div>
+      </BandeMasquee>
+    </section>
+  );
+}
+
+/* Formules 1 mois / 3 mois + carte âge. */
+function Formules() {
+  const t = useTranslations("assuranceVoyage.plans");
+  const ageRows = t.raw("age.rows") as { label: string; value: string }[];
+
+  const plans = (["plan1", "plan3"] as const).map((key) => ({
+    key,
+    badge: t(`${key}.badge`),
+    price: t(`${key}.price`),
+    unit: t(`${key}.unit`),
+    description: t(`${key}.description`),
+    features: t.raw(`${key}.features`) as string[],
+    cta: t(`${key}.cta`),
+  }));
+
+  return (
+    <section className="bg-white" id="formules">
+      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+        <SectionHeading
+          eyebrow={t("eyebrow")}
+          title={
+            <>
+              {t("title1")}
+              <span className="text-gradient-secondary">{t("titleHighlight")}</span>
+            </>
+          }
+          subtitle={t("subtitle")}
+        />
+        <div className="mt-14 grid items-stretch gap-6 lg:grid-cols-3">
+          {plans.map((plan, i) => (
+            <div
+              key={plan.key}
+              className={`relative flex flex-col rounded-2xl bg-white p-7 ${
+                i === 1 ? "border-2 border-secondary shadow-[0_16px_50px_rgba(255,101,103,0.15)]" : "card-surface"
+              }`}
+            >
+              {i === 1 && (
+                <span className="absolute -top-3.5 left-7 rounded-full bg-gradient-to-r from-secondary to-secondary-light px-3.5 py-1 text-xs font-bold text-white">
+                  {t("mostChosen")}
+                </span>
+              )}
+              <span className="self-start rounded-full bg-primary-lighter px-3 py-1 text-xs font-bold text-primary">{plan.badge}</span>
+              <div className="mt-4 font-outfit text-4xl font-bold text-navy">
+                {plan.price}
+                <span className="text-base font-bold text-grey"> {plan.unit}</span>
+              </div>
+              <p className="mt-1 text-xs text-grey">{plan.description}</p>
+              <ul className="mt-5 flex flex-1 flex-col gap-2.5 text-sm leading-relaxed text-navy/90">
+                {plan.features.map((f) => (
+                  <li key={f} className="flex gap-2.5">
+                    <span className="mt-0.5 shrink-0" aria-hidden>{f.slice(0, f.indexOf(" "))}</span>
+                    <span>{f.slice(f.indexOf(" ") + 1)}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button variant={i === 1 ? "primary" : "outline"} className="mt-6 w-full" href="#devis">
+                {plan.cta}
+              </Button>
+            </div>
+          ))}
+          {/* L'âge, sans tabou : la seule autre variable. */}
+          <div className="card-surface flex flex-col p-7">
+            <span className="self-start rounded-full bg-grey-light px-3 py-1 text-xs font-bold text-grey">{t("age.badge")}</span>
+            <div className="mt-4 font-outfit text-3xl font-bold text-navy">{t("age.title")}</div>
+            <p className="mt-2 text-sm leading-relaxed text-grey">{t("age.description")}</p>
+            <dl className="mt-4 flex flex-1 flex-col divide-y divide-grey-light">
+              {ageRows.map((row) => (
+                <div key={row.label} className="flex items-center justify-between py-2.5 text-sm">
+                  <dt className="text-grey">{row.label}</dt>
+                  <dd className="font-bold text-navy">{row.value}</dd>
+                </div>
+              ))}
+            </dl>
+            <Button variant="outline" className="mt-6 w-full" href="#devis">
+              {t("age.cta")}
+            </Button>
+          </div>
+        </div>
       </div>
-      <div className="text-gradient-primary mt-5 font-outfit text-xl font-bold">{t("coverage")}</div>
-      <span className="mt-4 inline-flex rounded-full border border-primary px-3 py-1 text-xs font-bold text-primary">{t("badge")}</span>
-    </div>
+    </section>
+  );
+}
+
+/* Couverture : ce qui est pris en charge, et les garanties de sérieux. */
+function Couverture() {
+  const t = useTranslations("assuranceVoyage.coverage");
+  const tTrust = useTranslations("assuranceVoyage.trust");
+  const cards = t.raw("cards") as { title: string; description: string }[];
+  const trustCards = tTrust.raw("cards") as { title: string; description: string }[];
+
+  return (
+    <section className="bg-grey-light">
+      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+        <SectionHeading
+          eyebrow={t("eyebrow")}
+          title={
+            <>
+              {t("title1")}
+              <span className="text-gradient-secondary">{t("titleHighlight")}</span>
+            </>
+          }
+        />
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {cards.map((card, i) => (
+            <div key={card.title} className="card-surface p-7">
+              <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary-light text-lg text-white" aria-hidden>
+                {["🏥", "✈️", "↩️"][i]}
+              </span>
+              <h3 className="mt-4 font-outfit text-base font-bold text-navy">{card.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-grey">{card.description}</p>
+            </div>
+          ))}
+        </div>
+        {/* Les garanties de sérieux, en une ligne discrète. */}
+        <div className="mt-8 grid gap-4 rounded-2xl bg-white p-6 shadow-sm sm:grid-cols-3">
+          {trustCards.map((card) => (
+            <div key={card.title} className="flex gap-3">
+              <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary-lighter text-xs font-bold text-primary" aria-hidden>✓</span>
+              <div>
+                <div className="text-sm font-bold text-navy">{card.title}</div>
+                <p className="mt-0.5 text-xs leading-relaxed text-grey">{card.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* Les 29 pays : le grand chiffre, et la liste qui donne envie. */
+function Pays() {
+  const t = useTranslations("assuranceVoyage.countries");
+  const list = t.raw("list") as string[];
+
+  return (
+    <section className="bg-white">
+      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+        <div className="grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <div className="relative">
+            <div className="mb-4"><span className="section-eyebrow">{t("eyebrow")}</span></div>
+            <h2 className="font-outfit text-3xl font-bold leading-tight text-navy sm:text-4xl">
+              {t("title1")}
+              <span className="text-gradient-secondary">{t("titleHighlight")}</span>
+            </h2>
+            <p className="mt-4 max-w-md text-base leading-relaxed text-grey">{t("subtitle")}</p>
+            <div className="mt-5 -rotate-2 font-caveat text-2xl text-secondary">{t("annotation")}</div>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {list.map((pays, i) => (
+              <span
+                key={pays}
+                className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition-transform duration-200 hover:-translate-y-0.5 ${
+                  i % 5 === 2
+                    ? "bg-gradient-to-r from-primary to-primary-light text-white"
+                    : i % 7 === 3
+                      ? "bg-secondary/10 text-secondary"
+                      : "bg-grey-light text-navy/80"
+                }`}
+              >
+                {pays}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
 function Content() {
   const t = useTranslations("assuranceVoyage");
-  const chips = t.raw("hero.chips") as string[];
-  const coverageCards = t.raw("coverage.cards") as { title: string; description: string }[];
-  const countries = t.raw("countries.list") as string[];
-  const trustCards = t.raw("trust.cards") as { title: string; description: string }[];
-  const ageRows = t.raw("plans.age.rows") as { label: string; value: string }[];
-  const plan1Features = t.raw("plans.plan1.features") as string[];
-  const plan3Features = t.raw("plans.plan3.features") as string[];
-
-  const compareLabels = {
-    treepi: t("price.treepi"),
-    insurerA: t("price.insurerA"),
-    insurerB: t("price.insurerB"),
-    days90: t("price.days90"),
-    days90eco: t("price.days90eco"),
-    days90std: t("price.days90std"),
-    note: t("price.note"),
-  };
-
   return (
     <>
-      <PageHero
-        breadcrumb={t("breadcrumb")}
-        eyebrow={t("hero.eyebrow")}
-        title={
-          <>
-            {t("hero.title1")}
-            <span className="text-gradient-secondary">{t("hero.titleHighlight")}</span>
-            {t("hero.title2")}
-          </>
-        }
-        subtitle={
-          <>
-            {t("hero.subtitle")}
-            <span className="mt-5 flex flex-wrap gap-2">
-              {chips.map((chip) => (
-                <span key={chip} className="rounded-lg border border-white/25 bg-white/10 px-3 py-1.5 text-xs font-bold text-white">
-                  {chip}
-                </span>
-              ))}
-            </span>
-          </>
-        }
-        actions={
-          <Button variant="primary" size="lg" href="#devis">
-            {t("hero.cta")}
-          </Button>
-        }
-        aside={<InsuranceMock />}
-      />
-
-      {/* Comparateur de prix */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-4xl px-4 py-20 sm:px-6">
-          <SectionHeading
-            eyebrow={t("price.eyebrow")}
-            title={
-              <>
-                {t("price.title1")}
-                <br />
-                <span className="text-gradient-secondary">{t("price.title2")}</span>
-              </>
-            }
-            subtitle={t("price.subtitle")}
-          />
-          <div className="card-surface mt-12 p-8">
-            <PriceCompareBars labels={compareLabels} />
-          </div>
-        </div>
-      </section>
-
-      {/* Formules */}
-      <section className="bg-grey-light">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-          <SectionHeading
-            eyebrow={t("plans.eyebrow")}
-            title={
-              <>
-                {t("plans.title1")}
-                <span className="text-gradient-secondary">{t("plans.titleHighlight")}</span>
-              </>
-            }
-            subtitle={t("plans.subtitle")}
-          />
-          <div className="mt-12 grid items-stretch gap-6 lg:grid-cols-3">
-            {/* Formule 1 mois */}
-            <div className="card-surface flex flex-col p-8">
-              <span className="self-start rounded-full bg-grey-light px-3 py-1 text-xs font-bold uppercase tracking-wider text-navy">
-                {t("plans.plan1.badge")}
-              </span>
-              <div className="mt-4 font-outfit text-4xl font-bold text-navy">
-                {t("plans.plan1.price")}
-                <span className="text-base text-grey">{t("plans.plan1.unit")}</span>
-              </div>
-              <p className="mt-2 text-sm text-grey">{t("plans.plan1.description")}</p>
-              <ul className="mt-6 flex flex-1 flex-col gap-3 border-t border-grey-light pt-6 text-sm text-navy/90">
-                {plan1Features.map((f) => (
-                  <li key={f}>{f}</li>
-                ))}
-              </ul>
-              <Button variant="outline" className="mt-6 w-full" href="#devis">
-                {t("plans.plan1.cta")}
-              </Button>
-            </div>
-            {/* Formule 3 mois (mise en avant) */}
-            <div className="relative flex flex-col rounded-2xl bg-gradient-to-br from-primary to-primary-light p-8 text-white shadow-[0_16px_50px_rgba(5,160,199,0.35)]">
-              <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-secondary to-secondary-light px-4 py-1 text-xs font-bold uppercase tracking-wider text-white">
-                {t("plans.mostChosen")}
-              </span>
-              <span className="self-start rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wider">
-                {t("plans.plan3.badge")}
-              </span>
-              <div className="mt-4 font-outfit text-4xl font-bold">
-                {t("plans.plan3.price")}
-                <span className="text-base text-white/70">{t("plans.plan3.unit")}</span>
-              </div>
-              <p className="mt-2 text-sm text-white/80">{t("plans.plan3.description")}</p>
-              <ul className="mt-6 flex flex-1 flex-col gap-3 border-t border-white/20 pt-6 text-sm">
-                {plan3Features.map((f) => (
-                  <li key={f}>{f}</li>
-                ))}
-              </ul>
-              <Button variant="white" className="mt-6 w-full" href="#devis">
-                {t("plans.plan3.cta")}
-              </Button>
-            </div>
-            {/* 41 ans et plus */}
-            <div className="flex flex-col rounded-2xl border-2 border-dashed border-secondary/60 bg-white p-8">
-              <span className="self-start rounded-full bg-secondary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-secondary">
-                {t("plans.age.badge")}
-              </span>
-              <div className="text-gradient-secondary mt-4 font-outfit text-4xl font-bold">{t("plans.age.title")}</div>
-              <p className="mt-2 text-sm text-grey">{t("plans.age.description")}</p>
-              <dl className="mt-6 flex flex-1 flex-col gap-2 border-t border-grey-light pt-6 text-sm">
-                {ageRows.map((row) => (
-                  <div key={row.label} className="flex justify-between">
-                    <dt className="text-grey">{row.label}</dt>
-                    <dd className="font-bold text-secondary">{row.value}</dd>
-                  </div>
-                ))}
-              </dl>
-              <Button variant="outline" className="mt-6 w-full" href="#devis">
-                {t("plans.age.cta")}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Couverture */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-          <SectionHeading
-            eyebrow={t("coverage.eyebrow")}
-            title={
-              <>
-                {t("coverage.title1")}
-                <span className="text-gradient-secondary">{t("coverage.titleHighlight")}</span>
-              </>
-            }
-          />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {coverageCards.map((card, i) => (
-              <div key={card.title} className="card-surface p-7">
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-grey-light text-lg" aria-hidden>
-                  {["🏥", "✈️", "↩️"][i]}
-                </span>
-                <h3 className="mt-4 font-outfit text-base font-bold text-navy">{card.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-grey">{card.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 29 pays */}
-      <section className="bg-grey-light">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-          <SectionHeading
-            eyebrow={t("countries.eyebrow")}
-            title={
-              <>
-                {t("countries.title1")}
-                <span className="text-gradient-secondary">{t("countries.titleHighlight")}</span>
-              </>
-            }
-            subtitle={t("countries.subtitle")}
-          />
-          <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-            {countries.map((country) => (
-              <div key={country} className="rounded-xl bg-white px-4 py-3 text-center text-sm font-medium text-navy shadow-sm transition-transform duration-200 hover:-translate-y-0.5">
-                {country}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      <HeroAssurance />
+      <Formules />
+      <Couverture />
+      <Pays />
       <InsuranceQuote />
-
-      {/* Confiance */}
-      <section className="bg-grey-light">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
-          <SectionHeading
-            eyebrow={t("trust.eyebrow")}
-            title={
-              <>
-                {t("trust.title1")}
-                <span className="text-gradient-secondary">{t("trust.titleHighlight")}</span>
-              </>
-            }
-          />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {trustCards.map((card, i) => (
-              <div key={card.title} className="card-surface p-7">
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary-light text-lg" aria-hidden>
-                  {["🤝", "🔎", "🔐"][i]}
-                </span>
-                <h3 className="mt-4 font-outfit text-base font-bold text-navy">{card.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-grey">{card.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <PageFaq namespace="assuranceVoyage.faq" tone="white" />
+      <PageFaq namespace="assuranceVoyage.faq" tone="grey" />
       <FinalCta
         title={t("finalCta.title")}
         subtitle={t("finalCta.subtitle")}
         primaryLabel={t("finalCta.cta")}
-        primaryHref="/assurance-voyage#devis"
+        primaryHref="#devis"
       />
     </>
   );

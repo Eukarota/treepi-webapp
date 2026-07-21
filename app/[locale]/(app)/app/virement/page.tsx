@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useSession } from "@/components/app/SessionProvider";
 import { debiterCompte, obtenirCompte } from "@/lib/api/compte";
+import { useCompteOuvert } from "@/lib/hooks/useCompteOuvert";
 import EcranApp from "@/components/app/EcranApp";
 import FondApp from "@/components/app/ui/FondApp";
 import CoquilleApp from "@/components/app/CoquilleApp";
@@ -31,6 +32,7 @@ export default function PageVirement() {
   const locale = useLocale();
   const router = useRouter();
   const { session, chargement } = useSession();
+  const ouvert = useCompteOuvert();
 
   const [solde] = useState(() => (typeof window === "undefined" ? 0 : obtenirCompte().soldeEuros));
   const [phase, setPhase] = useState<Phase>("beneficiaire");
@@ -43,7 +45,7 @@ export default function PageVirement() {
     if (!chargement && !session) router.replace("/app/bienvenue");
   }, [chargement, session, router]);
 
-  if (!session) return null;
+  if (!session || !ouvert) return null;
 
   const montant = versNombre(montantStr);
   const nf = (v: number) => new Intl.NumberFormat(locale === "fr" ? "fr-FR" : "en-GB", { maximumFractionDigits: 2 }).format(v);

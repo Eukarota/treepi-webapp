@@ -1,15 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import PanneauDeroulant from "@/components/app/ui/PanneauDeroulant";
 
 /*
  * Sélecteur en liste déroulante réutilisable (pays, nationalités, villes...).
  * Champ au même gabarit que ChampTexte (label + pilule 42px) qui ouvre un
  * panneau de choix filtrable par recherche. Remplace les couples
  * <input> + <datalist> pour une expérience homogène et un vrai « dropdown ».
- * La saisie dans le champ de recherche filtre la liste ; la sélection ferme
- * le panneau. Ferme au clic extérieur ou à Échap.
+ * Le panneau est rendu via PanneauDeroulant (portail) : il déborde des
+ * conteneurs rognés et gère clic extérieur / Échap.
  */
 export default function SelecteurListe({
   label,
@@ -30,21 +31,7 @@ export default function SelecteurListe({
   const [ouvert, setOuvert] = useState(false);
   const [filtre, setFiltre] = useState("");
   const conteneur = useRef<HTMLDivElement>(null);
-
-  // Fermeture au clic extérieur / Échap.
-  useEffect(() => {
-    if (!ouvert) return;
-    const surClic = (e: MouseEvent) => {
-      if (conteneur.current && !conteneur.current.contains(e.target as Node)) setOuvert(false);
-    };
-    const surTouche = (e: KeyboardEvent) => e.key === "Escape" && setOuvert(false);
-    window.addEventListener("mousedown", surClic);
-    window.addEventListener("keydown", surTouche);
-    return () => {
-      window.removeEventListener("mousedown", surClic);
-      window.removeEventListener("keydown", surTouche);
-    };
-  }, [ouvert]);
+  const fermer = useCallback(() => setOuvert(false), []);
 
   const filtres = options.filter((o) => o.toLowerCase().includes(filtre.trim().toLowerCase()));
 
@@ -78,7 +65,7 @@ export default function SelecteurListe({
       </button>
 
       {ouvert && (
-        <div className="absolute left-0 right-0 top-full z-30 mt-1 overflow-hidden rounded-xl border border-grey-100 bg-white shadow-app">
+        <PanneauDeroulant ancre={conteneur} onFermer={fermer}>
           <div className="border-b border-grey-100 p-2">
             <input
               autoFocus
@@ -108,7 +95,7 @@ export default function SelecteurListe({
               </li>
             ))}
           </ul>
-        </div>
+        </PanneauDeroulant>
       )}
     </div>
   );

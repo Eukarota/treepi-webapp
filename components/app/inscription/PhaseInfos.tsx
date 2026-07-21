@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { BrouillonInscription } from "@/lib/api/types";
-import { NATIONALITES, PAYS, VILLES } from "@/lib/data/suggestions";
+import { VILLES } from "@/lib/data/suggestions";
+import { nationalitesAfrique, nomsPaysAfrique } from "@/lib/data/afrique";
 import GabaritEtape from "./GabaritEtape";
 import BoutonApp from "@/components/app/ui/BoutonApp";
 import ChampTexte from "@/components/app/ui/ChampTexte";
@@ -22,6 +23,9 @@ function dateVersIso(affiche: string): string {
  *  – 1/3 : civilité (radios Homme/Femme), prénom, nom ;
  *  – 2/3 : date de naissance (calendrier en feuille basse) + ville de naissance ;
  *  – 3/3 : nationalité, pays de résidence, ville.
+ *
+ * Treepi v1 cible exclusivement les voyageurs africains : nationalité et
+ * pays de résidence sont des listes fermées limitées au continent africain.
  */
 export default function PhaseInfos({
   onTerminee,
@@ -33,6 +37,7 @@ export default function PhaseInfos({
   onQuitter: () => void;
 }) {
   const t = useTranslations("app.inscription");
+  const locale = useLocale();
   const [sousEtape, setSousEtape] = useState<0 | 1 | 2>(0);
 
   const [genre, setGenre] = useState<"homme" | "femme">();
@@ -152,20 +157,19 @@ export default function PhaseInfos({
 
       {sousEtape === 2 && (
         <div className="flex flex-col gap-4">
-          <ChampTexte
+          <SelecteurListe
             label={t("infos3.nationalite")}
             name="nationalite"
-            list="liste-nationalites"
-            autoComplete="off"
             placeholder={t("infos3.nationalitePlaceholder")}
+            options={nationalitesAfrique(locale)}
             value={nationalite}
-            onChange={(e) => setNationalite(e.target.value)}
+            onChange={setNationalite}
           />
           <SelecteurListe
             label={t("infos3.pays")}
             name="paysResidence"
             placeholder={t("infos3.paysPlaceholder")}
-            options={PAYS}
+            options={nomsPaysAfrique(locale)}
             value={paysResidence}
             onChange={setPaysResidence}
           />
@@ -181,15 +185,10 @@ export default function PhaseInfos({
         </div>
       )}
 
-      {/* Listes de propositions (autocomplétion native, saisie libre gardée). */}
+      {/* Propositions de villes (autocomplétion native, saisie libre gardée). */}
       <datalist id="liste-villes">
         {VILLES.map((v) => (
           <option key={v} value={v} />
-        ))}
-      </datalist>
-      <datalist id="liste-nationalites">
-        {NATIONALITES.map((n) => (
-          <option key={n} value={n} />
         ))}
       </datalist>
 

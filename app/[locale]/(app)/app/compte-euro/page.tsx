@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useSession } from "@/components/app/SessionProvider";
 import { PACKS, PackId, souscrirePack, trouverPack } from "@/lib/api/packs";
-import { ouvrirCompteEuro } from "@/lib/api/compte";
+import { obtenirCompte, ouvrirCompteEuro, type EtatOuverture } from "@/lib/api/compte";
 import { PAYS } from "@/lib/data/suggestions";
 import Swirl from "@/components/ui/Swirl";
 import EcranApp from "@/components/app/EcranApp";
@@ -14,7 +14,6 @@ import CoquilleApp from "@/components/app/CoquilleApp";
 import GabaritFlux from "@/components/app/flux/GabaritFlux";
 import CartePack, { type SectionPack } from "@/components/app/flux/CartePack";
 import ChampFichier from "@/components/app/flux/ChampFichier";
-import EcranSucces from "@/components/app/flux/EcranSucces";
 import ModaleApp from "@/components/app/ui/ModaleApp";
 import BoutonApp from "@/components/app/ui/BoutonApp";
 import ChampTexte from "@/components/app/ui/ChampTexte";
@@ -28,14 +27,20 @@ import { IconeBanque, IconeCle, IconeCrayon, IconeInfo, IconeMallette, IconeOeil
  *
  * Machine à états : intro (« Tout est presque prêt ») → choix du pack (« De quoi
  * as-tu besoin ? ») → identité (passeport + justificatif) → situation
- * (professionnelle) → signature du contrat → succès. La signature clôt le
- * dossier : le compte est activé, le pack enregistré et le profil complété.
+ * (professionnelle) → signature du contrat. La signature clôt le dossier
+ * (`attente-paiement`) et enchaîne sur le paiement d'ouverture
+ * (`/app/compte-euro/paiement`) : frais seuls pour le pack « compte », première
+ * recharge « Financer mon voyage » pour le pack « attestation ».
+ *
+ * Si un dossier existe déjà, la route aiguille : reprise du paiement en
+ * `attente-paiement`, retour à l'accueil pendant la vérification ou une fois
+ * le compte actif.
  *
  * Mobile : reproduction 1:1 des maquettes. Desktop : chaque étape est présentée
  * dans un panneau centré, comme le reste des flux (traitement de l'inscription).
  */
 
-type Phase = "intro" | "pack" | "identite" | "pro" | "financier" | "certifications" | "recap" | "signature" | "succes";
+type Phase = "intro" | "pack" | "identite" | "pro" | "financier" | "certifications" | "recap" | "signature";
 
 /** Entrée de pack telle que décrite dans les messages i18n. */
 interface PackTexte {
@@ -76,11 +81,22 @@ export default function PageCompteEuro() {
   const [usPerson, setUsPerson] = useState(false);
   const [ppe, setPpe] = useState(false);
 
-  useEffect(() => {
-    if (!chargement && !session) router.replace("/app/bienvenue");
-  }, [chargement, session, router]);
+  // État du dossier existant, lu au montage : la route n'ouvre le parcours que
+  // s'il n'y a pas de dossier, sinon elle aiguille (paiement ou accueil).
+  const [etatDossier] = useState<EtatOuverture>(() =>
+    typeof window === "undefined" ? "aucun" : (obtenirCompte().etatOuverture ?? "aucun"),
+  );
 
-  if (!session) return null;
+  useEffect(() => {
+    if (!chargement && !session) {
+      router.replace("/app/bienvenue");
+      return;
+    }
+    if (etatDossier === "attente-paiement") router.replace("/app/compte-euro/paiement");
+    else if (etatDossier !== "aucun") router.replace("/app/accueil");
+  }, [chargement, session, router, etatDossier]);
+
+  if (!session || etatDossier !== "aucun") return null;
   const prenom = session.utilisateur.prenom;
 
   const packs = tp.raw("liste") as PackTexte[];
@@ -99,7 +115,6 @@ export default function PageCompteEuro() {
       certifications: "financier",
       recap: "certifications",
       signature: "recap",
-      succes: null,
     };
     const p = prec[phase];
     if (p) setPhase(p);
@@ -129,8 +144,9 @@ export default function PageCompteEuro() {
       usPerson,
       ppe,
     });
-    setEnvoi(false);
-    setPhase("succes");
+    // Dossier signé : place au paiement d'ouverture (étape « Effectue ton
+    // paiement » de la checklist), qui varie selon le pack choisi.
+    router.replace("/app/compte-euro/paiement");
   };
 
   const identiteComplete = numero.trim().length >= 5 && pays.trim() !== "" && expiration.trim().length === 10 && fichierOk;
@@ -181,7 +197,7 @@ export default function PageCompteEuro() {
 
   return (
     <EcranApp className="bg-grey-light">
-      {phase !== "succes" && phase !== "intro" && <FondApp />}
+      {phase !== "intro" && <FondApp />}
 
       <CoquilleApp barreMobile={false} flux>
       {/* Étape intro : « Tout est presque prêt ». */}
@@ -478,16 +494,6 @@ export default function PageCompteEuro() {
         </GabaritFlux>
       )}
 
-      {/* Étape succès. */}
-      {phase === "succes" && (
-        <EcranSucces
-          titreAvant={t("succesAvant")}
-          titreCle={t("succesCle")}
-          texte={t("succesTexte", { prenom })}
-          cta={t("succesCta")}
-          onContinuer={() => router.replace("/app/accueil")}
-        />
-      )}
       </CoquilleApp>
     </EcranApp>
   );

@@ -2,7 +2,8 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { DEVISES, Devise, convertir, historiqueTaux, tauxEntre, trouverDevise } from "@/lib/api/change";
+import { DEVISES, Devise, convertir, historiqueTaux, tauxEntre, tauxParEuro, trouverDevise } from "@/lib/api/change";
+import { useTauxTempsReel } from "@/lib/hooks/useTaux";
 
 /*
  * « Simulateur de transfert » du tableau de bord, fonctionnel : courbe du taux
@@ -155,6 +156,9 @@ export default function SimulateurTransfert() {
   const t = useTranslations("app.accueil");
   const locale = useLocale();
 
+  // Charge les taux réels et recalcule le simulateur à chaque mise à jour.
+  const derniereMaj = useTauxTempsReel();
+
   // deviseA = ligne du haut, deviseB = ligne du bas. `montant` est la saisie
   // brute du côté `cote` ; l'autre côté est calculé.
   const [deviseA, setDeviseA] = useState("XOF");
@@ -173,8 +177,7 @@ export default function SimulateurTransfert() {
 
   // Taux affiché : on part de la devise la plus « forte » (taux/EUR le plus
   // petit) pour un nombre lisible, ex. « 1 EUR = 655,957 CFA ».
-  const [forte, faible] =
-    trouverDevise(deviseA).tauxParEuro <= trouverDevise(deviseB).tauxParEuro ? [deviseA, deviseB] : [deviseB, deviseA];
+  const [forte, faible] = tauxParEuro(deviseA) <= tauxParEuro(deviseB) ? [deviseA, deviseB] : [deviseB, deviseA];
   const taux = tauxEntre(forte, faible);
   const serie = historiqueTaux(forte, faible, 30);
   const tauxFmt = new Intl.NumberFormat(locale === "fr" ? "fr-FR" : "en-GB", { maximumFractionDigits: taux >= 100 ? 3 : 4 }).format(taux);
@@ -241,7 +244,13 @@ export default function SimulateurTransfert() {
 
       <div className="flex flex-col gap-2 rounded-lg border border-grey-200 bg-white p-4">
         <p className="text-center text-[10px] leading-4 text-grey">
-          {t("simulateurIndicatif")}
+          {derniereMaj
+            ? t("simulateurTauxReel", {
+                heure: new Intl.DateTimeFormat(locale === "fr" ? "fr-FR" : "en-GB", { hour: "2-digit", minute: "2-digit" }).format(
+                  new Date(derniereMaj)
+                ),
+              })
+            : t("simulateurIndicatif")}
           {" · "}
           <span className="underline">{t("simulateurClause")}</span>
         </p>

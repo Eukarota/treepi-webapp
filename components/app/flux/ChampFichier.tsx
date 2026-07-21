@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { IconeTeleversement } from "./icones";
+import { IconeCheck, IconeTeleversement } from "./icones";
 
 /*
  * Champ de téléversement de document (maquettes KYC « Charger un fichier »).
@@ -11,9 +11,23 @@ import { IconeTeleversement } from "./icones";
  * rien : elle mémorise juste le nom du fichier et prévient le parent.
  */
 
-interface FichierChoisi {
+export interface FichierChoisi {
   nom: string;
   taille: number;
+}
+
+/*
+ * Ligne de la liste des documents acceptés. Une simple chaîne rend une puce
+ * grise ; un objet permet de varier la marque selon la maquette d'hébergement :
+ *  – « check » : coche verte (réservation d'hôtel/airbnb) ;
+ *  – « plus »  : « + » vert (justificatifs cumulés d'un hébergement chez un proche) ;
+ *  – « separateur » : mention « OU » corail entre deux justificatifs équivalents ;
+ *  – « puce » (défaut) : puce grise.
+ */
+export type MarqueDocument = "puce" | "check" | "plus" | "separateur";
+export interface LigneDocument {
+  texte: string;
+  marque?: MarqueDocument;
 }
 
 export default function ChampFichier({
@@ -21,38 +35,52 @@ export default function ChampFichier({
   sousTitre,
   accepteTitre,
   accepteItems,
+  note,
   choisir,
   formats,
   boutonPhoto,
   boutonParcourir,
+  fichierInitial,
   onChange,
+  onFichier,
 }: {
   titre: string;
   sousTitre: string;
   accepteTitre: string;
-  accepteItems: string[];
+  accepteItems: readonly (string | LigneDocument)[];
+  /** Mention complémentaire sous la liste (ex. « un seul document PDF »), corail. */
+  note?: string;
   /** Titre de la zone de dépôt (ex. « Choisis un fichier »). */
   choisir: string;
   /** Ligne de formats acceptés (ex. « JPEG, PNG, PDF, jusqu'à 50MB »). */
   formats: string;
   boutonPhoto: string;
   boutonParcourir: string;
+  /** Fichier déjà choisi (pour réhydrater le champ au retour arrière du flux). */
+  fichierInitial?: FichierChoisi | null;
   /** Prévient le parent qu'un fichier est présent (pour activer « Continuer »). */
   onChange?: (present: boolean) => void;
+  /** Transmet le fichier choisi (nom + poids) pour le récapitulatif. */
+  onFichier?: (fichier: FichierChoisi | null) => void;
 }) {
-  const [fichier, setFichier] = useState<FichierChoisi | null>(null);
+  // Réhydraté depuis le parent : le champ est rendu conditionnellement dans les
+  // flux, donc l'état vivrait et mourrait avec l'étape sans cette graine.
+  const [fichier, setFichier] = useState<FichierChoisi | null>(fichierInitial ?? null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const surSelection = (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
     if (!f) return;
-    setFichier({ nom: f.name, taille: f.size });
+    const choisi = { nom: f.name, taille: f.size };
+    setFichier(choisi);
     onChange?.(true);
+    onFichier?.(choisi);
   };
 
   const retirer = () => {
     setFichier(null);
     onChange?.(false);
+    onFichier?.(null);
     if (inputRef.current) inputRef.current.value = "";
   };
 
@@ -73,17 +101,34 @@ export default function ChampFichier({
 
       <hr className="border-grey-100" />
 
-      {/* Documents acceptés. */}
+      {/* Documents acceptés (marque adaptée : puce, coche verte, « + » vert, « OU »). */}
       <div>
         <p className="text-xs font-bold text-dark">{accepteTitre}</p>
         <ul className="mt-1 flex flex-col gap-0.5">
-          {accepteItems.map((it) => (
-            <li key={it} className="flex gap-1.5 text-[11px] leading-4 text-grey">
-              <span aria-hidden>•</span>
-              {it}
-            </li>
-          ))}
+          {accepteItems.map((it) => {
+            const ligne: LigneDocument = typeof it === "string" ? { texte: it, marque: "puce" } : it;
+            if (ligne.marque === "separateur") {
+              return (
+                <li key={ligne.texte} className="text-[11px] font-bold leading-4 text-secondary">
+                  {ligne.texte}
+                </li>
+              );
+            }
+            return (
+              <li key={ligne.texte} className="flex gap-1.5 text-[11px] leading-4 text-grey">
+                {ligne.marque === "check" ? (
+                  <IconeCheck className="mt-px size-3 shrink-0 text-success" />
+                ) : ligne.marque === "plus" ? (
+                  <span aria-hidden className="mt-px shrink-0 font-bold leading-3 text-success">+</span>
+                ) : (
+                  <span aria-hidden>•</span>
+                )}
+                {ligne.texte}
+              </li>
+            );
+          })}
         </ul>
+        {note && <p className="mt-2 text-[11px] font-medium italic leading-4 text-secondary">{note}</p>}
       </div>
 
       {/* Zone de dépôt en pointillés. */}

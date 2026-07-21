@@ -5,7 +5,7 @@
  * abonnements. Ici tout est simulé (latence + persistance localStorage).
  */
 
-import { definirVisaAjoute } from "./compte";
+import { soumettreDossierVisa, type InfosVisa } from "./compte";
 import { ecrireStockage, genererId, latenceReseau, lireStockage } from "./client";
 
 /* --- Attestation de garantie financière -------------------------------- */
@@ -22,6 +22,13 @@ export interface Attestation {
   /** Date ISO de génération. */
   dateISO: string;
 }
+
+/**
+ * Prix annuel de la génération d'attestations pour les comptes dont le pack ne
+ * l'inclut pas (pack « compte ») : encart « Frais » de l'intro. Le pack
+ * « attestation » l'inclut (encart « Bonne nouvelle », génération illimitée).
+ */
+export const PRIX_ATTESTATION_HORS_PACK = 100;
 
 /** Référence lisible d'attestation (« ATT-XXXXXXXX »). */
 export function referenceAttestation(): string {
@@ -79,10 +86,14 @@ export async function souscrireService(id: ServiceId): Promise<{ id: ServiceId; 
   return { id, prix: PRIX_SERVICE[id] };
 }
 
-/* --- Obtention de visa (dépôt du dossier) ------------------------------ */
+/* --- Obtention de visa (transmission de la preuve) --------------------- */
 
-/** Soumet le dossier de visa : bascule le tableau de bord en phase post-visa. */
-export async function soumettreVisa(): Promise<void> {
+/**
+ * Transmet la preuve d'obtention de visa : le compte passe en statut
+ * « vérification en cours » ; la bascule post-visa intervient à la
+ * validation (simulée côté compte).
+ */
+export async function soumettreVisa(visa: InfosVisa): Promise<void> {
   await latenceReseau();
-  definirVisaAjoute(true);
+  soumettreDossierVisa(visa);
 }

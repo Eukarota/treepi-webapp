@@ -5,8 +5,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useSession } from "@/components/app/SessionProvider";
 import { obtenirCompte } from "@/lib/api/compte";
+import { useCompteOuvert } from "@/lib/hooks/useCompteOuvert";
 import { Attestation, genererAttestation } from "@/lib/api/services";
-import { PAYS } from "@/lib/data/suggestions";
 import EcranApp from "@/components/app/EcranApp";
 import FondApp from "@/components/app/ui/FondApp";
 import CoquilleApp from "@/components/app/CoquilleApp";
@@ -18,9 +18,12 @@ import SelecteurListe from "@/components/app/ui/SelecteurListe";
 import { IconeBouclier, IconeInfo } from "@/components/app/flux/icones";
 
 /*
- * Flux « Attestation de garantie financière » (service inclus dans les packs) :
- * présentation → formulaire (montant garanti = solde, infos de séjour) →
- * génération → écran de succès avec téléchargement et partage du document.
+ * Flux « Attestation de garantie financière » : présentation → formulaire
+ * (montant garanti = solde, infos de séjour) → génération → écran de succès
+ * avec téléchargement et partage du document. L'encart de l'intro dépend du
+ * pack souscrit (maquettes « compris / non compris dans le pack ») : incluse
+ * avec le pack preuve (« Bonne nouvelle »), option payante à 100 €/an avec le
+ * pack compte (« Frais »).
  */
 
 type Phase = "intro" | "form" | "succes";
@@ -30,8 +33,11 @@ export default function PageAttestation() {
   const locale = useLocale();
   const router = useRouter();
   const { session, chargement } = useSession();
+  const ouvert = useCompteOuvert();
 
   const [solde] = useState(() => (typeof window === "undefined" ? 0 : obtenirCompte().soldeEuros));
+  // Le pack preuve (« attestation ») inclut la génération ; le pack compte non.
+  const [incluse] = useState(() => (typeof window === "undefined" ? true : obtenirCompte().packId === "attestation"));
   const [phase, setPhase] = useState<Phase>("intro");
   const [pays, setPays] = useState("");
   const [motif, setMotif] = useState("");
@@ -44,10 +50,13 @@ export default function PageAttestation() {
     if (!chargement && !session) router.replace("/app/bienvenue");
   }, [chargement, session, router]);
 
-  if (!session) return null;
+  if (!session || !ouvert) return null;
   const u = session.utilisateur;
 
   const motifs = t.raw("motifs") as string[];
+  // L'attestation de garantie financière ne vaut que pour un séjour Schengen :
+  // on restreint la destination aux seuls États membres de l'espace.
+  const paysSchengen = t.raw("paysSchengen") as string[];
   const nf = (v: number) => new Intl.NumberFormat(locale === "fr" ? "fr-FR" : "en-GB", { maximumFractionDigits: 2 }).format(v);
   const eur = (v: number) => `${nf(v)} €`;
   const complete = pays.trim() !== "" && motif.trim() !== "" && depart.trim().length === 10 && retour.trim().length === 10;
@@ -121,7 +130,11 @@ export default function PageAttestation() {
                 <IconeBouclier className="mt-px size-4 shrink-0" />
                 <p>{t("introReconnue")}</p>
               </div>
-              <div className="rounded-xl bg-peach/60 p-3 text-[11px] leading-4 text-dark">{t("introGratuite")}</div>
+              {incluse ? (
+                <div className="rounded-xl bg-peach/60 p-3 text-[11px] leading-4 text-dark">{t("introGratuite")}</div>
+              ) : (
+                <div className="rounded-xl bg-gradient-to-r from-secondary-light to-secondary p-3 text-[11px] leading-4 text-white">{t("introFrais")}</div>
+              )}
               <div className="mt-auto pt-4">
                 <BoutonApp onClick={() => setPhase("form")}>{t("introCta")}</BoutonApp>
               </div>
@@ -142,10 +155,16 @@ export default function PageAttestation() {
               </div>
 
               <h2 className="mt-1 font-outfit text-base font-bold leading-6 text-dark">{t("sejourTitre")}</h2>
-              <SelecteurListe label={t("paysLabel")} name="pays" placeholder={t("paysPlaceholder")} options={PAYS} value={pays} onChange={setPays} />
+              <SelecteurListe label={t("paysLabel")} name="pays" placeholder={t("paysPlaceholder")} options={paysSchengen} value={pays} onChange={setPays} />
               <SelecteurListe label={t("motifLabel")} name="motif" placeholder={t("motifLabel")} options={motifs} value={motif} onChange={setMotif} />
               <ChampDate label={t("departLabel")} name="depart" placeholder={t("datePlaceholder")} value={depart} onChange={setDepart} />
               <ChampDate label={t("retourLabel")} name="retour" placeholder={t("datePlaceholder")} value={retour} onChange={setRetour} />
+
+              {/* Repère de budget quotidien à prévoir pour le consulat. */}
+              <div className="flex items-start gap-2 rounded-xl border border-primary-lighter bg-primary-lighter/40 p-3 text-xs leading-5 text-primary-light">
+                <IconeInfo className="mt-0.5 size-4 shrink-0" />
+                <p>{t("budgetInfo")}</p>
+              </div>
 
               <div className="mt-auto pt-4">
                 <BoutonApp disabled={!complete || envoi} onClick={generer}>

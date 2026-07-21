@@ -530,91 +530,96 @@
   "compteEuro": {
     "meta": {
       "title": "European account · Treepi",
-      "description": "Open a European account from your country, in 24 h, with just your African passport."
+      "description": "Open a European account from your country, in 24 hours, with just your African passport."
     },
     "breadcrumb": "European account",
     "hero": {
-      "eyebrow": "Solution · European account",
-      "title1": "A European account, opened from ",
-      "titleHighlight": "your home.",
-      "subtitle": "The first financial app that lets African travellers open a European account, in their name, from their country in Africa.",
+      "badge": "The European account",
+      "title1": "Your European IBAN, opened from ",
+      "words": [
+        "Dakar.",
+        "Abidjan.",
+        "Douala.",
+        "Cotonou.",
+        "Yaoundé."
+      ],
+      "subtitle": "24 hours, your passport, and an account in your name at a regulated European institution. No branch, no queue, no \"come back on Monday\".",
       "cta": "Open my European account",
+      "annotation": "in your name, not a cousin's",
       "mock": {
-        "badge": "✓ Active account",
+        "badge": "✓ Account active",
         "ibanLabel": "Your Treepi IBAN",
         "iban": "FR76 3000 •••• •••• 8842",
-        "holderLabel": "Account holder",
+        "holderLabel": "Holder",
         "holder": "AWA DIALLO",
         "balanceLabel": "Available balance",
         "balance": "€1,250.00",
-        "cardNote": "<b>No card yet</b>, the Treepi card is coming soon! Your account, though, is ready today."
+        "toastTitle": "Top-up received",
+        "toastBody": "Cash deposit in Dakar · +€400"
       }
     },
-    "procedure": {
-      "eyebrow": "The procedure",
-      "title1": "Opening a Treepi European account ",
-      "titleHighlight": "is easy.",
-      "subtitle": "Five steps, 100% online, from your phone.",
-      "steps": [
+    "trois": {
+      "eyebrow": "What it changes",
+      "title1": "One account, ",
+      "titleHighlight": "three powers.",
+      "subtitle": "It prepares your visa, receives help, and pays for your stay. In that order.",
+      "items": [
         {
-          "title": "Personal details",
-          "description": "Name, contact details, travel plans."
+          "image": "/app/illustrations/justification.svg",
+          "title": "Prove you can fund your stay",
+          "description": "Your funds, deposited and locked on your account, are the basis of the financial guarantee certificate that reassures the consulate.",
+          "linkLabel": "The certificate in detail",
+          "href": "/attestation-garantie"
         },
         {
-          "title": "Passport",
-          "description": "A photo of your African passport."
+          "image": "/app/illustrations/africa.svg",
+          "title": "Receive help, cleanly",
+          "description": "A relative in Europe transfers straight to your IBAN, in your name. The help lands on your account, not on a middleman's.",
+          "linkLabel": "Top up my account",
+          "href": "/recharge"
         },
         {
-          "title": "Contract signature",
-          "description": "Electronic, directly in the app."
-        },
-        {
-          "title": "Fee payment",
-          "description": "Depending on your pack, account alone or with attestation."
-        },
-        {
-          "title": "Account opening",
-          "description": "Your European IBAN, ready to use."
-        }
-      ],
-      "facts": [
-        {
-          "title": "🇪🇺 IBAN",
-          "description": "A European IBAN, issued in your name"
-        },
-        {
-          "title": "24h",
-          "description": "Express opening, 100% online"
-        },
-        {
-          "title": "🛂 Passport",
-          "description": "Just with your African passport"
+          "image": "/app/illustrations/travel.svg",
+          "title": "Pay for your stay, like a local",
+          "description": "Visa in hand, your funds unlock: outgoing transfers activated for housing, tickets and life over there.",
+          "linkLabel": "See the visa journey",
+          "href": "/attestation-garantie"
         }
       ]
     },
-    "purpose": {
-      "title1": "An account designed for ",
-      "titleHighlight": "your journey.",
-      "subtitle": "Above all, this account is for preparing your visa application and funding your stay, so you avoid the restrictions and fees of your local bank.",
-      "cards": [
+    "procedure": {
+      "eyebrow": "Opening",
+      "title1": "Five steps, ",
+      "titleHighlight": "zero branch visits.",
+      "subtitle": "Everything happens on your phone, passport in hand. Account opened in 16 minutes, IBAN ready within 24 hours.",
+      "annotation": "16 minutes, timed",
+      "steps": [
         {
-          "title": "Your financial guarantee attestation",
-          "description": "The funds in your account are the basis for the attestation that reassures the consulate about your ability to fund your stay."
+          "title": "Your details",
+          "description": "Name, contact info, travel plans."
         },
         {
-          "title": "Receive transfers",
-          "description": "A relative in Europe can send you funds directly to your IBAN, in your name."
+          "title": "Your passport",
+          "description": "One sharp photo, and that's it."
         },
         {
-          "title": "Fund your stay once you have your visa",
-          "description": "As soon as you present your visa, outgoing transfers are enabled to fund your stay in Europe."
+          "title": "Your signature",
+          "description": "Electronic, right in the app."
+        },
+        {
+          "title": "The pack fees",
+          "description": "Account alone or with certificate, shown before you pay."
+        },
+        {
+          "title": "Your IBAN",
+          "description": "Issued in your name, ready to receive top-ups."
         }
       ]
     },
     "journey": {
       "eyebrow": "Before & after the visa",
-      "title1": "An account that supports you ",
-      "titleHighlight": "end to end.",
+      "title1": "An account with you ",
+      "titleHighlight": "all the way.",
       "before": "① Before the visa",
       "after": "② After the visa",
       "beforeSteps": [
@@ -623,49 +628,43 @@
           "description": "From your country, online, with your passport."
         },
         {
-          "title": "Receive your IBAN",
-          "description": "A European IBAN in your name, immediately usable."
+          "title": "Get your IBAN",
+          "description": "A European IBAN in your name, usable right away."
         },
         {
           "title": "Top up your account",
           "description": "Cash deposit at a local branch or bank transfer, from Africa and Europe."
         },
         {
-          "title": "Get your attestation",
-          "description": "A reliable financial document, ready to add to your visa file."
+          "title": "Get your certificate",
+          "description": "A reliable financial document, ready for your visa file."
         }
       ],
       "afterSteps": [
         {
-          "title": "Present your visa",
-          "description": "From the app, in a few seconds."
+          "title": "Show your visa proof",
+          "description": "From the app, in seconds."
         },
         {
-          "title": "Funds released",
+          "title": "Funds unlocked",
           "description": "Your balance becomes fully available again."
         },
         {
-          "title": "Outgoing transfers enabled",
-          "description": "Pay for your accommodation, tickets and local expenses."
+          "title": "Outgoing transfers on",
+          "description": "Pay your housing, tickets and expenses over there."
         },
         {
-          "title": "Travel with peace of mind",
-          "description": "Your account supports you throughout your stay in Europe."
+          "title": "Travel light-hearted",
+          "description": "Your account follows you throughout your stay in Europe."
         }
       ],
-      "note": "<b>What you can already do:</b> top up your account and receive transfers. <b>What isn't active yet:</b> sending transfers, it unlocks at the next step, once your visa is granted."
-    },
-    "banner": {
-      "line1": "Open your account.",
-      "line2": "Exceed your limits.",
-      "line3": "Reclaim your freedom.",
-      "subtitle": "Set off to discover Europe with Treepi: the euro account to prove your funds and spend your money like a local."
+      "note": "<b>What you can already do:</b> top up your account and receive transfers. <b>What's not active yet:</b> sending transfers, it unlocks at the next step, once your visa is granted."
     },
     "pricing": {
       "eyebrow": "Pricing",
       "title1": "Account alone, ",
-      "titleHighlight": "or account + attestation.",
-      "subtitle": "Two ways to use your account, the attestation changes everything about management fees.",
+      "titleHighlight": "or account + certificate.",
+      "subtitle": "Opening is free either way. The certificate, though, wipes out the management fees.",
       "solo": {
         "badge": "Account alone",
         "title": "To prepare your trip at your own pace",
@@ -679,13 +678,13 @@
             "value": "€100"
           }
         ],
-        "note": "You open your account freely, without subscribing to the attestation. Management fees of €100 are billed each year.",
+        "note": "You open your account freely, without the certificate. Management fees of €100 are billed each year.",
         "cta": "Open my account"
       },
       "combo": {
         "flag": "Best value",
-        "badge": "Account + attestation",
-        "title": "Management fees waived with your attestation",
+        "badge": "Account + certificate",
+        "title": "Management fees waived with your certificate",
         "rows": [
           {
             "label": "Account opening",
@@ -697,12 +696,12 @@
             "strike": "€100"
           },
           {
-            "label": "Financial guarantee attestation",
+            "label": "Financial guarantee certificate",
             "value": "€250"
           }
         ],
-        "note": "By subscribing to your financial guarantee attestation, the account management fees become free, you only pay for your attestation.",
-        "cta": "Subscribe to my attestation"
+        "note": "When you subscribe to your financial guarantee certificate, the account management fees become free, you only pay for your certificate.",
+        "cta": "Get my certificate"
       }
     },
     "compare": {
@@ -722,28 +721,28 @@
         },
         {
           "criterion": "Proof of funds for your visa",
-          "local": "Statement seen as unconvincing",
-          "treepi": "Attestation recognised by consulates"
+          "local": "Statement seen as weak",
+          "treepi": "Certificate recognised by consulates"
         },
         {
           "criterion": "Receiving international transfers",
           "local": "Often limited, high fees",
-          "treepi": "Included, in an account in your name"
+          "treepi": "Included, on an account in your name"
         },
         {
           "criterion": "Opening from Africa",
-          "local": ",",
-          "treepi": "Yes, in 24h, with your passport"
+          "local": "Local account only",
+          "treepi": "Yes, in 24 h, with your passport"
         },
         {
           "criterion": "Outgoing transfers",
-          "local": "Subject to local exchange controls",
-          "treepi": "Enabled as soon as you show your visa"
+          "local": "Subject to local exchange control",
+          "treepi": "Activated on your visa proof"
         },
         {
           "criterion": "Top-up fees",
           "local": "Often opaque",
-          "treepi": "Displayed before every operation"
+          "treepi": "Shown before every operation"
         }
       ]
     },
@@ -754,18 +753,18 @@
         "ACPR licensed",
         "IBAN in your name",
         "Segregated funds",
-        "Biometric identity verification",
+        "Biometric identity check",
         "Data encryption"
       ]
     },
     "faq": {
       "eyebrow": "FAQ",
       "title1": "The European account, ",
-      "titleHighlight": "made clear.",
+      "titleHighlight": "in plain words.",
       "items": [
         {
           "question": "Is it a real European IBAN?",
-          "answer": "Yes. Once your account is validated, you receive an IBAN in your name, issued by our regulated partner in France, usable for receiving international transfers."
+          "answer": "Yes. Once your account is validated, you receive an IBAN in your name, issued by our partner regulated in France, usable to receive international transfers."
         },
         {
           "question": "Do I need to live in Europe to open it?",
@@ -773,88 +772,86 @@
         },
         {
           "question": "How long does opening take?",
-          "answer": "24 h on average: five online steps from your phone, and your European IBAN is ready to use."
+          "answer": "24 hours on average: five online steps from your phone, and your European IBAN is ready to use."
         },
         {
           "question": "How do I top up my account?",
-          "answer": "By cash deposit at a local partner branch, bank transfer or card, from XOF, XAF and other African currencies to your account, fees displayed before confirmation."
+          "answer": "By cash deposit at a partner local branch, by bank transfer or by card, from XOF, XAF and other African currencies to your account, fees shown before validation."
         },
         {
           "question": "Is there a bank card with this account?",
-          "answer": "Not yet at launch, the Treepi card is coming soon. Your account is fully functional today for top-ups, incoming transfers and your attestation."
+          "answer": "Not at launch, the Treepi card is coming soon. Your account is fully functional today for top-ups, incoming transfers and your certificate."
         },
         {
-          "question": "Why can't I send a transfer before my visa?",
-          "answer": "Because your funds serve as a guarantee while your application is processed: that hold is what makes your attestation credible. Outgoing transfers are enabled as soon as you present your visa."
+          "question": "Why can't I send transfers before my visa?",
+          "answer": "Because your funds act as a guarantee while your application is examined: that lock is what makes your certificate credible. Outgoing transfers activate as soon as you show your visa proof."
         },
         {
           "question": "What happens to my funds if my visa is refused?",
-          "answer": "They are returned to you in full, released within 72 h of the consulate's decision."
+          "answer": "They are returned to you in full, unlocked within 72 hours of the consulate's decision."
         }
       ]
     },
     "finalCta": {
-      "title": "Your European account awaits.",
-      "subtitle": "Open it in 24h, with just your passport."
+      "title": "Your European account is waiting.",
+      "subtitle": "Open it in 24 hours, with just your passport."
     }
   },
   "recharge": {
     "meta": {
       "title": "Top up my account · Treepi",
-      "description": "Cash deposit, transfer or card: top up your European account from Africa within 24 h."
+      "description": "Cash deposit, transfer or card: top up your European account from Africa in 24 hours."
     },
     "breadcrumb": "Top-up",
     "hero": {
-      "eyebrow": "Top-up",
-      "title1": "Add money to your European account from Africa ",
-      "titleHighlight": "within 24 h.",
-      "subtitle": "Cash deposit, transfer or card, from XOF, XAF and other local currencies to your European IBAN. <b>Rates and fees shown before every confirmation</b>, never after.",
+      "badge": "Top-ups",
+      "title1": "Your money ",
+      "titleHighlight": "travels before you do.",
+      "subtitle": "Deposit francs in Douala in the morning, find euros on your IBAN the next day. Cash, card or transfer: every fee is shown before you confirm, never after.",
       "ctaPrimary": "Top up my account",
-      "ctaSecondary": "See how it works",
-      "note": "🛡️ Funds deposited in <b>an account in your name</b>, at a regulated institution in Europe.",
+      "ctaSecondary": "See the 3 methods",
+      "annotation": "the rate doesn't move, promise",
       "mock": {
         "sendLabel": "You deposit",
-        "receiveLabel": "You receive in your account",
-        "rateNote": "Fixed rate €1 = 655.957 FCFA · fees depend on the method, shown before confirmation",
-        "cta": "Top up this amount"
+        "sendValue": "1,640,000 FCFA",
+        "arrival": "Tomorrow morning",
+        "receiveLabel": "You receive on your account",
+        "receiveValue": "€2,500.32",
+        "rate": "Fixed rate: €1 = 655.957 FCFA",
+        "fees": "Fees shown before confirmation"
       },
       "trust": [
-        "<b>Guaranteed fixed rate</b> for XOF and XAF, no conversion surprises",
-        "Fees <b>shown before every confirmation</b>, never discovered afterwards",
-        "<b>Instant by card</b>, within 24 h by cash deposit",
-        "<b>WhatsApp support 7 days a week</b>, answer within 2 h"
+        "Guaranteed fixed rate XOF & XAF",
+        "Fees shown before confirmation",
+        "Account in your name, regulated in Europe",
+        "WhatsApp support 7 days a week"
       ]
     },
     "methods": {
       "eyebrow": "3 methods",
       "title1": "Top up ",
-      "titleHighlight": "however suits you.",
-      "subtitle": "Each method shows its timeframe and conditions, <b>you choose with full knowledge</b>.",
-      "fastest": "The fastest",
+      "titleHighlight": "the way that suits you.",
+      "subtitle": "Each method shows its timing and conditions: you choose with your eyes open.",
+      "delayLabel": "Credited",
       "cards": [
         {
           "title": "Bank card",
-          "description": "Top up from your phone, in moments. Also ideal for a relative in Europe who wants to fund your account.",
-          "tags": [
-            "Instant",
-            "100% online"
-          ]
+          "delay": "Instant",
+          "flag": "The fastest",
+          "description": "From your phone, in moments. Also perfect for a relative in Europe who wants to fund your account.",
+          "note": "100% online"
         },
         {
           "title": "Cash deposit",
-          "description": "In local currency, at a partner deposit point in your country. You deposit, add your receipt, it's credited.",
-          "tags": [
-            "Credited within 24 h",
-            "Receipt required"
-          ]
+          "delay": "≈ 24 h",
+          "description": "In local currency, at a partner deposit point in your country. You deposit, photograph your receipt, it's credited.",
+          "note": "Receipt required"
         },
         {
           "title": "Bank transfer",
-          "description": "From a local or European bank account, directly to your Treepi IBAN, with your reference in the description.",
-          "tags": [
-            "SWIFT: 72 h to 2 weeks",
-            "No maximum amount"
-          ]
+          "delay": "72 h to 2 wks",
+          "description": "From a local or European account, to your Treepi IBAN, your reference in the label. Plan ahead if your visa application is near.",
+          "note": "No maximum amount"
         }
       ],
       "currencies": [
@@ -866,56 +863,69 @@
     },
     "steps": {
       "eyebrow": "How it works",
-      "title1": "Topping up, ",
-      "titleHighlight": "step by step.",
-      "subtitle": "Four steps, from the app or the site, <b>you always know where your money is</b>.",
+      "title1": "Your money, ",
+      "titleHighlight": "tracked every step.",
+      "subtitle": "Four steps from the app or the site. A notification at every move: you always know where your money is.",
       "items": [
         {
           "title": "Enter your amount",
-          "description": "In € or FCFA, the conversion shows live, with your visa target as a guide."
+          "description": "In euros or francs, the conversion shows live, with your visa target as a marker."
         },
         {
           "title": "Choose your method",
-          "description": "Cash, transfer or card, fees and timeframes shown before you confirm."
+          "description": "Cash, card or transfer: fees and timing shown before you confirm."
         },
         {
           "title": "Make your deposit",
-          "description": "Follow the instructions: exact amount, unique reference to show or put in the description."
+          "description": "Exact amount, unique reference to show or to put in the label."
         },
         {
           "title": "Add your receipt",
-          "description": "A photo of the deposit proof is enough, it speeds up validation. Funds credited, you're notified."
-        }
-      ]
-    },
-    "delays": {
-      "eyebrow": "Timeframes",
-      "title1": "Transparent ",
-      "titleHighlight": "timeframes.",
-      "subtitle": "We'd rather give you the real numbers, <b>and help you plan ahead</b>.",
-      "columns": {
-        "method": "Method",
-        "delay": "Credit time",
-        "note": "Good to know"
-      },
-      "rows": [
-        {
-          "method": "💳 Bank card",
-          "delay": "Instant",
-          "note": "The fastest, from your phone"
-        },
-        {
-          "method": "💵 Cash deposit",
-          "delay": "≈ 24 h",
-          "note": "In local currency, receipt required"
-        },
-        {
-          "method": "🏦 SWIFT transfer",
-          "delay": "72 h to 2 weeks",
-          "note": "Varies with intermediary banks, plan ahead of your visa application"
+          "description": "One photo is enough, it speeds up validation. Funds credited, you're notified."
         }
       ],
-      "note": "Real-time tracking in your space: every top-up has its own timeline (initiated → received → credited), with e-mail and WhatsApp notifications at every step."
+      "tracker": {
+        "title": "Your top-up",
+        "amount": "196,800 FCFA",
+        "credit": "+ €300.02",
+        "states": [
+          {
+            "label": "Initiated",
+            "time": "Yesterday, 9:12 am"
+          },
+          {
+            "label": "Received",
+            "time": "Yesterday, 9:40 am"
+          },
+          {
+            "label": "Credited to your IBAN",
+            "time": "Today, 8:03 am"
+          }
+        ],
+        "notif": "Email and WhatsApp notification at every step"
+      }
+    },
+    "practices": {
+      "eyebrow": "Good habits",
+      "title1": "The advice we give ",
+      "titleHighlight": "our own family.",
+      "cards": [
+        {
+          "note": "ahead of time!",
+          "title": "Plan transfers early",
+          "description": "For a SWIFT transfer, start your top-up well before your visa application: intermediary banks can take up to 2 weeks."
+        },
+        {
+          "note": "always in the label",
+          "title": "Keep your receipts",
+          "description": "Keep the proof of every deposit and always put your Treepi reference in the label, that's what speeds up validation."
+        },
+        {
+          "note": "not too much, not too little",
+          "title": "Aim for your target",
+          "description": "Use the simulator to top up exactly what your file requires, not too early blindly, not too little at the last minute."
+        }
+      ]
     },
     "simulator": {
       "eyebrow": "Top-up simulator",
@@ -938,25 +948,6 @@
       "cta": "Top up {amount} →",
       "rateNote": "Guaranteed fixed rate: €1 = 655.957 FCFA",
       "disclaimer": "Fees and rates shown before every confirmation, never after."
-    },
-    "practices": {
-      "eyebrow": "Best practices",
-      "title1": "Top up ",
-      "titleHighlight": "with peace of mind.",
-      "cards": [
-        {
-          "title": "Plan transfers ahead",
-          "description": "For a SWIFT transfer, start your top-up well before your visa application: intermediary banks can take up to 2 weeks."
-        },
-        {
-          "title": "Keep your receipts",
-          "description": "Keep proof of every deposit and always put your Treepi reference in the description, that's what speeds up the validation of your funds."
-        },
-        {
-          "title": "Aim for your target",
-          "description": "Use the simulator to top up exactly what your file requires, neither too early blindly, nor too little at the last minute."
-        }
-      ]
     },
     "faq": {
       "eyebrow": "FAQ",
@@ -1007,16 +998,21 @@
     "breadcrumb": "Financial guarantee attestation",
     "hero": {
       "eyebrow": "Solution · Schengen visa",
-      "title1": "The proof of funds that ",
-      "titleHighlight": "truly",
+      "title1": "Your statement says you have the money. ",
       "title2": " reassures the consulate.",
-      "subtitle": "A local bank statement leaves room for doubt. Our attestation proves your funds are there, and blocked during your application.",
-      "cta": "Get my attestation",
+      "titleHighlight": "The certificate proves it.",
+      "subtitle": "A local bank statement leaves room for doubt: funded yesterday, emptied tomorrow. Our certificate attests that your funds are deposited in Europe, in your name, and locked during the examination.",
+      "cta": "Get my certificate",
+      "annotation": "verifiable in 30 seconds, stopwatch in hand",
       "mock": {
-        "title": "Financial guarantee attestation",
-        "amountLabel": "Guaranteed funds:",
+        "title": "Financial guarantee certificate",
+        "amountLabel": "Guaranteed funds",
         "amount": "€6,300",
-        "badge": "✓ Funds blocked"
+        "holderLabel": "Holder",
+        "holder": "AWA DIALLO",
+        "badge": "✓ Funds locked",
+        "verifLabel": "Consular verification",
+        "verifCode": "TRP-2214-8842"
       }
     },
     "problem": {
@@ -1164,7 +1160,9 @@
         "title": "The Treepi attestation",
         "description": "It certifies what your statement can't prove: the funds for your stay are actually deposited and blocked, in a European account in your name."
       },
-      "note": "<b>= a complete financial file.</b> The history of your statement + the certainty of the attestation: it's this combination that gives your Schengen visa application its best chances."
+      "note": "<b>= a complete financial file.</b> The history of your statement + the certainty of the attestation: it's this combination that gives your Schengen visa application its best chances.",
+      "plus": "+",
+      "equalsTitle": "= a complete financial file"
     },
     "faq": {
       "eyebrow": "FAQ",
@@ -1202,37 +1200,28 @@
     },
     "breadcrumb": "Schengen travel insurance",
     "hero": {
-      "eyebrow": "Insurance · Schengen visa",
-      "title1": "Travel insurance ",
-      "titleHighlight": "at the lowest price.",
-      "title2": " You won't find better anywhere else.",
-      "subtitle": "Compliant with consulate requirements. And if your visa is refused, it's refunded.",
-      "cta": "Subscribe",
+      "badge": "Schengen travel insurance",
+      "title1": "Stop being ",
+      "titleHighlight": "a pigeon.",
+      "subtitle": "Travel insurance is mandatory for your visa, classic insurers know it and price it like a luxury product. Same €30,000 coverage, same Schengen compliance: at Treepi, it starts at €30.",
+      "cta": "Get covered",
+      "annotation": "same coverage, promise",
+      "compareTitle": "90 days of insurance, prices compared",
+      "compare": {
+        "treepi": "Treepi",
+        "insurerA": "Insurer A",
+        "insurerB": "Insurer B",
+        "days90": "90 days",
+        "days90eco": "90 days, budget*",
+        "days90std": "90 days, standard*",
+        "note": "* Market orders of magnitude, for illustration, the required coverage (€30,000, Schengen area) is identical."
+      },
       "chips": [
         "🇪🇺 Valid across the whole Schengen area",
         "🖥️ Online subscription",
-        "🛡️ A European insurance",
+        "🛡️ A European insurer",
         "↩️ Refunded if your visa is refused"
-      ],
-      "mock": {
-        "title": "Travel insurance attestation",
-        "coverage": "Coverage: €30,000",
-        "badge": "✓ Schengen compliant",
-        "price": "€30 /month"
-      }
-    },
-    "price": {
-      "eyebrow": "The price",
-      "title1": "Stop being taken for a ride.",
-      "title2": "Same coverage, lowest price.",
-      "subtitle": "€30,000 of coverage, identical Schengen compliance, at Treepi, without the traditional insurers' margin.",
-      "treepi": "Treepi",
-      "insurerA": "Insurer A",
-      "insurerB": "Insurer B",
-      "days90": "90 days",
-      "days90eco": "90 days, eco*",
-      "days90std": "90 days, standard*",
-      "note": "* Orders of magnitude observed on the market, for illustration, the required coverage (€30,000, Schengen area) is identical."
+      ]
     },
     "plans": {
       "eyebrow": "Price details",
@@ -1345,7 +1334,8 @@
         "Slovenia",
         "Sweden",
         "Switzerland"
-      ]
+      ],
+      "annotation": "from Reykjavik to Malta!"
     },
     "quote": {
       "eyebrow": "Quote & subscription",
@@ -1469,36 +1459,57 @@
   "assuranceRecours": {
     "meta": {
       "title": "Visa appeal insurance · Treepi",
-      "description": "A visa refusal isn't the end: specialised lawyer, costs covered up to €15,000."
+      "description": "A visa refusal isn't the end: specialised lawyer, procedure costs covered up to €15,000."
     },
     "breadcrumb": "Visa appeal insurance",
     "hero": {
-      "eyebrow": "Solution · Peace of mind",
-      "title1": "A refusal isn't the end. It's the beginning of ",
-      "titleHighlight": "your appeal.",
-      "subtitle": "Even with a good file, a visa is never guaranteed. If you're refused, a specialised lawyer takes over, costs covered up to €15,000.",
+      "badge": "Visa appeal insurance",
+      "title1": "A refusal isn't the end. ",
+      "titleHighlight": "It's the start of the appeal.",
+      "subtitle": "Even with a solid file, a visa is never guaranteed. If it's refused, an immigration lawyer takes over and contests the decision, costs covered up to €15,000.",
       "cta": "Protect my application",
-      "statValue": "€15,000",
-      "statLabel": "of costs covered"
+      "annotation": "the story doesn't end here",
+      "mock": {
+        "docTitle": "Refusal notice",
+        "docSub": "Consulate · Short-stay visa application",
+        "stamp": "REFUSED",
+        "appealTitle": "Appeal filed",
+        "appealSub": "Immigration lawyer · Case no. 2214",
+        "badge": "Covered"
+      }
     },
-    "why": {
-      "eyebrow": "Why it exists",
-      "title1": "Getting a visa ",
-      "titleHighlight": "is never guaranteed.",
-      "subtitle": "Even a solid file can be refused for sometimes questionable reasons. Visa appeal insurance gives you a real second chance, without starting from scratch and without shouldering everything alone."
+    "stats": {
+      "eyebrow": "The reality in numbers",
+      "title1": "Refusals that are sometimes ",
+      "titleHighlight": "arbitrary.",
+      "subtitle": "A refusal means lost fees and a project on hold, almost never a clear justification. That's what the appeal exists to fight.",
+      "items": [
+        {
+          "value": "6/10",
+          "label": "applications refused in some African countries"
+        },
+        {
+          "value": "€60M",
+          "label": "lost by African travellers in 2024, in fees for refused applications"
+        },
+        {
+          "value": "€15,000",
+          "label": "of procedure costs covered by your insurance"
+        }
+      ]
     },
     "covered": {
-      "eyebrow": "Situations covered",
-      "title1": "What we take ",
-      "titleHighlight": "care of.",
+      "eyebrow": "Covered situations",
+      "title1": "What we ",
+      "titleHighlight": "take on.",
       "cards": [
         {
           "title": "Unjustified refusal",
-          "description": "Personalised analysis of the reasons and preparation of a reasoned appeal."
+          "description": "Personalised analysis of the reasons and preparation of a well-argued appeal."
         },
         {
           "title": "Procedural flaw",
-          "description": "Challenging decisions tainted by formal irregularities."
+          "description": "Contesting decisions tainted by formal irregularities."
         },
         {
           "title": "Legal support",
@@ -1506,36 +1517,15 @@
         }
       ]
     },
-    "value": {
-      "eyebrow": "The added value",
-      "title1": "A real ",
-      "titleHighlight": "safety net.",
-      "cards": [
-        {
-          "emoji": "👨‍⚖️",
-          "title": "Specialised lawyer",
-          "description": "who takes over your procedure"
-        },
-        {
-          "emoji": "💶",
-          "title": "€15,000",
-          "description": "Full coverage of appeal costs"
-        },
-        {
-          "emoji": "⏱️",
-          "title": "2-3 months",
-          "description": "Average length of the appeal procedure"
-        }
-      ]
-    },
     "journey": {
       "eyebrow": "The journey",
       "title1": "From subscription ",
-      "titleHighlight": "to decision.",
+      "titleHighlight": "to the decision.",
+      "subtitle": "You activate your protection before applying. If the refusal comes, you're no longer alone: the machinery starts.",
       "steps": [
         {
           "title": "Subscribe before applying",
-          "description": "You activate your protection upstream, before even filing your visa application."
+          "description": "You activate your protection upfront, before even filing your visa application."
         },
         {
           "title": "Refusal analysis",
@@ -1543,212 +1533,242 @@
         },
         {
           "title": "Building the appeal file",
-          "description": "A reasoned file matching the consulate's expectations is prepared."
+          "description": "A well-argued file, in line with the consulate's expectations, is prepared."
         },
         {
           "title": "Assistance from a specialised lawyer",
           "description": "A lawyer takes charge of your appeal procedure."
         },
         {
-          "title": "Follow-up until the decision",
-          "description": "You are supported until the final appeal decision."
+          "title": "Followed through to the decision",
+          "description": "You're supported until the appeal's final decision."
+        }
+      ],
+      "aside": [
+        {
+          "value": "A lawyer",
+          "label": "in immigration law, who takes over your procedure"
+        },
+        {
+          "value": "€15,000",
+          "label": "of appeal costs covered, end to end"
+        },
+        {
+          "value": "2-3 months",
+          "label": "of procedure on average, with an update at every step"
         }
       ]
     },
+    "price": {
+      "eyebrow": "The price",
+      "title1": "One protection, ",
+      "titleHighlight": "one single price.",
+      "label": "Visa appeal insurance",
+      "price": "€350",
+      "priceNote": "one-time payment, covers your visa application",
+      "coverage": "Procedure costs covered <b>up to €15,000</b>",
+      "cta": "Protect my application",
+      "note": "To subscribe before the consulate's decision.",
+      "honestTitle": "We owe you the truth:",
+      "honest": "the success of an appeal is never guaranteed, and beware of anyone who promises it. What we do guarantee: a file defended by a legal professional, all the way to the final decision."
+    },
     "faq": {
       "eyebrow": "FAQ",
-      "title1": "Appeal insurance, ",
-      "titleHighlight": "made clear.",
+      "title1": "The appeal insurance, ",
+      "titleHighlight": "in plain words.",
       "items": [
         {
           "question": "When should I subscribe?",
-          "answer": "Before filing your visa application. Subscribing upstream means you're protected from the first decision."
+          "answer": "Before filing your visa application. Subscribing upfront means you're protected from the first decision."
         },
         {
           "question": "What exactly is covered?",
-          "answer": "The review of your refusal notice and complete file, the preparation of a reasoned appeal, the assistance of a lawyer specialised in immigration law and coverage of procedure costs up to €15,000."
+          "answer": "The study of your refusal notice and full file, the preparation of a well-argued appeal, the assistance of a lawyer specialised in immigration law and the coverage of procedure costs up to €15,000."
         },
         {
-          "question": "Is the success of the appeal guaranteed?",
-          "answer": "No, no legal procedure can be, and beware of anyone who promises it. The insurance maximises your chances: your file is defended by a professional, all the way to the final decision."
+          "question": "Is the appeal's success guaranteed?",
+          "answer": "No, no legal procedure can be, and beware of anyone who promises it. The insurance maximises your chances: your file is defended by a professional, until the final decision."
         },
         {
           "question": "How long does the procedure take?",
-          "answer": "On average 2 to 3 months, depending on the jurisdiction and the complexity of the file. You're kept informed at every step."
+          "answer": "On average 2 to 3 months, depending on the courts and the complexity of the file. You're kept informed at every step."
         }
       ]
     },
     "finalCta": {
       "title": "Travel with peace of mind.",
-      "subtitle": "Activate your protection before your application, just in case.",
+      "subtitle": "Activate your protection before you apply, just in case.",
       "cta": "Protect my application"
     }
   },
   "carte": {
     "meta": {
       "title": "The Treepi Mastercard",
-      "description": "Immediate virtual card, physical card delivered in Europe, in euros, no hidden fees."
+      "description": "A euro Mastercard in your name: virtual in the app, physical on arrival, accepted everywhere in Europe."
     },
     "breadcrumb": "Card",
     "hero": {
-      "eyebrow": "The Treepi Mastercard",
-      "title1": "One card. ",
-      "titleHighlight": "The whole",
-      "title2": " world.",
-      "subtitle": "Virtual card available immediately, added to Apple Pay and Google Pay. Physical card delivered to your place or a pick-up point. In euros, no hidden fees, everywhere Mastercard is accepted.",
-      "ctaPrimary": "Order my card",
-      "ctaSecondary": "See the journey",
+      "badge": "Coming soon in the app",
+      "title1": "Finally, a card ",
+      "titleHighlight": "that says yes.",
+      "subtitle": "A euro Mastercard, in your name. Accepted in shops, online, at ATMs, everywhere you go. No bank to warn, no surprise fees, no wad of cash at the bottom of your bag.",
+      "ctaPrimary": "Open my account",
+      "ctaSecondary": "Tell me at launch",
+      "annotation": "in euros, obviously",
+      "cardAlt": "The Treepi Mastercard",
       "trust": [
         "International Mastercard",
-        "Apple Pay",
-        "Google Pay",
-        "Immediate virtual card",
-        "Physical card"
+        "Apple Pay & Google Pay",
+        "In euros, no hidden fees",
+        "Virtual + physical"
       ]
     },
-    "journey": {
-      "eyebrow": "The complete journey",
-      "title1": "From order ",
-      "titleHighlight": "to first payment.",
-      "subtitle": "No need to wait for the physical card to pay: your virtual card is active from the moment you open it.",
-      "steps": [
-        {
-          "title": "Order",
-          "description": "You order your card in seconds from the app."
-        },
-        {
-          "title": "Activation",
-          "description": "Instant, secure activation in the application."
-        },
-        {
-          "title": "Virtual card",
-          "description": "Available immediately to pay online and in shops."
-        },
-        {
-          "title": "Apple / Google Pay",
-          "description": "Add it to your wallet and pay contactless before even receiving the physical one."
-        },
-        {
-          "title": "Physical card",
-          "description": "Delivered to your place or a pick-up point as soon as you arrive."
-        }
-      ]
-    },
-    "delivery": {
-      "eyebrow": "Delivery",
-      "title1": "Receive your card ",
-      "titleHighlight": "wherever you want.",
-      "cards": [
-        {
-          "title": "At your accommodation",
-          "description": "Have your physical card delivered directly to your accommodation address in Europe, as soon as you arrive."
-        },
-        {
-          "title": "At a Treepi pick-up point",
-          "description": "Collect your card at a Treepi pick-up point with ease.",
-          "badge": "Available in Paris only for now"
-        }
-      ]
-    },
-    "advantages": {
-      "eyebrow": "Advantages",
-      "title1": "Designed for ",
-      "titleHighlight": "travellers.",
-      "cards": [
-        {
-          "emoji": "💶",
-          "title": "In euros",
-          "description": "Pay everywhere in Europe without automatic conversion or nasty exchange surprises."
-        },
-        {
-          "emoji": "🚫",
-          "title": "Zero hidden fees",
-          "description": "You know exactly what you're spending. No international surcharge."
-        },
-        {
-          "emoji": "🎛️",
-          "title": "Total control",
-          "description": "Freeze/unfreeze your card, set your limits and track your spending in real time."
-        },
-        {
-          "emoji": "🌍",
-          "title": "Accepted everywhere",
-          "description": "Everywhere Mastercard is available: shops, transport, hotels, online."
-        }
-      ]
-    },
-    "pricing": {
-      "eyebrow": "Pricing",
-      "title1": "Clear pricing, ",
-      "titleHighlight": "no surprises.",
-      "mostChosen": "Most chosen",
-      "plans": [
-        {
-          "name": "Essential",
-          "price": "€9",
-          "unit": "/month",
-          "features": [
-            "Euro account + IBAN",
-            "Virtual card",
-            "Apple & Google Pay",
-            "Top-up from Africa"
-          ],
-          "cta": "Choose"
-        },
-        {
-          "name": "Visa",
-          "price": "€19",
-          "unit": "/month",
-          "features": [
-            "Everything in Essential",
-            "Physical card",
-            "Financial guarantee attestation",
-            "Priority support"
-          ],
-          "cta": "Choose"
-        },
-        {
-          "name": "Serenity",
-          "price": "€29",
-          "unit": "/month",
-          "features": [
-            "Everything in Visa",
-            "Visa appeal insurance",
-            "Specialised lawyer included",
-            "Coverage up to €15,000"
-          ],
-          "cta": "Choose"
-        }
-      ],
-      "note": "Prices shown for illustration, to be aligned with Treepi's actual pricing."
-    },
-    "faq": {
-      "eyebrow": "Card FAQ",
-      "title1": "Everything about ",
-      "titleHighlight": "your card.",
+    "partout": {
+      "eyebrow": "It opens doors",
+      "title1": "The whole world, ",
+      "titleHighlight": "no negotiating.",
+      "subtitle": "Your local bank wanted paperwork for every trip. Your Treepi card figures it's your money.",
       "items": [
         {
-          "question": "Can I pay before receiving the physical card?",
-          "answer": "Yes. Your virtual card is active from account opening and can be added to Apple Pay or Google Pay to pay contactless immediately."
+          "image": "/images/electro.webp",
+          "title": "In shops",
+          "description": "From a Paris café to a Berlin supermarket: you tap the card, it pays, like everyone else's."
         },
         {
-          "question": "Where can I collect my physical card?",
-          "answer": "At your accommodation address in Europe, or at a Treepi pick-up point, available in Paris only for now."
+          "image": "/images/pay.webp",
+          "title": "Online",
+          "description": "Train tickets, bookings, subscriptions: your virtual card settles it all, before the physical one even arrives."
         },
         {
-          "question": "Are there hidden fees abroad?",
-          "answer": "No. The card is in euros: no automatic conversion, no international surcharge. You see exactly what you spend."
+          "image": "/images/gui.webp",
+          "title": "At the ATM",
+          "description": "Need cash? Withdraw euros at any ATM, without the surcharge that spoils the trip."
+        }
+      ]
+    },
+    "adieux": {
+      "eyebrow": "The goodbyes",
+      "title1": "Say ",
+      "titleHighlight": "your goodbyes.",
+      "subtitle": "Some separations just feel good.",
+      "handwritten": "goodbye",
+      "items": [
+        {
+          "title": "Warning your bank before every trip",
+          "description": "Your card doesn't need permission to cross a border."
         },
         {
-          "question": "Is my card secure?",
-          "answer": "Yes: instant freeze/unfreeze from the app, customisable limits, 3D Secure for online payments and real-time spending tracking."
+          "title": "Cash hidden at the bottom of the bag",
+          "description": "Your money travels in the app, not in the lining of your suitcase."
+        },
+        {
+          "title": "The surprise exchange rate on your statement",
+          "description": "You pay in euros: the price on the tag is the price you see go through."
+        },
+        {
+          "title": "The \"sorry, your card was declined\"",
+          "description": "International Mastercard: to the terminal, your card is as good as anyone's."
+        }
+      ]
+    },
+    "duo": {
+      "eyebrow": "Two cards, one app",
+      "title1": "Virtual right away, ",
+      "titleHighlight": "physical on arrival.",
+      "un": {
+        "num": "01",
+        "title1": "The virtual one, ",
+        "titleHighlight": "in your phone",
+        "body": "It's born in the app with your account and slips into Apple Pay or Google Pay. You pay online and contactless from day one, enough to book your accommodation before you even pack.",
+        "mock": {
+          "walletTitle": "Your wallet",
+          "cardName": "Treepi card · virtual",
+          "cardState": "Active",
+          "applePay": "Added to Apple Pay",
+          "googlePay": "Added to Google Pay",
+          "paid": "Booking paid · €62.40"
+        }
+      },
+      "deux": {
+        "num": "02",
+        "title1": "The physical one, ",
+        "titleHighlight": "waiting for you in Europe",
+        "body": "Delivered to your accommodation address or to a Treepi pickup point. You land, you pick it up, and the trip starts without a single branch visit.",
+        "badge": "Pickup point: Paris, for now"
+      }
+    },
+    "controle": {
+      "eyebrow": "In control",
+      "title1": "You're the one ",
+      "titleHighlight": "who decides.",
+      "subtitle": "Your card opens and closes from your phone, not from a branch 5,000 km away.",
+      "items": [
+        {
+          "title": "Instant freeze and unfreeze",
+          "description": "A doubt, a card left in a taxi? Freeze it in a second, unfreeze it just as fast."
+        },
+        {
+          "title": "Limits in your hands",
+          "description": "You set what the card can spend, per day or per month, and change your mind whenever you like."
+        },
+        {
+          "title": "One notification per payment",
+          "description": "Every expense shows up the moment it happens. Nothing moves without you knowing."
+        },
+        {
+          "title": "3D Secure online",
+          "description": "Web payments are confirmed in the app, nobody pays in your place."
+        }
+      ],
+      "mock": {
+        "title": "My card",
+        "state": "Card active",
+        "freeze": "Freeze my card",
+        "online": "Online payments",
+        "contactless": "Contactless",
+        "cap": "Monthly limit",
+        "capValue": "€1,500",
+        "notif": "Notification for every payment"
+      }
+    },
+    "lancement": {
+      "title1": "Your account first. ",
+      "titleHighlight": "Your card follows.",
+      "body": "We'd rather tell you straight: the Treepi card isn't launched yet. Your European account is ready today: IBAN in your name, top-ups from Africa, the certificate for your visa. The card will land on it the day it ships, and Treepers get served first.",
+      "ctaCompte": "Open my European account",
+      "placeholder": "Your email address"
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title1": "The card, ",
+      "titleHighlight": "in plain words.",
+      "items": [
+        {
+          "question": "When will the card be available?",
+          "answer": "It's coming in the next versions of the app. Open your account now: you'll be told first, and your card will attach itself to it, no extra steps."
+        },
+        {
+          "question": "Will I be able to pay before receiving the physical card?",
+          "answer": "Yes. The virtual card is born in the app and joins Apple Pay or Google Pay: you pay online and contactless while the physical one travels to you."
+        },
+        {
+          "question": "Where will the physical card be delivered?",
+          "answer": "To your accommodation address in Europe, or to a Treepi pickup point, in Paris for now. You choose when ordering, from the app."
+        },
+        {
+          "question": "Will there be hidden fees abroad?",
+          "answer": "No. The card is in euros: no automatic conversion, no international surcharge. The price on the shop tag is the price on your statement."
+        },
+        {
+          "question": "How will my card be secured?",
+          "answer": "Instant freeze and unfreeze from the app, custom limits, 3D Secure for online payments and a notification for every expense. Your card obeys you, and nobody else."
         }
       ]
     },
     "finalCta": {
-      "title": "Your card awaits.",
-      "subtitle": "Order, activate and pay, anywhere in the world.",
-      "cta": "Order my card"
+      "title": "It's coming. Be ready before it is.",
+      "subtitle": "Open your account today, your card will land on it by itself.",
+      "cta": "Open my account"
     }
   },
   "tarifs": {
@@ -1759,8 +1779,8 @@
     "breadcrumb": "Pricing",
     "hero": {
       "eyebrow": "Pricing",
-      "title1": "Fair prices, ",
-      "titleHighlight": "Zero surprises.",
+      "title1": "You pay what you see. ",
+      "titleHighlight": "Nothing else.",
       "subtitle": "You pay exactly what you see, every fee is announced <b>before</b> you confirm. And if your visa is refused, <b>your funds are returned</b> and your travel insurance is refunded.",
       "chips": [
         "💶 European account from €0",
@@ -1909,9 +1929,9 @@
       "note": "To subscribe alongside your file, before the consulate's decision."
     },
     "combos": {
-      "eyebrow": "At a glance",
-      "title1": "Build your journey, ",
-      "titleHighlight": "work out your budget.",
+      "eyebrow": "The bill",
+      "title1": "The bill, ",
+      "titleHighlight": "depending on your plan.",
       "subtitle": "Each product is purchased separately, here are the three most common combinations among Treepers.",
       "mostCommon": "Most common",
       "budgetTotal": "Total budget",
@@ -1976,7 +1996,8 @@
           "total": "€630",
           "cta": "Plan for everything"
         }
-      ]
+      ],
+      "annotation": "the bill, please!"
     },
     "trust": [
       "<b>Visa refused?</b> Funds returned within 72 h and travel insurance refunded.",
@@ -2307,6 +2328,15 @@
       "aucuneTransaction": "No transactions",
       "ajoutVisaTitre": "Add my visa",
       "ajoutVisaTexte": "Tell us whether you got your visa or not",
+      "ajoutVisaBadge": "Action required",
+      "ajoutVisaMessage": "Once your visa proof is submitted, you will be able to use your account freely for all your operations before, during and even after your trip.",
+      "ajoutVisaCta": "Add my visa",
+      "visaVerifBadge": "Verification in progress",
+      "visaVerifTexte": "Your visa is being verified…",
+      "visaVerifMessage": "We are reviewing your visa proof. All your account features will be unlocked as soon as it is validated.",
+      "visaOkBadge": "Visa verified",
+      "visaOkTexte": "Your visa has been verified.",
+      "visaOkMessage": "Your account is now fully activated: transfers, payments and all Treepi services are open to you.",
       "servicesTitre": "Go further with Treepi",
       "services": [
         {
@@ -2366,7 +2396,22 @@
       "deplier": "Expand the menu",
       "simulateurChoisirDevise": "Choose a currency",
       "simulateurIndicatif": "Indicative rate",
-      "bientotCourt": "Soon"
+      "simulateurTauxReel": "Live rate, {heure}",
+      "bientotCourt": "Soon",
+      "ouverture": {
+        "badge": "In a few minutes",
+        "titre": "Open your Euro account",
+        "texte": "Pick your pack, verify your identity and get your European IBAN to build your proof of funds.",
+        "cta": "Open my account",
+        "paiementBadge": "File signed",
+        "paiementTitre": "Finalise your payment",
+        "paiementTexte": "Your file is signed. Complete your opening payment to activate your Euro account.",
+        "paiementCta": "Make my payment",
+        "verificationTitre": "Proof of payment under review",
+        "verificationTexte": "Your account will be activated within 24 business hours at the latest. You will receive a message."
+      },
+      "financementTitre": "Your Euro account is open!",
+      "financementTexte": "Top it up to build your proof of funds."
     },
     "inscription": {
       "titre": "Sign up",
@@ -2464,7 +2509,8 @@
       },
       "telephone": {
         "label": "Phone number",
-        "placeholder": "06 00 00 00 00"
+        "indicatifLabel": "Country code",
+        "erreurFormat": "Incomplete number: {attendu} digits expected in the format {format}."
       },
       "bravo": {
         "titre1": "Congrats!",
@@ -2745,38 +2791,6 @@
                 ]
               }
             ]
-          },
-          {
-            "id": "recours",
-            "nom": "Visa appeal insurance",
-            "accroche": "To protect your trip if your visa is refused",
-            "note": "Visa appeal up to €15,000",
-            "sections": [
-              {
-                "titre": "A complete service all year round:",
-                "items": [
-                  "1 French IBAN + 1 account number in your name",
-                  "Annual account management fee",
-                  "Top up your account from Africa",
-                  "Receive international transfers",
-                  "Unlimited financial documents for a Schengen visa",
-                  "Certificate accepted and recognised by every consulate",
-                  "Connection with a specialised lawyer",
-                  "Case review if your visa is refused",
-                  "Full coverage of costs (up to €15,000)"
-                ]
-              },
-              {
-                "titre": "Included once your visa is granted after appeal:",
-                "items": [
-                  "Funds unlocked and full access to your money",
-                  "Mastercard cards (virtual & physical)",
-                  "Pay anywhere in the world",
-                  "Unlimited SEPA bank transfers",
-                  "Cash withdrawals"
-                ]
-              }
-            ]
           }
         ]
       },
@@ -2836,10 +2850,6 @@
         "signatureModaleConfirmer": "I sign and accept",
         "signatureModaleAnnuler": "Cancel",
         "suivant": "Continue",
-        "succesAvant": "Your Euro account is ",
-        "succesCle": "open!",
-        "succesTexte": "Congratulations {prenom}! Your file is approved. Top up your account to start giving it value in euros.",
-        "succesCta": "Go to my account",
         "secteurLabel": "Field of work",
         "secteurs": [
           "IT / Tech",
@@ -2883,6 +2893,125 @@
         "recapFinSous": "To prove your solvency to the consular services for your trip.",
         "confirmer": "Confirm"
       },
+      "paiementOuverture": {
+        "titre": "Euro account",
+        "pack1TitreAvant": "Account management ",
+        "pack1TitreCle": "fees",
+        "pack1Description": "Pay your pack's annual fees to finalise the opening of your Euro account.",
+        "pack2TitreAvant": "Fund my ",
+        "pack2TitreCle": "trip",
+        "pack2Description": "Top up your account to build your proof of funds: your pack fees are included in the total.",
+        "infoAvant": "Key ",
+        "infoCle": "information",
+        "infoTexte1": "To obtain your Schengen visa, you can only top up your Treepi account to fund your trip. This deposit serves as a financial guarantee for your visa application.",
+        "infoTexte2": "This money remains yours: it will cover your expenses during your stay.",
+        "consentement": "I certify that my money complies with the condition above.",
+        "canalQuestionPack1": "How would you like to pay your fees?",
+        "canalQuestionPack2": "How would you like to add money to your Euro account?",
+        "canalVirement": "By bank transfer",
+        "canalVirementSous": "From a bank account in your name",
+        "canalEspeces": "Cash deposit",
+        "canalEspecesSous": "At a Treepi partner bank",
+        "origineQuestion": "Where will you send the transfer from?",
+        "origineLocal": "From my bank account in my country",
+        "origineEurope": "From a bank account in Europe (SEPA area)",
+        "paysQuestion": "In which country will you make the deposit?",
+        "paysLabel": "Deposit country",
+        "paysPlaceholder": "Select a country",
+        "montantTitreAvant": "How much would you like to ",
+        "montantTitreCle": "top up",
+        "montantTitreApres": "?",
+        "montantLabel": "Amount to credit",
+        "equivalent": "The amount is converted at today's rate.",
+        "taux": "€1 = {taux} FCFA",
+        "montantInfo": "Plan between €150 and €200 per day of stay in a hotel or Airbnb, and between €75 and €100 if you are hosted by a relative.",
+        "recapTitre": "Payment summary",
+        "ligneCredite": "Credited amount",
+        "ligneFraisPack": "Management fees (pack)",
+        "ligneFraisTransfert": "Transfer fees",
+        "ligneTotalVirement": "Total amount to transfer",
+        "ligneTotalDepot": "Total amount to deposit",
+        "soit": "i.e. {valeur}",
+        "instructionsTitre": "Instructions to finalise your payment",
+        "instructionsVirement": "Send the transfer from your bank using the Treepi account references below, quoting your file reference in the description.",
+        "instructionsEspeces": "Go to a Treepi partner bank in your country with your file reference, then deposit the total amount.",
+        "titulaireLabel": "Account holder",
+        "ibanLabel": "IBAN",
+        "bicLabel": "BIC",
+        "referenceLabel": "File reference",
+        "totalLabel": "Amount to pay",
+        "delais": "Transfers from Europe arrive within 24 to 48 business hours, local transfers and cash deposits within 24 to 72 hours.",
+        "alerte": "Respect the exact amount and reference shown: an incomplete payment or one without a reference delays the opening of your account. You have 30 days to make your payment.",
+        "jaiPaye": "I have made the payment",
+        "financeurQuestion": "Who is funding your trip?",
+        "financeurs": [
+          {
+            "cle": "moi",
+            "titre": "Myself",
+            "sous": "With my own money"
+          },
+          {
+            "cle": "famille",
+            "titre": "Close family",
+            "sous": "A parent or relative funds your trip"
+          },
+          {
+            "cle": "entreprise",
+            "titre": "Company",
+            "sous": "An employer or company funds your trip"
+          },
+          {
+            "cle": "autre",
+            "titre": "Other",
+            "sous": "Another source of funding"
+          }
+        ],
+        "detailsTitre": "Information to complete",
+        "nomLabel": "Last name",
+        "prenomLabel": "First name",
+        "lienLabel": "Family relationship",
+        "lienPlaceholder": "Father, mother, uncle...",
+        "raisonLabel": "Company name",
+        "telephoneLabel": "Phone number",
+        "emailLabel": "Email address",
+        "precisionLabel": "Source of funding",
+        "precisionPlaceholder": "Scholarship, sponsor, association...",
+        "pieceTitre": "Funder's identity document",
+        "pieceSousTitre": "It certifies the identity of the person or organisation providing the funds.",
+        "pieceAccepteItems": [
+          "Valid passport or identity card",
+          "Company registration certificate (company)"
+        ],
+        "provenanceQuestion": "What is the source of the funds?",
+        "provenanceLabel": "Source of funds",
+        "provenancePlaceholder": "Select a source",
+        "provenances": [
+          "Personal savings",
+          "Salary",
+          "Banker's draft",
+          "Inheritance or donation",
+          "Personal loan",
+          "Investment loan",
+          "Other"
+        ],
+        "justifTitre": "Upload your proof of payment",
+        "justifSousTitre": "It links your payment to your opening file.",
+        "justifAccepteItems": [
+          "Cash deposit receipt",
+          "Transfer confirmation issued by your bank"
+        ],
+        "accepteTitre": "Accepted documents:",
+        "fichierChoisir": "Choose a file",
+        "fichierFormats": "JPEG, PNG, PDF, up to 50MB",
+        "fichierPhoto": "Take a photo",
+        "fichierParcourir": "Browse my files",
+        "soumettreCta": "Submit my proof",
+        "suivant": "Next",
+        "soumisAvant": "Your proof of payment has been ",
+        "soumisCle": "received",
+        "soumisTexte": "It will be verified within a maximum of 24 business hours. You will receive a message as soon as it is validated.",
+        "soumisCta": "Got it"
+      },
       "paiement": {
         "titre": "Card payment",
         "numero": "Card number",
@@ -2897,12 +3026,45 @@
         "introDescription": "Get a reliable document proving, for your visa application, that you have enough income to fund your trip.",
         "introReconnue": "This certificate is genuine and recognised by every consulate in the Schengen area.",
         "introGratuite": "Good news! This certificate is 100% free for you as it's included in your current plan (no fees, unlimited generation for a year).",
+        "introFrais": "Fees: generating your guarantee certificate costs €100/year (unlimited generation).",
         "introCta": "Get my certificate",
         "montantLabel": "Your financial guarantee certificate is for:",
         "montantAvertissement": "The guaranteed amount matches the balance available on your Euro account.",
+        "budgetInfo": "Plan for at least €150 to €200 per day if you're staying in a hotel or an Airbnb. If you're hosted by a relative, plan for €75 to €100 per day.",
         "sejourTitre": "Trip details",
         "paysLabel": "Destination country",
         "paysPlaceholder": "Select a country",
+        "paysSchengen": [
+          "Austria",
+          "Belgium",
+          "Bulgaria",
+          "Croatia",
+          "Czech Republic",
+          "Denmark",
+          "Estonia",
+          "Finland",
+          "France",
+          "Germany",
+          "Greece",
+          "Hungary",
+          "Iceland",
+          "Italy",
+          "Latvia",
+          "Liechtenstein",
+          "Lithuania",
+          "Luxembourg",
+          "Malta",
+          "Netherlands",
+          "Norway",
+          "Poland",
+          "Portugal",
+          "Romania",
+          "Slovakia",
+          "Slovenia",
+          "Spain",
+          "Sweden",
+          "Switzerland"
+        ],
         "motifLabel": "Purpose of stay",
         "motifs": [
           "Tourism",
@@ -2980,57 +3142,186 @@
         "introCle": "visa",
         "introDescription": "A granted visa means full access to the app. From then on you can do everything, without limits.",
         "infoTitre": "Information to complete",
-        "avertissement": "Before finishing and submitting your file, make sure all the completed information is correct.",
-        "sectionVisa": "Visa details",
-        "sectionHebergement": "Proof of accommodation",
-        "valider": "Submit my file",
-        "visaTypeLabel": "Visa type",
-        "visaTypes": [
-          "Short stay (Schengen)",
-          "Long stay",
-          "Student",
-          "Work",
-          "Visitor"
-        ],
-        "visaPaysLabel": "Destination country",
-        "visaPaysPlaceholder": "Select a country",
-        "visaDepartLabel": "Expected entry date",
-        "visaRetourLabel": "Expected exit date",
+        "questionObtenu": "Have you obtained your visa?",
+        "oui": "Yes",
+        "non": "No",
+        "pasEncoreTexte": "No visa yet? Come back and submit your proof as soon as you get it: it will unlock full use of your account.",
+        "retourAccueil": "Back to home",
+        "debutLabel": "Visa validity start date:",
+        "finLabel": "Visa validity end date:",
         "datePlaceholder": "DD/MM/YYYY",
-        "hebergementTitre": "Type of accommodation",
-        "hebergementOptions": [
-          {
-            "id": "reservation",
-            "titre": "Hotel booking",
-            "sous": "Confirmation of a hotel reservation."
-          },
-          {
-            "id": "proche",
-            "titre": "Staying with someone",
-            "sous": "Proof of accommodation from a host."
-          },
-          {
-            "id": "proprietaire",
-            "titre": "I'm the owner",
-            "sous": "Property deed or lease in your name."
-          }
+        "paysLabel": "Schengen visa issuing country:",
+        "paysPlaceholder": "Select a country",
+        "motifLabel": "Purpose of stay:",
+        "motifPlaceholder": "Select a purpose",
+        "attestationInfo": "If you obtained a blocked funds certificate, the destination country and the purpose of stay must match the ones written on your certificate.",
+        "preuveTitreAvant": "Upload your proof of ",
+        "preuveTitreCle": "visa approval",
+        "consignes": [
+          "All four corners of the document must be visible",
+          "All information must be fully readable"
         ],
-        "hebergementFichierTitre": "Upload a document",
-        "hebergementFichierSous": "Select and upload your file(s)",
-        "hebergementAccepteTitre": "Accepted documents:",
-        "hebergementAccepteItems": [
-          "Booking, host certificate or property deed"
+        "fichierTitre": "Upload a file",
+        "fichierSous": "Select and upload the file(s)",
+        "accepteTitre": "Accepted documents:",
+        "accepteItems": [
+          "Proof of visa approval"
         ],
-        "hebergementChoisir": "Choose a file",
-        "hebergementFormats": "JPEG, PNG, PDF, up to 50 MB",
-        "hebergementPhoto": "Take a photo",
-        "hebergementParcourir": "Browse",
-        "enregistrer": "Save",
-        "fait": "Completed",
-        "succesAvant": "Your visa file is ",
+        "choisir": "Choose a file",
+        "formats": "JPEG, PNG, PDF, up to 50MB",
+        "photo": "Take a photo",
+        "parcourir": "Browse",
+        "suivant": "Next",
+        "paysSchengen": [
+          "Austria",
+          "Belgium",
+          "Bulgaria",
+          "Croatia",
+          "Czech Republic",
+          "Denmark",
+          "Estonia",
+          "Finland",
+          "France",
+          "Germany",
+          "Greece",
+          "Hungary",
+          "Iceland",
+          "Italy",
+          "Latvia",
+          "Liechtenstein",
+          "Lithuania",
+          "Luxembourg",
+          "Malta",
+          "Netherlands",
+          "Norway",
+          "Poland",
+          "Portugal",
+          "Romania",
+          "Slovakia",
+          "Slovenia",
+          "Spain",
+          "Sweden",
+          "Switzerland"
+        ],
+        "motifs": [
+          "Studies",
+          "Tourism",
+          "Business",
+          "Family visit",
+          "Work",
+          "Medical care"
+        ],
+        "succesAvant": "Your visa proof has been ",
         "succesCle": "submitted!",
-        "succesTexte": "We're reviewing your file. You'll get an answer very soon and your account switches to full access.",
-        "succesCta": "Go to my account"
+        "succesTexte": "We are verifying your visa. All your account features will be unlocked as soon as it is validated.",
+        "succesCta": "Back to home",
+        "hebergementIntroAvant": "Proof of ",
+        "hebergementIntroCle": "accommodation",
+        "hebergementIntroDescription": "Tell us where you will be staying during your trip. This lets us comply with the rules in force.",
+        "hebergementTitre": "Accommodation in <c>{pays}</c>",
+        "typeLabel": "Type of accommodation",
+        "typeReservation": "I have a booking (hotel/airbnb)",
+        "typeProche": "I am hosted by a relative",
+        "typeProprietaire": "I own my home",
+        "adresseReservationLabel": "Address in {pays} of the hotel/airbnb* :",
+        "adresseProprietaireLabel": "Address in {pays} of the private home* :",
+        "adresseProcheLabel": "Address in {pays}:",
+        "adressePlaceholder": "Street number and name",
+        "hoteLabel": "At Mr/Mrs ..., floor:",
+        "hoteAide": "If you are being hosted, adding the host's first and last name is mandatory.",
+        "hotePlaceholder": "Host's first name, last name and floor",
+        "codePostalLabel": "Postal code:",
+        "codePostalReservationLabel": "Postal code* :",
+        "codePostalPlaceholder": "Postal code",
+        "villeLabel": "City:",
+        "villePlaceholder": "City",
+        "telephoneLabel": "Phone number of the hotel/airbnb:",
+        "justificatifTitreAvant": "Upload your ",
+        "justificatifTitreCle": "proof of accommodation",
+        "hebergementDocs": {
+          "reservation": {
+            "items": [
+              {
+                "texte": "A hotel or Airbnb booking",
+                "marque": "puce"
+              },
+              {
+                "texte": "Less than 3 months old",
+                "marque": "check"
+              },
+              {
+                "texte": "With the dates of your stay",
+                "marque": "check"
+              },
+              {
+                "texte": "And the address of the accommodation",
+                "marque": "check"
+              }
+            ]
+          },
+          "proprietaire": {
+            "items": [
+              {
+                "texte": "An electricity bill in your name less than 3 months old",
+                "marque": "puce"
+              },
+              {
+                "texte": "OR",
+                "marque": "separateur"
+              },
+              {
+                "texte": "A property deed in your name",
+                "marque": "puce"
+              },
+              {
+                "texte": "OR",
+                "marque": "separateur"
+              },
+              {
+                "texte": "A lease in your name less than 3 months old",
+                "marque": "puce"
+              }
+            ]
+          },
+          "proche": {
+            "items": [
+              {
+                "texte": "A proof of accommodation signed by your host",
+                "marque": "puce"
+              },
+              {
+                "texte": "A recent bill (water, electricity) in your host's name",
+                "marque": "plus"
+              },
+              {
+                "texte": "A copy of their passport or residence permit",
+                "marque": "plus"
+              }
+            ],
+            "note": "The documents must be less than 3 months old and combined into a single PDF."
+          }
+        },
+        "recapTitre": "Information to complete",
+        "recapAvertissement": "Before finishing and submitting your file, make sure all completed information is correct.",
+        "recapSectionVisa": "Visa approval",
+        "recapSectionHebergement": "Proof of accommodation",
+        "recapObtenu": "Visa obtained:",
+        "recapDebut": "Validity start:",
+        "recapFin": "Validity end:",
+        "recapPays": "Issuing country:",
+        "recapMotif": "Purpose of stay:",
+        "recapPreuve": "Proof of visa approval:",
+        "recapType": "Type of accommodation:",
+        "recapHote": "Host:",
+        "recapAdresse": "Accommodation address:",
+        "recapCodePostal": "Postal code:",
+        "recapVille": "City:",
+        "recapTelephone": "Accommodation phone number:",
+        "recapJustificatif": "Proof of accommodation:",
+        "recapTypeReservation": "Booking (hotel/airbnb)",
+        "recapTypeProche": "Hosted by a relative",
+        "recapTypeProprietaire": "Home owner",
+        "valider": "Confirm"
       },
       "recours": {
         "titre": "Visa appeal",

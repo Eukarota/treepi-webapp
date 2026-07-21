@@ -2,13 +2,23 @@
  * API du compte Euro (simulation).
  *
  * Contrat du futur backend : solde, transactions, phase du parcours visa.
- * La simulation persiste l'état en localStorage ; l'activation du compte
- * (écran « Félicitations ») crédite le compte comme dans les maquettes
- * « Pack 2 (option dépôt) » : +2750 € via une conversion XOF → EUR.
+ * Le compte Euro est un produit payant qui suit la checklist d'ouverture des
+ * maquettes (« Compléter tes infos, Signer ton contrat, Effectuer ton
+ * paiement, Bienvenue sur Treepi ») :
+ *  1. `ouvrirCompteEuro` clôt le dossier (pack + KYC + signature) →
+ *     `attente-paiement` ;
+ *  2. `soumettrePaiementOuverture` enregistre le money-in et son justificatif
+ *     (frais seuls pour le pack « compte », première recharge « Financer mon
+ *     voyage » avec conformité financeur/provenance pour le pack
+ *     « attestation ») → `attente-validation` ;
+ *  3. la validation (15 min à 24 h ouvrées en réel, ~25 s simulées dans
+ *     `obtenirCompte`) active le compte et crédite le montant rechargé.
+ * Aucun prélèvement différé : les frais du pack sont payés dans le money-in
+ * d'onboarding, jamais débités du solde.
  */
 
 import { ecrireStockage, genererId, latenceReseau, lireStockage } from "./client";
-import type { PackId } from "./packs";
+import { trouverPack, type PackId } from "./packs";
 
 /** Mouvement affiché dans la liste « Transactions » du tableau de bord. */
 export interface Transaction {
@@ -66,6 +76,105 @@ export interface InfosKyc {
   ppe?: boolean;
 }
 
+/**
+ * Statut de la preuve de visa (carte « Ajouter mon visa ») :
+ * aucun = pas encore transmise ; verification = transmise, en cours de
+ * vérification par Treepi ; verifie = validée, compte entièrement activé.
+ */
+export type StatutVisa = "aucun" | "verification" | "verifie";
+
+/** Type d'hébergement déclaré pour le séjour (pilote les champs et justificatifs). */
+export type TypeHebergement = "reservation" | "proche" | "proprietaire";
+
+/**
+ * Justificatif d'hébergement du séjour, collecté après la preuve de visa. Les
+ * champs varient selon le type : `hote` pour un hébergement chez un proche,
+ * `telephone` pour une réservation d'hôtel/airbnb.
+ */
+export interface InfosHebergement {
+  type: TypeHebergement;
+  /** Nom, prénom et étage de l'hébergeur (hébergement chez un proche). */
+  hote?: string;
+  adresse: string;
+  codePostal: string;
+  ville: string;
+  /** Téléphone de l'hôtel/airbnb (hébergement en réservation). */
+  telephone?: string;
+  /** Nom du justificatif d'hébergement téléversé. */
+  justificatif?: string;
+}
+
+/**
+ * État du parcours d'ouverture du compte Euro (machine à états) :
+ * aucun = pas de dossier ; attente-paiement = dossier signé, paiement
+ * d'ouverture à effectuer ; attente-validation = justificatif soumis, en
+ * cours de vérification ; actif = compte Euro activé.
+ */
+export type EtatOuverture = "aucun" | "attente-paiement" | "attente-validation" | "actif";
+
+/** Canal du paiement d'ouverture (money-in avec justificatif, jamais de carte). */
+export type CanalPaiement = "especes" | "virement-local" | "virement-europe";
+
+/** Qui finance le voyage (volet conformité LCB-FT du pack preuve). */
+export type TypeFinanceur = "moi" | "famille" | "entreprise" | "autre";
+
+/**
+ * Identité du financeur tiers déclarée pendant le paiement d'ouverture du pack
+ * preuve. Les champs varient selon le type (famille : lien de parenté ;
+ * entreprise : raison sociale ; autre : précision libre).
+ */
+export interface FinanceurTiers {
+  type: TypeFinanceur;
+  nom?: string;
+  prenom?: string;
+  lienParente?: string;
+  raisonSociale?: string;
+  telephone?: string;
+  email?: string;
+  precision?: string;
+  /** Nom du fichier de la pièce d'identité du financeur téléversée. */
+  piece?: string;
+}
+
+/**
+ * Paiement d'ouverture soumis à la validation. Pour le pack « compte », seuls
+ * les frais sont payés (`montantCredite` = 0) ; pour le pack « attestation »,
+ * le total fond la première recharge et les frais (simulation affichée à
+ * l'écran « Financer mon voyage »).
+ */
+export interface PaiementOuverture {
+  canal: CanalPaiement;
+  /** Pays du dépôt (canal espèces). */
+  paysDepot?: string;
+  /** Montant qui créditera le solde à l'activation (0 pour le pack compte). */
+  montantCredite: number;
+  fraisPack: number;
+  fraisTransfert: number;
+  /** Montant total à virer ou déposer (crédité + frais). */
+  total: number;
+  /** Déclarations de conformité du pack preuve. */
+  financeur?: FinanceurTiers;
+  provenanceFonds?: string;
+  /** Nom du fichier du justificatif de paiement téléversé. */
+  justificatif?: string;
+  /** Date ISO de soumission (pilote la validation simulée). */
+  soumisLe: string;
+}
+
+/** Informations du visa obtenu, collectées dans le flux « Obtention de visa ». */
+export interface InfosVisa {
+  /** Dates de validité du visa (ISO AAAA-MM-JJ). */
+  debutValidite: string;
+  finValidite: string;
+  /** Pays de délivrance du visa Schengen. */
+  paysDelivrance: string;
+  motifSejour: string;
+  /** Nom du fichier de preuve d'obtention de visa téléversé. */
+  preuve?: string;
+  /** Justificatif d'hébergement pendant le séjour (type + adresse + document). */
+  hebergement?: InfosHebergement;
+}
+
 export interface CompteEuro {
   soldeEuros: number;
   transactions: Transaction[];
@@ -73,21 +182,31 @@ export interface CompteEuro {
   phase: "pre-visa" | "post-visa";
   /** L'utilisateur a-t-il renseigné son visa (carte « Ajouter mon visa »). */
   visaAjoute: boolean;
+  /** Statut de la vérification de la preuve de visa. */
+  statutVisa?: StatutVisa;
+  /** Date ISO de soumission de la preuve (pilote la vérification simulée). */
+  visaSoumisLe?: string;
+  /** Informations du visa transmises à la soumission. */
+  visa?: InfosVisa;
   /** Progression du profil (anneau autour de l'avatar), en %. */
   progressionProfil: number;
   /** Le compte Euro a-t-il été activé (écran « Félicitations »). */
   active: boolean;
-  /** Le dossier d'ouverture (KYC + signature) est-il complété. */
+  /** Le compte Euro est-il actif (paiement d'ouverture validé). */
   ouvert?: boolean;
+  /** État détaillé du parcours d'ouverture (machine à états). */
+  etatOuverture?: EtatOuverture;
   /** Pack souscrit à l'ouverture. */
   packId?: PackId;
   /** Informations d'identité collectées au KYC. */
   kyc?: InfosKyc;
   /** Date ISO de signature du contrat. */
   signeLe?: string;
+  /** Paiement d'ouverture soumis (frais seuls ou première recharge). */
+  paiementOuverture?: PaiementOuverture;
 }
 
-/** Compte neuf : l'état « Frais de gestion » des maquettes (0 €, vide). */
+/** Compte neuf : aucun produit, l'accueil est en mode découverte. */
 const COMPTE_NEUF: CompteEuro = {
   soldeEuros: 0,
   transactions: [],
@@ -95,22 +214,127 @@ const COMPTE_NEUF: CompteEuro = {
   visaAjoute: false,
   progressionProfil: 0,
   active: false,
+  etatOuverture: "aucun",
 };
+
+/** Durée de la vérification simulée d'une preuve de visa. */
+const DUREE_VERIFICATION_VISA_MS = 30_000;
+
+/**
+ * Durée de la validation simulée du paiement d'ouverture (15 min à 24 h
+ * ouvrées en réel : le backend notifiera par email/push à la validation).
+ */
+const DUREE_VALIDATION_PAIEMENT_MS = 25_000;
+
+/**
+ * Active le compte à la validation du paiement d'ouverture : crédite le
+ * montant rechargé (pack preuve) avec la ligne de la maquette (« XOF → EUR »
+ * pour un dépôt d'espèces, « Compte » pour un virement). Côté backend, cette
+ * bascule sera déclenchée par le back-office de vérification des justificatifs.
+ */
+function activerApresValidation(compte: CompteEuro): CompteEuro {
+  const paiement = compte.paiementOuverture;
+  const credit = paiement?.montantCredite ?? 0;
+  const mouvements: Transaction[] =
+    credit > 0 && paiement
+      ? [
+          {
+            id: genererId(),
+            type: paiement.canal === "especes" ? "recharge" : "virement",
+            titre: paiement.canal === "especes" ? "XOF → EUR" : "Compte",
+            montantEuros: credit,
+            date: new Date().toISOString(),
+          },
+        ]
+      : [];
+  return {
+    ...compte,
+    etatOuverture: "actif",
+    ouvert: true,
+    active: true,
+    soldeEuros: Math.round((compte.soldeEuros + credit) * 100) / 100,
+    transactions: [...mouvements, ...compte.transactions],
+  };
+}
 
 /** Lit l'état du compte simulé (compte neuf par défaut). */
 export function obtenirCompte(): CompteEuro {
-  return lireStockage<CompteEuro>("compte") ?? COMPTE_NEUF;
+  const brut = lireStockage<CompteEuro>("compte") ?? COMPTE_NEUF;
+  // Migrations des comptes enregistrés avant le statut de visa détaillé et
+  // avant la machine à états d'ouverture.
+  let compte: CompteEuro = {
+    ...brut,
+    statutVisa: brut.statutVisa ?? (brut.visaAjoute ? "verifie" : "aucun"),
+    etatOuverture: brut.etatOuverture ?? (brut.ouvert ? "actif" : brut.signeLe ? "attente-paiement" : "aucun"),
+  };
+  // Simulation : la vérification de la preuve de visa aboutit ~30 s après la
+  // soumission ; le compte bascule alors en phase post-visa (le vrai backend
+  // notifiera).
+  if (
+    compte.statutVisa === "verification" &&
+    compte.visaSoumisLe &&
+    Date.now() - Date.parse(compte.visaSoumisLe) > DUREE_VERIFICATION_VISA_MS
+  ) {
+    compte = { ...compte, statutVisa: "verifie", visaAjoute: true, phase: "post-visa" };
+    ecrireStockage("compte", compte);
+  }
+  // Simulation : la validation du paiement d'ouverture aboutit ~25 s après la
+  // soumission du justificatif et active le compte.
+  if (
+    compte.etatOuverture === "attente-validation" &&
+    compte.paiementOuverture &&
+    Date.now() - Date.parse(compte.paiementOuverture.soumisLe) > DUREE_VALIDATION_PAIEMENT_MS
+  ) {
+    compte = activerApresValidation(compte);
+    ecrireStockage("compte", compte);
+  }
+  return compte;
 }
 
+/** Dossier KYC pré-rempli du raccourci de démonstration (Awa Diallo). */
+const KYC_DEMO: InfosKyc = {
+  passeportNumero: "19AA45678",
+  paysDelivrance: "Côte d'Ivoire",
+  expiration: "12/05/2030",
+  situationPro: "Étudiant",
+  secteur: "Éducation",
+  revenuMensuel: "800",
+  patrimoine: "Moins de 10 000 €",
+  usPerson: true,
+  ppe: true,
+};
+
 /**
- * Active le compte Euro (fin du flux d'activation) : crédite le pack
- * comme sur la maquette « Pack 2 (option dépôt) ».
+ * Raccourci de démonstration (maquette « Pack 2 option dépôt ») : pose d'un
+ * coup l'état actif complet du pack preuve, comme si l'utilisateur avait signé
+ * son dossier, payé son ouverture par dépôt d'espèces puis été validé. Dans le
+ * vrai parcours, ces étapes passent par `ouvrirCompteEuro` puis
+ * `soumettrePaiementOuverture` ; ce raccourci sert aux démos et aux tests
+ * (aucune entrée d'interface, à appeler depuis la console).
  */
 export async function activerCompte(): Promise<CompteEuro> {
   await latenceReseau();
   const compte: CompteEuro = {
     ...obtenirCompte(),
     active: true,
+    ouvert: true,
+    etatOuverture: "actif",
+    packId: "attestation",
+    kyc: KYC_DEMO,
+    progressionProfil: 100,
+    signeLe: new Date().toISOString(),
+    paiementOuverture: {
+      canal: "especes",
+      paysDepot: "Côte d'Ivoire",
+      montantCredite: 2750,
+      fraisPack: trouverPack("attestation").prixAnnuel,
+      fraisTransfert: 55,
+      total: 3015,
+      financeur: { type: "moi" },
+      provenanceFonds: "Épargne personnelle",
+      justificatif: "justificatif-depot.pdf",
+      soumisLe: new Date().toISOString(),
+    },
     soldeEuros: 2750,
     transactions: [
       {
@@ -201,28 +425,68 @@ export async function debiterCompte(
   return appliquerMouvement(montantEuros, titre, type, "debit");
 }
 
-/** Renseigne l'obtention du visa (bascule les bannières en post-visa). */
-export function definirVisaAjoute(visaAjoute: boolean): CompteEuro {
-  return enregistrerCompte({ ...obtenirCompte(), visaAjoute, phase: visaAjoute ? "post-visa" : "pre-visa" });
+/**
+ * Enregistre la preuve de visa transmise : le compte passe en statut
+ * « vérification en cours » ; la bascule post-visa intervient à la
+ * validation (simulée ~30 s plus tard, voir obtenirCompte).
+ */
+export function soumettreDossierVisa(visa: InfosVisa): CompteEuro {
+  return enregistrerCompte({
+    ...obtenirCompte(),
+    visa,
+    statutVisa: "verification",
+    visaSoumisLe: new Date().toISOString(),
+  });
 }
 
 /**
- * Clôt le parcours d'ouverture du compte Euro (pack + KYC + signature) : active
- * le compte, enregistre le pack et les informations d'identité, et complète la
- * progression du profil. N'alimente pas le solde (la valeur en euros vient des
- * recharges) : le tableau de bord reste sur l'état « Frais de gestion » tant que
- * l'utilisateur n'a pas rechargé.
+ * Clôt le dossier d'ouverture du compte Euro (pack + KYC + signature) :
+ * enregistre le pack et les informations d'identité, complète la progression
+ * du profil et place le compte en `attente-paiement`. Le compte ne devient
+ * actif qu'après le paiement d'ouverture et sa validation.
  */
 export async function ouvrirCompteEuro(packId: PackId, kyc: InfosKyc): Promise<CompteEuro> {
   await latenceReseau();
   return enregistrerCompte({
     ...obtenirCompte(),
-    active: true,
-    ouvert: true,
+    etatOuverture: "attente-paiement",
     packId,
     kyc,
     progressionProfil: 100,
     signeLe: new Date().toISOString(),
+  });
+}
+
+/**
+ * Barème simulé des frais de transfert du paiement d'ouverture, par canal
+ * (part du montant transféré). Le vrai backend le remplacera par la grille du
+ * partenaire money-in.
+ */
+export const TAUX_FRAIS_TRANSFERT: Record<CanalPaiement, number> = {
+  especes: 0.02,
+  "virement-local": 0.01,
+  "virement-europe": 0,
+};
+
+/** Frais de transfert du paiement d'ouverture pour un montant donné. */
+export function fraisTransfertOuverture(canal: CanalPaiement, base: number): number {
+  return Math.round(base * TAUX_FRAIS_TRANSFERT[canal] * 100) / 100;
+}
+
+/**
+ * Soumet le paiement d'ouverture (canal, montants, conformité, justificatif) :
+ * le compte passe en `attente-validation`. L'activation intervient à la
+ * validation du justificatif (simulée ~25 s plus tard, voir `obtenirCompte`) ;
+ * le vrai backend la déclenchera depuis son back-office et notifiera.
+ */
+export async function soumettrePaiementOuverture(
+  paiement: Omit<PaiementOuverture, "soumisLe">
+): Promise<CompteEuro> {
+  await latenceReseau();
+  return enregistrerCompte({
+    ...obtenirCompte(),
+    etatOuverture: "attente-validation",
+    paiementOuverture: { ...paiement, soumisLe: new Date().toISOString() },
   });
 }
 

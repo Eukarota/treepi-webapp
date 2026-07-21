@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
@@ -9,10 +10,15 @@ import { Link } from "@/i18n/navigation";
  * texte re-rendu par-dessus en segments colorés) et pied blanc avec
  * libellé au dégradé turquoise + pilule corail.
  *
- * Carrousel horizontal avec accroche (scroll snap) à toutes les tailles.
- * Les cartes ont une largeur fixe (plus large sur desktop) et défilent sous
- * la carte du solde.
+ * Carrousel horizontal avec accroche (scroll snap) à toutes les tailles,
+ * et défilement automatique : une carte vers la gauche toutes les 5 s,
+ * retour à la première après la dernière (boucle infinie). L'auto-play
+ * se met en pause au survol ou pendant un toucher, et se désactive si
+ * l'utilisateur préfère réduire les animations.
  */
+
+/** Délai entre deux transitions du carrousel automatique. */
+const DELAI_AUTOPLAY_MS = 5000;
 
 interface Segment {
   t: string;
@@ -47,8 +53,37 @@ export default function Bandeaux({ phase }: { phase: "pre-visa" | "post-visa" })
   const t = useTranslations("app.accueil");
   const bandeaux = t.raw(phase === "pre-visa" ? "bannieresPre" : "bannieresPost") as Bandeau[];
 
+  const piste = useRef<HTMLDivElement>(null);
+  const enPause = useRef(false);
+
+  // Auto-play : avance d'une carte toutes les 5 s, revient au début après la
+  // dernière. Le défilement manuel reste possible (scroll snap conservé).
+  useEffect(() => {
+    const conteneur = piste.current;
+    if (!conteneur) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const minuterie = window.setInterval(() => {
+      if (enPause.current || document.hidden) return;
+      const cartes = Array.from(conteneur.querySelectorAll("article"));
+      if (cartes.length < 2) return;
+      // Pas entre deux cartes (largeur + gap), mesuré sur le DOM réel.
+      const pas = cartes[1].offsetLeft - cartes[0].offsetLeft;
+      const index = Math.round(conteneur.scrollLeft / pas);
+      const auBout = conteneur.scrollLeft + conteneur.clientWidth >= conteneur.scrollWidth - 4;
+      const derniere = index >= cartes.length - 1 || auBout;
+      conteneur.scrollTo({ left: derniere ? 0 : (index + 1) * pas, behavior: "smooth" });
+    }, DELAI_AUTOPLAY_MS);
+    return () => window.clearInterval(minuterie);
+  }, [phase]);
+
   return (
     <div
+      ref={piste}
+      onMouseEnter={() => (enPause.current = true)}
+      onMouseLeave={() => (enPause.current = false)}
+      onTouchStart={() => (enPause.current = true)}
+      onTouchEnd={() => (enPause.current = false)}
       className="-mx-6 overflow-x-auto px-6 [scrollbar-width:none] md:mx-0 md:px-0"
       style={{ scrollSnapType: "x mandatory" }}
     >

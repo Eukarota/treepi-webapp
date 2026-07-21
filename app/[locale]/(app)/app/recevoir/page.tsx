@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useSession } from "@/components/app/SessionProvider";
 import { obtenirRibUtilisateur } from "@/lib/api/compte";
+import { useCompteOuvert } from "@/lib/hooks/useCompteOuvert";
 import EcranApp from "@/components/app/EcranApp";
 import FondApp from "@/components/app/ui/FondApp";
 import CoquilleApp from "@/components/app/CoquilleApp";
@@ -22,12 +23,13 @@ export default function PageRecevoir() {
   const t = useTranslations("app.flux.recevoir");
   const router = useRouter();
   const { session, chargement } = useSession();
+  const ouvert = useCompteOuvert();
 
   useEffect(() => {
     if (!chargement && !session) router.replace("/app/bienvenue");
   }, [chargement, session, router]);
 
-  if (!session) return null;
+  if (!session || !ouvert) return null;
 
   const rib = obtenirRibUtilisateur(session.utilisateur);
   const quitter = () => router.push("/app/accueil");

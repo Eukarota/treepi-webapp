@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { seConnecter } from "@/lib/api/auth";
-import { activerCompte } from "@/lib/api/compte";
+import { obtenirCompte } from "@/lib/api/compte";
 import { useSession } from "@/components/app/SessionProvider";
 import EcranApp from "@/components/app/EcranApp";
 import FondApp from "@/components/app/ui/FondApp";
@@ -15,11 +15,14 @@ import Swirl from "@/components/ui/Swirl";
 
 /*
  * Activation du compte Euro (section « Activation compte » des maquettes) :
+ * le retour de l'utilisateur une fois le paiement d'ouverture validé (l'accueil
+ * y redirige une seule fois quand le compte devient actif) :
  *  1. reconnexion avec proposition biométrique (« Ou utilise l'empreinte
  *     digitale ou faciale ») ; la biométrie est simulée et réussit toujours ;
  *  2. écran « Félicitations ton compte Euro a été créé » (dégradé orange,
- *     high-five, arche blanche) ; « J'accède à mon compte Euro » crédite le
- *     compte (maquette Pack 2 option dépôt) puis lance le tutoriel.
+ *     high-five, arche blanche) ; « J'accède à mon compte Euro » mémorise le
+ *     passage (`treepi.activation-vue`) puis lance le tutoriel. Le dashboard
+ *     reflète le pack : 0 € (pack compte) ou solde crédité (pack preuve).
  */
 export default function PageActivation() {
   const t = useTranslations("app");
@@ -30,6 +33,12 @@ export default function PageActivation() {
   const [email, setEmail] = useState("");
   const [motDePasse, setMotDePasse] = useState("");
   const [enCours, setEnCours] = useState(false);
+
+  // L'écran n'a de sens qu'une fois le compte actif (paiement validé).
+  const [actif] = useState(() => (typeof window === "undefined" ? true : Boolean(obtenirCompte().ouvert)));
+  useEffect(() => {
+    if (!actif) router.replace("/app/accueil");
+  }, [actif, router]);
 
   /** Connexion classique ou biométrique (toujours acceptée en mode test). */
   const connecter = async (biometrie: boolean) => {
@@ -45,12 +54,14 @@ export default function PageActivation() {
     }
   };
 
-  /** Crédite le compte activé puis enchaîne sur le tutoriel facultatif. */
-  const accederAuCompte = async () => {
+  /** Mémorise le passage par l'écran puis enchaîne sur le tutoriel facultatif. */
+  const accederAuCompte = () => {
     setEnCours(true);
-    await activerCompte();
+    window.localStorage.setItem("treepi.activation-vue", "1");
     router.replace("/app/tutoriel");
   };
+
+  if (!actif) return null;
 
   if (etape === "felicitations") {
     return (

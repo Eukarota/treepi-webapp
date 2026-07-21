@@ -534,11 +534,18 @@
     },
     "breadcrumb": "Compte européen",
     "hero": {
-      "eyebrow": "Solution · Compte européen",
-      "title1": "Un compte européen, ouvert depuis ",
-      "titleHighlight": "chez toi.",
-      "subtitle": "La première application financière qui permet à des voyageurs africains d'ouvrir un compte Européen, en leur nom, depuis leur pays en Afrique.",
+      "badge": "Le compte européen",
+      "title1": "Ton IBAN européen, ouvert depuis ",
+      "words": [
+        "Dakar.",
+        "Abidjan.",
+        "Douala.",
+        "Cotonou.",
+        "Yaoundé."
+      ],
+      "subtitle": "24 heures, ton passeport, et un compte à ton nom dans un établissement régulé en Europe. Sans guichet, sans file d'attente, sans « revenez lundi ».",
       "cta": "Ouvrir mon compte européen",
+      "annotation": "à ton nom, pas à celui d'un cousin",
       "mock": {
         "badge": "✓ Compte actif",
         "ibanLabel": "Ton IBAN Treepi",
@@ -547,67 +554,65 @@
         "holder": "AWA DIALLO",
         "balanceLabel": "Solde disponible",
         "balance": "1 250,00 €",
-        "cardNote": "<b>Pas encore de carte</b>, la carte Treepi arrive bientôt ! Ton compte, lui, est prêt aujourd'hui."
+        "toastTitle": "Recharge reçue",
+        "toastBody": "Dépôt d'espèces à Dakar · +400 €"
       }
     },
-    "procedure": {
-      "eyebrow": "La procédure",
-      "title1": "Ouvrir un compte européen Treepi ",
-      "titleHighlight": "est facile.",
-      "subtitle": "Cinq étapes, 100 % en ligne, depuis ton téléphone.",
-      "steps": [
+    "trois": {
+      "eyebrow": "Ce qu'il change",
+      "title1": "Un compte, ",
+      "titleHighlight": "trois pouvoirs.",
+      "subtitle": "Il prépare ton visa, reçoit de l'aide, et paie ton séjour. Dans cet ordre.",
+      "items": [
         {
-          "title": "Infos personnelles",
-          "description": "Nom, coordonnées, projet de voyage."
+          "image": "/app/illustrations/justification.svg",
+          "title": "Prouver que tu peux financer ton séjour",
+          "description": "Tes fonds, déposés et bloqués sur ton compte, servent de base à l'attestation de garantie financière qui rassure le consulat.",
+          "linkLabel": "L'attestation en détail",
+          "href": "/attestation-garantie"
         },
         {
-          "title": "Passeport",
-          "description": "Une photo de ton passeport africain."
+          "image": "/app/illustrations/africa.svg",
+          "title": "Recevoir de l'aide, proprement",
+          "description": "Un proche en Europe vire directement sur ton IBAN, à ton nom. L'aide arrive sur ton compte, pas sur celui d'un intermédiaire.",
+          "linkLabel": "Recharger mon compte",
+          "href": "/recharge"
         },
         {
-          "title": "Signature du contrat",
-          "description": "Électronique, directement dans l'app."
-        },
-        {
-          "title": "Paiement des frais",
-          "description": "Selon le pack choisi, compte seul ou avec attestation."
-        },
-        {
-          "title": "Ouverture du compte",
-          "description": "Ton IBAN européen, prêt à l'emploi."
-        }
-      ],
-      "facts": [
-        {
-          "title": "🇪🇺 IBAN",
-          "description": "Un IBAN européen, émis à ton nom"
-        },
-        {
-          "title": "24h",
-          "description": "Ouverture express, 100 % en ligne"
-        },
-        {
-          "title": "🛂 Passeport",
-          "description": "Juste avec ton passeport africain"
+          "image": "/app/illustrations/travel.svg",
+          "title": "Payer ton séjour, comme un local",
+          "description": "Visa en poche, tes fonds se débloquent : virements sortants activés pour le logement, les billets et la vie sur place.",
+          "linkLabel": "Voir le parcours visa",
+          "href": "/attestation-garantie"
         }
       ]
     },
-    "purpose": {
-      "title1": "Un compte pensé pour ",
-      "titleHighlight": "ton voyage.",
-      "subtitle": "Avant tout, ce compte sert à préparer ta demande de visa et à financer ton séjour, afin d'éviter de subir les restrictions et frais de ta banque locale.",
-      "cards": [
+    "procedure": {
+      "eyebrow": "L'ouverture",
+      "title1": "Cinq étapes, ",
+      "titleHighlight": "zéro guichet.",
+      "subtitle": "Tout se passe depuis ton téléphone, passeport à la main. Compte ouvert en 16 minutes, IBAN prêt sous 24 h.",
+      "annotation": "16 minutes, chrono",
+      "steps": [
         {
-          "title": "Ton attestation de garantie financière",
-          "description": "Les fonds sur ton compte servent de base à l'attestation qui rassure le consulat sur ta capacité à financer ton séjour."
+          "title": "Tes infos",
+          "description": "Nom, coordonnées, projet de voyage."
         },
         {
-          "title": "Recevoir des virements",
-          "description": "Un proche en Europe peut t'envoyer des fonds directement sur ton IBAN, à ton nom."
+          "title": "Ton passeport",
+          "description": "Une photo nette, et c'est tout."
         },
         {
-          "title": "Financer ton séjour, une fois le visa en poche",
-          "description": "Dès ta preuve de visa présentée, l'émission de virements est activée pour financer ton séjour en Europe."
+          "title": "Ta signature",
+          "description": "Électronique, directement dans l'app."
+        },
+        {
+          "title": "Les frais du pack",
+          "description": "Compte seul ou avec attestation, affichés avant de payer."
+        },
+        {
+          "title": "Ton IBAN",
+          "description": "Émis à ton nom, prêt à recevoir tes recharges."
         }
       ]
     },
@@ -655,17 +660,11 @@
       ],
       "note": "<b>Ce que tu peux déjà faire :</b> recharger ton compte et recevoir des virements. <b>Ce qui n'est pas encore actif :</b> l'émission de virements, elle se débloque à l'étape suivante, une fois ton visa obtenu."
     },
-    "banner": {
-      "line1": "Ouvre ton compte.",
-      "line2": "Dépasse tes limites.",
-      "line3": "Retrouve ta liberté.",
-      "subtitle": "Pars à la découverte de l'Europe avec Treepi : le compte Euro pour justifier ses revenus et dépenser son argent comme un local."
-    },
     "pricing": {
       "eyebrow": "Le tarif",
       "title1": "Compte seul, ",
       "titleHighlight": "ou compte + attestation.",
-      "subtitle": "Deux façons d'utiliser ton compte, l'attestation change la donne sur les frais de gestion.",
+      "subtitle": "L'ouverture est gratuite dans les deux cas. L'attestation, elle, efface les frais de gestion.",
       "solo": {
         "badge": "Compte seul",
         "title": "Pour préparer ton voyage à ton rythme",
@@ -732,8 +731,8 @@
         },
         {
           "criterion": "Ouverture depuis l'Afrique",
-          "local": ",",
-          "treepi": "Oui, en 24h, avec ton passeport"
+          "local": "Compte local uniquement",
+          "treepi": "Oui, en 24 h, avec ton passeport"
         },
         {
           "criterion": "Virements sortants",
@@ -795,7 +794,7 @@
     },
     "finalCta": {
       "title": "Ton compte européen t'attend.",
-      "subtitle": "Ouvre-le en 24h, juste avec ton passeport."
+      "subtitle": "Ouvre-le en 24 h, juste avec ton passeport."
     }
   },
   "recharge": {
@@ -805,56 +804,54 @@
     },
     "breadcrumb": "Recharge",
     "hero": {
-      "eyebrow": "Recharge",
-      "title1": "Rajoute de l'argent dans ton compte européen depuis l'Afrique ",
-      "titleHighlight": "en 24 h.",
-      "subtitle": "Dépôt d'espèces, virement ou carte, du XOF, du XAF et d'autres devises locales vers ton IBAN européen. <b>Taux et frais affichés avant chaque validation</b>, jamais après.",
+      "badge": "La recharge",
+      "title1": "Ton argent ",
+      "titleHighlight": "voyage avant toi.",
+      "subtitle": "Dépose des francs à Douala le matin, retrouve des euros sur ton IBAN le lendemain. Espèces, carte ou virement : chaque frais s'affiche avant que tu valides, jamais après.",
       "ctaPrimary": "Recharger mon compte",
-      "ctaSecondary": "Voir comment ça marche",
-      "note": "🛡️ Fonds déposés sur <b>un compte à ton nom</b>, dans un établissement régulé en Europe.",
+      "ctaSecondary": "Voir les 3 méthodes",
+      "annotation": "le taux ne bouge pas, promis",
       "mock": {
         "sendLabel": "Tu déposes",
+        "sendValue": "1 640 000 FCFA",
+        "arrival": "Demain matin",
         "receiveLabel": "Tu reçois sur ton compte",
-        "rateNote": "Taux fixe 1 € = 655,957 FCFA · frais selon la méthode, affichés avant validation",
-        "cta": "Recharger ce montant"
+        "receiveValue": "2 500,32 €",
+        "rate": "Taux fixe : 1 € = 655,957 FCFA",
+        "fees": "Frais affichés avant validation"
       },
       "trust": [
-        "<b>Taux fixe garanti</b> pour le XOF et le XAF, pas de conversion surprise",
-        "Frais <b>affichés avant chaque validation</b>, jamais découverts après",
-        "<b>Instantané par carte</b>, sous 24 h par dépôt d'espèces",
-        "<b>Assistance WhatsApp 7 j/7</b>, réponse en moins de 2 h"
+        "Taux fixe garanti XOF & XAF",
+        "Frais affichés avant validation",
+        "Compte à ton nom, régulé en Europe",
+        "Assistance WhatsApp 7 j/7"
       ]
     },
     "methods": {
       "eyebrow": "3 méthodes",
       "title1": "Recharge comme ",
       "titleHighlight": "ça t'arrange.",
-      "subtitle": "Chaque méthode affiche son délai et ses conditions, <b>tu choisis en connaissance de cause</b>.",
-      "fastest": "Le plus rapide",
+      "subtitle": "Chaque méthode affiche son délai et ses conditions : tu choisis en connaissance de cause.",
+      "delayLabel": "Crédité",
       "cards": [
         {
           "title": "Carte bancaire",
-          "description": "Recharge depuis ton téléphone, en quelques instants. Idéal aussi pour un proche en Europe qui veut alimenter ton compte.",
-          "tags": [
-            "Instantané",
-            "100 % en ligne"
-          ]
+          "delay": "Instantané",
+          "flag": "Le plus rapide",
+          "description": "Depuis ton téléphone, en quelques instants. Idéal aussi pour un proche en Europe qui veut alimenter ton compte.",
+          "note": "100 % en ligne"
         },
         {
           "title": "Dépôt d'espèces",
-          "description": "En monnaie locale, dans un point de dépôt partenaire de ton pays. Tu déposes, tu ajoutes ton justificatif, c'est crédité.",
-          "tags": [
-            "Crédité sous 24 h",
-            "Justificatif requis"
-          ]
+          "delay": "≈ 24 h",
+          "description": "En monnaie locale, dans un point de dépôt partenaire de ton pays. Tu déposes, tu photographies ton reçu, c'est crédité.",
+          "note": "Justificatif requis"
         },
         {
           "title": "Virement bancaire",
-          "description": "Depuis un compte bancaire local ou européen, directement vers ton IBAN Treepi, avec ta référence en libellé.",
-          "tags": [
-            "SWIFT : 72 h à 2 semaines",
-            "Sans montant maximum"
-          ]
+          "delay": "72 h à 2 sem.",
+          "description": "Depuis un compte local ou européen, vers ton IBAN Treepi, ta référence en libellé. Anticipe si ta demande de visa approche.",
+          "note": "Sans montant maximum"
         }
       ],
       "currencies": [
@@ -866,56 +863,69 @@
     },
     "steps": {
       "eyebrow": "Comment ça marche",
-      "title1": "Recharger, ",
-      "titleHighlight": "pas à pas.",
-      "subtitle": "Quatre étapes, depuis l'app ou le site, <b>tu sais toujours où en est ton argent</b>.",
+      "title1": "Ton argent, ",
+      "titleHighlight": "suivi à la trace.",
+      "subtitle": "Quatre étapes depuis l'app ou le site. À chaque mouvement, une notification : tu sais toujours où en est ton argent.",
       "items": [
         {
           "title": "Indique ton montant",
-          "description": "En € ou en FCFA, la conversion s'affiche en direct, avec ton objectif visa en repère."
+          "description": "En euros ou en francs, la conversion s'affiche en direct, avec ton objectif visa en repère."
         },
         {
           "title": "Choisis ta méthode",
-          "description": "Espèces, virement ou carte, frais et délais affichés avant de valider."
+          "description": "Espèces, carte ou virement : frais et délais affichés avant de valider."
         },
         {
           "title": "Effectue ton dépôt",
-          "description": "Suis les instructions : montant exact, référence unique à présenter ou à mettre en libellé."
+          "description": "Montant exact, référence unique à présenter ou à mettre en libellé."
         },
         {
           "title": "Ajoute ton justificatif",
-          "description": "Une photo de la preuve de dépôt suffit, elle accélère la validation. Fonds crédités, tu es notifié."
-        }
-      ]
-    },
-    "delays": {
-      "eyebrow": "Délais",
-      "title1": "Des délais ",
-      "titleHighlight": "transparents.",
-      "subtitle": "On préfère te donner les vrais chiffres, <b>et t'aider à anticiper</b>.",
-      "columns": {
-        "method": "Méthode",
-        "delay": "Délai de crédit",
-        "note": "Bon à savoir"
-      },
-      "rows": [
-        {
-          "method": "💳 Carte bancaire",
-          "delay": "Instantané",
-          "note": "Le plus rapide, depuis ton téléphone"
-        },
-        {
-          "method": "💵 Dépôt d'espèces",
-          "delay": "≈ 24 h",
-          "note": "En monnaie locale, justificatif requis"
-        },
-        {
-          "method": "🏦 Virement SWIFT",
-          "delay": "72 h à 2 semaines",
-          "note": "Délai variable selon les banques intermédiaires, anticipe ta demande de visa"
+          "description": "Une photo du reçu suffit, elle accélère la validation. Fonds crédités, tu es prévenu."
         }
       ],
-      "note": "Suivi en temps réel dans ton espace : chaque recharge a sa timeline (initiée → reçue → créditée), avec notification e-mail et WhatsApp à chaque étape."
+      "tracker": {
+        "title": "Ta recharge",
+        "amount": "196 800 FCFA",
+        "credit": "+ 300,02 €",
+        "states": [
+          {
+            "label": "Initiée",
+            "time": "Hier, 9 h 12"
+          },
+          {
+            "label": "Reçue",
+            "time": "Hier, 9 h 40"
+          },
+          {
+            "label": "Créditée sur ton IBAN",
+            "time": "Aujourd'hui, 8 h 03"
+          }
+        ],
+        "notif": "Notification e-mail et WhatsApp à chaque étape"
+      }
+    },
+    "practices": {
+      "eyebrow": "Bonnes pratiques",
+      "title1": "Les conseils qu'on donne ",
+      "titleHighlight": "à nos proches.",
+      "cards": [
+        {
+          "note": "à l'avance !",
+          "title": "Anticipe les virements",
+          "description": "Pour un virement SWIFT, lance ta recharge bien avant ta demande de visa : les banques intermédiaires peuvent prendre jusqu'à 2 semaines."
+        },
+        {
+          "note": "toujours en libellé",
+          "title": "Garde tes justificatifs",
+          "description": "Conserve la preuve de chaque dépôt et mets toujours ta référence Treepi en libellé, c'est ce qui accélère la validation de tes fonds."
+        },
+        {
+          "note": "ni trop, ni trop peu",
+          "title": "Vise ton objectif",
+          "description": "Utilise le simulateur pour recharger exactement ce que ton dossier exige, ni trop tôt à l'aveugle, ni trop peu au dernier moment."
+        }
+      ]
     },
     "simulator": {
       "eyebrow": "Simulateur de recharge",
@@ -938,25 +948,6 @@
       "cta": "Recharger {amount} →",
       "rateNote": "Taux fixe garanti : 1 € = 655,957 FCFA",
       "disclaimer": "Frais et taux affichés avant chaque validation, jamais après."
-    },
-    "practices": {
-      "eyebrow": "Bonnes pratiques",
-      "title1": "Recharge ",
-      "titleHighlight": "sereinement.",
-      "cards": [
-        {
-          "title": "Anticipe les virements",
-          "description": "Pour un virement SWIFT, lance ta recharge bien avant ta demande de visa : les banques intermédiaires peuvent prendre jusqu'à 2 semaines."
-        },
-        {
-          "title": "Garde tes justificatifs",
-          "description": "Conserve la preuve de chaque dépôt et mets toujours ta référence Treepi en libellé, c'est ce qui accélère la validation de tes fonds."
-        },
-        {
-          "title": "Vise ton objectif",
-          "description": "Utilise le simulateur pour recharger exactement ce que ton dossier exige, ni trop tôt à l'aveugle, ni trop peu au dernier moment."
-        }
-      ]
     },
     "faq": {
       "eyebrow": "FAQ",
@@ -1007,16 +998,21 @@
     "breadcrumb": "Attestation de garantie financière",
     "hero": {
       "eyebrow": "Solution · Visa Schengen",
-      "title1": "La preuve de ressources qui rassure ",
-      "titleHighlight": "vraiment",
+      "title1": "Ton relevé dit que tu as l'argent. ",
       "title2": " le consulat.",
-      "subtitle": "Un relevé bancaire local laisse planer le doute. Notre attestation prouve que tes fonds sont là, et bloqués pendant ta demande.",
+      "titleHighlight": "L'attestation le prouve.",
+      "subtitle": "Un relevé bancaire local laisse planer le doute : approvisionné hier, vidé demain. Notre attestation certifie que tes fonds sont déposés en Europe, à ton nom, et bloqués pendant l'instruction.",
       "cta": "Obtenir mon attestation",
+      "annotation": "vérifiable en 30 secondes, chrono en main",
       "mock": {
         "title": "Attestation de garantie financière",
-        "amountLabel": "Fonds garantis :",
+        "amountLabel": "Fonds garantis",
         "amount": "6 300 €",
-        "badge": "✓ Fonds bloqués"
+        "holderLabel": "Titulaire",
+        "holder": "AWA DIALLO",
+        "badge": "✓ Fonds bloqués",
+        "verifLabel": "Vérification consulaire",
+        "verifCode": "TRP-2214-8842"
       }
     },
     "problem": {
@@ -1164,7 +1160,9 @@
         "title": "L'attestation Treepi",
         "description": "Elle certifie ce que ton relevé ne peut pas prouver : les fonds de ton séjour sont réellement déposés et bloqués, sur un compte européen à ton nom."
       },
-      "note": "<b>= un dossier financier complet.</b> L'historique de ton relevé + la certitude de l'attestation : c'est cette combinaison qui donne à ta demande de visa Schengen toutes ses chances."
+      "note": "<b>= un dossier financier complet.</b> L'historique de ton relevé + la certitude de l'attestation : c'est cette combinaison qui donne à ta demande de visa Schengen toutes ses chances.",
+      "plus": "+",
+      "equalsTitle": "= un dossier financier complet"
     },
     "faq": {
       "eyebrow": "FAQ",
@@ -1202,37 +1200,28 @@
     },
     "breadcrumb": "Assurance voyage Schengen",
     "hero": {
-      "eyebrow": "Assurance · Visa Schengen",
-      "title1": "L'assurance voyage ",
-      "titleHighlight": "au prix le plus bas.",
-      "title2": " Tu ne trouveras pas meilleur prix ailleurs.",
-      "subtitle": "Conforme aux exigences des consulats. Et si ton visa est refusé, elle est remboursée.",
+      "badge": "Assurance voyage Schengen",
+      "title1": "Arrête d'être ",
+      "titleHighlight": "un pigeon.",
+      "subtitle": "L'assurance voyage est obligatoire pour ton visa, les assureurs classiques le savent et la facturent comme un produit de luxe. Même couverture de 30 000 €, même conformité Schengen : chez Treepi, elle commence à 30 €.",
       "cta": "Je souscris",
+      "annotation": "même couverture, promis",
+      "compareTitle": "90 jours d'assurance, prix comparés",
+      "compare": {
+        "treepi": "Treepi",
+        "insurerA": "Assureur A",
+        "insurerB": "Assureur B",
+        "days90": "90 jours",
+        "days90eco": "90 jours, éco*",
+        "days90std": "90 jours, standard*",
+        "note": "* Ordres de grandeur constatés sur le marché, à titre illustratif, la couverture exigée (30 000 €, espace Schengen) est identique."
+      },
       "chips": [
         "🇪🇺 Valable dans tout l'espace Schengen",
         "🖥️ Souscription en ligne",
         "🛡️ Une assurance Européenne",
         "↩️ Remboursée si refus de visa"
-      ],
-      "mock": {
-        "title": "Attestation d'assurance voyage",
-        "coverage": "Couverture : 30 000 €",
-        "badge": "✓ Conforme Schengen",
-        "price": "30€ /mois"
-      }
-    },
-    "price": {
-      "eyebrow": "Le prix",
-      "title1": "Arrête d'être un pigeon.",
-      "title2": "Même couverture, prix le plus bas.",
-      "subtitle": "30 000 € de couverture, conformité Schengen identique, chez Treepi, sans la marge des assureurs classiques.",
-      "treepi": "Treepi",
-      "insurerA": "Assureur A",
-      "insurerB": "Assureur B",
-      "days90": "90 jours",
-      "days90eco": "90 jours, éco*",
-      "days90std": "90 jours, standard*",
-      "note": "* Ordres de grandeur constatés sur le marché, à titre illustratif, la couverture exigée (30 000 €, espace Schengen) est identique."
+      ]
     },
     "plans": {
       "eyebrow": "Le détail des prix",
@@ -1345,7 +1334,8 @@
         "Slovénie",
         "Suède",
         "Suisse"
-      ]
+      ],
+      "annotation": "de Reykjavik à Malte !"
     },
     "quote": {
       "eyebrow": "Devis & souscription",
@@ -1473,19 +1463,40 @@
     },
     "breadcrumb": "Assurance recours visa",
     "hero": {
-      "eyebrow": "Solution · Tranquillité",
-      "title1": "Un refus n'est pas la fin. C'est le début de ",
-      "titleHighlight": "ton recours.",
-      "subtitle": "Même avec un bon dossier, un visa n'est jamais garanti. En cas de refus, un avocat spécialisé prend le relais, frais pris en charge jusqu'à 15 000 €.",
+      "badge": "Assurance recours visa",
+      "title1": "Un refus n'est pas la fin. ",
+      "titleHighlight": "C'est le début du recours.",
+      "subtitle": "Même avec un dossier solide, un visa n'est jamais garanti. En cas de refus, un avocat en droit des étrangers prend le relais et conteste la décision, frais pris en charge jusqu'à 15 000 €.",
       "cta": "Protéger ma demande",
-      "statValue": "15 000 €",
-      "statLabel": "de frais pris en charge"
+      "annotation": "l'histoire ne s'arrête pas là",
+      "mock": {
+        "docTitle": "Notification de refus",
+        "docSub": "Consulat · Demande de visa court séjour",
+        "stamp": "REFUSÉ",
+        "appealTitle": "Recours déposé",
+        "appealSub": "Avocat en droit des étrangers · Dossier n° 2214",
+        "badge": "Pris en charge"
+      }
     },
-    "why": {
-      "eyebrow": "Pourquoi elle existe",
-      "title1": "Obtenir un visa ",
-      "titleHighlight": "n'est jamais garanti.",
-      "subtitle": "Même un dossier solide peut être refusé pour des motifs parfois discutables. L'assurance recours visa te donne une vraie deuxième chance, sans repartir de zéro et sans tout assumer seul(e)."
+    "stats": {
+      "eyebrow": "La réalité des chiffres",
+      "title1": "Des refus parfois ",
+      "titleHighlight": "arbitraires.",
+      "subtitle": "Un refus, c'est des frais perdus et un projet à l'arrêt, presque jamais de justification claire. C'est contre ça que le recours existe.",
+      "items": [
+        {
+          "value": "6/10",
+          "label": "demandes refusées dans certains pays africains"
+        },
+        {
+          "value": "60 M€",
+          "label": "perdus par les voyageurs africains en 2024, en frais de demandes refusées"
+        },
+        {
+          "value": "15 000 €",
+          "label": "de frais de procédure pris en charge par ton assurance"
+        }
+      ]
     },
     "covered": {
       "eyebrow": "Situations couvertes",
@@ -1506,32 +1517,11 @@
         }
       ]
     },
-    "value": {
-      "eyebrow": "La valeur ajoutée",
-      "title1": "Un vrai ",
-      "titleHighlight": "filet de sécurité.",
-      "cards": [
-        {
-          "emoji": "👨‍⚖️",
-          "title": "Avocat spécialisé",
-          "description": "qui prend le relais de ta procédure"
-        },
-        {
-          "emoji": "💶",
-          "title": "15 000 €",
-          "description": "Prise en charge complète des frais de recours"
-        },
-        {
-          "emoji": "⏱️",
-          "title": "2-3 mois",
-          "description": "Durée moyenne de la procédure de recours"
-        }
-      ]
-    },
     "journey": {
       "eyebrow": "Le parcours",
       "title1": "De la souscription ",
       "titleHighlight": "à la décision.",
+      "subtitle": "Tu actives ta protection avant de déposer ta demande. Si le refus tombe, tu n'es plus seul(e) : la mécanique se met en route.",
       "steps": [
         {
           "title": "Souscription avant la demande",
@@ -1553,7 +1543,34 @@
           "title": "Suivi jusqu'à la décision",
           "description": "Tu es accompagné(e) jusqu'à la décision finale du recours."
         }
+      ],
+      "aside": [
+        {
+          "value": "Un avocat",
+          "label": "en droit des étrangers, qui prend le relais de ta procédure"
+        },
+        {
+          "value": "15 000 €",
+          "label": "de frais de recours pris en charge, de bout en bout"
+        },
+        {
+          "value": "2-3 mois",
+          "label": "de procédure en moyenne, avec un point à chaque étape"
+        }
       ]
+    },
+    "price": {
+      "eyebrow": "Le prix",
+      "title1": "Une protection, ",
+      "titleHighlight": "un prix unique.",
+      "label": "Assurance recours visa",
+      "price": "350 €",
+      "priceNote": "paiement unique, couvre ta demande de visa",
+      "coverage": "Frais de procédure pris en charge <b>jusqu'à 15 000 €</b>",
+      "cta": "Protéger ma demande",
+      "note": "À souscrire avant la décision du consulat.",
+      "honestTitle": "On te doit la vérité :",
+      "honest": "le succès d'un recours n'est jamais garanti, et méfie-toi de quiconque te le promet. Ce qu'on te garantit : un dossier défendu par un professionnel du droit, jusqu'à la décision finale."
     },
     "faq": {
       "eyebrow": "FAQ",
@@ -1587,168 +1604,171 @@
   "carte": {
     "meta": {
       "title": "La carte Mastercard Treepi",
-      "description": "Carte virtuelle immédiate, carte physique livrée en Europe, en euro, sans frais cachés."
+      "description": "Une Mastercard en euro, à ton nom : virtuelle dans l'app, physique à ton arrivée, acceptée partout en Europe."
     },
     "breadcrumb": "Carte",
     "hero": {
-      "eyebrow": "La carte Mastercard Treepi",
-      "title1": "Une carte. ",
-      "titleHighlight": "Le monde",
-      "title2": " entier.",
-      "subtitle": "Carte virtuelle disponible immédiatement, ajoutée à Apple Pay et Google Pay. Carte physique livrée chez toi ou en point relais. En euro, sans frais cachés, partout où Mastercard est acceptée.",
-      "ctaPrimary": "Commander ma carte",
-      "ctaSecondary": "Voir le parcours",
+      "badge": "Bientôt dans l'app",
+      "title1": "Enfin une carte ",
+      "titleHighlight": "qui dit oui.",
+      "subtitle": "Une Mastercard en euro, à ton nom. Acceptée en boutique, en ligne, au distributeur, partout où tu iras. Sans prévenir personne, sans frais surprises, sans liasse de billets au fond du sac.",
+      "ctaPrimary": "Ouvrir mon compte",
+      "ctaSecondary": "Me prévenir du lancement",
+      "annotation": "en euro, évidemment",
+      "cardAlt": "La carte Mastercard Treepi",
       "trust": [
         "Mastercard internationale",
-        "Apple Pay",
-        "Google Pay",
-        "Carte virtuelle immédiate",
-        "Carte physique"
+        "Apple Pay & Google Pay",
+        "En euro, sans frais cachés",
+        "Virtuelle + physique"
       ]
     },
-    "journey": {
-      "eyebrow": "Le parcours complet",
-      "title1": "De la commande ",
-      "titleHighlight": "au premier paiement.",
-      "subtitle": "Pas besoin d'attendre la carte physique pour payer : ta carte virtuelle est active dès l'ouverture.",
-      "steps": [
-        {
-          "title": "Commande",
-          "description": "Tu commandes ta carte en quelques secondes depuis l'app."
-        },
-        {
-          "title": "Activation",
-          "description": "Activation instantanée et sécurisée dans l'application."
-        },
-        {
-          "title": "Carte virtuelle",
-          "description": "Disponible immédiatement pour payer en ligne et en boutique."
-        },
-        {
-          "title": "Apple / Google Pay",
-          "description": "Ajoute-la à ton wallet et paie sans contact avant même de recevoir la physique."
-        },
-        {
-          "title": "Carte physique",
-          "description": "Livrée chez toi ou en point relais dès ton arrivée."
-        }
-      ]
-    },
-    "delivery": {
-      "eyebrow": "Livraison",
-      "title1": "Reçois ta carte ",
-      "titleHighlight": "où tu veux.",
-      "cards": [
-        {
-          "title": "À ton logement",
-          "description": "Fais livrer ta carte physique directement à l'adresse de ton hébergement en Europe, dès ton arrivée."
-        },
-        {
-          "title": "En point relais Treepi",
-          "description": "Récupère ta carte dans un point relais Treepi en toute simplicité.",
-          "badge": "Disponible à Paris uniquement pour le moment"
-        }
-      ]
-    },
-    "advantages": {
-      "eyebrow": "Avantages",
-      "title1": "Pensée pour les ",
-      "titleHighlight": "voyageurs.",
-      "cards": [
-        {
-          "emoji": "💶",
-          "title": "En euro",
-          "description": "Paie partout en Europe sans conversion automatique ni mauvaise surprise de change."
-        },
-        {
-          "emoji": "🚫",
-          "title": "Zéro frais caché",
-          "description": "Tu sais exactement ce que tu dépenses. Pas de surtaxe à l'international."
-        },
-        {
-          "emoji": "🎛️",
-          "title": "Contrôle total",
-          "description": "Gèle/dégèle ta carte, fixe tes plafonds et suis tes dépenses en temps réel."
-        },
-        {
-          "emoji": "🌍",
-          "title": "Acceptée partout",
-          "description": "Partout où Mastercard est disponible : boutiques, transports, hôtels, en ligne."
-        }
-      ]
-    },
-    "pricing": {
-      "eyebrow": "Tarifs",
-      "title1": "Des tarifs ",
-      "titleHighlight": "clairs, sans surprise.",
-      "mostChosen": "Le plus choisi",
-      "plans": [
-        {
-          "name": "Essentiel",
-          "price": "9 €",
-          "unit": "/mois",
-          "features": [
-            "Compte Euro + IBAN",
-            "Carte virtuelle",
-            "Apple & Google Pay",
-            "Recharge depuis l'Afrique"
-          ],
-          "cta": "Choisir"
-        },
-        {
-          "name": "Visa",
-          "price": "19 €",
-          "unit": "/mois",
-          "features": [
-            "Tout l'Essentiel",
-            "Carte physique",
-            "Attestation de garantie financière",
-            "Support prioritaire"
-          ],
-          "cta": "Choisir"
-        },
-        {
-          "name": "Sérénité",
-          "price": "29 €",
-          "unit": "/mois",
-          "features": [
-            "Tout l'offre Visa",
-            "Assurance recours visa",
-            "Avocat spécialisé inclus",
-            "Prise en charge jusqu'à 15 000 €"
-          ],
-          "cta": "Choisir"
-        }
-      ],
-      "note": "Tarifs présentés à titre d'illustration, à aligner sur le pricing réel de Treepi."
-    },
-    "faq": {
-      "eyebrow": "FAQ carte",
-      "title1": "Tout savoir sur ",
-      "titleHighlight": "ta carte.",
+    "partout": {
+      "eyebrow": "Elle t'ouvre les portes",
+      "title1": "Le monde entier, ",
+      "titleHighlight": "sans négocier.",
+      "subtitle": "Ta banque locale demandait un dossier pour chaque voyage. Ta carte Treepi, elle, considère que c'est ton argent.",
       "items": [
         {
-          "question": "Puis-je payer avant de recevoir la carte physique ?",
-          "answer": "Oui. Ta carte virtuelle est active dès l'ouverture du compte et peut être ajoutée à Apple Pay ou Google Pay pour payer sans contact immédiatement."
+          "image": "/images/electro.webp",
+          "title": "Chez les commerçants",
+          "description": "Du café parisien au supermarché berlinois : tu tends la carte, ça paie, comme pour tout le monde."
         },
         {
-          "question": "Où puis-je récupérer ma carte physique ?",
-          "answer": "À l'adresse de ton hébergement en Europe, ou en point relais Treepi · disponible à Paris uniquement pour le moment."
+          "image": "/images/pay.webp",
+          "title": "En ligne",
+          "description": "Billets de train, réservations, abonnements : ta carte virtuelle règle tout, avant même que la physique arrive."
         },
         {
-          "question": "Y a-t-il des frais cachés à l'étranger ?",
-          "answer": "Non. La carte est en euro : pas de conversion automatique, pas de surtaxe à l'international. Tu vois exactement ce que tu dépenses."
+          "image": "/images/gui.webp",
+          "title": "Au distributeur",
+          "description": "Besoin de liquide ? Tu retires des euros au DAB, sans surtaxe qui gâche le séjour."
+        }
+      ]
+    },
+    "adieux": {
+      "eyebrow": "Les adieux",
+      "title1": "Fais ",
+      "titleHighlight": "tes adieux.",
+      "subtitle": "Il y a des séparations qui font du bien.",
+      "handwritten": "adieu",
+      "items": [
+        {
+          "title": "La banque à prévenir avant chaque voyage",
+          "description": "Ta carte n'a pas besoin de permission pour passer une frontière."
         },
         {
-          "question": "Ma carte est-elle sécurisée ?",
-          "answer": "Oui : gel/dégel instantané depuis l'app, plafonds personnalisables, 3D Secure pour les paiements en ligne et suivi des dépenses en temps réel."
+          "title": "Les espèces cachées au fond du sac",
+          "description": "Ton argent voyage dans l'app, pas dans la doublure de ta valise."
+        },
+        {
+          "title": "Le taux de change surprise sur le relevé",
+          "description": "Tu paies en euro : le prix affiché en boutique est celui que tu vois passer."
+        },
+        {
+          "title": "Le « désolé, votre carte ne passe pas »",
+          "description": "Mastercard internationale : pour le terminal, ta carte vaut celle du voisin."
+        }
+      ]
+    },
+    "duo": {
+      "eyebrow": "Deux cartes, une seule app",
+      "title1": "Virtuelle tout de suite, ",
+      "titleHighlight": "physique à l'arrivée.",
+      "un": {
+        "num": "01",
+        "title1": "La virtuelle, ",
+        "titleHighlight": "dans ton téléphone",
+        "body": "Elle naît dans l'app avec ton compte et se glisse dans Apple Pay ou Google Pay. Tu paies en ligne et sans contact dès le premier jour, de quoi réserver ton logement avant même de faire tes valises.",
+        "mock": {
+          "walletTitle": "Ton wallet",
+          "cardName": "Carte Treepi · virtuelle",
+          "cardState": "Active",
+          "applePay": "Ajoutée à Apple Pay",
+          "googlePay": "Ajoutée à Google Pay",
+          "paid": "Réservation payée · 62,40 €"
+        }
+      },
+      "deux": {
+        "num": "02",
+        "title1": "La physique, ",
+        "titleHighlight": "qui t'attend en Europe",
+        "body": "Livrée à l'adresse de ton hébergement ou dans un point relais Treepi. Tu atterris, tu la récupères, et le voyage commence sans passer par un guichet.",
+        "badge": "Point relais : Paris, pour le moment"
+      }
+    },
+    "controle": {
+      "eyebrow": "Aux commandes",
+      "title1": "C'est toi ",
+      "titleHighlight": "qui décides.",
+      "subtitle": "Ta carte s'ouvre et se ferme depuis ton téléphone, pas depuis un guichet à 5 000 km.",
+      "items": [
+        {
+          "title": "Gel et dégel instantanés",
+          "description": "Un doute, un oubli dans un taxi ? Tu gèles ta carte en une seconde, tu la dégèles pareil."
+        },
+        {
+          "title": "Plafonds à ta main",
+          "description": "Tu fixes ce que la carte peut dépenser, par jour ou par mois, et tu changes d'avis quand tu veux."
+        },
+        {
+          "title": "Une notification par paiement",
+          "description": "Chaque dépense s'affiche à l'instant où elle passe. Rien ne bouge sans que tu le saches."
+        },
+        {
+          "title": "3D Secure en ligne",
+          "description": "Les paiements web se confirment dans l'app, personne ne paie à ta place."
+        }
+      ],
+      "mock": {
+        "title": "Ma carte",
+        "state": "Carte active",
+        "freeze": "Geler ma carte",
+        "online": "Paiements en ligne",
+        "contactless": "Sans contact",
+        "cap": "Plafond mensuel",
+        "capValue": "1 500 €",
+        "notif": "Notification à chaque paiement"
+      }
+    },
+    "lancement": {
+      "title1": "Ton compte d'abord. ",
+      "titleHighlight": "Ta carte suit.",
+      "body": "On préfère te le dire simplement : la carte Treepi n'est pas encore lancée. Ton compte européen, lui, est prêt : IBAN à ton nom, recharges depuis l'Afrique, attestation pour ton visa. La carte viendra s'y poser dès sa sortie, et les Treepers seront servis en premier.",
+      "ctaCompte": "Ouvrir mon compte européen",
+      "placeholder": "Ton adresse e-mail"
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title1": "La carte, ",
+      "titleHighlight": "en clair.",
+      "items": [
+        {
+          "question": "Quand la carte sera-t-elle disponible ?",
+          "answer": "Elle arrive dans les prochaines versions de l'app. Ouvre ton compte dès maintenant : tu seras prévenu en premier et ta carte viendra s'y attacher, sans nouvelle démarche."
+        },
+        {
+          "question": "Pourrai-je payer avant de recevoir la carte physique ?",
+          "answer": "Oui. La carte virtuelle naît dans l'app et s'ajoute à Apple Pay ou Google Pay : tu paies en ligne et sans contact pendant que la physique voyage vers toi."
+        },
+        {
+          "question": "Où sera livrée la carte physique ?",
+          "answer": "À l'adresse de ton hébergement en Europe, ou en point relais Treepi, à Paris pour le moment. Tu choisis au moment de la commande, depuis l'app."
+        },
+        {
+          "question": "Y aura-t-il des frais cachés à l'étranger ?",
+          "answer": "Non. La carte est en euro : pas de conversion automatique, pas de surtaxe à l'international. Le prix affiché en boutique est celui que tu vois sur ton relevé."
+        },
+        {
+          "question": "Comment ma carte sera-t-elle sécurisée ?",
+          "answer": "Gel et dégel instantanés depuis l'app, plafonds personnalisables, 3D Secure pour les paiements en ligne et notification à chaque dépense. Ta carte t'obéit, à toi et à personne d'autre."
         }
       ]
     },
     "finalCta": {
-      "title": "Ta carte t'attend.",
-      "subtitle": "Commande, active et paie, partout dans le monde.",
-      "cta": "Commander ma carte"
+      "title": "Elle arrive. Sois prêt avant elle.",
+      "subtitle": "Ouvre ton compte aujourd'hui, ta carte s'y posera toute seule.",
+      "cta": "Ouvrir mon compte"
     }
   },
   "tarifs": {
@@ -1759,8 +1779,8 @@
     "breadcrumb": "Tarifs",
     "hero": {
       "eyebrow": "Tarifs",
-      "title1": "Des prix justes, ",
-      "titleHighlight": "Zéro surprise.",
+      "title1": "Tu paies ce que tu vois. ",
+      "titleHighlight": "Rien d'autre.",
       "subtitle": "Tu paies exactement ce que tu vois, chaque frais est annoncé <b>avant</b> que tu valides. Et si ton visa est refusé, <b>tes fonds te sont restitués</b> et ton assurance voyage est remboursée.",
       "chips": [
         "💶 Compte européen dès 0 €",
@@ -1909,9 +1929,9 @@
       "note": "À souscrire en complément de ton dossier, avant la décision du consulat."
     },
     "combos": {
-      "eyebrow": "En un coup d'œil",
-      "title1": "Compose ton parcours, ",
-      "titleHighlight": "calcule ton budget.",
+      "eyebrow": "L'addition",
+      "title1": "L'addition, ",
+      "titleHighlight": "selon ton projet.",
       "subtitle": "Chaque produit se prend séparément, voici les trois combinaisons les plus courantes chez les Treepers.",
       "mostCommon": "Le plus courant",
       "budgetTotal": "Budget total",
@@ -1976,7 +1996,8 @@
           "total": "630 €",
           "cta": "Tout prévoir"
         }
-      ]
+      ],
+      "annotation": "l'addition, s'il te plaît !"
     },
     "trust": [
       "<b>Visa refusé ?</b> Fonds restitués sous 72 h et assurance voyage remboursée.",
@@ -2307,6 +2328,15 @@
       "aucuneTransaction": "Aucunes transactions",
       "ajoutVisaTitre": "Ajouter mon visa",
       "ajoutVisaTexte": "Indique si tu as obtenu ton visa ou pas",
+      "ajoutVisaBadge": "Action requise",
+      "ajoutVisaMessage": "Une fois ta preuve de visa transmise, tu pourras utiliser librement ton compte pour toutes tes opérations avant, pendant et même après ton voyage.",
+      "ajoutVisaCta": "Ajouter mon visa",
+      "visaVerifBadge": "Vérification en cours",
+      "visaVerifTexte": "Vérification de ton visa en cours…",
+      "visaVerifMessage": "Nous vérifions ta preuve de visa. Toutes les fonctionnalités de ton compte seront débloquées dès sa validation.",
+      "visaOkBadge": "Visa vérifié",
+      "visaOkTexte": "Ton visa a été vérifié.",
+      "visaOkMessage": "Ton compte est désormais entièrement activé : virements, paiements et tous les services Treepi te sont ouverts.",
       "servicesTitre": "Va plus loin avec Treepi",
       "services": [
         {
@@ -2366,7 +2396,22 @@
       "deplier": "Déplier le menu",
       "simulateurChoisirDevise": "Choisir une devise",
       "simulateurIndicatif": "Taux indicatif",
-      "bientotCourt": "Bientôt"
+      "simulateurTauxReel": "Taux réel, {heure}",
+      "bientotCourt": "Bientôt",
+      "ouverture": {
+        "badge": "En quelques minutes",
+        "titre": "Ouvre ton compte Euro",
+        "texte": "Choisis ton pack, vérifie ton identité et reçois ton IBAN européen pour constituer ta preuve de fonds.",
+        "cta": "Ouvrir mon compte",
+        "paiementBadge": "Dossier signé",
+        "paiementTitre": "Finalise ton paiement",
+        "paiementTexte": "Ton dossier est signé. Règle ton paiement d'ouverture pour activer ton compte Euro.",
+        "paiementCta": "Effectuer mon paiement",
+        "verificationTitre": "Justificatif en cours de vérification",
+        "verificationTexte": "Ton compte sera activé sous 24 heures ouvrées au plus tard. Un message te sera envoyé."
+      },
+      "financementTitre": "Ton compte Euro est ouvert !",
+      "financementTexte": "Recharge-le pour constituer ta preuve de fonds."
     },
     "inscription": {
       "titre": "Inscription",
@@ -2464,7 +2509,8 @@
       },
       "telephone": {
         "label": "Numéro de téléphone",
-        "placeholder": "06 00 00 00 00"
+        "indicatifLabel": "Indicatif du pays",
+        "erreurFormat": "Numéro incomplet : {attendu} chiffres attendus au format {format}."
       },
       "bravo": {
         "titre1": "Bravo !",
@@ -2745,38 +2791,6 @@
                 ]
               }
             ]
-          },
-          {
-            "id": "recours",
-            "nom": "Assurance recours visa",
-            "accroche": "Pour protéger ton voyage en cas de refus de visa",
-            "note": "Recours visa jusqu'à 15 000 €",
-            "sections": [
-              {
-                "titre": "Un service complet sur toute l'année :",
-                "items": [
-                  "1 IBAN français + 1 RIB en ton nom",
-                  "Frais de gestion de compte annuel",
-                  "Recharge du compte depuis l'Afrique",
-                  "Recevoir des virements internationaux",
-                  "Justificatifs financiers pour Visa Schengen illimités",
-                  "Attestation conforme & reconnue par tous les consulats",
-                  "Mise en relation avec un avocat spécialisé",
-                  "Étude de décision en cas de refus de visa",
-                  "Prise en charge complète des frais (jusqu'à 15 000 €)"
-                ]
-              },
-              {
-                "titre": "Inclus dès preuve d'obtention de Visa suite au recours :",
-                "items": [
-                  "Fonds débloqués et accès total à ton argent",
-                  "Cartes Mastercard (virtuelle & physique)",
-                  "Paiement partout dans le monde",
-                  "Virement bancaire SEPA illimité",
-                  "Retrait d'espèces"
-                ]
-              }
-            ]
           }
         ]
       },
@@ -2836,10 +2850,6 @@
         "signatureModaleConfirmer": "Je signe et j'accepte",
         "signatureModaleAnnuler": "Annuler",
         "suivant": "Continuer",
-        "succesAvant": "Ton compte Euro est ",
-        "succesCle": "ouvert !",
-        "succesTexte": "Félicitations {prenom} ! Ton dossier est validé. Recharge ton compte pour commencer à lui donner de la valeur en euros.",
-        "succesCta": "Accéder à mon compte",
         "secteurLabel": "Secteur d'activité",
         "secteurs": [
           "Informatique / Tech",
@@ -2883,6 +2893,125 @@
         "recapFinSous": "Afin de prouver ta solvabilité auprès des services consulaires pour ton voyage.",
         "confirmer": "Confirmer"
       },
+      "paiementOuverture": {
+        "titre": "Compte Euro",
+        "pack1TitreAvant": "Frais de gestion de ",
+        "pack1TitreCle": "compte",
+        "pack1Description": "Règle les frais annuels de ton pack pour finaliser l'ouverture de ton compte Euro.",
+        "pack2TitreAvant": "Financer mon ",
+        "pack2TitreCle": "voyage",
+        "pack2Description": "Recharge ton compte pour constituer ta preuve de fonds : les frais de ton pack sont inclus dans le total.",
+        "infoAvant": "Informations ",
+        "infoCle": "clés",
+        "infoTexte1": "Pour l'obtention de ton visa Schengen, tu peux uniquement recharger ton compte Treepi pour financer ton voyage. Ce dépôt sert de garantie financière pour ta demande de visa.",
+        "infoTexte2": "Cet argent reste à toi : il couvrira tes dépenses durant ton séjour.",
+        "consentement": "Je m'engage et certifie que mon argent respecte la condition ci-dessus.",
+        "canalQuestionPack1": "Comment souhaites-tu procéder au paiement de tes frais ?",
+        "canalQuestionPack2": "Comment souhaites-tu ajouter de l'argent sur ton compte Euro ?",
+        "canalVirement": "Par virement",
+        "canalVirementSous": "Depuis un compte bancaire à ton nom",
+        "canalEspeces": "Dépôt en espèces",
+        "canalEspecesSous": "Auprès d'une banque partenaire Treepi",
+        "origineQuestion": "D'où souhaites-tu effectuer le virement ?",
+        "origineLocal": "Depuis mon compte bancaire dans mon pays",
+        "origineEurope": "Depuis un compte bancaire en Europe (zone SEPA)",
+        "paysQuestion": "Dans quel pays vas-tu effectuer le dépôt ?",
+        "paysLabel": "Pays du dépôt",
+        "paysPlaceholder": "Sélectionne un pays",
+        "montantTitreAvant": "Quel montant souhaites-tu ",
+        "montantTitreCle": "recharger",
+        "montantTitreApres": " ?",
+        "montantLabel": "Montant à créditer",
+        "equivalent": "Le montant est converti au taux du jour.",
+        "taux": "1 € = {taux} FCFA",
+        "montantInfo": "Prévois entre 150 € et 200 € par jour de séjour à l'hôtel ou en Airbnb, et entre 75 € et 100 € si tu es hébergé(e) par un proche.",
+        "recapTitre": "Récapitulatif du paiement",
+        "ligneCredite": "Montant crédité",
+        "ligneFraisPack": "Frais de gestion (pack)",
+        "ligneFraisTransfert": "Frais de transfert",
+        "ligneTotalVirement": "Montant total à virer",
+        "ligneTotalDepot": "Montant total à déposer",
+        "soit": "soit {valeur}",
+        "instructionsTitre": "Instructions pour finaliser le paiement",
+        "instructionsVirement": "Effectue le virement depuis ta banque avec les références du compte Treepi ci-dessous, en indiquant la référence de ton dossier en libellé.",
+        "instructionsEspeces": "Rends-toi dans une banque partenaire Treepi de ton pays avec la référence de ton dossier, puis effectue le dépôt du montant total.",
+        "titulaireLabel": "Titulaire",
+        "ibanLabel": "IBAN",
+        "bicLabel": "BIC",
+        "referenceLabel": "Référence du dossier",
+        "totalLabel": "Montant à payer",
+        "delais": "Les virements depuis l'Europe parviennent sous 24 à 48 h ouvrées, les virements locaux et dépôts d'espèces sous 24 à 72 h.",
+        "alerte": "Respecte exactement le montant et la référence indiqués : un paiement incomplet ou sans référence retarde l'ouverture de ton compte. Tu disposes de 30 jours pour effectuer ton paiement.",
+        "jaiPaye": "J'ai effectué le paiement",
+        "financeurQuestion": "Qui finance ton voyage ?",
+        "financeurs": [
+          {
+            "cle": "moi",
+            "titre": "Moi-même",
+            "sous": "Avec mon argent personnel"
+          },
+          {
+            "cle": "famille",
+            "titre": "Famille proche",
+            "sous": "Un parent ou un proche finance ton voyage"
+          },
+          {
+            "cle": "entreprise",
+            "titre": "Entreprise",
+            "sous": "Un employeur ou une société finance ton voyage"
+          },
+          {
+            "cle": "autre",
+            "titre": "Autre",
+            "sous": "Une autre source de financement"
+          }
+        ],
+        "detailsTitre": "Informations à compléter",
+        "nomLabel": "Nom",
+        "prenomLabel": "Prénom",
+        "lienLabel": "Lien de parenté",
+        "lienPlaceholder": "Père, mère, oncle...",
+        "raisonLabel": "Raison sociale",
+        "telephoneLabel": "Numéro de téléphone",
+        "emailLabel": "Adresse email",
+        "precisionLabel": "Source du financement",
+        "precisionPlaceholder": "Bourse, sponsor, association...",
+        "pieceTitre": "Pièce d'identité du financeur",
+        "pieceSousTitre": "Elle certifie l'identité de la personne ou de la structure qui finance.",
+        "pieceAccepteItems": [
+          "Passeport ou carte d'identité en cours de validité",
+          "Registre de commerce (entreprise)"
+        ],
+        "provenanceQuestion": "Quelle est la provenance des fonds ?",
+        "provenanceLabel": "Provenance des fonds",
+        "provenancePlaceholder": "Sélectionne une provenance",
+        "provenances": [
+          "Épargne personnelle",
+          "Salaire",
+          "Chèque de banque",
+          "Héritage ou donation",
+          "Prêt personnel",
+          "Prêt d'investissement",
+          "Autre"
+        ],
+        "justifTitre": "Charge ton justificatif de paiement",
+        "justifSousTitre": "Il permet de rapprocher ton paiement de ton dossier d'ouverture.",
+        "justifAccepteItems": [
+          "Reçu du dépôt en espèces",
+          "Preuve de virement émise par ta banque"
+        ],
+        "accepteTitre": "Documents acceptés :",
+        "fichierChoisir": "Choisis un fichier",
+        "fichierFormats": "JPEG, PNG, PDF, jusqu'à 50 Mo",
+        "fichierPhoto": "Prendre une photo",
+        "fichierParcourir": "Parcourir mes fichiers",
+        "soumettreCta": "Soumettre mon justificatif",
+        "suivant": "Suivant",
+        "soumisAvant": "Ton justificatif a bien été ",
+        "soumisCle": "pris en compte",
+        "soumisTexte": "Il sera vérifié sous un délai maximum de 24 heures ouvrées. Un message te sera envoyé dès la validation.",
+        "soumisCta": "J'ai compris"
+      },
       "paiement": {
         "titre": "Paiement par carte",
         "numero": "Numéro de carte",
@@ -2897,12 +3026,45 @@
         "introDescription": "Obtiens un justificatif fiable pour prouver, lors de ta demande de visa, que tu disposes de revenus suffisants pour financer ton voyage.",
         "introReconnue": "Cette attestation est réelle et reconnue par tous les consulats de l'espace Schengen.",
         "introGratuite": "Bonne nouvelle ! Cette attestation est 100 % gratuite pour toi car elle est incluse dans ton forfait actuel (aucuns frais, génération illimitée pendant un an).",
+        "introFrais": "Frais : la génération de ton attestation de garantie te coûtera 100 €/an (génération illimitée).",
         "introCta": "Obtenir mon attestation",
         "montantLabel": "Ton attestation de garantie financière est de :",
         "montantAvertissement": "Le montant garanti correspond au solde disponible sur ton compte Euro.",
+        "budgetInfo": "Prévois au minimum entre 150 € et 200 € par jour si tu séjournes dans un hôtel ou un Airbnb. Si tu es hébergé(e) par un proche, prévois entre 75 € et 100 € par jour.",
         "sejourTitre": "Informations sur le séjour",
         "paysLabel": "Pays de destination",
         "paysPlaceholder": "Sélectionne un pays",
+        "paysSchengen": [
+          "Allemagne",
+          "Autriche",
+          "Belgique",
+          "Bulgarie",
+          "Croatie",
+          "Danemark",
+          "Espagne",
+          "Estonie",
+          "Finlande",
+          "France",
+          "Grèce",
+          "Hongrie",
+          "Islande",
+          "Italie",
+          "Lettonie",
+          "Liechtenstein",
+          "Lituanie",
+          "Luxembourg",
+          "Malte",
+          "Norvège",
+          "Pays-Bas",
+          "Pologne",
+          "Portugal",
+          "République tchèque",
+          "Roumanie",
+          "Slovaquie",
+          "Slovénie",
+          "Suède",
+          "Suisse"
+        ],
         "motifLabel": "Motif du séjour",
         "motifs": [
           "Tourisme",
@@ -2980,57 +3142,186 @@
         "introCle": "visa",
         "introDescription": "Un visa obtenu, c'est l'accès total à l'app. Tu pourras désormais tout faire, sans limite.",
         "infoTitre": "Informations à compléter",
-        "avertissement": "Avant de terminer et de soumettre ton dossier, assure-toi que toutes les informations complétées sont correctes.",
-        "sectionVisa": "Obtention de visa",
-        "sectionHebergement": "Justificatif d'hébergement",
-        "valider": "Soumettre mon dossier",
-        "visaTypeLabel": "Type de visa",
-        "visaTypes": [
-          "Court séjour (Schengen)",
-          "Long séjour",
-          "Étudiant",
-          "Travail",
-          "Visiteur"
-        ],
-        "visaPaysLabel": "Pays de destination",
-        "visaPaysPlaceholder": "Sélectionne un pays",
-        "visaDepartLabel": "Date d'entrée prévue",
-        "visaRetourLabel": "Date de sortie prévue",
+        "questionObtenu": "Avez-vous obtenu votre visa ?",
+        "oui": "Oui",
+        "non": "Non",
+        "pasEncoreTexte": "Pas encore de visa ? Reviens transmettre ta preuve dès que tu l'auras obtenue : elle débloquera l'usage complet de ton compte.",
+        "retourAccueil": "Revenir à l'accueil",
+        "debutLabel": "Début de validité du visa :",
+        "finLabel": "Fin de validité du visa :",
         "datePlaceholder": "JJ/MM/AAAA",
-        "hebergementTitre": "Type d'hébergement",
-        "hebergementOptions": [
-          {
-            "id": "reservation",
-            "titre": "Réservation hôtelière",
-            "sous": "Confirmation de réservation d'un hôtel."
+        "paysLabel": "Pays de délivrance du visa Schengen :",
+        "paysPlaceholder": "Sélectionne un pays",
+        "motifLabel": "Motif du séjour :",
+        "motifPlaceholder": "Sélectionne un motif",
+        "attestationInfo": "Si tu as obtenu une attestation de blocage de fonds, le pays de destination et le motif du séjour doivent être les mêmes que ceux inscrits sur ton attestation.",
+        "preuveTitreAvant": "Charge ta preuve d'",
+        "preuveTitreCle": "obtention de visa",
+        "consignes": [
+          "Les quatre coins du document doivent être visibles",
+          "Les mentions doivent être toutes lisibles"
+        ],
+        "fichierTitre": "Charger un fichier",
+        "fichierSous": "Sélectionne et télécharge le(s) fichier(s)",
+        "accepteTitre": "Documents acceptés :",
+        "accepteItems": [
+          "Preuve d'obtention de Visa"
+        ],
+        "choisir": "Choisis un fichier",
+        "formats": "JPEG, PNG, PDF, jusqu'à 50 Mo",
+        "photo": "Prendre une photo",
+        "parcourir": "Parcourir",
+        "suivant": "Suivant",
+        "paysSchengen": [
+          "Allemagne",
+          "Autriche",
+          "Belgique",
+          "Bulgarie",
+          "Croatie",
+          "Danemark",
+          "Espagne",
+          "Estonie",
+          "Finlande",
+          "France",
+          "Grèce",
+          "Hongrie",
+          "Islande",
+          "Italie",
+          "Lettonie",
+          "Liechtenstein",
+          "Lituanie",
+          "Luxembourg",
+          "Malte",
+          "Norvège",
+          "Pays-Bas",
+          "Pologne",
+          "Portugal",
+          "République tchèque",
+          "Roumanie",
+          "Slovaquie",
+          "Slovénie",
+          "Suède",
+          "Suisse"
+        ],
+        "motifs": [
+          "Études",
+          "Tourisme",
+          "Affaires",
+          "Visite familiale",
+          "Travail",
+          "Soins médicaux"
+        ],
+        "succesAvant": "Ta preuve de visa est ",
+        "succesCle": "transmise !",
+        "succesTexte": "Nous vérifions ton visa. Toutes les fonctionnalités de ton compte seront débloquées dès sa validation.",
+        "succesCta": "Revenir à l'accueil",
+        "hebergementIntroAvant": "Justificatif ",
+        "hebergementIntroCle": "d'hébergement",
+        "hebergementIntroDescription": "Dis-nous où tu vas poser tes valises pendant ton séjour. Cela nous permet de respecter les règles en vigueur.",
+        "hebergementTitre": "Hébergement en <c>{pays}</c>",
+        "typeLabel": "Type d'hébergement",
+        "typeReservation": "J'ai une réservation (hôtel/airbnb)",
+        "typeProche": "Je suis hébergé(e) par un proche",
+        "typeProprietaire": "Je suis propriétaire de mon logement",
+        "adresseReservationLabel": "Adresse en {pays} de l'hôtel/airbnb* :",
+        "adresseProprietaireLabel": "Adresse en {pays} du logement privé* :",
+        "adresseProcheLabel": "Adresse en {pays} :",
+        "adressePlaceholder": "Numéro et nom de rue",
+        "hoteLabel": "Chez Madame/Monsieur ..., étage :",
+        "hoteAide": "Si tu es hébergé, l'ajout du nom et prénom de l'hébergeur est obligatoire.",
+        "hotePlaceholder": "Nom, prénom et étage de l'hébergeur",
+        "codePostalLabel": "Code postal :",
+        "codePostalReservationLabel": "Code postal* :",
+        "codePostalPlaceholder": "Code postal",
+        "villeLabel": "Ville :",
+        "villePlaceholder": "Ville",
+        "telephoneLabel": "Numéro de téléphone de l'hôtel/airbnb :",
+        "justificatifTitreAvant": "Charge ton ",
+        "justificatifTitreCle": "justificatif d'hébergement",
+        "hebergementDocs": {
+          "reservation": {
+            "items": [
+              {
+                "texte": "Une réservation d'hôtel ou Airbnb",
+                "marque": "puce"
+              },
+              {
+                "texte": "Datant de moins de 3 mois",
+                "marque": "check"
+              },
+              {
+                "texte": "Avec les dates de ton séjour",
+                "marque": "check"
+              },
+              {
+                "texte": "Et l'adresse du logement",
+                "marque": "check"
+              }
+            ]
           },
-          {
-            "id": "proche",
-            "titre": "Hébergement chez un proche",
-            "sous": "Attestation d'accueil d'un proche."
+          "proprietaire": {
+            "items": [
+              {
+                "texte": "Facture d'électricité à ton nom datant de moins de 3 mois",
+                "marque": "puce"
+              },
+              {
+                "texte": "OU",
+                "marque": "separateur"
+              },
+              {
+                "texte": "Titre de propriété à ton nom",
+                "marque": "puce"
+              },
+              {
+                "texte": "OU",
+                "marque": "separateur"
+              },
+              {
+                "texte": "Contrat de bail à ton nom datant de moins de 3 mois",
+                "marque": "puce"
+              }
+            ]
           },
-          {
-            "id": "proprietaire",
-            "titre": "Je suis propriétaire",
-            "sous": "Titre de propriété ou bail à ton nom."
+          "proche": {
+            "items": [
+              {
+                "texte": "Attestation d'hébergement signée par ton hébergeur",
+                "marque": "puce"
+              },
+              {
+                "texte": "Facture récente (eau, électricité) au nom de ton hébergeur",
+                "marque": "plus"
+              },
+              {
+                "texte": "Une copie de son passeport ou titre de séjour de l'hébergeur",
+                "marque": "plus"
+              }
+            ],
+            "note": "Les documents doivent être datés de moins de 3 mois et réunis en un seul document PDF."
           }
-        ],
-        "hebergementFichierTitre": "Charger un justificatif",
-        "hebergementFichierSous": "Sélectionne et télécharge le(s) fichier(s)",
-        "hebergementAccepteTitre": "Documents acceptés :",
-        "hebergementAccepteItems": [
-          "Réservation, attestation d'accueil ou titre de propriété"
-        ],
-        "hebergementChoisir": "Choisis un fichier",
-        "hebergementFormats": "JPEG, PNG, PDF, jusqu'à 50 Mo",
-        "hebergementPhoto": "Prendre une photo",
-        "hebergementParcourir": "Parcourir",
-        "enregistrer": "Enregistrer",
-        "fait": "Complété",
-        "succesAvant": "Ton dossier de visa est ",
-        "succesCle": "soumis !",
-        "succesTexte": "Nous étudions ton dossier. Tu recevras une réponse très prochainement et ton compte passe en accès complet.",
-        "succesCta": "Accéder à mon compte"
+        },
+        "recapTitre": "Informations à compléter",
+        "recapAvertissement": "Avant de terminer et de soumettre ton dossier, assure-toi que toutes les informations complétées sont correctes.",
+        "recapSectionVisa": "Obtention de visa",
+        "recapSectionHebergement": "Justificatif d'hébergement",
+        "recapObtenu": "Obtention du visa :",
+        "recapDebut": "Début de validité :",
+        "recapFin": "Fin de validité :",
+        "recapPays": "Pays de délivrance :",
+        "recapMotif": "Motif du séjour :",
+        "recapPreuve": "Preuve d'obtention de visa :",
+        "recapType": "Type d'hébergement :",
+        "recapHote": "Hébergeur :",
+        "recapAdresse": "Adresse de l'hébergement :",
+        "recapCodePostal": "Code postal :",
+        "recapVille": "Ville :",
+        "recapTelephone": "Numéro de téléphone de l'hébergement :",
+        "recapJustificatif": "Justificatif d'hébergement :",
+        "recapTypeReservation": "Réservation (hôtel/airbnb)",
+        "recapTypeProche": "Hébergé(e) par un proche",
+        "recapTypeProprietaire": "Propriétaire du logement",
+        "valider": "Valider"
       },
       "recours": {
         "titre": "Recours visa",

@@ -80,6 +80,51 @@ local : `figma-desktop` sur `http://127.0.0.1:3845/mcp`. Utilise
 Statut : `Fait` (livré et testé), `À faire` (maquette identifiée, pas encore
 codée). Les node-id renvoient à la page V7 du Figma.
 
+### Machine à états du compte
+
+`inscrit → dossier signé (pack + KYC + signature) → paiement soumis (justificatif) → actif (après validation) → post-visa`
+
+Le compte Euro n'est jamais créé d'office : c'est un produit payant dont
+l'ouverture suit la checklist Figma « Compléter tes infos, Signer ton contrat,
+Effectuer ton paiement, Bienvenue sur Treepi ». État persisté dans
+`compte.etatOuverture` : `aucun → attente-paiement → attente-validation → actif`
+(`compte.ouvert` reste le booléen « compte actif »).
+
+- **Inscrit (`aucun`)** : accueil « découverte » (hero `CarteOuverture`,
+  transactions masquées). Recharger, Recevoir, Virement et Attestation
+  redirigent vers `/app/compte-euro` (`lib/hooks/useCompteOuvert.ts`). Les
+  services payables à part (accompagnement, assurance, recours, dossier visa)
+  restent accessibles quel que soit l'état du compte.
+- **Deux packs** (le pack 3 « Recours » est retiré de l'offre ; le service
+  `/app/recours` existe toujours) :
+  - **Pack « Compte Euro » (80 €/an)** : à l'étape paiement on ne règle que les
+    frais de gestion (dépôt d'espèces avec choix du pays, virement local ou
+    virement Europe, puis justificatif à charger). Activation à solde 0 €,
+    aucune transaction. L'attestation n'est PAS incluse : 100 €/an, encart
+    « Frais » sur l'intro de `/app/attestation`.
+  - **Pack « Compte Euro + preuve » (210 €/an)** : l'étape paiement EST la
+    première recharge « Financer mon voyage » : montant à recharger simulé
+    (montant crédité + frais du pack + frais de transfert = total à virer ou
+    déposer, équivalent FCFA), engagement que l'argent finance le voyage,
+    conformité (« Qui finance ton voyage ? » moi-même / famille / entreprise /
+    autre avec identité et pièce du financeur tiers, puis « Provenance des
+    fonds »), enfin justificatif de paiement. Activation avec
+    solde = montant crédité (ligne « XOF → EUR » en espèces, « Compte » en
+    virement). Attestation incluse (encart « Bonne nouvelle », génération
+    illimitée pendant un an).
+- **Validation asynchrone du paiement** : 15 minutes à 24 h ouvrées en réel,
+  ~25 s simulées dans le mock (bascule dans `obtenirCompte`). Pendant
+  `attente-paiement`, l'accueil propose de finaliser le paiement (reprise via
+  `/app/compte-euro/paiement`) ; pendant `attente-validation`, bannière sablier
+  « justificatif en cours de vérification ». À l'activation, l'accueil redirige
+  une fois vers `/app/activation` (félicitations) puis propose le tutoriel.
+- **Aucun prélèvement différé** : les frais du pack sont payés pendant
+  l'onboarding (seuls pour le pack 1, fondus dans le total de la première
+  recharge pour le pack 2). Jamais de ligne « Abonnement Treepi » sur le solde.
+
+Contrat backend complet (endpoints, webhooks, intégrations, phasage) :
+**`docs/BACKEND.md`**, à tenir à jour à chaque évolution de `lib/api/`.
+
 ### Onboarding et authentification
 
 | Flux | Écran / Route | Statut | Rôle |
@@ -87,27 +132,28 @@ codée). Les node-id renvoient à la page V7 du Figma.
 | Lancement | `/app` | Fait | Splash de démarrage, redirige vers l'entrée du parcours. |
 | Walkthrough | `/app/decouverte` | Fait | Carrousel de présentation (3 écrans). |
 | Bienvenue (SignUp/Login) | `/app/bienvenue` | Fait | Choix « créer un compte » ou « se connecter ». |
-| Inscription | `/app/inscription` | Fait | Formulaire multi-étapes : email, mot de passe, téléphone (OTP), infos. |
+| Inscription | `/app/inscription` | Fait | Formulaire multi-étapes : email, mot de passe, infos, téléphone. Treepi v1 cible les voyageurs africains : nationalité, pays de résidence et indicatifs téléphoniques limités à l'Afrique (référentiel `lib/data/afrique.ts`, drapeaux + gabarits de numéros par pays). |
 | Bravo | composant `EcranBravo` | Fait | Confirmation de fin d'inscription. |
 | Connexion | `/app/connexion` | Fait | Login email + mot de passe (MODE TEST : réussit toujours). |
-| Activation du compte | `/app/activation` | Fait | Login biométrie simulée, écran « félicitations », crédite 2750 € et enchaîne le tutoriel. |
+| Activation du compte | `/app/activation` | Fait | Retour post-validation du paiement : biométrie simulée puis « Félicitations, ton compte Euro a été créé » et accès au dashboard (0 € pack 1, crédité pack 2). L'accueil y redirige une seule fois quand le compte devient actif (`treepi.activation-vue`). Le fast-forward démo reste dans l'API (`activerCompte`). |
 | Reconnexion | node `1716:549351` | À faire | Retour d'un utilisateur connu (biométrie / code court). |
 
 ### Compte Euro et prise en main
 
 | Flux | Écran / Route | Statut | Rôle |
 | --- | --- | --- | --- |
-| Ouverture compte Euro / KYC | `/app/compte-euro` | Fait | Parcours en 6 étapes : intro → choix du pack (« De quoi as-tu besoin ? ») → identité (passeport) → infos pro → infos financières → certifications → récapitulatif → signature. Clôt le dossier (`ouvrirCompteEuro`) : active le compte, enregistre le pack et le KYC, complète le profil. Entrée : bannière du profil quand `!compte.ouvert`. |
-| Tutoriel (facultatif) | `/app/tutoriel` | Fait | Visite guidée du dashboard, projecteur en 3 étapes (solde, services, simulateur). |
+| Ouverture compte Euro / KYC | `/app/compte-euro` | Fait | Parcours : intro → choix du pack (« De quoi as-tu besoin ? », 2 packs) → identité (passeport) → infos pro → infos financières → certifications → récapitulatif → signature. Clôt le dossier (`ouvrirCompteEuro` → `attente-paiement`, enregistre pack + KYC) puis enchaîne sur le paiement d'ouverture. Entrées : hero de l'accueil découverte, bannière du profil et redirections des routes argent. Si un dossier existe déjà, la route renvoie vers le paiement ou l'accueil selon l'état. |
+| Paiement d'ouverture | `/app/compte-euro/paiement` | Fait | Étape « Effectue ton paiement » de la checklist. Pack 1 : frais de gestion (espèces avec pays / virement local / virement Europe → récap FCFA → instructions RIB Treepi + fenêtre de 30 jours → justificatif). Pack 2 : « Financer mon voyage » (engagement fonds dédiés → canal → montant simulé avec frais → instructions → qui finance + pièce du tiers → provenance des fonds → justificatif). Soumission (`soumettrePaiementOuverture` → `attente-validation`) puis écran sablier (vérification 15 min à 24 h ouvrées). |
+| Tutoriel (facultatif) | `/app/tutoriel` | Fait | Visite guidée du dashboard, projecteur en 3 étapes (solde, services, simulateur). Proposé au premier accès à l'accueil une fois le compte actif (après l'écran d'activation). |
 
 ### Tableau de bord et opérations
 
 | Flux | Écran / Route | Statut | Rôle |
 | --- | --- | --- | --- |
-| Dashboard / Homepage | `/app/accueil` | Fait | Solde Euro, actions rapides, bannières pré/post-visa, transactions, « Ajouter mon visa », services, simulateur de transfert, support. Gère l'état vide « Frais de gestion ». |
-| Recharger le compte Euro | `/app/recharger` | Fait | Consentement → méthode (carte / virement SEPA / espèces) → montant (équiv. FCFA + frais) → détails → succès. Carte = crédit immédiat, virement/espèces = « en cours ». Cible des boutons « Recharger » et bannières. |
-| Recevoir (RIB / IBAN) | `/app/recevoir` | Fait | Coordonnées du compte Euro perso (IBAN déterministe) : copie ligne à ligne, partage natif, délais SEPA/SWIFT. Cible de l'action rapide « RIB ». |
-| Envoyer (virement) | `/app/virement` | Fait | Bénéficiaire (nom + IBAN) → montant (borné au solde) → récap → débit. Cible de l'entrée nav « Virement ». |
+| Dashboard / Homepage | `/app/accueil` | Fait | Solde Euro, actions rapides, bannières pré/post-visa (carrousel auto-play 5 s en boucle infinie, pause au survol), transactions, carte « Ajouter mon visa » dépliable à 3 états (`statutVisa` : action requise / vérification en cours / vérifié), services, simulateur de transfert, support. Rendus selon `etatOuverture` : hero `CarteOuverture` (`aucun`), reprise du paiement (`attente-paiement`), bannière sablier avec re-lecture périodique (`attente-validation`), redirection unique vers `/app/activation` au passage à `actif`, puis dashboard complet (bannière « Ajoute de l'argent » à solde nul). |
+| Recharger le compte Euro | `/app/recharger` | Fait | Consentement → méthode (carte / virement SEPA / espèces) → montant (équiv. FCFA + frais) → détails → succès. Carte = crédit immédiat, virement/espèces = « en cours ». Cible des boutons « Recharger » et bannières. Compte actif requis (`useCompteOuvert`). |
+| Recevoir (RIB / IBAN) | `/app/recevoir` | Fait | Coordonnées du compte Euro perso (IBAN déterministe) : copie ligne à ligne, partage natif, délais SEPA/SWIFT. Cible de l'action rapide « RIB ». Compte ouvert requis. |
+| Envoyer (virement) | `/app/virement` | Fait | Bénéficiaire (nom + IBAN) → montant (borné au solde) → récap → débit. Cible de l'entrée nav « Virement ». Compte ouvert requis. |
 | Commande de carte | node `1724:572089` | Hors scope | Non développé (feature « carte » exclue). Entrée nav « Carte » inerte. |
 
 ### Services voyage et visa (`/app/voyage` = hub, entrée nav « Voyage »)
@@ -115,12 +161,12 @@ codée). Les node-id renvoient à la page V7 du Figma.
 | Flux | Écran / Route | Statut | Rôle |
 | --- | --- | --- | --- |
 | Hub services | `/app/voyage` | Fait | Liste les 5 services visa/voyage. Cible de la nav « Voyage » et du « Voir tout ». |
-| Obtention de visa | `/app/visa` | Fait | Dossier pivot : volet visa (type, pays, dates) + volet justificatif d'hébergement (réservation / proche / propriétaire + upload) → soumission → bascule en phase post-visa (`soumettreVisa`). Entrée : carte « Ajouter mon visa ». |
-| Attestation de garantie financière | `/app/attestation` | Fait | Présentation → formulaire (montant = solde, infos séjour) → génération → succès avec téléchargement + partage. |
+| Obtention de visa | `/app/visa` | Fait | Collecte du visa obtenu puis du justificatif d'hébergement, en 7 étapes : « Avez-vous obtenu votre visa ? » (Oui/Non, Non ramène à l'accueil) → dates de validité → pays de délivrance Schengen + motif du séjour → preuve à charger → type d'hébergement (réservation / proche / propriétaire) + adresse adaptée au type → justificatif d'hébergement à charger (documents acceptés variables selon le type) → récapitulatif dépliable des deux volets. Soumission (`soumettreVisa`, payload `InfosVisa` + `hebergement`) → statut « vérification » (~30 s simulées dans `obtenirCompte`) puis bascule post-visa. Entrée : carte « Ajouter mon visa ». |
+| Attestation de garantie financière | `/app/attestation` | Fait | Présentation (encart selon le pack : « Bonne nouvelle, incluse dans ton forfait » pour le pack preuve, « Frais : 100 €/an » pour le pack Compte Euro) → formulaire (montant = solde, infos séjour) → génération → succès avec téléchargement + partage. Compte actif requis. |
 | Accompagnement | `/app/accompagnement` | Fait | Présentation (1 h offerte) → RDV (téléphone / bureau + Calendly) → formule (solo 100 € / famille 150 € / parent 120 €) → paiement → confirmation. |
-| Recours visa | `/app/recours` | Fait | Souscription (Pack 3, 500 €/an) : présentation → paiement → confirmation. Maquette « Non dispo », reprise du Pack 3. |
+| Recours visa | `/app/recours` | Fait | Souscription du service (500 €/an) : présentation → paiement → confirmation. N'est plus proposé comme pack d'abonnement. |
 | Assurance voyage Schengen | `/app/assurance` | Fait | Souscription (90 €/an) : présentation → paiement → confirmation. |
-| Choix du pack (abonnement) | intégré à `/app/compte-euro` | Fait | Packs 80/210/500 €/an (compte / attestation / recours) avec cartes dépliables et modale « Peut-être plus tard ». |
+| Choix du pack (abonnement) | intégré à `/app/compte-euro` | Fait | Deux packs : « Compte Euro » 80 €/an et « Compte Euro + preuve » 210 €/an, cartes dépliables et modale « Peut-être plus tard ». |
 
 ### Profil
 
@@ -143,8 +189,11 @@ desktop = panneau centré, comme l'inscription) :
   `EcranSucces` (succès générique + action secondaire), `LigneCopiable`,
   `EtapePaiement` (carte bancaire), `FluxSouscription` (recours / assurance),
   `icones.tsx`.
-- API mock : `packs.ts`, `services.ts`, `recharge.ts`, `change.ts` et `compte.ts`
-  étendu (`ouvrirCompteEuro`, `crediter/debiter`, `RIB_TREEPI`, `InfosKyc`).
+- API mock : `packs.ts` (2 packs), `services.ts`, `recharge.ts`, `change.ts` et
+  `compte.ts` étendu (`ouvrirCompteEuro` → dossier, `soumettrePaiementOuverture`
+  → validation simulée, `crediter/debiter`, `RIB_TREEPI`, `InfosKyc`,
+  `PaiementOuverture` avec financeur et provenance des fonds). Garde partagée
+  `lib/hooks/useCompteOuvert.ts` sur les routes argent.
 - Messages sous `app.flux.*` (recharge, recevoir, virement, packs, compteEuro,
   paiement, attestation, accompagnement, visa, recours, assurance) + `app.voyage`.
 
@@ -155,9 +204,12 @@ Les deux grandes features sont livrées et vérifiées (mobile 375px + desktop
 Recharger, Recevoir, Envoyer) et **Assurance voyage + recours visa** (Obtention
 de visa, Attestation, Accompagnement, Recours, Assurance, hub Voyage).
 
-Chaîne testable : `/app/activation` (empreinte simulée) crédite 2750 € et mène au
-dashboard ; le profil propose « Ouvre ton compte Euro » (`/app/compte-euro`) tant
-que le dossier n'est pas complété.
+Chaîne testable réelle : inscription → accueil découverte → `/app/compte-euro`
+(pack + KYC + signature) → `/app/compte-euro/paiement` (frais seuls ou première
+recharge avec conformité selon le pack, justificatif) → attente de validation
+(~25 s simulées) → `/app/activation` (félicitations) → dashboard. Raccourci
+démo : appeler `activerCompte()` (`lib/api/compte.ts`) qui pose d'un coup
+l'état actif complet du pack preuve (2750 €, dossier signé, KYC).
 
 Éléments encore volontairement inertes (`title` « Bientôt disponible »), hors
 périmètre ou en attente du backend :

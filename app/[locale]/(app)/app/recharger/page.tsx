@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { useSession } from "@/components/app/SessionProvider";
+import { useCompteOuvert } from "@/lib/hooks/useCompteOuvert";
 import { convertir, tauxEntre } from "@/lib/api/change";
+import { useTauxTempsReel } from "@/lib/hooks/useTaux";
 import { RIB_TREEPI } from "@/lib/api/compte";
 import { MethodeRecharge, creerRecharge, fraisRecharge, referenceRecharge } from "@/lib/api/recharge";
 import { PAYS } from "@/lib/data/suggestions";
@@ -42,6 +44,9 @@ export default function PageRecharger() {
   const locale = useLocale();
   const router = useRouter();
   const { session, chargement } = useSession();
+  const ouvert = useCompteOuvert();
+  // Taux EUR→FCFA temps réel pour l'équivalent affiché sous le montant.
+  useTauxTempsReel();
 
   const [phase, setPhase] = useState<Phase>("methode");
   const [methode, setMethode] = useState<MethodeRecharge | null>(null);
@@ -59,7 +64,7 @@ export default function PageRecharger() {
     if (!chargement && !session) router.replace("/app/bienvenue");
   }, [chargement, session, router]);
 
-  if (!session) return null;
+  if (!session || !ouvert) return null;
 
   const methodes = t.raw("methodes") as { cle: MethodeRecharge; titre: string; sous: string }[];
   const montant = versNombre(montantStr);
